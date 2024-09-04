@@ -1,0 +1,6 @@
+@SistemaGestaoTCC.API_HostAddress = http://localhost:5168
+
+GET {{SistemaGestaoTCC.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
