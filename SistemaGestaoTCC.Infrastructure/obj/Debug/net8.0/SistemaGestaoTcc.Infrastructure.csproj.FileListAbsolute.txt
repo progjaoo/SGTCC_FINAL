@@ -15,3 +15,4 @@ D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal
 D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal\SistemaGestaoTCC.Infrastructure\bin\Debug\net8.0\SistemaGestaoTcc.Core.dll
 D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal\SistemaGestaoTCC.Infrastructure\bin\Debug\net8.0\SistemaGestaoTcc.Core.pdb
 D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal\SistemaGestaoTCC.Infrastructure\obj\Debug\net8.0\SistemaG.439CC1BB.Up2Date
+D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal\SistemaGestaoTCC.Infrastructure\obj\Debug\net8.0\SistemaGestaoTcc.Infrastructure.sourcelink.json

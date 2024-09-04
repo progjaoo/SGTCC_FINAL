@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SistemaGestaoTcc.Application.ViewModels.TagsVM;
 using SistemaGestaoTcc.Core.Models;
 
 namespace SistemaGestaoTcc.Application.Commands.Projects.CreateProject
@@ -10,5 +11,6 @@ namespace SistemaGestaoTcc.Application.Commands.Projects.CreateProject
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public string Justificativa { get; set; }
+        public List<TagsViewModel> Tags { get; set; }
     }
 }

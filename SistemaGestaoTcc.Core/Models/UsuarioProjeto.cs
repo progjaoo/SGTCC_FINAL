@@ -12,14 +12,9 @@ public partial class UsuarioProjeto
         IdUsuario = idUsuario;
         IdProjeto = idProjeto;
     }
-
     public int Id { get; set; }
-
     public int IdUsuario { get; set; }
-
     public int IdProjeto { get; set; }
-
     public virtual Projeto IdProjetoNavigation { get; set; }
-
     public virtual Usuario IdUsuarioNavigation { get; set; }
 }

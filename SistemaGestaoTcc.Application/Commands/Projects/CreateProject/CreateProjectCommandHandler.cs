@@ -20,9 +20,24 @@ namespace SistemaGestaoTcc.Application.Commands.Projects.CreateProject
             
             project.Start();
 
+            //ADD TAG CONFIRMAR
+            if(request.Tags != null && request.Tags.Any())
+            {
+                foreach(var tagViewModel in request.Tags)
+                {
+                    var tag = new ProjetoTag
+                    {
+                        Nome = tagViewModel.Nome,
+                        IdProjetoNavigation = project
+                    };
+                    project.ProjetoTags.Add(tag);
+                }
+            }
             await _projectRepository.AddASync(project);
             await _projectRepository.SaveChangesAsync();
 
+            //POR CAUSA DO USUARIOPROJETO, QND ADICIONA UM PROJET PRECISA 
+            //PRECISA VERIFICAR SEMPRE QUAL USUARIO QUE TA AUTENTICADO FAZENDO ESSA AÇÃO
             var usuarioProjeto = new UsuarioProjeto(project.Id, request.IdUsuario);
 
             await _usuarioProjetoRepository.AddASync(usuarioProjeto);
