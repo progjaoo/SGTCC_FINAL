@@ -7,6 +7,15 @@ namespace SistemaGestaoTcc.Core.Models;
 
 public partial class ProjetoEntrega
 {
+    public ProjetoEntrega(int idProjeto, string titulo, DateTime dataLimite, DateTime? dataEnvio, bool entregue)
+    {
+        IdProjeto = idProjeto;
+        Titulo = titulo;
+        DataLimite = dataLimite;
+        DataEnvio = dataEnvio;
+        Entregue = entregue;
+    }
+
     public int Id { get; set; }
 
     public int IdProjeto { get; set; }

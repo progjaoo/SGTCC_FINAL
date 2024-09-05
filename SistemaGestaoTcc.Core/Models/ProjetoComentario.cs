@@ -8,14 +8,9 @@ namespace SistemaGestaoTcc.Core.Models;
 public partial class ProjetoComentario
 {
     public int Id { get; set; }
-
     public int IdUsuario { get; set; }
-
     public int IdProjeto { get; set; }
-
     public string Comentario { get; set; }
-
     public virtual Projeto IdProjetoNavigation { get; set; }
-
     public virtual Usuario IdUsuarioNavigation { get; set; }
 }

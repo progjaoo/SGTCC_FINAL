@@ -36,9 +36,9 @@ namespace SistemaGestaoTcc.Application.Commands.Projects.CreateProject
             await _projectRepository.AddASync(project);
             await _projectRepository.SaveChangesAsync();
 
-            //POR CAUSA DO USUARIOPROJETO, QND ADICIONA UM PROJET PRECISA 
+            //POR CAUSA DO USUARIOPROJETO, QND ADICIONA UM PROJET PRECISA
             //PRECISA VERIFICAR SEMPRE QUAL USUARIO QUE TA AUTENTICADO FAZENDO ESSA AÇÃO
-            var usuarioProjeto = new UsuarioProjeto(project.Id, request.IdUsuario);
+            var usuarioProjeto = new UsuarioProjeto(request.IdUsuario, project.Id);
 
             await _usuarioProjetoRepository.AddASync(usuarioProjeto);
             await _usuarioProjetoRepository.SaveChangesAsync();

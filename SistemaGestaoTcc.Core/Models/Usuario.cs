@@ -48,9 +48,10 @@ public partial class Usuario
 
     public virtual ICollection<UsuarioProjeto> UsuarioProjetos { get; set; } = new List<UsuarioProjeto>();
 
-    public void Update(int idCurso, string nome)
+    public void Update(string nome, string email, string senha)
     {
         Nome = nome;
-        IdCurso = idCurso;
+        Email = email;
+        Senha = senha;
     }
 }

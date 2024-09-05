@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class AtividadeProposta
-{
-    public int Id { get; set; }
+//public partial class AtividadeProposta
+//{ NÃO ESTA UTILIZANDO
+//    public int Id { get; set; }
 
-    public string Nome { get; set; }
+//    public string Nome { get; set; }
 
-    public string Descricao { get; set; }
+//    public string Descricao { get; set; }
 
-    public bool Concluida { get; set; }
-}
+//    public bool Concluida { get; set; }
+//}

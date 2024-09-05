@@ -88,6 +88,9 @@ builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IUsuarioProjetoRepository, UsuarioProjetoRepository>();
+builder.Services.AddScoped<IProjetoAtividadeRepository, ProjetoAtividadeRepository>();
+
+//autenticacao service
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 

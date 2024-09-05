@@ -15,7 +15,7 @@ public partial class SGTCCContext : DbContext
 
     public virtual DbSet<Arquivo> Arquivo { get; set; }
 
-    public virtual DbSet<AtividadeProposta> AtividadeProposta { get; set; }
+    //public virtual DbSet<AtividadeProposta> AtividadeProposta { get; set; }
 
     public virtual DbSet<AvaliadorBanca> AvaliadorBanca { get; set; }
 
@@ -45,7 +45,7 @@ public partial class SGTCCContext : DbContext
 
     public virtual DbSet<ProjetoTag> ProjetoTag { get; set; }
 
-    public virtual DbSet<Tag> Tag { get; set; }
+    //public virtual DbSet<Tag> Tag { get; set; }
 
     public virtual DbSet<Usuario> Usuario { get; set; }
 
@@ -71,19 +71,19 @@ public partial class SGTCCContext : DbContext
                 .HasMaxLength(255);
         });
 
-        modelBuilder.Entity<AtividadeProposta>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Atividad__3214EC072EAB3EA5");
+        //modelBuilder.Entity<AtividadeProposta>(entity =>
+        //{
+        //    entity.HasKey(e => e.Id).HasName("PK__Atividad__3214EC072EAB3EA5");
 
-            entity.HasIndex(e => e.Id, "UQ__Atividad__3214EC06B4D59E8D").IsUnique();
+        //    entity.HasIndex(e => e.Id, "UQ__Atividad__3214EC06B4D59E8D").IsUnique();
 
-            entity.Property(e => e.Descricao)
-                .IsRequired()
-                .HasMaxLength(300);
-            entity.Property(e => e.Nome)
-                .IsRequired()
-                .HasMaxLength(50);
-        });
+        //    entity.Property(e => e.Descricao)
+        //        .IsRequired()
+        //        .HasMaxLength(300);
+        //    entity.Property(e => e.Nome)
+        //        .IsRequired()
+        //        .HasMaxLength(50);
+        //});
 
         modelBuilder.Entity<AvaliadorBanca>(entity =>
         {
@@ -358,18 +358,18 @@ public partial class SGTCCContext : DbContext
                 .HasConstraintName("FK__ProjetoTa__IdPro__7F2BE32F");
         });
 
-        modelBuilder.Entity<Tag>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Tag__3214EC0767C8A121");
+        //modelBuilder.Entity<Tag>(entity =>
+        //{
+        //    entity.HasKey(e => e.Id).HasName("PK__Tag__3214EC0767C8A121");
 
-            entity.ToTable("Tag");
+        //    entity.ToTable("Tag");
 
-            entity.HasIndex(e => e.Id, "UQ__Tag__3214EC06FE0ED4C4").IsUnique();
+        //    entity.HasIndex(e => e.Id, "UQ__Tag__3214EC06FE0ED4C4").IsUnique();
 
-            entity.Property(e => e.Nome)
-                .IsRequired()
-                .HasMaxLength(50);
-        });
+        //    entity.Property(e => e.Nome)
+        //        .IsRequired()
+        //        .HasMaxLength(50);
+        //});
 
         modelBuilder.Entity<Usuario>(entity =>
         {
