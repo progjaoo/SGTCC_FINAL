@@ -15,6 +15,7 @@ using SistemaGestaoTcc.Core.Interfaces;
 namespace SistemaGestaoTcc.API.Controllers
 {
     [Route("api/usuarios")]
+    [ApiController]
     //[Authorize]
     public class UsersController : ControllerBase
     {

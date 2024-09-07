@@ -49,9 +49,7 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
         {
             //ok
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
-            return await _dbcontext.Projeto
-            .Where(p => idsProjetos.Contains(p.Id))
-            .ToListAsync();
+            return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id)).ToListAsync();
         }
 
         public async Task<Projeto> GetById(int id)

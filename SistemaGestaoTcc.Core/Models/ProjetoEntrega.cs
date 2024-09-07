@@ -15,18 +15,11 @@ public partial class ProjetoEntrega
         DataEnvio = dataEnvio;
         Entregue = entregue;
     }
-
     public int Id { get; set; }
-
     public int IdProjeto { get; set; }
-
     public string Titulo { get; set; }
-
     public DateTime DataLimite { get; set; }
-
     public DateTime? DataEnvio { get; set; }
-
     public bool Entregue { get; set; }
-
     public virtual Projeto IdProjetoNavigation { get; set; }
 }

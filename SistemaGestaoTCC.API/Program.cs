@@ -80,7 +80,6 @@ builder.Services.AddDbContext<SGTCCContext>(p => p.UseSqlServer(connection));
 
 
 //mediator injecao de dependencia
-
 builder.Services.AddMediatR(typeof(CreateCourseCommand));
 
 //repositorios injecao de dependencia
@@ -89,11 +88,10 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IUsuarioProjetoRepository, UsuarioProjetoRepository>();
 builder.Services.AddScoped<IProjetoAtividadeRepository, ProjetoAtividadeRepository>();
+builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
 
 //autenticacao service
 builder.Services.AddScoped<IAuthService, AuthService>();
-
-
 
 builder.Services.AddHttpClient();
 

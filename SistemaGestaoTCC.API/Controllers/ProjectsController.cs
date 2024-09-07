@@ -13,6 +13,7 @@ using SistemaGestaoTcc.Core.Interfaces;
 namespace SistemaGestaoTcc.API.Controllers
 {
     [Route("api/projetos")]
+    [ApiController]
     public class ProjectsController : ControllerBase
     {
         private readonly IMediator _mediator;
