@@ -1,5 +1,42 @@
 [
   {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "Put",
+    "RelativePath": "{id}/atualizarComentario",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse.UpdateCommentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "Delete",
+    "RelativePath": "{id}/deletarComentario",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjetoAtividadeController",
     "Method": "GetAllAsync",
     "RelativePath": "api/atividades",
@@ -81,7 +118,7 @@
   {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliacaoComentarioController",
     "Method": "GetById",
-    "RelativePath": "api/avaliacoes/{id}",
+    "RelativePath": "api/avaliacoes/buscarAvaliacao{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -503,6 +540,90 @@
         "Name": "papel",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetCommentById",
+    "RelativePath": "buscarComentarios{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllAsync",
+    "RelativePath": "buscarTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllCommentsByProject",
+    "RelativePath": "comentariosPorProjeto/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projetoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllCommentsByUser",
+    "RelativePath": "comentariosPorUsuario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "PostComment",
+    "RelativePath": "criarComentario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Comentarios.Create.CreateCommentsCommand",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

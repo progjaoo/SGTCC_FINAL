@@ -10,11 +10,17 @@ public partial class ProjetoComentario
         IdProjeto = idProjeto;
         Comentario = comentario;
     }
-
     public int Id { get; set; }
     public int IdUsuario { get; set; }
     public int IdProjeto { get; set; }
     public string Comentario { get; set; }
     public virtual Projeto IdProjetoNavigation { get; set; }
     public virtual Usuario IdUsuarioNavigation { get; set; }
+
+    public void UpdateComment(int idUsuario, int idProjeto, string comentario)
+    {
+        IdUsuario = idUsuario;
+        IdProjeto = idProjeto;
+        Comentario = comentario;
+    }
 }

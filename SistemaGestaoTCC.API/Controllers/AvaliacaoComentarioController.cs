@@ -15,7 +15,7 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("{id}")]
+        [HttpGet("buscarAvaliacao{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var query = new GetAvaliacaoByIdQuery(id);
