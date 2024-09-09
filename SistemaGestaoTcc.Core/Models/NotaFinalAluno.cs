@@ -5,17 +5,12 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class NotaFinalAluno
+public partial class NotaFinalAluno //FALTA IMPLEMENTAR
 {
     public int Id { get; set; }
-
     public int IdAvaliadorBanca { get; set; }
-
     public int IdAluno { get; set; }
-
     public int Nota { get; set; }
-
     public virtual Usuario IdAlunoNavigation { get; set; }
-
     public virtual AvaliadorBanca IdAvaliadorBancaNavigation { get; set; }
 }

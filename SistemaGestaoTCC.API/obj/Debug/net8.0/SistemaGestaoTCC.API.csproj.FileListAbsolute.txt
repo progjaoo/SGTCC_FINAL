@@ -153,3 +153,4 @@ D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal
 D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal\SistemaGestaoTCC.API\bin\Debug\net8.0\SistemaGestaoTcc.Core.pdb
 D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal\SistemaGestaoTCC.API\bin\Debug\net8.0\SistemaGestaoTcc.Infrastructure.pdb
 D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal\SistemaGestaoTCC.API\obj\Debug\net8.0\SistemaGestaoTCC.API.sourcelink.json
+D:\PC - 2024\2 - PROJETOS PESSOAIS\Banco First\SISTEMA-TCC\SistemaGestaoTccFinal\SistemaGestaoTCC.API\bin\Debug\net8.0\AutoMapper.dll

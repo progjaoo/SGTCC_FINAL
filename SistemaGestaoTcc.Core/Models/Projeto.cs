@@ -16,23 +16,14 @@ public partial class Projeto
         Justificativa = justificativa;
         DataInicio = DateTime.UtcNow;
     }
-
     public int Id { get; set; }
-
     public string Nome { get; set; }
-
     public string Descricao { get; set; }
-
     public string Justificativa { get; set; }
-
     public DateTime DataInicio { get; set; }
-
     public DateTime? DataFim { get; set; }
-
     public bool Aprovado { get; set; }
-
     public StatusProjeto Estado { get; set; }
-
     public virtual ICollection<Banca> Bancas { get; set; } = new List<Banca>();
 
     public virtual ICollection<ProjetoArquivo> ProjetoArquivos { get; set; } = new List<ProjetoArquivo>();

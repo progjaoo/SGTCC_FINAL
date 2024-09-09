@@ -5,21 +5,22 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class Arquivo
+public partial class Arquivo //FALTA IMPLEMENTAR
 {
+    public Arquivo(string nomeOriginal, string diretorio, DateTime editadoEm, int tamanho)
+    {
+        NomeOriginal = nomeOriginal;
+        Diretorio = diretorio;
+        CriadoEm = DateTime.UtcNow;
+        EditadoEm = editadoEm;
+        Tamanho = tamanho;
+    }
     public int Id { get; set; }
-
     public string NomeOriginal { get; set; }
-
     public string Diretorio { get; set; }
-
     public DateTime CriadoEm { get; set; }
-
     public DateTime EditadoEm { get; set; }
-
     public int Tamanho { get; set; }
-
     public virtual ICollection<ProjetoArquivo> ProjetoArquivos { get; set; } = new List<ProjetoArquivo>();
-
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }

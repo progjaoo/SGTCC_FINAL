@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using SistemaGestaoTcc.Application.Commands.Projects.DeleteProject;
 using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTcc.Core.Models;
 
 namespace SistemaGestaoTcc.Application.Commands.Comentarios.Delete
 {
@@ -14,6 +15,9 @@ namespace SistemaGestaoTcc.Application.Commands.Comentarios.Delete
         public async Task<Unit> Handle(DeleteCommentCommand request, CancellationToken cancellationToken)
         {
             var project = await _projetoComentarioRepository.GetById(request.Id);
+
+            if (project == null)
+                throw new Exception("projeTO não encontrado");
 
             await _projetoComentarioRepository.DeleteComentario(project.Id);
 

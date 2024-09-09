@@ -14,6 +14,9 @@ namespace SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Delete
         {
             var atividade = await _projetoAtividadeRepository.GetById(request.Id);
 
+            if (atividade == null)
+                throw new Exception("atividade não encontrada");
+            
             await _projetoAtividadeRepository.DeleteAtividade(atividade.Id);
             await _projetoAtividadeRepository.SaveChangesAsync();
 

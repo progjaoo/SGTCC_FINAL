@@ -8,6 +8,7 @@ namespace SistemaGestaoTcc.Core.Interfaces
         Task<List<Usuario>> GetAllUserByCourse(int idCurso);
         Task<List<Usuario>> FilterUsers(PapelEnum papel, string nome);
         Task<List<Usuario>> GetAllUserByRole(PapelEnum papel);
+        Task<List<Usuario>> GetProfessoresAsync();
         Task<Usuario> GetById(int id);
         Task<Usuario> GetByEmailByPassword(string email, string passwordHash);
         Task<Usuario> GetByEmail(string email);

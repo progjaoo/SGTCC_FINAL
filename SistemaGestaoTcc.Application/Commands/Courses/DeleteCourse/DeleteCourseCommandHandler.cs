@@ -14,9 +14,12 @@ namespace SistemaGestaoTcc.Application.Commands.Comentarios.Delete
 
         public async Task<Unit> Handle(DeleteCourseCommand request, CancellationToken cancellationToken)
         {
-            var comentario = await _courseRepository.GetById(request.Id);
+            var curso = await _courseRepository.GetById(request.Id);
 
-            await _courseRepository.DeleteCourse(comentario.Id);
+            if (curso == null)
+                throw new Exception("curso não encontrado");
+
+            await _courseRepository.DeleteCourse(curso.Id);
 
             await _courseRepository.SaveChangesAsync();
 

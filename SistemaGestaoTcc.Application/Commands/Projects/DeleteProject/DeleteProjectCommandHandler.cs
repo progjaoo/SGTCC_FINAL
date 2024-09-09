@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using SistemaGestaoTcc.Core.Enums;
 using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTcc.Core.Models;
 
 namespace SistemaGestaoTcc.Application.Commands.Projects.DeleteProject
 {
@@ -21,6 +22,9 @@ namespace SistemaGestaoTcc.Application.Commands.Projects.DeleteProject
         public async Task<Unit> Handle(DeleteProjectCommand request, CancellationToken cancellationToken)
         {
             var project = await _projectRepository.GetById(request.Id);
+
+            if (project == null)
+                throw new Exception("projeto não encontrado");
 
             project.Cancel();           
 

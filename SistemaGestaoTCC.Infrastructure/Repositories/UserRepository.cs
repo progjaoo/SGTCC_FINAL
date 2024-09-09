@@ -23,6 +23,12 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
         {
             return await _dbcontext.Usuario.Where(u => u.Papel == papel).Where(u => u.Nome.Contains(nome)).Take(5).ToListAsync();
         }
+        public async Task<List<Usuario>> GetProfessoresAsync()
+        {
+            return await _dbcontext.Usuario
+            .Where(u => u.Papel == PapelEnum.Professor)
+            .ToListAsync();
+        }
 
         public async Task<List<Usuario>> GetAllUserByRole(PapelEnum papel)
         {

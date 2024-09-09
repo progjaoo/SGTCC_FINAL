@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class CampoDocumentoAvaliacaoAluno
+public partial class CampoDocumentoAvaliacaoAluno //FALTA IMPLEMENTAR
 {
     public int Id { get; set; }
 

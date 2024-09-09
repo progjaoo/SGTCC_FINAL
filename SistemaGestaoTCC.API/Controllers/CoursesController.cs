@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SistemaGestaoTcc.Application.Commands.Comentarios.Delete;
 using SistemaGestaoTcc.Application.Commands.Courses.CreateCourse;
 using SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse;
 using SistemaGestaoTcc.Application.Queries.Courses.GetAllCourse;
@@ -14,11 +15,9 @@ namespace SistemaGestaoTcc.API.Controllers
     public class CoursesController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ICourseRepository _courseRepository;
-        public CoursesController(IMediator mediator, ICourseRepository courseRepository)
+        public CoursesController(IMediator mediator)
         {
             _mediator = mediator;
-            _courseRepository = courseRepository;
         }
 
         [HttpGet]
@@ -57,12 +56,11 @@ namespace SistemaGestaoTcc.API.Controllers
             return NoContent();
         }
         [HttpDelete("{id}/deletarCurso")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(DeleteCourseCommand command)
         {
-            await _courseRepository.DeleteCourse(id);
-            await _courseRepository.SaveChangesAsync();
-            return Ok();
+            await _mediator.Send(command);
+
+            return NoContent();
         }
-        
     }
 }

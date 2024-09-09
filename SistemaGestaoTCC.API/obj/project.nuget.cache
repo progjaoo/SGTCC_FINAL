@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GWpTBVQ275o=",
+  "dgSpecHash": "QyrekpvGPy4=",
   "success": true,
   "projectFilePath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\joaov\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\joaov\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\joaov\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\joaov\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",

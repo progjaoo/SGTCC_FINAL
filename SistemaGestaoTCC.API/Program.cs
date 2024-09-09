@@ -26,6 +26,11 @@ builder.Services.AddCors(options =>
     });
 });
 
+//CONNECTION STRING
+var connection = builder.Configuration.GetConnectionString("SistemaTcc");
+builder.Services.AddDbContext<SGTCCContext>(p => p.UseSqlServer(connection));
+
+#region AUTENTICACAO JWT BEARER
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -73,14 +78,13 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
-
-//CONNECTION STRING
-var connection = builder.Configuration.GetConnectionString("SistemaTcc");
-builder.Services.AddDbContext<SGTCCContext>(p => p.UseSqlServer(connection));
+#endregion
 
 
+#region INJEÇÃO DE DEPENDENCIA
 //mediator injecao de dependencia
 builder.Services.AddMediatR(typeof(CreateCourseCommand));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 //repositorios injecao de dependencia
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
@@ -90,8 +94,12 @@ builder.Services.AddScoped<IUsuarioProjetoRepository, UsuarioProjetoRepository>(
 builder.Services.AddScoped<IProjetoAtividadeRepository, ProjetoAtividadeRepository>();
 builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
 builder.Services.AddScoped<IProjetoComentarioRepository, ProjetoComentarioRepository>();
+builder.Services.AddScoped<IBancaRepository, BancaRepository>();
+builder.Services.AddScoped<IAvaliadorBancaRepository, AvaliadorBancaRepository>();
 //autenticacao service
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+#endregion
 
 builder.Services.AddHttpClient();
 

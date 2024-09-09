@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class NotaDocumentoAluno
+public partial class NotaDocumentoAluno //FALTA IMPLEMENTAR
 {
     public int Id { get; set; }
 

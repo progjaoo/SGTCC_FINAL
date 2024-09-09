@@ -164,6 +164,174 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliadoresBancaController",
+    "Method": "GetById",
+    "RelativePath": "api/avaliadorBanca/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliadoresBancaController",
+    "Method": "Delete",
+    "RelativePath": "api/avaliadorBanca/{id}/deletarBanca",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Delete.DeleteAvaliadorBancaCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliadoresBancaController",
+    "Method": "Update",
+    "RelativePath": "api/avaliadorBanca/atualizarBanca",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Update.UpdateAvaliadorBancaCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliadoresBancaController",
+    "Method": "GetProfessores",
+    "RelativePath": "api/avaliadorBanca/BuscarProfessores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliadoresBancaController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/avaliadorBanca/BuscarTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliadoresBancaController",
+    "Method": "Post",
+    "RelativePath": "api/avaliadorBanca/CriarAvaliador",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Create.CreateAvaliadorBancaCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.BancaController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/banca",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.BancaController",
+    "Method": "GetById",
+    "RelativePath": "api/banca/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.BancaController",
+    "Method": "Delete",
+    "RelativePath": "api/banca/{id}/deletarBanca",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Bancas.Delete.DeleteBancaCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.BancaController",
+    "Method": "Update",
+    "RelativePath": "api/banca/atualizarBanca",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Bancas.Update.UpdateBancaCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.BancaController",
+    "Method": "PostBanca",
+    "RelativePath": "api/banca/criarBanca",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Bancas.Create.CreateBancaCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SistemaGestaoTcc.API.Controllers.CoursesController",
     "Method": "GetAllAsync",
     "RelativePath": "api/cursos",
@@ -198,8 +366,13 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Comentarios.Delete.DeleteCourseCommand",
+        "IsRequired": true
+      },
+      {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "",
         "IsRequired": true
       }
     ],
