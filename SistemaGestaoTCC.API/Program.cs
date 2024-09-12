@@ -96,6 +96,8 @@ builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
 builder.Services.AddScoped<IProjetoComentarioRepository, ProjetoComentarioRepository>();
 builder.Services.AddScoped<IBancaRepository, BancaRepository>();
 builder.Services.AddScoped<IAvaliadorBancaRepository, AvaliadorBancaRepository>();
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+
 //autenticacao service
 builder.Services.AddScoped<IAuthService, AuthService>();
 

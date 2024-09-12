@@ -166,7 +166,7 @@
   {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliadoresBancaController",
     "Method": "GetById",
-    "RelativePath": "api/avaliadorBanca/{id}",
+    "RelativePath": "api/avaliadorBanca/{id}/buscarPorId",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -326,6 +326,90 @@
       {
         "Name": "command",
         "Type": "SistemaGestaoTcc.Application.Commands.Bancas.Create.CreateBancaCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CategoriaController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/categoriasDocumento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CategoriaController",
+    "Method": "Update",
+    "RelativePath": "api/categoriasDocumento/{id}/atualizarCategoria",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Categorias.Update.UpdateCategoriaCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CategoriaController",
+    "Method": "GetById",
+    "RelativePath": "api/categoriasDocumento/{id}/buscarPorId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CategoriaController",
+    "Method": "Delete",
+    "RelativePath": "api/categoriasDocumento/{id}/deletarCategoria",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Categorias.Delete.DeleteCategoriaCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CategoriaController",
+    "Method": "PostCourse",
+    "RelativePath": "api/categoriasDocumento/criarCategoria",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Categorias.Create.CreateCategoriaCommand",
         "IsRequired": true
       }
     ],

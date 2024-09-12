@@ -8,12 +8,8 @@ namespace SistemaGestaoTcc.Core.Models;
 public partial class ProjetoArquivo
 {
     public int Id { get; set; }
-
     public int IdProjeto { get; set; }
-
     public int IdArquivo { get; set; }
-
     public virtual Arquivo IdArquivoNavigation { get; set; }
-
     public virtual Projeto IdProjetoNavigation { get; set; }
 }

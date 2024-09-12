@@ -7,9 +7,19 @@ namespace SistemaGestaoTcc.Core.Models;
 
 public partial class Categoria //FALTA IMPLEMENTAR
 {
+    public Categoria(string valor)
+    {
+        Valor = valor;
+    }
+
     public int Id { get; set; }
 
     public string Valor { get; set; }
 
     public virtual ICollection<CampoDocumentoAvaliacaoAluno> CampoDocumentoAvaliacaoAlunos { get; set; } = new List<CampoDocumentoAvaliacaoAluno>();
+    
+    public void UpdateCategoria(string valor)
+    {
+        Valor = valor;
+    }
 }
