@@ -8,12 +8,10 @@ namespace SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetByBanca
     public class GetAvaliadorBancaByBancaIdQueryHandler : IRequestHandler<GetAvaliadorBancaByBancaIdQuery, List<AvaliadorBancaViewModel>>
     {
         private readonly IAvaliadorBancaRepository _avaliadorBancaRepository;
-        private readonly IMapper _mapper;
 
-        public GetAvaliadorBancaByBancaIdQueryHandler(IAvaliadorBancaRepository avaliadorBancaRepository, IMapper mapper)
+        public GetAvaliadorBancaByBancaIdQueryHandler(IAvaliadorBancaRepository avaliadorBancaRepository)
         {
             _avaliadorBancaRepository = avaliadorBancaRepository;
-            _mapper = mapper;
         }
 
         public async Task<List<AvaliadorBancaViewModel>> Handle(GetAvaliadorBancaByBancaIdQuery request, CancellationToken cancellationToken)

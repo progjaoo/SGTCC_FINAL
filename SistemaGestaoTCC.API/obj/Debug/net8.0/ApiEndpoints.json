@@ -332,6 +332,90 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CampoDocumentoController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/campoDocumentoAvaliacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CampoDocumentoController",
+    "Method": "Update",
+    "RelativePath": "api/campoDocumentoAvaliacao/{id}/atualizarCampo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.CamposDocumento.Update.UpdateCampoCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CampoDocumentoController",
+    "Method": "GetById",
+    "RelativePath": "api/campoDocumentoAvaliacao/{id}/buscarPorId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CampoDocumentoController",
+    "Method": "Delete",
+    "RelativePath": "api/campoDocumentoAvaliacao/{id}/deletarCampo",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.CamposDocumento.Delete.DeleteCampoCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CampoDocumentoController",
+    "Method": "PostCamposDocumento",
+    "RelativePath": "api/campoDocumentoAvaliacao/criarCamposDoc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.CamposDocumento.Create.CreateCampoCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.CategoriaController",
     "Method": "GetAllAsync",
     "RelativePath": "api/categoriasDocumento",
