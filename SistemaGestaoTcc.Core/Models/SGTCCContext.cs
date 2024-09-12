@@ -389,6 +389,10 @@ public partial class SGTCCContext : DbContext
                 .IsRequired()
                 .HasMaxLength(255);
 
+            entity.Property(e => e.UltimoAcesso)
+                .HasColumnType("datetime")
+                .IsRequired(false);
+
             entity.HasOne(d => d.IdCursoNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdCurso)
                 .OnDelete(DeleteBehavior.ClientSetNull)

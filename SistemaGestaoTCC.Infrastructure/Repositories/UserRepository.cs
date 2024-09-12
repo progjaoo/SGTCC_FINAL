@@ -21,7 +21,11 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
 
         public async Task<List<Usuario>> FilterUsers(PapelEnum papel, string nome)
         {
-            return await _dbcontext.Usuario.Where(u => u.Papel == papel).Where(u => u.Nome.Contains(nome)).Take(5).ToListAsync();
+            return await _dbcontext.Usuario.Where(u => u.Papel == papel)
+                .Where(u => u.Nome.Contains(nome))
+                .Take(5)
+                .OrderByDescending(u => u.UltimoAcesso ?? DateTime.MinValue).ToListAsync();
+            
         }
         public async Task<List<Usuario>> GetProfessoresAsync()
         {
@@ -47,6 +51,11 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
         public async Task<Usuario> GetByEmail(string email)
         {
             return await _dbcontext.Usuario.SingleOrDefaultAsync(u => u.Email == email);
+        }
+        public async Task UpdateAsync(Usuario usuario)
+        {
+            _dbcontext.Usuario.Update(usuario);
+            await _dbcontext.SaveChangesAsync();
         }
         public async Task SaveChangesAsync()
         {

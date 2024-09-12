@@ -17,21 +17,14 @@ public partial class Usuario
         Senha = senha;
         Papel = papel;
     }
-
     public int Id { get; set; }
-
     public int IdCurso { get; set; }
-
     public string Nome { get; set; }
-
     public string Email { get; set; }
-
     public string Senha { get; set; }
-
     public PapelEnum Papel { get; set; }
-
     public int? IdImagem { get; set; }
-
+    public DateTime? UltimoAcesso { get; set; }
     public virtual ICollection<AvaliadorBanca> AvaliadorBancas { get; set; } = new List<AvaliadorBanca>();
 
     public virtual Curso IdCursoNavigation { get; set; }
