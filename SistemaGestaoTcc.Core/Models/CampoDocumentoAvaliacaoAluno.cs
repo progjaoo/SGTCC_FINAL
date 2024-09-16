@@ -12,7 +12,6 @@ public partial class CampoDocumentoAvaliacaoAluno
         Campo = campo;
         IdCategoria = idCategoria;
     }
-
     public int Id { get; set; }
     public string Campo { get; set; }
     public int IdCategoria { get; set; }

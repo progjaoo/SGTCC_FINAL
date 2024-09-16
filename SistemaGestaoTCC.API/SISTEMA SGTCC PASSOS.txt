@@ -18,8 +18,4 @@ Ao enviar atualizações o sistema tem que notificar os participantes, verificar
 Integrar as notas ao ava para exportar notas (verificar)
 
 Tive uma ideia sobre pastas dentro do projeto que o aluno poderia separar entre "Documentacao" - "Sistema" por exemplo, 
-para que ele possa manipular os arquivos dentro de cada parte do projeto, fragmentada
-
-Por exemplo, um GetBancaBySeminario, para isso precisava ver se teria um objeto Seminário, ou um cadastro fixo dos semniários pelo Admin
-porque para criar uma banca não precisaria de um IdProjeto e sim de um Seminário.
-Banca é por seminário ou por projeto? eis a questão
+para que ele possa manipular os arquivos dentro de cada parte do projeto, fragmentada.
