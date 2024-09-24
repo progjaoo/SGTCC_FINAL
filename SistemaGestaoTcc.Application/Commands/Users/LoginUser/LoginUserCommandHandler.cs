@@ -31,7 +31,7 @@ namespace SistemaGestaoTcc.Application.Commands.Users.LoginUser
                 return null;
             }
 
-            user.UltimoAcesso = DateTime.Today;
+            user.UltimoAcesso = DateTime.UtcNow;
             await _userRepository.UpdateAsync(user);
 
             var token = _authService.GenerateJwtToken(user.Email, user.Papel.ToString());

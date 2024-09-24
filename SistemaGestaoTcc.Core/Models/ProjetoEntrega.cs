@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class ProjetoEntrega
+public partial class ProjetoEntrega //IMPLEMENTAR AINDA
 {
     public ProjetoEntrega(int idProjeto, string titulo, DateTime dataLimite, DateTime? dataEnvio, bool entregue)
     {
@@ -14,6 +14,9 @@ public partial class ProjetoEntrega
         DataLimite = dataLimite;
         DataEnvio = dataEnvio;
         Entregue = entregue;
+
+        CriadoEm = DateTime.UtcNow;
+
     }
     public int Id { get; set; }
     public int IdProjeto { get; set; }
@@ -21,5 +24,18 @@ public partial class ProjetoEntrega
     public DateTime DataLimite { get; set; }
     public DateTime? DataEnvio { get; set; }
     public bool Entregue { get; set; }
+    public DateTime CriadoEm { get; set; }
+    public DateTime? EditadoEm { get; set; }
     public virtual Projeto IdProjetoNavigation { get; set; }
+
+    public void UpdateEntrega(int idProjeto, string titulo, DateTime dataLimite, DateTime? dataEnvio, bool entregue)
+    {
+        IdProjeto = idProjeto;
+        Titulo = titulo;
+        DataLimite = dataLimite;
+        DataEnvio = dataEnvio;
+        Entregue = entregue;
+
+        EditadoEm = DateTime.UtcNow;
+    }
 }

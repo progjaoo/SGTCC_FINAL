@@ -13,7 +13,6 @@ namespace SistemaGestaoTcc.Application.ViewModels.NotasDocumentoVM
             Nota = nota;
             Tipo = tipo;
         }
-
         public int Id { get; set; }
         public int IdAvaliadorBanca { get; set; }
         public int IdCampo { get; set; }

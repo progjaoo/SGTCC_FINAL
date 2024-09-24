@@ -35,7 +35,7 @@ namespace SistemaGestaoTcc.Application.Commands.Projects.CreateProject
             await _projectRepository.AddASync(project);
             await _projectRepository.SaveChangesAsync();
 
-            var usuarioProjeto = new UsuarioProjeto(request.IdUsuario, project.Id);
+            var usuarioProjeto = new UsuarioProjeto(request.IdUsuario, project.Id, request.Funcao);
 
             await _usuarioProjetoRepository.AddASync(usuarioProjeto);
             await _usuarioProjetoRepository.SaveChangesAsync();

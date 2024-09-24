@@ -11,6 +11,8 @@ public partial class Curso
     {
         Nome = nome;
         Descricao = descricao;
+
+        CriadoEm = DateTime.UtcNow;
     }
 
     public int Id { get; set; }
@@ -18,12 +20,15 @@ public partial class Curso
     public string Nome { get; set; }
 
     public string Descricao { get; set; }
-
+    public DateTime CriadoEm { get; set; }
+    public DateTime? EditadoEm { get; set; }
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 
     public void UpdateCourse(string nome, string descricao)
     {
         Nome = nome;
         Descricao = descricao;
+
+        EditadoEm = DateTime.UtcNow;
     }
 }

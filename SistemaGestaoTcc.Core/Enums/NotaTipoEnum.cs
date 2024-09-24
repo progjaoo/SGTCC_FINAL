@@ -2,7 +2,8 @@
 {
     public enum NotaTipoEnum
     {
-        AvaliacaoIndividual = 1,
-        AvaliacaoGlobalProjeto = 2
+        QuantoAoProjeto = 1,
+        QuantoAoTexto = 2,
+        QuantoApresentacao = 3
     }
 }

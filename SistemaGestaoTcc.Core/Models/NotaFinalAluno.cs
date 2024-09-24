@@ -7,10 +7,19 @@ namespace SistemaGestaoTcc.Core.Models;
 
 public partial class NotaFinalAluno //FALTA IMPLEMENTAR
 {
+    public NotaFinalAluno(int idAvaliadorBanca, int idAluno, int nota)
+    {
+        IdAvaliadorBanca = idAvaliadorBanca;
+        IdAluno = idAluno;
+        Nota = nota;
+        CriadoEm = DateTime.UtcNow;
+    }
+
     public int Id { get; set; }
     public int IdAvaliadorBanca { get; set; }
     public int IdAluno { get; set; }
     public int Nota { get; set; }
+    public DateTime CriadoEm { get; set; }
     public virtual Usuario IdAlunoNavigation { get; set; }
     public virtual AvaliadorBanca IdAvaliadorBancaNavigation { get; set; }
 }

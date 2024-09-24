@@ -12,9 +12,13 @@ namespace SistemaGestaoTcc.Application.ViewModels
         {
             Email = email;
             Token = token;
+
+            //UltimoAcesso = DateTime.Today;
         }
 
         public string Email { get; private set; }
         public string Token { get; private set; }
+
+        public DateTime UltimoAcesso { get; set; }
     }
 }

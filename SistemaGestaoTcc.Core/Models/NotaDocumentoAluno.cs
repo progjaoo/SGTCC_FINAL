@@ -15,13 +15,17 @@ public partial class NotaDocumentoAluno
         IdAluno = idAluno;
         Nota = nota;
         Tipo = tipo;
+
+        CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
     public int IdAvaliadorBanca { get; set; }
     public int IdCampo { get; set; }
     public int IdAluno { get; set; }
     public int Nota { get; set; }
-    public NotaTipoEnum Tipo { get; set; } //Verificar se seria um ENUM
+    public NotaTipoEnum Tipo { get; set; }
+    public DateTime CriadoEm { get; set; }
+
     public virtual Usuario IdAlunoNavigation { get; set; }
     public virtual AvaliadorBanca IdAvaliadorBancaNavigation { get; set; }
     public virtual CampoDocumentoAvaliacaoAluno IdCampoNavigation { get; set; }

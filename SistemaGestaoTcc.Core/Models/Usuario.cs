@@ -16,6 +16,9 @@ public partial class Usuario
         Email = email;
         Senha = senha;
         Papel = papel;
+
+        CriadoEm = DateTime.UtcNow;
+
     }
     public int Id { get; set; }
     public int IdCurso { get; set; }
@@ -25,6 +28,8 @@ public partial class Usuario
     public PapelEnum Papel { get; set; }
     public int? IdImagem { get; set; }
     public DateTime? UltimoAcesso { get; set; }
+    public DateTime CriadoEm {  get; set; }
+    public DateTime? EditadoEm { get; set; }
     public virtual ICollection<AvaliadorBanca> AvaliadorBancas { get; set; } = new List<AvaliadorBanca>();
 
     public virtual Curso IdCursoNavigation { get; set; }
@@ -46,5 +51,7 @@ public partial class Usuario
         Nome = nome;
         Email = email;
         Senha = senha;
+
+        EditadoEm = DateTime.UtcNow;
     }
 }

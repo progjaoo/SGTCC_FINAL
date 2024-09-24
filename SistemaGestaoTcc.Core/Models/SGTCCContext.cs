@@ -16,7 +16,7 @@ public partial class SGTCCContext : DbContext
     public virtual DbSet<Arquivo> Arquivo { get; set; }
 
     //public virtual DbSet<AtividadeProposta> AtividadeProposta { get; set; }
-
+    public virtual DbSet<AtividadeComentario> AtividadeComentario { get; set; }
     public virtual DbSet<AvaliadorBanca> AvaliadorBanca { get; set; }
 
     public virtual DbSet<Banca> Banca { get; set; }
@@ -102,6 +102,9 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Avaliador__IdUsu__07C12930");
+            entity.Property(e => e.AdicionadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
         modelBuilder.Entity<Banca>(entity =>
@@ -121,6 +124,9 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Banca__IdProjeto__0B91BA14");
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
         modelBuilder.Entity<CampoDocumentoAvaliacaoAluno>(entity =>
@@ -166,6 +172,12 @@ public partial class SGTCCContext : DbContext
             entity.Property(e => e.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(true);
+            entity.Property(e => e.EditadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
         modelBuilder.Entity<NotaDocumentoAluno>(entity =>
@@ -190,6 +202,9 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdCampo)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__NotaDocum__IdCam__10566F31");
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
         modelBuilder.Entity<NotaFinalAluno>(entity =>
@@ -209,7 +224,8 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdAvaliadorBanca)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__NotaFinal__IdAva__114A936A");
-        });
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime");        });
 
         modelBuilder.Entity<Projeto>(entity =>
         {
@@ -236,6 +252,9 @@ public partial class SGTCCContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .IsFixedLength();
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime");
+
         });
 
         modelBuilder.Entity<ProjetoArquivo>(entity =>
@@ -276,6 +295,12 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ProjetoAt__IdPro__00200768");
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
+            entity.Property(e => e.EditadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
         modelBuilder.Entity<ProjetoAvaliacaoPublica>(entity =>
@@ -318,6 +343,12 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ProjetoCo__IdUsu__02FC7413");
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
+            entity.Property(e => e.EditadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
         modelBuilder.Entity<ProjetoEntrega>(entity =>
@@ -338,6 +369,12 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ProjetoEn__IdPro__7E37BEF6");
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
+            entity.Property(e => e.EditadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
         modelBuilder.Entity<ProjetoTag>(entity =>
@@ -401,6 +438,12 @@ public partial class SGTCCContext : DbContext
             entity.HasOne(d => d.IdImagemNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdImagem)
                 .HasConstraintName("FK__Usuario__IdImage__0C85DE4D");
+            entity.Property(e => e.CriadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
+            entity.Property(e => e.EditadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
         modelBuilder.Entity<UsuarioProjeto>(entity =>
@@ -420,10 +463,25 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__UsuarioPr__IdUsu__01142BA1");
+            entity.Property(e => e.Funcao)
+                .IsRequired(true);
+            entity.Property(e => e.AdicionadoEm)
+                .HasColumnType("datetime")
+                .IsRequired(false);
         });
 
+        modelBuilder.Entity<AtividadeComentario>()
+        .HasOne<ProjetoAtividade>()
+        .WithMany()
+        .HasForeignKey(ac => ac.IdAtividade)
+        .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<AtividadeComentario>()
+            .HasOne<Usuario>()
+            .WithMany()
+            .HasForeignKey(ac => ac.IdUsuario)
+            .OnDelete(DeleteBehavior.NoAction);
         OnModelCreatingPartial(modelBuilder);
     }
-
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

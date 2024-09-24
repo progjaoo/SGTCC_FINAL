@@ -9,11 +9,15 @@ public partial class ProjetoComentario
         IdUsuario = idUsuario;
         IdProjeto = idProjeto;
         Comentario = comentario;
+
+        CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
     public int IdUsuario { get; set; }
     public int IdProjeto { get; set; }
     public string Comentario { get; set; }
+    public DateTime CriadoEm { get; set; }
+    public DateTime? EditadoEm { get; set; }
     public virtual Projeto IdProjetoNavigation { get; set; }
     public virtual Usuario IdUsuarioNavigation { get; set; }
 
@@ -22,5 +26,7 @@ public partial class ProjetoComentario
         IdUsuario = idUsuario;
         IdProjeto = idProjeto;
         Comentario = comentario;
+
+        EditadoEm = DateTime.UtcNow;    
     }
 }

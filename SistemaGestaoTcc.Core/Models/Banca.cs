@@ -17,6 +17,8 @@ public partial class Banca //FALTA IMPLEMENTAR
         ObservacaoNotaProjeto = observacaoNotaProjeto;
         ObservacaoAluno = observacaoAluno;
         Recomendacao = recomendacao;
+
+        CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
     public int IdProjeto { get; set; }
@@ -25,6 +27,8 @@ public partial class Banca //FALTA IMPLEMENTAR
     public string ObservacaoNotaProjeto { get; set; }
     public string ObservacaoAluno { get; set; }
     public string Recomendacao { get; set; }
+    public DateTime CriadoEm { get; set; }
+
     public virtual ICollection<AvaliadorBanca> AvaliadorBancas { get; set; } = new List<AvaliadorBanca>();
     public virtual Projeto IdProjetoNavigation { get; set; }
 

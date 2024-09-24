@@ -11,12 +11,15 @@ public partial class ProjetoAvaliacaoPublica
         IdUsuario = idUsuario;
         IdProjeto = idProjeto;
         Avaliacao = avaliacao;
+
+        DataAvaliacao = DateTime.UtcNow;
     }
 
     public int Id { get; set; }
     public int IdUsuario { get; set; }
     public int IdProjeto { get; set; }
     public AvaliacaoEnum Avaliacao { get; set; }
+    public DateTime DataAvaliacao { get; set; }
     public virtual Projeto IdProjetoNavigation { get; set; }
     public virtual Usuario IdUsuarioNavigation { get; set; }
 }

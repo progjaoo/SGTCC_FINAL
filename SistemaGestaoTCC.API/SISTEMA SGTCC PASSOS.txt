@@ -19,3 +19,5 @@ Integrar as notas ao ava para exportar notas (verificar)
 
 Tive uma ideia sobre pastas dentro do projeto que o aluno poderia separar entre "Documentacao" - "Sistema" por exemplo, 
 para que ele possa manipular os arquivos dentro de cada parte do projeto, fragmentada.
+
+- nextcloud para publicar

@@ -15,6 +15,7 @@ public partial class Projeto
         Descricao = descricao;
         Justificativa = justificativa;
         DataInicio = DateTime.UtcNow;
+        CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
     public string Nome { get; set; }
@@ -23,6 +24,7 @@ public partial class Projeto
     public DateTime DataInicio { get; set; }
     public DateTime? DataFim { get; set; }
     public bool Aprovado { get; set; }
+    public DateTime CriadoEm { get; set; }
     public StatusProjeto Estado { get; set; }
     public virtual ICollection<Banca> Bancas { get; set; } = new List<Banca>();
 

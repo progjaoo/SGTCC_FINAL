@@ -14,6 +14,8 @@ public partial class ProjetoAtividade
         Nome = nome;
         Descricao = descricao;
         Estado = ProjetoAtividadeEnum.Created;
+
+        CriadoEm = DateTime.UtcNow;
     }
 
     public int Id { get; set; }
@@ -24,12 +26,15 @@ public partial class ProjetoAtividade
     public ProjetoAtividadeEnum Estado { get; set; }
     public virtual Projeto IdProjetoNavigation { get; set; }
     //public int IdAtividade { get; set; }
-
+    public DateTime CriadoEm { get; set; }
+    public DateTime? EditadoEm { get; set; }
     public void UpdateAtividade(int idProjeto, string nome, string descricao)
     {
         IdProjeto = idProjeto;
         Nome = nome;
         Descricao = descricao;
+
+        EditadoEm = DateTime.UtcNow;
     }
     public void Finish()
     {
