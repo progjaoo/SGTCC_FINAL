@@ -1,5 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SistemaGestaoTcc.Application.Commands.NotaDocumentos.Create;
+using SistemaGestaoTcc.Application.Commands.NotaDocumentos.Delete;
+using SistemaGestaoTcc.Application.Commands.NotaDocumentos.Update;
+using SistemaGestaoTcc.Application.Queries.NotaDocumentos.GetAll;
+using SistemaGestaoTcc.Application.Queries.NotaDocumentos.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -15,27 +20,45 @@ namespace SistemaGestaoTCC.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok();
+            var query = new GetAllNotasDocumentosQuery();
+            if (query == null)
+                return NotFound();
+
+            var notas = await _mediator.Send(query);
+
+            return Ok(notas);
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById()
+        public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            var queryId = new GetNotaDocumentoByIdQuery(id);
+
+            if (queryId == null)
+                return NotFound();
+
+            var nota = await _mediator.Send(queryId);
+
+            return Ok(nota);
         }
-        [HttpPost]
-        public async Task<IActionResult> Post()
+        [HttpPost("criarNotaDocumento")]
+        public async Task<IActionResult> Post([FromBody] CreateNotaDocCommand command)
         {
-            return Ok();
+            var id = await _mediator.Send(command);
+
+            return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id)
+        [HttpPut("{id}/atualizarNotaDocumento")]
+        public async Task<IActionResult> Put(int id, [FromBody] UpdateNotaDocAlunoCommand command)
         {
-            return Ok();
+            await _mediator.Send(command);
+            return NoContent();
         }
-        [HttpDelete]
-        public async Task<IActionResult> Delete()
+        [HttpDelete("{id}/deletarNotaDocumento")]
+        public async Task<IActionResult> Delete(DeleteNotaDocAlunoCommand command)
         {
-            return Ok();
+            await _mediator.Send(command);
+
+            return NoContent();
         }
     }
 }

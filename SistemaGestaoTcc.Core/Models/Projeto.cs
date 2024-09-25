@@ -8,8 +8,7 @@ namespace SistemaGestaoTcc.Core.Models;
 
 public partial class Projeto
 {
-    public Projeto(string nome, string descricao, string justificativa
-       )
+    public Projeto(string nome, string descricao, string justificativa)
     {
         Nome = nome;
         Descricao = descricao;
@@ -42,13 +41,12 @@ public partial class Projeto
 
     public virtual ICollection<UsuarioProjeto> UsuarioProjetos { get; set; } = new List<UsuarioProjeto>();
 
-    public void Update(string nome, string descricao, string justificativa, DateTime dataInicio, DateTime? dataFim)
+    public void Update(string nome, string descricao, string justificativa, DateTime dataInicio)
     {
         Nome = nome;
         Descricao = descricao;
         Justificativa = justificativa;
         DataInicio = dataInicio;
-        DataFim = dataFim;
     }
     public void Start()
     {
@@ -57,7 +55,6 @@ public partial class Projeto
             Estado = StatusProjeto.InProgress;
         }
     }
-
     public void Finish()
     {
         if (Estado == StatusProjeto.Created || Estado == StatusProjeto.InProgress)

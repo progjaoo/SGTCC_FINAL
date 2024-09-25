@@ -103,8 +103,7 @@ public partial class SGTCCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Avaliador__IdUsu__07C12930");
             entity.Property(e => e.AdicionadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
         });
 
         modelBuilder.Entity<Banca>(entity =>
@@ -125,8 +124,7 @@ public partial class SGTCCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Banca__IdProjeto__0B91BA14");
             entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
         });
 
         modelBuilder.Entity<CampoDocumentoAvaliacaoAluno>(entity =>
@@ -203,8 +201,7 @@ public partial class SGTCCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__NotaDocum__IdCam__10566F31");
             entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
         });
 
         modelBuilder.Entity<NotaFinalAluno>(entity =>
@@ -296,11 +293,9 @@ public partial class SGTCCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ProjetoAt__IdPro__00200768");
             entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
             entity.Property(e => e.EditadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
         });
 
         modelBuilder.Entity<ProjetoAvaliacaoPublica>(entity =>
@@ -344,8 +339,7 @@ public partial class SGTCCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ProjetoCo__IdUsu__02FC7413");
             entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
             entity.Property(e => e.EditadoEm)
                 .HasColumnType("datetime")
                 .IsRequired(false);
@@ -370,8 +364,7 @@ public partial class SGTCCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ProjetoEn__IdPro__7E37BEF6");
             entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
             entity.Property(e => e.EditadoEm)
                 .HasColumnType("datetime")
                 .IsRequired(false);
@@ -439,8 +432,7 @@ public partial class SGTCCContext : DbContext
                 .HasForeignKey(d => d.IdImagem)
                 .HasConstraintName("FK__Usuario__IdImage__0C85DE4D");
             entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
             entity.Property(e => e.EditadoEm)
                 .HasColumnType("datetime")
                 .IsRequired(false);
@@ -466,8 +458,7 @@ public partial class SGTCCContext : DbContext
             entity.Property(e => e.Funcao)
                 .IsRequired(true);
             entity.Property(e => e.AdicionadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
         });
 
         modelBuilder.Entity<AtividadeComentario>()

@@ -2,10 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTcc.Application.Commands.Comentarios.Create;
 using SistemaGestaoTcc.Application.Commands.Comentarios.Delete;
-using SistemaGestaoTcc.Application.Commands.Courses.CreateCourse;
 using SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse;
-using SistemaGestaoTcc.Application.Commands.Projects.DeleteProject;
-using SistemaGestaoTcc.Application.Commands.Projects.UpdateProject;
 using SistemaGestaoTcc.Application.Queries.Comentarios.GetAll;
 using SistemaGestaoTcc.Application.Queries.Comentarios.GetAllComentsByProject;
 using SistemaGestaoTcc.Application.Queries.Comentarios.GetById;

@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\NotaDocumentos\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

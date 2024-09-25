@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTcc.Application.Commands.Projects.CreateProject;
 using SistemaGestaoTcc.Application.Commands.Projects.DeleteProject;
+using SistemaGestaoTcc.Application.Commands.Projects.FinalizarProjetos;
+using SistemaGestaoTcc.Application.Commands.Projects.TornarPublicos;
 using SistemaGestaoTcc.Application.Commands.Projects.UpdateProject;
 using SistemaGestaoTcc.Application.Queries.Projects.GetProjectById;
 using SistemaGestaoTcc.Application.Queries.Projects.GetProjects;
@@ -88,25 +90,18 @@ namespace SistemaGestaoTcc.API.Controllers
             return NoContent();
         }
         [HttpPut("{id}/finalizarProjeto")]
-        public async Task<IActionResult> Finalizar(int id)
+        public async Task<IActionResult> Finalizar(FinalizarProjectCommand command)
         {
-            await _projectRepository.Finalizar(id);
+            await _mediator.Send(command);
 
             return NoContent();
         }
         [HttpPut("{id}/tornarPublico")]
-        public async Task<IActionResult> TornarPublico(int id)
+        public async Task<IActionResult> TornarPublico(TornarPublicoCommand command)
         {
-            try
-            {
-                await _projectRepository.TornarPublico(id);
+            await _mediator.Send(command);
 
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro interno: {ex.Message}");
-            }
+            return NoContent();
         }
     }
 }

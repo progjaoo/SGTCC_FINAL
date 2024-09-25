@@ -88,7 +88,7 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
             if (projeto != null)
             {
                 projeto.Finish();
-
+                projeto.DataFim = DateTime.UtcNow;
                 await _dbcontext.SaveChangesAsync();
             }
         }

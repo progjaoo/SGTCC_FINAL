@@ -1,15 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.Courses.CreateCourse;
-using SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse;
 using SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Create;
 using SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Delete;
 using SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Update;
-using SistemaGestaoTcc.Application.Queries.Courses.GetAllCourse;
-using SistemaGestaoTcc.Application.Queries.Courses.GetCourseById;
 using SistemaGestaoTcc.Application.Queries.ProjetoAtividades.GetAllAsync;
 using SistemaGestaoTcc.Application.Queries.ProjetoAtividades.GetById;
-using SistemaGestaoTcc.Core.Interfaces;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -18,11 +13,9 @@ namespace SistemaGestaoTCC.API.Controllers
     public class ProjetoAtividadeController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IProjetoAtividadeRepository _projetoAtividadeRepository;
-        public ProjetoAtividadeController(IMediator mediator, IProjetoAtividadeRepository projetoAtividadeRepository)
+        public ProjetoAtividadeController(IMediator mediator)
         {
             _mediator = mediator;
-            _projetoAtividadeRepository = projetoAtividadeRepository;
         }
 
         [HttpGet]

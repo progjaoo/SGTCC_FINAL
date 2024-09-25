@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTcc.Application.Commands.Users.CreateUser;
+using SistemaGestaoTcc.Application.Commands.Users.DeleteUser;
 using SistemaGestaoTcc.Application.Commands.Users.LoginUser;
 using SistemaGestaoTcc.Application.Commands.Users.UpdateUser;
 using SistemaGestaoTcc.Application.Queries.Users.FindUsers;
@@ -20,14 +21,9 @@ namespace SistemaGestaoTcc.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IUserRepository _userRepository;
-
-
-        public UsersController(IMediator mediator, IUserRepository userRepository)
+        public UsersController(IMediator mediator)
         {
             _mediator = mediator;
-            _userRepository = userRepository;
-
         }
 
         [HttpGet("findUsers")]
@@ -123,13 +119,11 @@ namespace SistemaGestaoTcc.API.Controllers
             return NoContent();
         }
         [HttpDelete("{id}/deleteUser")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteUser(DeleteUserCommand command)
         {
-            await _userRepository.DeleteUser(id);
+            await _mediator.Send(command);
 
-            await _userRepository.SaveChangesAsync();
-
-            return Ok();
+            return NoContent();
         }
     }
 }

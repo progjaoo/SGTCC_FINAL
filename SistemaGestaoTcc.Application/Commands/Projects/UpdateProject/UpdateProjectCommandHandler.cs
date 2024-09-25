@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Azure.Core;
-using MediatR;
+﻿using MediatR;
 using SistemaGestaoTcc.Core.Interfaces;
 
 namespace SistemaGestaoTcc.Application.Commands.Projects.UpdateProject
@@ -22,7 +16,7 @@ namespace SistemaGestaoTcc.Application.Commands.Projects.UpdateProject
         {
             var project = await _projectRepository.GetById(request.Id);
 
-            project.Update(request.Nome, request.Descricao, request.Justificativa, request.DataInicio, request.DataFim);
+            project.Update(request.Nome, request.Descricao, request.Justificativa, request.DataInicio);
 
             await _projectRepository.SaveChangesAsync();
 

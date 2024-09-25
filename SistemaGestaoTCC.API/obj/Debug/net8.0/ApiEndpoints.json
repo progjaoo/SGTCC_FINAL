@@ -590,32 +590,54 @@
   },
   {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaDocumentoAlunoController",
-    "Method": "Post",
-    "RelativePath": "api/notaDocumentoAluno",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaDocumentoAlunoController",
-    "Method": "Delete",
-    "RelativePath": "api/notaDocumentoAluno",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaDocumentoAlunoController",
     "Method": "GetById",
     "RelativePath": "api/notaDocumentoAluno/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaDocumentoAlunoController",
+    "Method": "Put",
+    "RelativePath": "api/notaDocumentoAluno/{id}/atualizarNotaDocumento",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.NotaDocumentos.Update.UpdateNotaDocAlunoCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaDocumentoAlunoController",
+    "Method": "Delete",
+    "RelativePath": "api/notaDocumentoAluno/{id}/deletarNotaDocumento",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.NotaDocumentos.Delete.DeleteNotaDocAlunoCommand",
+        "IsRequired": true
+      },
       {
         "Name": "id",
         "Type": "",
@@ -626,15 +648,15 @@
   },
   {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaDocumentoAlunoController",
-    "Method": "Put",
-    "RelativePath": "api/notaDocumentoAluno/{id}",
-    "HttpMethod": "PUT",
+    "Method": "Post",
+    "RelativePath": "api/notaDocumentoAluno/criarNotaDocumento",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.NotaDocumentos.Create.CreateNotaDocCommand",
         "IsRequired": true
       }
     ],
@@ -712,8 +734,13 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Projects.FinalizarProjetos.FinalizarProjectCommand",
+        "IsRequired": true
+      },
+      {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "",
         "IsRequired": true
       }
     ],
@@ -728,8 +755,13 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Projects.TornarPublicos.TornarPublicoCommand",
+        "IsRequired": true
+      },
+      {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "",
         "IsRequired": true
       }
     ],
@@ -807,8 +839,13 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Users.DeleteUser.DeleteUserCommand",
+        "IsRequired": true
+      },
+      {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "",
         "IsRequired": true
       }
     ],
