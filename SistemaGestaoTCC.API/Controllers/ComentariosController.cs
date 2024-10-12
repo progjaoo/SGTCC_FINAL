@@ -38,7 +38,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(query);
         }
-        [HttpGet("comentariosPorProjeto/{id}")]
+        [HttpGet("comentariosPorProjeto")]
         public async Task<IActionResult> GetAllCommentsByProject(int projetoId)
         {
             var comentarios = await _mediator.Send(new GetAllCommentsByProjectQuery(projetoId));
@@ -49,7 +49,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(comentarios);
         }
-        [HttpGet("comentariosPorUsuario/{id}")]
+        [HttpGet("comentariosPorUsuario")]
         public async Task<IActionResult> GetAllCommentsByUser(int userId)
         {
             var comentarios = await _mediator.Send(new GetAllCommentsByUserQuery(userId));

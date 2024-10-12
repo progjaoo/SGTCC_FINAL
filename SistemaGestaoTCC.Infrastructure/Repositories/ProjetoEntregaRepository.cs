@@ -21,6 +21,12 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
         {
             return await _dbContext.ProjetoEntrega.SingleOrDefaultAsync(p => p.Id == id);
         }
+        public async Task<List<ProjetoEntrega>> GetEntregasByProjetoIdAsync(int projetoId)
+        {
+            return await _dbContext.ProjetoEntrega
+                             .Where(pe => pe.IdProjeto == projetoId)
+                             .ToListAsync();
+        }
         public async Task AddAsync(ProjetoEntrega projetoEntrega)
         {
             await _dbContext.AddAsync(projetoEntrega);

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class ProjetoEntrega //IMPLEMENTAR AINDA
+public partial class ProjetoEntrega
 {
     public ProjetoEntrega(int idProjeto, string titulo, DateTime dataLimite, DateTime? dataEnvio, bool entregue)
     {

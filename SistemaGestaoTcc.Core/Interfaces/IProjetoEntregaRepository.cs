@@ -6,6 +6,8 @@ namespace SistemaGestaoTcc.Core.Interfaces
     {
         Task<List<ProjetoEntrega>> GetAllAsync();
         Task<ProjetoEntrega> GetByIdAsync(int id);
+        Task<List<ProjetoEntrega>> GetEntregasByProjetoIdAsync(int projetoId);
+
         Task AddAsync(ProjetoEntrega projetoEntrega);
         Task DeleteAsync(int id);
         Task SaveChangesAsync();

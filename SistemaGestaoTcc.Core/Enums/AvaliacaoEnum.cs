@@ -3,8 +3,8 @@
     public enum AvaliacaoEnum
     {
         Bom = 1,
-        Médio = 3,
-        Ruim = 2,
+        Médio = 2,
+        Ruim = 3,
         Excelente = 4
     }
 }

@@ -116,7 +116,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliacaoComentarioController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliacaoController",
     "Method": "GetById",
     "RelativePath": "api/avaliacoes/buscarAvaliacao{id}",
     "HttpMethod": "GET",
@@ -132,7 +132,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliacaoComentarioController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliacaoController",
     "Method": "Post",
     "RelativePath": "api/avaliacoes/criarAvaliacao",
     "HttpMethod": "POST",
@@ -148,7 +148,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliacaoComentarioController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AvaliacaoController",
     "Method": "GetAvaliacoesByUsuario",
     "RelativePath": "api/avaliacoes/usuario/{idUsuario}",
     "HttpMethod": "GET",
@@ -747,6 +747,101 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjetoEntregaController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/projetoEntrega",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjetoEntregaController",
+    "Method": "GetById",
+    "RelativePath": "api/projetoEntrega/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjetoEntregaController",
+    "Method": "Delete",
+    "RelativePath": "api/projetoEntrega/{id}/deletarEntrega",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Delete.DeleteProjetoEntregaCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjetoEntregaController",
+    "Method": "Update",
+    "RelativePath": "api/projetoEntrega/atualizarEntrega",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Update.UpdateProjetoEntregaCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjetoEntregaController",
+    "Method": "PostBanca",
+    "RelativePath": "api/projetoEntrega/criarEntrega",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Create.CreateProjetoEntregaCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjetoEntregaController",
+    "Method": "GetEntregaByProjeto",
+    "RelativePath": "api/projetoEntrega/entregaPorProjeto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProjeto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
     "Method": "GetAllAsync",
     "RelativePath": "api/projetos",
@@ -1129,7 +1224,7 @@
   {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
     "Method": "GetAllCommentsByProject",
-    "RelativePath": "comentariosPorProjeto/{id}",
+    "RelativePath": "comentariosPorProjeto",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1138,11 +1233,6 @@
         "Name": "projetoId",
         "Type": "System.Int32",
         "IsRequired": false
-      },
-      {
-        "Name": "id",
-        "Type": "",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1150,7 +1240,7 @@
   {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
     "Method": "GetAllCommentsByUser",
-    "RelativePath": "comentariosPorUsuario/{id}",
+    "RelativePath": "comentariosPorUsuario",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1159,11 +1249,6 @@
         "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": false
-      },
-      {
-        "Name": "id",
-        "Type": "",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []

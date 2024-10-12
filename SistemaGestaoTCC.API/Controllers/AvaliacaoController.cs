@@ -8,10 +8,10 @@ namespace SistemaGestaoTCC.API.Controllers
 {
     [ApiController]
     [Route("api/avaliacoes")]
-    public class AvaliacaoComentarioController : ControllerBase
+    public class AvaliacaoController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public AvaliacaoComentarioController(IMediator mediator)
+        public AvaliacaoController(IMediator mediator)
         {
             _mediator = mediator;
         }

@@ -15,12 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\ProjetoEntrega\Delete\" />
-    <Folder Include="Commands\ProjetoEntrega\Update\" />
-    <Folder Include="Commands\ProjetoEntrega\Create\" />
-    <Folder Include="Queries\ProjetoEntrega\GetAll\" />
-    <Folder Include="Queries\ProjetoEntrega\GetById\" />
-    <Folder Include="Queries\ProjetoEntrega\GetEntregaByProject\" />
+    <Folder Include="Commands\AtividadesComentários\Delete\" />
+    <Folder Include="Commands\AtividadesComentários\Update\" />
+    <Folder Include="Commands\AtividadesComentários\Create\" />
+    <Folder Include="Queries\AtividadesComentários\GetById\" />
+    <Folder Include="Queries\AtividadesComentários\GetAll\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
