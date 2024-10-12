@@ -1,6 +1,6 @@
 ﻿namespace SistemaGestaoTcc.Core.Models
 {
-    public partial class AtividadeComentario
+    public partial class AtividadeComentario //FALTA IMPLEMENTAR AINDA
     {
         public AtividadeComentario(int idUsuario, int idAtividade, string comentario)
         {

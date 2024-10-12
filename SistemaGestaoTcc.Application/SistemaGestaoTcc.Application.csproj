@@ -11,14 +11,22 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Commands\ProjetoEntrega\Delete\" />
+    <Folder Include="Commands\ProjetoEntrega\Update\" />
+    <Folder Include="Commands\ProjetoEntrega\Create\" />
+    <Folder Include="Queries\ProjetoEntrega\GetAll\" />
+    <Folder Include="Queries\ProjetoEntrega\GetById\" />
+    <Folder Include="Queries\ProjetoEntrega\GetEntregaByProject\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SistemaGestaoTcc.Core\SistemaGestaoTcc.Core.csproj" />
+    <ProjectReference Include="..\SistemaGestaoTCC.Infrastructure\SistemaGestaoTcc.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

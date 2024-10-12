@@ -5,6 +5,7 @@ using SistemaGestaoTcc.Application.Commands.Projects.DeleteProject;
 using SistemaGestaoTcc.Application.Commands.Projects.FinalizarProjetos;
 using SistemaGestaoTcc.Application.Commands.Projects.TornarPublicos;
 using SistemaGestaoTcc.Application.Commands.Projects.UpdateProject;
+using SistemaGestaoTcc.Application.Queries.Courses.GetAllCourse;
 using SistemaGestaoTcc.Application.Queries.Projects.GetProjectById;
 using SistemaGestaoTcc.Application.Queries.Projects.GetProjects;
 using SistemaGestaoTcc.Application.Queries.Projects.GetProjectsByUser;
@@ -29,8 +30,9 @@ namespace SistemaGestaoTcc.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-            var getAllProjectQuery = new GetProjectQuery();
-            var projects = await _mediator.Send(getAllProjectQuery);
+            var getAllProjectsQuery = new GetProjectQuery();
+
+            var projects = await _mediator.Send(getAllProjectsQuery);
 
             return Ok(projects);
         }

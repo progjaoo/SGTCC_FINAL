@@ -8,6 +8,7 @@ using SistemaGestaoTcc.Core.Interfaces;
 using SistemaGestaoTcc.Core.Models;
 using SistemaGestaoTcc.Infrastructure.Authentication;
 using SistemaGestaoTcc.Infrastructure.Repositories;
+using SistemaGestaoTcc.Infrastructure.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
+
 
 //ADICIONANDO CORS PARA PODER SER CONSUMINDO NO FRONT-END
 builder.Services.AddCors(options =>
@@ -99,9 +101,13 @@ builder.Services.AddScoped<IAvaliadorBancaRepository, AvaliadorBancaRepository>(
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ICampoDocumentoRepository, CampoDocumentoRepository>();
 builder.Services.AddScoped<INotasDocumentoAlunoRepository, NotasDocumentoAlunoRepository>();
+builder.Services.AddScoped<INotaFinalAlunoRepository, NotaFinalAlunoRepository>();
+builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
 
-//autenticacao service
+//service
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddSignalR();
+
 
 #endregion
 
@@ -119,6 +125,7 @@ if (app.Environment.IsDevelopment())
 //APLICANDO POLITICA CORS
 app.UseCors();
 
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
@@ -128,6 +135,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<NotificationHub>("/notificationHub");
 
 app.Run();
 

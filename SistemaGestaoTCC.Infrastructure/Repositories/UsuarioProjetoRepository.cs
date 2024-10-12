@@ -13,10 +13,6 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
             _dbcontext = dbcontext;
         }
 
-        public async Task AddASync(UsuarioProjeto usuarioProjeto)
-        {
-            await _dbcontext.UsuarioProjeto.AddAsync(usuarioProjeto);
-        }
         public async Task<List<UsuarioProjeto>> GetAllAsync()
         {
             return await _dbcontext.UsuarioProjeto.ToListAsync();
@@ -40,6 +36,10 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
         {
             return await _dbcontext.UsuarioProjeto.SingleOrDefaultAsync(up => up.Id == id);
             
+        }
+        public async Task AddASync(UsuarioProjeto usuarioProjeto)
+        {
+            await _dbcontext.UsuarioProjeto.AddAsync(usuarioProjeto);
         }
 
         public async Task SaveChangesAsync()

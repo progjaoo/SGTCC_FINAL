@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class Categoria //FALTA IMPLEMENTAR
+public partial class Categoria
 {
     public Categoria(string valor)
     {

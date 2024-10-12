@@ -5,13 +5,14 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTcc.Core.Models;
 
-public partial class NotaFinalAluno //FALTA IMPLEMENTAR
+public partial class NotaFinalAluno
 {
     public NotaFinalAluno(int idAvaliadorBanca, int idAluno, int nota)
     {
         IdAvaliadorBanca = idAvaliadorBanca;
         IdAluno = idAluno;
         Nota = nota;
+
         CriadoEm = DateTime.UtcNow;
     }
 

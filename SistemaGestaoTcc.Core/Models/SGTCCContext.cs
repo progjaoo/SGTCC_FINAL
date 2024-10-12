@@ -174,8 +174,7 @@ public partial class SGTCCContext : DbContext
                 .HasColumnType("datetime")
                 .IsRequired(true);
             entity.Property(e => e.EditadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasColumnType("datetime");
         });
 
         modelBuilder.Entity<NotaDocumentoAluno>(entity =>

@@ -663,6 +663,90 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaFinalAlunoController",
+    "Method": "GetAll",
+    "RelativePath": "api/notaFinalAluno",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaFinalAlunoController",
+    "Method": "GetById",
+    "RelativePath": "api/notaFinalAluno/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaFinalAlunoController",
+    "Method": "Put",
+    "RelativePath": "api/notaFinalAluno/{id}/atualizarNotaFinal",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Update.UpdateNotaFinalCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaFinalAlunoController",
+    "Method": "Delete",
+    "RelativePath": "api/notaFinalAluno/{id}/deletarNotaFinal",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Delete.DeleteNotaFinalCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.NotaFinalAlunoController",
+    "Method": "Post",
+    "RelativePath": "api/notaFinalAluno/criarNotaFinal",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Create.CreateNotaFinalAlunoCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
     "Method": "GetAllAsync",
     "RelativePath": "api/projetos",
@@ -924,7 +1008,7 @@
     "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
     "Method": "Login",
     "RelativePath": "api/usuarios/login",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -979,6 +1063,38 @@
       {
         "Name": "papel",
         "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsuarioProjetoController",
+    "Method": "Post",
+    "RelativePath": "api/usuariosProjeto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.UsuariosProjeto.AddUserInProjectCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsuarioProjetoController",
+    "Method": "GetById",
+    "RelativePath": "api/usuariosProjeto/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

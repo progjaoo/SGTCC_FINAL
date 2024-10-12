@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Update.Internal;
 using Microsoft.Extensions.Configuration;
 using SistemaGestaoTcc.Core.Interfaces;
 using SistemaGestaoTcc.Core.Models;
@@ -28,13 +22,11 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
 
         public async Task<List<Projeto>> GetAllAsync()
         {
-            //ok
+            //ok 
             return await _dbcontext.Projeto
             //.Where(p => p.Estado == Core.Enums.StatusProjeto.Created)
             .Where(p => p.Aprovado == true)
             .ToListAsync();
-
-
         }
 
         public async Task<List<Projeto>> GetAllPendingAsync()
