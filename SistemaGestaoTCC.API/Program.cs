@@ -103,6 +103,7 @@ builder.Services.AddScoped<ICampoDocumentoRepository, CampoDocumentoRepository>(
 builder.Services.AddScoped<INotasDocumentoAlunoRepository, NotasDocumentoAlunoRepository>();
 builder.Services.AddScoped<INotaFinalAlunoRepository, NotaFinalAlunoRepository>();
 builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
+builder.Services.AddScoped<IAtividadeComentarioRepository, AtividadeComentarioRepository>();
 
 //service
 builder.Services.AddScoped<IAuthService, AuthService>();
