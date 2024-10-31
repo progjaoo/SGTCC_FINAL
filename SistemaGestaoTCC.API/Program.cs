@@ -12,6 +12,7 @@ using SistemaGestaoTcc.Infrastructure.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddAuthorization();
@@ -31,6 +32,14 @@ builder.Services.AddCors(options =>
 //CONNECTION STRING
 var connection = builder.Configuration.GetConnectionString("SistemaTcc");
 builder.Services.AddDbContext<SGTCCContext>(p => p.UseSqlServer(connection));
+
+//google
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+    googleOptions.CallbackPath = new PathString("/signin-google");
+});
 
 #region AUTENTICACAO JWT BEARER
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

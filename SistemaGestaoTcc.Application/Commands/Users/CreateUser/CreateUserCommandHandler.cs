@@ -18,6 +18,7 @@ namespace SistemaGestaoTcc.Application.Commands.Users.CreateUser
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var passwordHash = _authService.ComputeSha256Hash(request.Senha);
+
             //instancia do novo usuario pediu 2 construtores la na classe 
             var user = new Usuario(request.IdCurso, request.Nome, request.Email, passwordHash, request.Papel);
 

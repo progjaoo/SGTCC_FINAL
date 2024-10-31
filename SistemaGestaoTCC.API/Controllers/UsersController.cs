@@ -1,8 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using RestSharp;
 using SistemaGestaoTcc.Application.Commands.Users.CreateUser;
 using SistemaGestaoTcc.Application.Commands.Users.DeleteUser;
+using SistemaGestaoTcc.Application.Commands.Users.LoginGoogle;
 using SistemaGestaoTcc.Application.Commands.Users.LoginUser;
 using SistemaGestaoTcc.Application.Commands.Users.UpdateUser;
 using SistemaGestaoTcc.Application.Queries.Users.FindUsers;
@@ -12,6 +16,8 @@ using SistemaGestaoTcc.Application.Queries.Users.GetUser;
 using SistemaGestaoTcc.Application.Queries.Users.GetUserByEmail;
 using SistemaGestaoTcc.Core.Enums;
 using SistemaGestaoTcc.Core.Interfaces;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 
 namespace SistemaGestaoTcc.API.Controllers
 {
@@ -110,6 +116,26 @@ namespace SistemaGestaoTcc.API.Controllers
             }
             return Ok(loginUserViewModel);
         }
+        [HttpPost("authGoogle")]
+        [AllowAnonymous]
+        public async Task<IActionResult> LoginGoogle([FromBody] string googleToken)
+        {
+            try
+            {
+                var command = new AuthGoogleCommand(googleToken);
+                var token = await _mediator.Send(command);
+
+                return Ok(new { Token = token });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = "Erro ao autenticar com o Google: " + ex.Message });
+            }
+        }
         [HttpPut("{id}/atualizarUsuario")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserCommand command)
         {
@@ -124,6 +150,27 @@ namespace SistemaGestaoTcc.API.Controllers
             await _mediator.Send(command);
 
             return NoContent();
+        }
+        public static async Task<string> DecodeGoogleToken(string token)
+        {
+            try
+            {
+                var handler = new JwtSecurityTokenHandler();
+                var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+                if (jwtToken == null)
+                    throw new UnauthorizedAccessException("Token inválido.");
+
+                var emailClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "email");
+                if (emailClaim == null)
+                    throw new UnauthorizedAccessException("Email não encontrado no token.");
+
+                return emailClaim.Value;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao decodificar token JWT: " + ex.Message);
+            }
         }
     }
 }

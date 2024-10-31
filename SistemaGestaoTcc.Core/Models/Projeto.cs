@@ -21,10 +21,10 @@ public partial class Projeto
     public string Descricao { get; set; }
     public string Justificativa { get; set; }
     public DateTime DataInicio { get; set; }
+    public StatusProjeto Estado { get; set; }
     public DateTime? DataFim { get; set; }
     public bool Aprovado { get; set; }
     public DateTime CriadoEm { get; set; }
-    public StatusProjeto Estado { get; set; }
     public virtual ICollection<Banca> Bancas { get; set; } = new List<Banca>();
 
     public virtual ICollection<ProjetoArquivo> ProjetoArquivos { get; set; } = new List<ProjetoArquivo>();

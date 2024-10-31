@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("99b9c497-1763-4e29-a6fb-6d345d6a7db4")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaGestaoTCC.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c23be9c7976ab4f399f2931a49bc7b604aad4221")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd3bc14f90a96501a9541e9ddf5c9ef11d2c229c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaGestaoTCC.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaGestaoTCC.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

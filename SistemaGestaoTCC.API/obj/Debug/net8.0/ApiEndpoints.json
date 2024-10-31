@@ -37,6 +37,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AtividadeComentarioController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/atividadeComentarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AtividadeComentarioController",
+    "Method": "GetById",
+    "RelativePath": "api/atividadeComentarios/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AtividadeComentarioController",
+    "Method": "Delete",
+    "RelativePath": "api/atividadeComentarios/{id}/deletarComentarioAtividade",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.AtividadesComent\u00E1rios.Delete.DeleteAtividadeComentCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AtividadeComentarioController",
+    "Method": "Update",
+    "RelativePath": "api/atividadeComentarios/atualizarComentarioAtividade",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.AtividadesComent\u00E1rios.Update.UpdateAtividadeComentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.AtividadeComentarioController",
+    "Method": "Post",
+    "RelativePath": "api/atividadeComentarios/criarComentarioAtividade",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.AtividadesComent\u00E1rios.Create.CreateAtividadeComentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjetoAtividadeController",
     "Method": "GetAllAsync",
     "RelativePath": "api/atividades",
@@ -1025,6 +1104,22 @@
       {
         "Name": "id",
         "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "Method": "LoginGoogle",
+    "RelativePath": "api/usuarios/authGoogle",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "googleToken",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
