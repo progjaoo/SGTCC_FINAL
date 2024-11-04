@@ -11,5 +11,4 @@ namespace SistemaGestaoTcc.Application.Commands.Users.LoginGoogle
             GoogleToken = googleToken;
         }
     }
-
 }

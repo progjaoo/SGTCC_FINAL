@@ -8,7 +8,6 @@
             Nome = nome;
             Email = email;
         }
-
         public int IdCurso { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }

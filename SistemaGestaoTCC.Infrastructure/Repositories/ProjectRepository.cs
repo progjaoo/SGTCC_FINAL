@@ -43,7 +43,14 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
             return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id)).ToListAsync();
         }
+        public async Task<List<Projeto>> GetAllActiveByUserAsync(int id)
+        {
+            var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
 
+            return await _dbcontext.Projeto
+                .Where(p => idsProjetos.Contains(p.Id) && p.Estado != Core.Enums.StatusProjeto.Canceled)
+                .ToListAsync();
+        }
         public async Task<Projeto> GetById(int id)
         {
             return await _dbcontext.Projeto.SingleOrDefaultAsync(p => p.Id == id);

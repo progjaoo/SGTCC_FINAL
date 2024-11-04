@@ -136,21 +136,6 @@ namespace SistemaGestaoTcc.API.Controllers
                 return BadRequest(new { Message = "Erro ao autenticar com o Google: " + ex.Message });
             }
         }
-        [HttpPut("{id}/atualizarUsuario")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserCommand command)
-        {
-            command.Id = id;
-            await _mediator.Send(command);
-
-            return NoContent();
-        }
-        [HttpDelete("{id}/deleteUser")]
-        public async Task<IActionResult> DeleteUser(DeleteUserCommand command)
-        {
-            await _mediator.Send(command);
-
-            return NoContent();
-        }
         public static async Task<string> DecodeGoogleToken(string token)
         {
             try
@@ -171,6 +156,21 @@ namespace SistemaGestaoTcc.API.Controllers
             {
                 throw new Exception("Erro ao decodificar token JWT: " + ex.Message);
             }
+        }
+        [HttpPut("{id}/atualizarUsuario")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserCommand command)
+        {
+            command.Id = id;
+            await _mediator.Send(command);
+
+            return NoContent();
+        }
+        [HttpDelete("{id}/deleteUser")]
+        public async Task<IActionResult> DeleteUser(DeleteUserCommand command)
+        {
+            await _mediator.Send(command);
+
+            return NoContent();
         }
     }
 }

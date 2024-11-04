@@ -18,7 +18,6 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
 
             return await _dbcontext.Usuario.Where(c => c.IdCurso == idCurso).ToListAsync();
         }
-
         public async Task<List<Usuario>> FilterUsers(PapelEnum papel, string nome)
         {
             return await _dbcontext.Usuario.Where(u => u.Papel == papel)
@@ -33,12 +32,10 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
             .Where(u => u.Papel == PapelEnum.Professor)
             .ToListAsync();
         }
-
         public async Task<List<Usuario>> GetAllUserByRole(PapelEnum papel)
         {
             return await _dbcontext.Usuario.Where(u => u.Papel == papel).ToListAsync();
         }
-
         public async Task<Usuario> GetById(int id)
         {
             return await _dbcontext.Usuario.SingleOrDefaultAsync(u => u.Id == id);

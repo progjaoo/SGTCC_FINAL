@@ -6,6 +6,7 @@ using SistemaGestaoTcc.Application.Commands.Projects.FinalizarProjetos;
 using SistemaGestaoTcc.Application.Commands.Projects.TornarPublicos;
 using SistemaGestaoTcc.Application.Commands.Projects.UpdateProject;
 using SistemaGestaoTcc.Application.Queries.Courses.GetAllCourse;
+using SistemaGestaoTcc.Application.Queries.Projects.GetAllProjectsByStatus;
 using SistemaGestaoTcc.Application.Queries.Projects.GetProjectById;
 using SistemaGestaoTcc.Application.Queries.Projects.GetProjects;
 using SistemaGestaoTcc.Application.Queries.Projects.GetProjectsByUser;
@@ -48,6 +49,14 @@ namespace SistemaGestaoTcc.API.Controllers
         public async Task<IActionResult> GetAllByUserAsync(int id)
         {
             var getAllProjectQuery = new GetProjectByUserQuery(id);
+            var projects = await _mediator.Send(getAllProjectQuery);
+
+            return Ok(projects);
+        }
+        [HttpGet("projetosNaoCancelados/{id}")]
+        public async Task<IActionResult> GetAllProjectsNotCancel(int id)
+        {
+            var getAllProjectQuery = new GetAllProjectsNotCancelCommand(id);
             var projects = await _mediator.Send(getAllProjectQuery);
 
             return Ok(projects);
