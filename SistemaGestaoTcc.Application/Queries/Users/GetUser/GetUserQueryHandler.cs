@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using SistemaGestaoTcc.Application.ViewModels;
 using SistemaGestaoTcc.Core.Interfaces;
 
@@ -27,7 +22,7 @@ namespace SistemaGestaoTcc.Application.Queries.Users.GetUser
                 return null;
             }
 
-            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, user.Papel);
+            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCursoNavigation.Nome, user.Papel);
         }
     }
 }

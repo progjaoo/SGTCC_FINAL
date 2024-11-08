@@ -1068,6 +1068,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "Method": "GetAllProjectsNotCancel",
+    "RelativePath": "api/projetos/projetosNaoCancelados/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "Method": "GetById",
+    "RelativePath": "api/usuarios/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
     "Method": "UpdateUser",
     "RelativePath": "api/usuarios/{id}/atualizarUsuario",
@@ -1173,22 +1205,6 @@
       {
         "Name": "Nome",
         "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
-    "Method": "GetById",
-    "RelativePath": "api/usuarios/id",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

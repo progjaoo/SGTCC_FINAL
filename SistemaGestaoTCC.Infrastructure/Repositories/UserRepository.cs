@@ -38,7 +38,9 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
         }
         public async Task<Usuario> GetById(int id)
         {
-            return await _dbcontext.Usuario.SingleOrDefaultAsync(u => u.Id == id);
+            return await _dbcontext.Usuario
+                .Include(u => u.IdCursoNavigation)
+                .SingleOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task<Usuario> GetByEmailByPassword(string email, string passwordHash)

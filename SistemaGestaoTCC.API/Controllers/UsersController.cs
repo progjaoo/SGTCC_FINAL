@@ -69,7 +69,7 @@ namespace SistemaGestaoTcc.API.Controllers
 
             return Ok(listUsers);
         }
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var query = new GetUserQuery(id);
