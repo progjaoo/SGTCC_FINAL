@@ -1379,5 +1379,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsuarioProjetoController",
+    "Method": "RemoverUsuarioProjeto",
+    "RelativePath": "api/usuariosProjeto/RemoverUsuarioDeProjeto",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto.RemoveUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
