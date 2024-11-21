@@ -15,7 +15,7 @@ public partial class ProjetoAtividade
         Descricao = descricao;
         Estado = ProjetoAtividadeEnum.Created;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
 
     //public int IdAtividade { get; set; }
@@ -33,7 +33,7 @@ public partial class ProjetoAtividade
         Nome = nome;
         Descricao = descricao;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
     public void Finish()
     {

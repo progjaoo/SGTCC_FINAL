@@ -15,7 +15,7 @@ public partial class ProjetoEntrega
         DataEnvio = dataEnvio;
         Entregue = entregue;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
     public int IdProjeto { get; set; }
@@ -35,6 +35,6 @@ public partial class ProjetoEntrega
         DataEnvio = dataEnvio;
         Entregue = entregue;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

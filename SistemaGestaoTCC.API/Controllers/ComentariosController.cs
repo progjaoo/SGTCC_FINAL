@@ -9,7 +9,7 @@ using SistemaGestaoTcc.Application.Queries.Comentarios.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
-    [System.Web.Mvc.Route("api/comentariosprojeto")]
+    [Route("api/comentariosprojeto")]
     public class ComentariosController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
         private readonly IMediator _mediator;

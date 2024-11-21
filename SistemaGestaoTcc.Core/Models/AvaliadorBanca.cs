@@ -12,7 +12,7 @@ public partial class AvaliadorBanca
         IdUsuario = idUsuario;
         IdBanca = idBanca;
 
-        AdicionadoEm = DateTime.UtcNow;
+        AdicionadoEm = DateTime.Now;
     }
 
     public int Id { get; set; }

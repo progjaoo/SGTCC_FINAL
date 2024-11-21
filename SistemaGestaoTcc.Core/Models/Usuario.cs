@@ -17,7 +17,7 @@ public partial class Usuario
         Senha = senha;
         Papel = papel;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
 
     }
     public int Id { get; set; }
@@ -46,12 +46,12 @@ public partial class Usuario
 
     public virtual ICollection<UsuarioProjeto> UsuarioProjetos { get; set; } = new List<UsuarioProjeto>();
 
-    public void Update(string nome, string email, string senha)
+    public void Update( string nome, string email)
     {
+
         Nome = nome;
         Email = email;
-        Senha = senha;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

@@ -12,7 +12,7 @@ public partial class Curso
         Nome = nome;
         Descricao = descricao;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
 
     public int Id { get; set; }
@@ -29,6 +29,6 @@ public partial class Curso
         Nome = nome;
         Descricao = descricao;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

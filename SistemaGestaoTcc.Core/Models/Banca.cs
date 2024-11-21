@@ -18,7 +18,7 @@ public partial class Banca //FALTA IMPLEMENTAR
         ObservacaoAluno = observacaoAluno;
         Recomendacao = recomendacao;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
     public int IdProjeto { get; set; }

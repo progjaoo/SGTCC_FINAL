@@ -34,5 +34,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
+
+        //
     }
 }

@@ -13,8 +13,8 @@ public partial class Projeto
         Nome = nome;
         Descricao = descricao;
         Justificativa = justificativa;
-        DataInicio = DateTime.UtcNow;
-        CriadoEm = DateTime.UtcNow;
+        DataInicio = DateTime.Now;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
     public string Nome { get; set; }

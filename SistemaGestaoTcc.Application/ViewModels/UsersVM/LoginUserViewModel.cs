@@ -1,13 +1,16 @@
-﻿namespace SistemaGestaoTcc.Application.ViewModels
+﻿using SistemaGestaoTcc.Core.Enums;
+
+namespace SistemaGestaoTcc.Application.ViewModels
 {
     public class LoginUserViewModel
     {
-        public LoginUserViewModel(string email, string token, int idUsuario, int idCurso)
+        public LoginUserViewModel(string email, string token, int idUsuario, int idCurso, PapelEnum papel)
         {
             Email = email;
             Token = token;
             IdUsuario = idUsuario;
             IdCurso = idCurso;
+            Papel = papel;
 
             //UltimoAcesso = DateTime.Today;
         }
@@ -16,6 +19,6 @@
         public string Token { get; private set; }
         public int IdUsuario { get; private set; }
         public int IdCurso { get; private set; }
-
+        public PapelEnum Papel { get; private set; }
     }
 }
