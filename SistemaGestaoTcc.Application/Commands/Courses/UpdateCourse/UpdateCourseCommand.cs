@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse
+namespace SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse
 {
     public class UpdateCourseCommand : IRequest<Unit> 
     {

@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
-using SistemaGestaoTcc.Infrastructure.Services;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
+using SistemaGestaoTCC.Infrastructure.Services;
 
-namespace SistemaGestaoTcc.Application.Commands.Projects.CreateProject
+namespace SistemaGestaoTCC.Application.Commands.Projects.CreateProject
 {
     public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, int>
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Create
+namespace SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create
 {
     public class CreateProjetoEntregaCommand : IRequest<int>
     {

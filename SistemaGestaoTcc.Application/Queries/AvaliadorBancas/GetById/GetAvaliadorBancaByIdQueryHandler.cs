@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.AvaliadorBancaVM;
-using SistemaGestaoTcc.Application.ViewModels.BacanVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.AvaliadorBancaVM;
+using SistemaGestaoTCC.Application.ViewModels.BacanVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetById
+namespace SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetById
 {
     public class GetAvaliadorBancaByIdQueryHandler : IRequestHandler<GetAvaliadorBancaByIdQuery, AvaliadorBancaDetalheViewModel>
     {

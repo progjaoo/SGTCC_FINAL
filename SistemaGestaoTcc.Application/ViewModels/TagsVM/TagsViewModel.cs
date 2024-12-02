@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Application.ViewModels.TagsVM
+﻿namespace SistemaGestaoTCC.Application.ViewModels.TagsVM
 {
     public class TagsViewModel
     {

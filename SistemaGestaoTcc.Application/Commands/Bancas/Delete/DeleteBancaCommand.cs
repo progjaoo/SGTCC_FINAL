@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Bancas.Delete
+namespace SistemaGestaoTCC.Application.Commands.Bancas.Delete
 {
     public class DeleteBancaCommand : IRequest<Unit>
     { 

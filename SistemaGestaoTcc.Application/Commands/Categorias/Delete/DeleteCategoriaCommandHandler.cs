@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.Categorias.Delete
+namespace SistemaGestaoTCC.Application.Commands.Categorias.Delete
 {
     public class DeleteCategoriaCommandHandler : IRequestHandler<DeleteCategoriaCommand, Unit>
     {

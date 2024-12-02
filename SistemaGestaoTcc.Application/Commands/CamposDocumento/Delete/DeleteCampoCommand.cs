@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.CamposDocumento.Delete
+namespace SistemaGestaoTCC.Application.Commands.CamposDocumento.Delete
 {
     public class DeleteCampoCommand : IRequest<bool>
     {

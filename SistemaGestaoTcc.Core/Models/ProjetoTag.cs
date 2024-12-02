@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SistemaGestaoTcc.Core.Models;
+namespace SistemaGestaoTCC.Core.Models;
 
 public partial class ProjetoTag
 {

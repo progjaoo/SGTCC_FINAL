@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.Bancas.Update
+namespace SistemaGestaoTCC.Application.Commands.Bancas.Update
 {
     public class UpdateBancaCommandHandler : IRequestHandler<UpdateBancaCommand, Unit>
     {

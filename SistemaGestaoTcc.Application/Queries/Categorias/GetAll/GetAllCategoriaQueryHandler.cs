@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.Identity.Client;
-using SistemaGestaoTcc.Application.ViewModels.CategoriaVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.CategoriaVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Categorias.GetAll
+namespace SistemaGestaoTCC.Application.Queries.Categorias.GetAll
 {
     public class GetAllCategoriaQueryHandler : IRequestHandler<GetAllCategoriaQuery, List<CategoriaViewModel>>
     {

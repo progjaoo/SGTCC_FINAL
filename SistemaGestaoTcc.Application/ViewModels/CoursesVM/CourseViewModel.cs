@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.ViewModels
+namespace SistemaGestaoTCC.Application.ViewModels
 {
     public class CourseViewModel
     {

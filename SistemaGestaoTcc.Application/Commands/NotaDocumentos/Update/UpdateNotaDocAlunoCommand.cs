@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Enums;
+using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.Commands.NotaDocumentos.Update
+namespace SistemaGestaoTCC.Application.Commands.NotaDocumentos.Update
 {
     public class UpdateNotaDocAlunoCommand : IRequest<Unit>
     {

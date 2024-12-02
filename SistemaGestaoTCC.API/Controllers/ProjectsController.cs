@@ -1,20 +1,20 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.Projects.CreateProject;
-using SistemaGestaoTcc.Application.Commands.Projects.DeleteProject;
-using SistemaGestaoTcc.Application.Commands.Projects.FinalizarProjetos;
-using SistemaGestaoTcc.Application.Commands.Projects.TornarPublicos;
-using SistemaGestaoTcc.Application.Commands.Projects.UpdateProject;
-using SistemaGestaoTcc.Application.Queries.Courses.GetAllCourse;
-using SistemaGestaoTcc.Application.Queries.Projects.GetAllProjectsByStatus;
-using SistemaGestaoTcc.Application.Queries.Projects.GetProjectById;
-using SistemaGestaoTcc.Application.Queries.Projects.GetProjects;
-using SistemaGestaoTcc.Application.Queries.Projects.GetProjectsByUser;
-using SistemaGestaoTcc.Application.Queries.Projects.GetProjectsPending;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.Commands.Projects.CreateProject;
+using SistemaGestaoTCC.Application.Commands.Projects.DeleteProject;
+using SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos;
+using SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos;
+using SistemaGestaoTCC.Application.Commands.Projects.UpdateProject;
+using SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse;
+using SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByStatus;
+using SistemaGestaoTCC.Application.Queries.Projects.GetProjectById;
+using SistemaGestaoTCC.Application.Queries.Projects.GetProjects;
+using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser;
+using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsPending;
+using SistemaGestaoTCC.Core.Interfaces;
 
 
-namespace SistemaGestaoTcc.API.Controllers
+namespace SistemaGestaoTCC.API.Controllers
 {
     [Route("api/projetos")]
     [ApiController]

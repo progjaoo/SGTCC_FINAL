@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Core.Models
+﻿namespace SistemaGestaoTCC.Core.Models
 {
     public partial class AtividadeComentario //FALTA IMPLEMENTAR AINDA
     {
@@ -8,7 +8,7 @@
             IdAtividade = idAtividade;
             Comentario = comentario;
 
-            CriadoEm = DateTime.UtcNow;
+            CriadoEm = DateTime.Now;
         }
 
         public int Id { get; set; }
@@ -26,7 +26,7 @@
             IdAtividade = idAtividade;
             Comentario = comentario;
 
-            EditadoEm = DateTime.UtcNow;
+            EditadoEm = DateTime.Now;
         }
     }
 }

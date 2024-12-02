@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Create
+namespace SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Create
 {
     public class CreateAvaliadorBancaCommand : IRequest<int>
     {

@@ -1,6 +1,6 @@
-﻿using SistemaGestaoTcc.Core.Models;
+﻿using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.ViewModels.ProjetoEntregaVM
+namespace SistemaGestaoTCC.Application.ViewModels.ProjetoEntregaVM
 {
     public class ProjetoEntregaViewModel
     {

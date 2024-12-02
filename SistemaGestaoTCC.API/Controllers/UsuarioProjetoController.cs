@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.UsuariosProjeto;
-using SistemaGestaoTcc.Application.Queries.UsuariosProjeto;
+using SistemaGestaoTCC.Application.Commands.UsuariosProjeto;
+using SistemaGestaoTCC.Application.Queries.UsuariosProjeto;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

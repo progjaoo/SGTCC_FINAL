@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.IdentityModel.Tokens;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Queries.Projects.GetProjectsPending
+namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsPending
 {
     public class GetAllProjectsPendingQueryHandler : IRequestHandler<GetProjectPendingQuery, List<ProjectViewModel>>
     {

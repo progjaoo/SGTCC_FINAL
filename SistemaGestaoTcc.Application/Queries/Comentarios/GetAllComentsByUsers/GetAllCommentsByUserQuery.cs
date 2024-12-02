@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Queries.Comentarios.GetAllComentsByProject
+namespace SistemaGestaoTCC.Application.Queries.Comentarios.GetAllComentsByProject
 {
     public class GetAllCommentsByUserQuery : IRequest<IEnumerable<ProjetoComentario>>
     {

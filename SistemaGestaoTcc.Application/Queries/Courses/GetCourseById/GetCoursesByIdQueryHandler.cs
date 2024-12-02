@@ -1,8 +1,8 @@
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Courses.GetCourseById
+namespace SistemaGestaoTCC.Application.Queries.Courses.GetCourseById
 {
     public class GetCoursesByIdQueryHandler : IRequestHandler<GetCoursesByIdQuery, CourseViewModel>
     {

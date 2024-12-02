@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Users.GetAllUserByRole
+namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUserByRole
 {
     public class GetAllUserByRoleQueryHandler : IRequestHandler<GetAllUserByRoleQuery, List<UserRoleViewModel>>
     {

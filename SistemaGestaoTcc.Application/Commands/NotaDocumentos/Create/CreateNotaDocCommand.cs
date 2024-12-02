@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Enums;
+using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.Commands.NotaDocumentos.Create
+namespace SistemaGestaoTCC.Application.Commands.NotaDocumentos.Create
 {
     public class CreateNotaDocCommand : IRequest<int>
     {

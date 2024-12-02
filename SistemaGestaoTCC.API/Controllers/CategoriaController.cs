@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.Categorias.Create;
-using SistemaGestaoTcc.Application.Commands.Categorias.Delete;
-using SistemaGestaoTcc.Application.Commands.Categorias.Update;
-using SistemaGestaoTcc.Application.Queries.Categorias.GetAll;
-using SistemaGestaoTcc.Application.Queries.Categorias.GetById;
+using SistemaGestaoTCC.Application.Commands.Categorias.Create;
+using SistemaGestaoTCC.Application.Commands.Categorias.Delete;
+using SistemaGestaoTCC.Application.Commands.Categorias.Update;
+using SistemaGestaoTCC.Application.Queries.Categorias.GetAll;
+using SistemaGestaoTCC.Application.Queries.Categorias.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

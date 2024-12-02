@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.Commands.Projects.TornarPublicos
+namespace SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos
 {
     public class TornarPublicoCommand : IRequest<Unit>
     {

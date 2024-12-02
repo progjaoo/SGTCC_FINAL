@@ -5,11 +5,11 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestaoTCC.API", "SistemaGestaoTCC.API\SistemaGestaoTCC.API.csproj", "{E0727327-0788-4F20-A38B-9B9FCF986D18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestaoTcc.Core", "SistemaGestaoTcc.Core\SistemaGestaoTcc.Core.csproj", "{9E3F1173-1DAE-4885-AFC8-3B7E54718C18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestaoTCC.Core", "SistemaGestaoTCC.Core\SistemaGestaoTCC.Core.csproj", "{9E3F1173-1DAE-4885-AFC8-3B7E54718C18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestaoTcc.Infrastructure", "SistemaGestaoTCC.Infrastructure\SistemaGestaoTcc.Infrastructure.csproj", "{CB0440BD-BAED-47CB-87B3-BFE2DD893811}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestaoTCC.Infrastructure", "SistemaGestaoTCC.Infrastructure\SistemaGestaoTCC.Infrastructure.csproj", "{CB0440BD-BAED-47CB-87B3-BFE2DD893811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestaoTcc.Application", "SistemaGestaoTcc.Application\SistemaGestaoTcc.Application.csproj", "{C5C35C53-C848-47D8-9245-4782B615D73A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestaoTCC.Application", "SistemaGestaoTCC.Application\SistemaGestaoTCC.Application.csproj", "{C5C35C53-C848-47D8-9245-4782B615D73A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

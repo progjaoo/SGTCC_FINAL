@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.ProjetoEntregaVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.ProjetoEntregaVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.ProjetoEntrega.GetById
+namespace SistemaGestaoTCC.Application.Queries.ProjetoEntrega.GetById
 {
     public class GetProjetoEntregaByIdQueryHandler : IRequestHandler<GetProjetoEntregaByIdQuery, ProjetoEntregaViewModel>
     {

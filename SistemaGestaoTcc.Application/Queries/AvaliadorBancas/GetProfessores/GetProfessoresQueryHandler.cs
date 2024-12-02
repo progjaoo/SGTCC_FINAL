@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetProfessores
+namespace SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetProfessores
 {
     public class GetProfessoresQueryHandler : IRequestHandler<GetProfessoresQuery, List<UserRoleViewModel>>
     {

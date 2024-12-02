@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Delete
+namespace SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Delete
 {
     public class DeleteProjetoAtividadeCommand : IRequest<Unit>
     {

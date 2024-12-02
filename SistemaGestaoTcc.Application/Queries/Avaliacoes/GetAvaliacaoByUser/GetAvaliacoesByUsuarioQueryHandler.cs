@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Application.ViewModels.AvaliacaoVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Application.ViewModels.AvaliacaoVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Avaliacoes.GetAvaliacaoByUser
+namespace SistemaGestaoTCC.Application.Queries.Avaliacoes.GetAvaliacaoByUser
 {
     public class GetAvaliacoesByUsuarioQueryHandler : IRequestHandler<GetAvaliacoesByUsuarioQuery, List<AvaliacaoDetailViewModel>>
     {

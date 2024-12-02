@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Comentarios.Delete
+namespace SistemaGestaoTCC.Application.Commands.Comentarios.Delete
 {
     public class DeleteCourseCommand : IRequest<Unit>
     {

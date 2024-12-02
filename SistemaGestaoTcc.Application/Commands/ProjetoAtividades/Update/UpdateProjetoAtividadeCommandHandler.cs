@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Update
+namespace SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update
 {
     public class UpdateProjetoAtividadeCommandHandler : IRequestHandler<UpdateProjetoAtividadeCommand, Unit>
     {

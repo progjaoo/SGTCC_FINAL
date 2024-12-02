@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Courses.CreateCourse
+namespace SistemaGestaoTCC.Application.Commands.Courses.CreateCourse
 {
     public class CreateCourseCommand : IRequest<int>
     {

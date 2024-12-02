@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.ProjetoAtividadeVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.ProjetoAtividades.GetById
+namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById
 {
     public class GetAtividadeByIdQueryHandler : IRequestHandler<GetAtividadeByIdQuery, ProjetoAtividadeDetalheViewModel>
     {

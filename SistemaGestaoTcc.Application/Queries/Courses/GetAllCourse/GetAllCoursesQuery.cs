@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
+using SistemaGestaoTCC.Application.ViewModels;
 
-namespace SistemaGestaoTcc.Application.Queries.Courses.GetAllCourse
+namespace SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse
 {
     public class GetAllCoursesQuery : IRequest<List<CourseViewModel>>
     {

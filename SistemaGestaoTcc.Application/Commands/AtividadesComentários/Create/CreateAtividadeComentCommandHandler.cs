@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.AtividadesComentários.Create
+namespace SistemaGestaoTCC.Application.Commands.AtividadesComentários.Create
 {
     public class CreateAtividadeComentCommandHandler : IRequestHandler<CreateAtividadeComentCommand, int>
     {

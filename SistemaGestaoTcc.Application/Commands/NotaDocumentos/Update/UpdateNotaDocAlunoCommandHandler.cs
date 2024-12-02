@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.NotaDocumentos.Update
+namespace SistemaGestaoTCC.Application.Commands.NotaDocumentos.Update
 {
     public class UpdateNotaDocAlunoCommandHandler : IRequestHandler<UpdateNotaDocAlunoCommand, Unit>
     {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Enums;
+using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.Commands.Bancas.Create
+namespace SistemaGestaoTCC.Application.Commands.Bancas.Create
 {
     public class CreateBancaCommand : IRequest<int>
     {

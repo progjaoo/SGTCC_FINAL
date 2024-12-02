@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Create
+namespace SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Create
 {
     public class CreateNotaFinalAlunoCommandHandler : IRequestHandler<CreateNotaFinalAlunoCommand, int>
     {

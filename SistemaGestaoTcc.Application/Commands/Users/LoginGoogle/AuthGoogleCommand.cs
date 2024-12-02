@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Users.LoginGoogle
+namespace SistemaGestaoTCC.Application.Commands.Users.LoginGoogle
 {
     public class AuthGoogleCommand : IRequest<string>
     {

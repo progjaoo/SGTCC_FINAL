@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Users.GetUser
+namespace SistemaGestaoTCC.Application.Queries.Users.GetUser
 {
     public class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserViewModel>
     {
@@ -22,7 +22,7 @@ namespace SistemaGestaoTcc.Application.Queries.Users.GetUser
                 return null;
             }
 
-            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCursoNavigation.Nome, user.Papel);
+            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, user.Papel);
         }
     }
 }

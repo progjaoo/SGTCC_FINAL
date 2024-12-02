@@ -2,10 +2,10 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Infrastructure.Repositories
+namespace SistemaGestaoTCC.Infrastructure.Repositories
 {
     public class ProjectRepository : IProjectRepository
     {
@@ -87,7 +87,7 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
             if (projeto != null)
             {
                 projeto.Finish();
-                projeto.DataFim = DateTime.UtcNow;
+                projeto.DataFim = DateTime.Now;
                 await _dbcontext.SaveChangesAsync();
             }
         }

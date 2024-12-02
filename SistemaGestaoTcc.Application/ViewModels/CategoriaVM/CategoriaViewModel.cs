@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Application.ViewModels.CategoriaVM
+﻿namespace SistemaGestaoTCC.Application.ViewModels.CategoriaVM
 {
     public class CategoriaViewModel
     {

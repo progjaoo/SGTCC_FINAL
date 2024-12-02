@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.ComentariosVM;
+using SistemaGestaoTCC.Application.ViewModels.ComentariosVM;
 
-namespace SistemaGestaoTcc.Application.Queries.Comentarios.GetById
+namespace SistemaGestaoTCC.Application.Queries.Comentarios.GetById
 {
     public class GetComentByIdQuery : IRequest<ComentarioViewModel>
     {

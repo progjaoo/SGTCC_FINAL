@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Create
+namespace SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Create
 {
     public class CreateProjetoAtividadeCommand : IRequest<int>
     {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.ProjetoAtividadeVM;
+using SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM;
 
-namespace SistemaGestaoTcc.Application.Queries.ProjetoAtividades.GetAllAsync
+namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAllAsync
 {
     public class GetAllAtividadesQuery : IRequest<List<ProjetoAtividadeViewModel>> { }
 }

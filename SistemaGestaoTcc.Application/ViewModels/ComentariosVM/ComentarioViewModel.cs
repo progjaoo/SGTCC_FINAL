@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Application.ViewModels.ComentariosVM
+﻿namespace SistemaGestaoTCC.Application.ViewModels.ComentariosVM
 {
     public class ComentarioViewModel
     {

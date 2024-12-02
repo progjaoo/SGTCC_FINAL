@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.ProjetoAtividadeVM;
+using SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM;
 
-namespace SistemaGestaoTcc.Application.Queries.ProjetoAtividades.GetById
+namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById
 {
     public class GetAtividadeByIdQuery : IRequest<ProjetoAtividadeDetalheViewModel>
     {

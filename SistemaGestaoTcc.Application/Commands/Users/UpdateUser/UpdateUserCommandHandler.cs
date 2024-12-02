@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.Users.UpdateUser
+namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUser
 {
     public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Unit>
     {
@@ -18,9 +18,9 @@ namespace SistemaGestaoTcc.Application.Commands.Users.UpdateUser
         {
             var user = await _userRepository.GetById(request.Id);
 
-            var passwordHash = _authService.ComputeSha256Hash(request.Senha);
+            //var passwordHash = _authService.ComputeSha256Hash(request.Senha);
 
-            user.Update(request.Nome, request.Email, passwordHash);
+            user.Update(request.Nome, request.Email, request.IdCurso);
 
             await _userRepository.SaveChangesAsync();
 

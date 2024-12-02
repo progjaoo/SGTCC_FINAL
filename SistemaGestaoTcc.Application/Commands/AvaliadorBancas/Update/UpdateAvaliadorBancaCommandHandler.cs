@@ -1,12 +1,12 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Update
+namespace SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Update
 {
     public class UpdateAvaliadorBancaCommandHandler : IRequestHandler<UpdateAvaliadorBancaCommand, Unit>
     {

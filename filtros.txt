@@ -1,0 +1,14 @@
+Por ano
+
+Filtros
+Por nome de usuario
+Por nome de projeto
+Por tags
+
+Ordenar Por
+Mais recentes
+Mais antigos
+mais avaliados
+menos avaliados
+
+func (tipo, filtro, ordenacao, ano?)
