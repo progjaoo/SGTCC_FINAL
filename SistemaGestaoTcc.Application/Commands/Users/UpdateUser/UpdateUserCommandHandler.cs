@@ -20,7 +20,11 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUser
 
             //var passwordHash = _authService.ComputeSha256Hash(request.Senha);
 
+<<<<<<< HEAD
             user.Update(request.Nome, request.Email, request.IdCurso);
+=======
+            user.Update(request.Nome, request.Email);
+>>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
 
             await _userRepository.SaveChangesAsync();
 

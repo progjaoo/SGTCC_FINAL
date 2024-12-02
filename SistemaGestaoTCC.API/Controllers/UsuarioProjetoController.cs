@@ -1,7 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
 using SistemaGestaoTCC.Application.Commands.UsuariosProjeto;
 using SistemaGestaoTCC.Application.Queries.UsuariosProjeto;
+=======
+using SistemaGestaoTcc.Application.Commands.UsuariosProjeto;
+using SistemaGestaoTcc.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto;
+using SistemaGestaoTcc.Application.Queries.UsuariosProjeto;
+>>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -33,6 +39,14 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
 
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
+        }
+
+        [HttpDelete("RemoverUsuarioDeProjeto")]
+        public async Task<IActionResult> RemoverUsuarioProjeto(RemoveUserCommand command)
+        {
+            await _mediator.Send(command);  
+            
+            return NoContent();
         }
     }
 }

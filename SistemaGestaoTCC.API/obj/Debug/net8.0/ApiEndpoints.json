@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
     "Method": "Put",
     "RelativePath": "{id}/atualizarComentario",
@@ -37,6 +38,8 @@
     "ReturnTypes": []
   },
   {
+=======
+>>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
     "ContainingType": "SistemaGestaoTCC.API.Controllers.AtividadeComentarioController",
     "Method": "GetAllAsync",
     "RelativePath": "api/atividadeComentarios",
@@ -579,7 +582,122 @@
     "ReturnTypes": []
   },
   {
+<<<<<<< HEAD
     "ContainingType": "SistemaGestaoTCC.API.Controllers.CoursesController",
+=======
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "Put",
+    "RelativePath": "api/comentariosprojeto/{id}/atualizarComentario",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse.UpdateCommentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "Delete",
+    "RelativePath": "api/comentariosprojeto/{id}/deletarComentario",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetCommentById",
+    "RelativePath": "api/comentariosprojeto/buscarComentarios{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/comentariosprojeto/buscarTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllCommentsByProject",
+    "RelativePath": "api/comentariosprojeto/comentariosPorProjeto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projetoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllCommentsByUser",
+    "RelativePath": "api/comentariosprojeto/comentariosPorUsuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "PostComment",
+    "RelativePath": "api/comentariosprojeto/criarComentario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Comentarios.Create.CreateCommentsCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTcc.API.Controllers.CoursesController",
+>>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
     "Method": "GetAllAsync",
     "RelativePath": "api/cursos",
     "HttpMethod": "GET",
@@ -1307,74 +1425,20 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "GetCommentById",
-    "RelativePath": "buscarComentarios{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "GetAllAsync",
-    "RelativePath": "buscarTodos",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "GetAllCommentsByProject",
-    "RelativePath": "comentariosPorProjeto",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "projetoId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "GetAllCommentsByUser",
-    "RelativePath": "comentariosPorUsuario",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "PostComment",
-    "RelativePath": "criarComentario",
-    "HttpMethod": "POST",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsuarioProjetoController",
+    "Method": "RemoverUsuarioProjeto",
+    "RelativePath": "api/usuariosProjeto/RemoverUsuarioDeProjeto",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "command",
+<<<<<<< HEAD
         "Type": "SistemaGestaoTCC.Application.Commands.Comentarios.Create.CreateCommentsCommand",
+=======
+        "Type": "SistemaGestaoTcc.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto.RemoveUserCommand",
+>>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
         "IsRequired": true
       }
     ],

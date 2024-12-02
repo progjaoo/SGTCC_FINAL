@@ -37,6 +37,10 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             return await _dbcontext.UsuarioProjeto.SingleOrDefaultAsync(up => up.Id == id);
             
         }
+        public async Task<UsuarioProjeto> GetByUserAndProjectAsync(int userId, int projectId)
+        {
+            return await _dbcontext.UsuarioProjeto.SingleOrDefaultAsync(up => up.IdUsuario == userId && up.IdProjeto == projectId);
+        }
         public async Task AddASync(UsuarioProjeto usuarioProjeto)
         {
             await _dbcontext.UsuarioProjeto.AddAsync(usuarioProjeto);
@@ -46,18 +50,10 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             await _dbcontext.SaveChangesAsync();
         }
-        public async Task RemoverAsync(UsuarioProjeto usuarioProjeto)
+        public async Task DeleteUserProj(UsuarioProjeto usuarioProjeto)
         {
-            _dbcontext.Remove(usuarioProjeto);
-        }
-        public async Task DeleteUserProj(int id)
-        {
-            var obj = await _dbcontext.UsuarioProjeto.SingleOrDefaultAsync(p => p.Id == id);
-
-            if (obj == null)
-                throw new Exception("O usuario do Projeto nao existe");
-            await RemoverAsync(obj);
-
-        }
+            _dbcontext.UsuarioProjeto.Remove(usuarioProjeto);
+            await _dbcontext.SaveChangesAsync();
+        } 
     }
 }
