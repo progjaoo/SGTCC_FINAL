@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.AvaliadorBancaVM;
+using SistemaGestaoTCC.Application.ViewModels.AvaliadorBancaVM;
 
-namespace SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetAll
+namespace SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetAll
 {
     public class GetAllAvaliadorBancaQuery : IRequest<List<AvaliadorBancaViewModel>>
     {

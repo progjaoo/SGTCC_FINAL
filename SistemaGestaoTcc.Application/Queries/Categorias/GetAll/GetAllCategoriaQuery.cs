@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.CategoriaVM;
+using SistemaGestaoTCC.Application.ViewModels.CategoriaVM;
 
-namespace SistemaGestaoTcc.Application.Queries.Categorias.GetAll
+namespace SistemaGestaoTCC.Application.Queries.Categorias.GetAll
 {
     public class GetAllCategoriaQuery : IRequest<List<CategoriaViewModel>> { }
 }

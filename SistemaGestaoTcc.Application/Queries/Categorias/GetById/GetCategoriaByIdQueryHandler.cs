@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.CategoriaVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.CategoriaVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Categorias.GetById
+namespace SistemaGestaoTCC.Application.Queries.Categorias.GetById
 {
     public class GetCategoriaByIdQueryHandler : IRequestHandler<GetCategoriaByIdQuery, CategoriaViewModel>
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Update
+namespace SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Update
 {
     public class UpdateNotaFinalCommand : IRequest<Unit>
     {

@@ -2,10 +2,10 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Infrastructure.Repositories
+namespace SistemaGestaoTCC.Infrastructure.Repositories
 {
     public class ProjectRepository : IProjectRepository
     {

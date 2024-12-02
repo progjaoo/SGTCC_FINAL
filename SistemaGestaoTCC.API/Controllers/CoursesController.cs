@@ -1,14 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.Comentarios.Delete;
-using SistemaGestaoTcc.Application.Commands.Courses.CreateCourse;
-using SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse;
-using SistemaGestaoTcc.Application.Queries.Courses.GetAllCourse;
-using SistemaGestaoTcc.Application.Queries.Courses.GetCourseById;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.Commands.Comentarios.Delete;
+using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
+using SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse;
+using SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse;
+using SistemaGestaoTCC.Application.Queries.Courses.GetCourseById;
+using SistemaGestaoTCC.Core.Interfaces;
 
 
-namespace SistemaGestaoTcc.API.Controllers
+namespace SistemaGestaoTCC.API.Controllers
 {
     [Route("api/cursos")]
     [ApiController]

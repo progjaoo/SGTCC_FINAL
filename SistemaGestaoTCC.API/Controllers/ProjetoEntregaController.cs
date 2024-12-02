@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Create;
-using SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Delete;
-using SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Update;
-using SistemaGestaoTcc.Application.Queries.ProjetoEntrega.GetAll;
-using SistemaGestaoTcc.Application.Queries.ProjetoEntrega.GetById;
-using SistemaGestaoTcc.Application.Queries.ProjetoEntrega.GetEntregaByProject;
+using SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create;
+using SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Delete;
+using SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Update;
+using SistemaGestaoTCC.Application.Queries.ProjetoEntrega.GetAll;
+using SistemaGestaoTCC.Application.Queries.ProjetoEntrega.GetById;
+using SistemaGestaoTCC.Application.Queries.ProjetoEntrega.GetEntregaByProject;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Update
+namespace SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Update
 {
     public class UpdateAvaliadorBancaCommand : IRequest<Unit>
     {

@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Queries.Projects.GetAllProjectsByStatus
+namespace SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByStatus
 {
     public class GetAllProjectsNotCancelCommandHandler : IRequestHandler<GetAllProjectsNotCancelCommand, List<ProjectViewModel>>
     {

@@ -1,6 +1,6 @@
-﻿using SistemaGestaoTcc.Core.Enums;
+﻿using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.ViewModels.AvaliacaoVM
+namespace SistemaGestaoTCC.Application.ViewModels.AvaliacaoVM
 {
     public class AvaliacaoDetailViewModel
     {

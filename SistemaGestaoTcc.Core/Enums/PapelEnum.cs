@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Core.Enums
+﻿namespace SistemaGestaoTCC.Core.Enums
 {
     public enum PapelEnum
     {

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.Commands.Projects.DeleteProject;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.Commands.Projects.DeleteProject;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.Comentarios.Delete
+namespace SistemaGestaoTCC.Application.Commands.Comentarios.Delete
 {
     public class DeleteCourseCommandHandler : IRequestHandler<DeleteCourseCommand, Unit>
     {

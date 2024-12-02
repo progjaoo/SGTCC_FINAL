@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Categorias.Create
+namespace SistemaGestaoTCC.Application.Commands.Categorias.Create
 {
     public class CreateCategoriaCommand : IRequest<int>
     {

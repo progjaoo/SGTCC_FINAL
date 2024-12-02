@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Delete
+namespace SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Delete
 {
     public class DeleteProjetoEntregaCommandHandler : IRequestHandler<DeleteProjetoEntregaCommand, Unit>
     {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.AtividadesComentarioVM;
+using SistemaGestaoTCC.Application.ViewModels.AtividadesComentarioVM;
 
-namespace SistemaGestaoTcc.Application.Queries.AtividadesComentários.GetById
+namespace SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetById
 {
     public class GetAtividadeComentarioByIdQuery : IRequest<AtividadeComentarioViewModel>
     {

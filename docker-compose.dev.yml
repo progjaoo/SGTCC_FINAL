@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  banco:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=YourStrong!Passw0rd
+    ports:
+      - "1434:1433"
+    volumes:
+      - banco:/var/opt/mssql
+      - ./DB/:/docker-entrypoint-initdb.d/
+    networks:
+      - sgtcc
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'SELECT 1' | /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P YourStrong!Passw0rd -d master -N -C"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  back:
+    build:
+      context: .
+    ports:
+      - "5000:8080"
+    env_file:
+      - stack.env
+    depends_on:
+      - banco
+    networks:
+      - sgtcc
+    
+  # front:
+  #   image: node:18
+  #   working_dir: /app
+  #   volumes:
+  #     - ./Front_End/:/app
+  #   ports:
+  #     - "5174:5174"
+  #   env_file:
+  #     - stack.env
+  #   command: >
+  #     sh -c "npm install && npm run dev"
+
+volumes:
+  banco:
+networks:
+  sgtcc:

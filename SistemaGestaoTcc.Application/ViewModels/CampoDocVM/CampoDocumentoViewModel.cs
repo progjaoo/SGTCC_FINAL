@@ -1,6 +1,6 @@
-﻿using SistemaGestaoTcc.Core.Models;
+﻿using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.ViewModels.CampoDocVM
+namespace SistemaGestaoTCC.Application.ViewModels.CampoDocVM
 {
     public class CampoDocumentoViewModel 
     {

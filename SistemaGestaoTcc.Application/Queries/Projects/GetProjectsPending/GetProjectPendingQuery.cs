@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
+using SistemaGestaoTCC.Application.ViewModels;
 
-namespace SistemaGestaoTcc.Application.Queries.Projects.GetProjectsPending
+namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsPending
 {
     public class GetProjectPendingQuery : IRequest<List<ProjectViewModel>>
     {

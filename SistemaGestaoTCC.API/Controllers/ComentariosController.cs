@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.Comentarios.Create;
-using SistemaGestaoTcc.Application.Commands.Comentarios.Delete;
-using SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse;
-using SistemaGestaoTcc.Application.Queries.Comentarios.GetAll;
-using SistemaGestaoTcc.Application.Queries.Comentarios.GetAllComentsByProject;
-using SistemaGestaoTcc.Application.Queries.Comentarios.GetById;
+using SistemaGestaoTCC.Application.Commands.Comentarios.Create;
+using SistemaGestaoTCC.Application.Commands.Comentarios.Delete;
+using SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse;
+using SistemaGestaoTCC.Application.Queries.Comentarios.GetAll;
+using SistemaGestaoTCC.Application.Queries.Comentarios.GetAllComentsByProject;
+using SistemaGestaoTCC.Application.Queries.Comentarios.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

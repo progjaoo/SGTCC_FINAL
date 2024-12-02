@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Projects.DeleteProject
+namespace SistemaGestaoTCC.Application.Commands.Projects.DeleteProject
 {
     public class DeleteProjectCommand : IRequest<Unit>
     {

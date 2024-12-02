@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.CamposDocumento.Update
+namespace SistemaGestaoTCC.Application.Commands.CamposDocumento.Update
 {
     public class UpdateCampoCommand : IRequest<Unit>
     {

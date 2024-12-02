@@ -1,7 +1,7 @@
-﻿using SistemaGestaoTcc.Core.Enums;
-using SistemaGestaoTcc.Core.Models;
+﻿using SistemaGestaoTCC.Core.Enums;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Core.Interfaces
+namespace SistemaGestaoTCC.Core.Interfaces
 {
     public interface IUserRepository
     {

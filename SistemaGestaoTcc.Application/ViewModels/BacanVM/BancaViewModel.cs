@@ -1,11 +1,11 @@
-﻿using SistemaGestaoTcc.Core.Enums;
+﻿using SistemaGestaoTCC.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.ViewModels.BacanVM
+namespace SistemaGestaoTCC.Application.ViewModels.BacanVM
 {
     public class BancaViewModel
     {

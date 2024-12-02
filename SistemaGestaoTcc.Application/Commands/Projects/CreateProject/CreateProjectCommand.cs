@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.TagsVM;
-using SistemaGestaoTcc.Core.Enums;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Application.ViewModels.TagsVM;
+using SistemaGestaoTCC.Core.Enums;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.Projects.CreateProject
+namespace SistemaGestaoTCC.Application.Commands.Projects.CreateProject
 {
     public class CreateProjectCommand : IRequest<int>
     {

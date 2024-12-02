@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.NotaDocumentos.Delete
+namespace SistemaGestaoTCC.Application.Commands.NotaDocumentos.Delete
 {
     public class DeleteNotaDocAlunoCommand : IRequest<Unit>
     {

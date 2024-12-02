@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Comentarios.Create
+namespace SistemaGestaoTCC.Application.Commands.Comentarios.Create
 {
     public class CreateCommentsCommand : IRequest<int>
     {

@@ -1,13 +1,13 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Create
+namespace SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Create
 {
     public class CreateAvaliadorBancaCommandHandler : IRequestHandler<CreateAvaliadorBancaCommand, int>
     {

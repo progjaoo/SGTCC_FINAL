@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Application.ViewModels.AvaliadorBancaVM
+﻿namespace SistemaGestaoTCC.Application.ViewModels.AvaliadorBancaVM
 {
     public class AvaliadorBancaViewModel 
     {

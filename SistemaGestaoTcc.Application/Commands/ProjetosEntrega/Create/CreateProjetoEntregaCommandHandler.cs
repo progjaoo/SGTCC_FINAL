@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Create
+namespace SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create
 {
     public class CreateProjetoEntregaCommandHandler : IRequestHandler<CreateProjetoEntregaCommand, int>
     {

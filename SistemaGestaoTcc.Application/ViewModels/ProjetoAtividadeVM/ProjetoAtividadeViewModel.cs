@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Application.ViewModels.ProjetoAtividadeVM
+﻿namespace SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM
 {
     public class ProjetoAtividadeViewModel
     {

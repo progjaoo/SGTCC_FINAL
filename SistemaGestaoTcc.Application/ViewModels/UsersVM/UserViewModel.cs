@@ -1,12 +1,12 @@
-﻿using SistemaGestaoTcc.Core.Enums;
-using SistemaGestaoTcc.Core.Models;
+﻿using SistemaGestaoTCC.Core.Enums;
+using SistemaGestaoTCC.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.ViewModels
+namespace SistemaGestaoTCC.Application.ViewModels
 {
     public class UserViewModel
     {
@@ -24,7 +24,7 @@ namespace SistemaGestaoTcc.Application.ViewModels
             Email = email;
             IdCurso = idCurso;
         }
-        public UserViewModel(int id, string nome, string email, string idCurso, PapelEnum papel)
+        /*public UserViewModel(int id, string nome, string email, string idCurso, PapelEnum papel)
         {
             Id = id;
             Nome = nome;
@@ -32,6 +32,7 @@ namespace SistemaGestaoTcc.Application.ViewModels
             NomeCurso = idCurso;
             Papel = papel;
         }
+        */
         public int? Id { get; set; }
         public string? Imagem { get; set; }
         public string? Nome { get; set; }

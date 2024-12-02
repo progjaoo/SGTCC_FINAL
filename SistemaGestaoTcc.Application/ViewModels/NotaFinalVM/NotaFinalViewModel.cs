@@ -1,6 +1,6 @@
-﻿using SistemaGestaoTcc.Core.Models;
+﻿using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.ViewModels.NotaFinalVM
+namespace SistemaGestaoTCC.Application.ViewModels.NotaFinalVM
 {
     public class NotaFinalViewModel
     {

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.BacanVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.BacanVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Bancas.GetAll
+namespace SistemaGestaoTCC.Application.Queries.Bancas.GetAll
 {
     public class GetAllBancasQueryHandler : IRequestHandler<GetAllBancasQuery, List<BancaViewModel>>
     {

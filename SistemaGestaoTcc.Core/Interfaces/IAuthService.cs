@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Core.Interfaces
+﻿namespace SistemaGestaoTCC.Core.Interfaces
 {
     public interface IAuthService
     {

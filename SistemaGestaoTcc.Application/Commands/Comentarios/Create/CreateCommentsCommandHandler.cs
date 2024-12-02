@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 using System.Runtime.CompilerServices;
 
-namespace SistemaGestaoTcc.Application.Commands.Comentarios.Create
+namespace SistemaGestaoTCC.Application.Commands.Comentarios.Create
 {
     public class CreateCommentsCommandHandler : IRequestHandler<CreateCommentsCommand, int>
     {

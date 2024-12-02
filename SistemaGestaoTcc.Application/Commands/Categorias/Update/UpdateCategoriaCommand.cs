@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Categorias.Update
+namespace SistemaGestaoTCC.Application.Commands.Categorias.Update
 {
     public class UpdateCategoriaCommand : IRequest<Unit>
     {

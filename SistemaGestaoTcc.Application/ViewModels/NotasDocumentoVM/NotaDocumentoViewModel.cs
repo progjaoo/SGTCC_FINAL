@@ -1,6 +1,6 @@
-﻿using SistemaGestaoTcc.Core.Enums;
+﻿using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.ViewModels.NotasDocumentoVM
+namespace SistemaGestaoTCC.Application.ViewModels.NotasDocumentoVM
 {
     public class NotaDocumentoViewModel
     {

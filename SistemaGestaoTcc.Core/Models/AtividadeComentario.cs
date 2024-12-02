@@ -1,4 +1,4 @@
-﻿namespace SistemaGestaoTcc.Core.Models
+﻿namespace SistemaGestaoTCC.Core.Models
 {
     public partial class AtividadeComentario //FALTA IMPLEMENTAR AINDA
     {

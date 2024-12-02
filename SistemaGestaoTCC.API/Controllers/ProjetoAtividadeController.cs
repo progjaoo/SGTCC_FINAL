@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Create;
-using SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Delete;
-using SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Update;
-using SistemaGestaoTcc.Application.Queries.ProjetoAtividades.GetAllAsync;
-using SistemaGestaoTcc.Application.Queries.ProjetoAtividades.GetById;
+using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Create;
+using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Delete;
+using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update;
+using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAllAsync;
+using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

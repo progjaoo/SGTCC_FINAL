@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Update
+namespace SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update
 {
     public class UpdateProjetoAtividadeCommand : IRequest<Unit>
     {

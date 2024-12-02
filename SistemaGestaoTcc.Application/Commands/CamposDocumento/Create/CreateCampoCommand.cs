@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SistemaGestaoTcc.Application.Commands.CamposDocumento.Create
+namespace SistemaGestaoTCC.Application.Commands.CamposDocumento.Create
 {
     public class CreateCampoCommand : IRequest<int>
     {

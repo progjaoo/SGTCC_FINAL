@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.Users.LoginUser
+namespace SistemaGestaoTCC.Application.Commands.Users.LoginUser
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUserViewModel>
     {

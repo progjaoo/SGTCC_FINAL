@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Users.DeleteUser
+namespace SistemaGestaoTCC.Application.Commands.Users.DeleteUser
 {
     public class DeleteUserCommand : IRequest<Unit>
     {

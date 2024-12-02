@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Projects.UpdateProject
+namespace SistemaGestaoTCC.Application.Commands.Projects.UpdateProject
 {
     public class UpdateProjectCommand : IRequest<Unit>
     {

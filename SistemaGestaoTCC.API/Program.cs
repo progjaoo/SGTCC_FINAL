@@ -3,13 +3,14 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using SistemaGestaoTcc.Application.Commands.Courses.CreateCourse;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
-using SistemaGestaoTcc.Infrastructure.Authentication;
-using SistemaGestaoTcc.Infrastructure.Repositories;
-using SistemaGestaoTcc.Infrastructure.Services;
+using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
+using SistemaGestaoTCC.Infrastructure.Authentication;
+using SistemaGestaoTCC.Infrastructure.Repositories;
+using SistemaGestaoTCC.Infrastructure.Services;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -38,6 +39,7 @@ builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 {
     googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
     googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+
     googleOptions.CallbackPath = new PathString("/signin-google");
 });
 
@@ -62,7 +64,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SistemaGestaoTcc.API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SistemaGestaoTCC.API", Version = "v1" });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -92,7 +94,7 @@ builder.Services.AddSwaggerGen(c =>
 #endregion
 
 
-#region INJEÇÃO DE DEPENDENCIA
+#region INJEï¿½ï¿½O DE DEPENDENCIA
 //mediator injecao de dependencia
 builder.Services.AddMediatR(typeof(CreateCourseCommand));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

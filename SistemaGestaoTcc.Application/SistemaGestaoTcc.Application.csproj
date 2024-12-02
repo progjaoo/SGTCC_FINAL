@@ -27,8 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SistemaGestaoTcc.Core\SistemaGestaoTcc.Core.csproj" />
-    <ProjectReference Include="..\SistemaGestaoTCC.Infrastructure\SistemaGestaoTcc.Infrastructure.csproj" />
+    <ProjectReference Include="..\SistemaGestaoTCC.Core\SistemaGestaoTCC.Core.csproj" />
+    <ProjectReference Include="..\SistemaGestaoTCC.Infrastructure\SistemaGestaoTCC.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

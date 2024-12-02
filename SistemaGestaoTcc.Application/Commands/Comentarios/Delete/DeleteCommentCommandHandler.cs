@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.Commands.Projects.DeleteProject;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Application.Commands.Projects.DeleteProject;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.Comentarios.Delete
+namespace SistemaGestaoTCC.Application.Commands.Comentarios.Delete
 {
     public class DeleteCommentCommandHandler : IRequestHandler<DeleteCommentCommand, Unit>
     {

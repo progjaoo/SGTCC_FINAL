@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.AvaliacaoVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.AvaliacaoVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Avaliacoes.GetById
+namespace SistemaGestaoTCC.Application.Queries.Avaliacoes.GetById
 {
     public class GetAvaliacaoByIdQueryHandler : IRequestHandler<GetAvaliacaoByIdQuery, AvaliacaoDetailViewModel>
     {

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.Users.CreateUser
+namespace SistemaGestaoTCC.Application.Commands.Users.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int>
     {

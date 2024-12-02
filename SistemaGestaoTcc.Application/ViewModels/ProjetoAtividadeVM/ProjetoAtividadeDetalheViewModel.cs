@@ -1,6 +1,6 @@
-﻿using SistemaGestaoTcc.Core.Enums;
+﻿using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.ViewModels.ProjetoAtividadeVM
+namespace SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM
 {
     public class ProjetoAtividadeDetalheViewModel
     {

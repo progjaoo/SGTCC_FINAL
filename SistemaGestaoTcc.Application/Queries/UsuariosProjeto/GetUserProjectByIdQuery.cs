@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.UsersVM;
+using SistemaGestaoTCC.Application.ViewModels.UsersVM;
 
-namespace SistemaGestaoTcc.Application.Queries.UsuariosProjeto
+namespace SistemaGestaoTCC.Application.Queries.UsuariosProjeto
 {
     public class GetUserProjectByIdQuery : IRequest<UserProjectViewModel>
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Delete
+namespace SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Delete
 {
     public class DeleteNotaFinalCommand : IRequest<Unit>
     {
