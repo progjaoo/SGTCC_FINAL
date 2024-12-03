@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SistemaGestaoTcc.Core.Models;
+namespace SistemaGestaoTCC.Core.Models;
 
 public partial class NotaFinalAluno
 {
@@ -13,7 +13,7 @@ public partial class NotaFinalAluno
         IdAluno = idAluno;
         Nota = nota;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
 
     public int Id { get; set; }

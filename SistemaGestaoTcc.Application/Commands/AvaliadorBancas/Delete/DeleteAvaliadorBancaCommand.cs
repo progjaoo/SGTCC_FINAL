@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Delete
+namespace SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Delete
 {
     public class DeleteAvaliadorBancaCommand : IRequest<Unit>
     {

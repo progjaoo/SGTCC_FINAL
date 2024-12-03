@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse
+namespace SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse
 {
     public class UpdateCommentCommand : IRequest<Unit> 
     {

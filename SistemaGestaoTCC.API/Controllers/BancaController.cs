@@ -1,14 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.Bancas.Create;
-using SistemaGestaoTcc.Application.Commands.Bancas.Delete;
-using SistemaGestaoTcc.Application.Commands.Bancas.Update;
-using SistemaGestaoTcc.Application.Commands.Courses.CreateCourse;
-using SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse;
-using SistemaGestaoTcc.Application.Queries.Bancas.GetAll;
-using SistemaGestaoTcc.Application.Queries.Bancas.GetById;
-using SistemaGestaoTcc.Application.Queries.Courses.GetAllCourse;
-using SistemaGestaoTcc.Application.Queries.Courses.GetCourseById;
+using SistemaGestaoTCC.Application.Commands.Bancas.Create;
+using SistemaGestaoTCC.Application.Commands.Bancas.Delete;
+using SistemaGestaoTCC.Application.Commands.Bancas.Update;
+using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
+using SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse;
+using SistemaGestaoTCC.Application.Queries.Bancas.GetAll;
+using SistemaGestaoTCC.Application.Queries.Bancas.GetById;
+using SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse;
+using SistemaGestaoTCC.Application.Queries.Courses.GetCourseById;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 

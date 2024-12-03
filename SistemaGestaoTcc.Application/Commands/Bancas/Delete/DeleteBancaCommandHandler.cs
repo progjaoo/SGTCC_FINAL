@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.Bancas.Delete
+namespace SistemaGestaoTCC.Application.Commands.Bancas.Delete
 {
     public class DeleteBancaCommandHandler : IRequestHandler<DeleteBancaCommand, Unit>
     {

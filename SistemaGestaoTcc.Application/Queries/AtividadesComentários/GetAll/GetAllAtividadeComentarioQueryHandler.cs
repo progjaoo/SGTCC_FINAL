@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.AtividadesComentarioVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.AtividadesComentarioVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.AtividadesComentários.GetAll
+namespace SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetAll
 {
     public class GetAllAtividadeComentarioQueryHandler : IRequestHandler<GetAllAtividadeComentarioQuery, List<AtividadeComentarioViewModel>>
     {

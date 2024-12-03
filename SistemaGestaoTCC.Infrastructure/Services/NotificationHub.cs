@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
 
-namespace SistemaGestaoTcc.Infrastructure.Services
+namespace SistemaGestaoTCC.Infrastructure.Services
 {
     public class NotificationHub : Hub
     {

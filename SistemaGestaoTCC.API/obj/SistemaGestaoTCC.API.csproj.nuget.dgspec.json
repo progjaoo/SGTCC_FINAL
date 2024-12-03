@@ -28,14 +28,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj": {
-                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Application\\SistemaGestaoTCC.Application.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Application\\SistemaGestaoTCC.Application.csproj"
               },
-              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
-                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj"
               },
-              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTCC.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTCC.Infrastructure.csproj"
               }
             }
           }
@@ -126,14 +126,14 @@
         }
       }
     },
-    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj": {
+    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Application\\SistemaGestaoTCC.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj",
-        "projectName": "SistemaGestaoTcc.Application",
-        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj",
+        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Application\\SistemaGestaoTCC.Application.csproj",
+        "projectName": "SistemaGestaoTCC.Application",
+        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Application\\SistemaGestaoTCC.Application.csproj",
         "packagesPath": "C:\\Users\\gilbe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\obj\\",
+        "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gilbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -150,11 +150,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
-                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj"
               },
-              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTCC.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTCC.Infrastructure.csproj"
               }
             }
           }
@@ -218,14 +218,14 @@
         }
       }
     },
-    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
+    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj",
-        "projectName": "SistemaGestaoTcc.Core",
-        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj",
+        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj",
+        "projectName": "SistemaGestaoTCC.Core",
+        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj",
         "packagesPath": "C:\\Users\\gilbe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\obj\\",
+        "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gilbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -295,12 +295,12 @@
         }
       }
     },
-    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
+    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTCC.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj",
-        "projectName": "SistemaGestaoTcc.Infrastructure",
-        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTCC.Infrastructure.csproj",
+        "projectName": "SistemaGestaoTCC.Infrastructure",
+        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTCC.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\gilbe\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
@@ -319,8 +319,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
-                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj"
               }
             }
           }

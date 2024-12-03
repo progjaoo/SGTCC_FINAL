@@ -1,10 +1,10 @@
 ﻿using Google.Apis.Auth;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.Users.LoginGoogle
+namespace SistemaGestaoTCC.Application.Commands.Users.LoginGoogle
 {
     public class AuthGoogleCommandHandler : IRequestHandler<AuthGoogleCommand, string>
     {

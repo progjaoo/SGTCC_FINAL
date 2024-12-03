@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Users.GetAllUsersByCourse
+namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
 {
     public class GetAllByCourseQueryHandler : IRequestHandler<GetAllByCourseQuery, List<UserViewModel>>
     {

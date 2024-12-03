@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
     "Method": "Put",
     "RelativePath": "{id}/atualizarComentario",
@@ -14,7 +15,7 @@
       },
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse.UpdateCommentCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse.UpdateCommentCommand",
         "IsRequired": true
       }
     ],
@@ -37,6 +38,8 @@
     "ReturnTypes": []
   },
   {
+=======
+>>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
     "ContainingType": "SistemaGestaoTCC.API.Controllers.AtividadeComentarioController",
     "Method": "GetAllAsync",
     "RelativePath": "api/atividadeComentarios",
@@ -72,7 +75,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.AtividadesComent\u00E1rios.Delete.DeleteAtividadeComentCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.AtividadesComent\u00E1rios.Delete.DeleteAtividadeComentCommand",
         "IsRequired": true
       },
       {
@@ -93,7 +96,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.AtividadesComent\u00E1rios.Update.UpdateAtividadeComentCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.AtividadesComent\u00E1rios.Update.UpdateAtividadeComentCommand",
         "IsRequired": true
       }
     ],
@@ -109,7 +112,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.AtividadesComent\u00E1rios.Create.CreateAtividadeComentCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.AtividadesComent\u00E1rios.Create.CreateAtividadeComentCommand",
         "IsRequired": true
       }
     ],
@@ -151,7 +154,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Delete.DeleteProjetoAtividadeCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Delete.DeleteProjetoAtividadeCommand",
         "IsRequired": true
       },
       {
@@ -172,7 +175,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Update.UpdateProjetoAtividadeCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update.UpdateProjetoAtividadeCommand",
         "IsRequired": true
       }
     ],
@@ -188,7 +191,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Create.CreateProjetoAtividadeCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Create.CreateProjetoAtividadeCommand",
         "IsRequired": true
       }
     ],
@@ -220,7 +223,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Avaliacoes.CreateAvaliacaoCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Avaliacoes.CreateAvaliacaoCommand",
         "IsRequired": true
       }
     ],
@@ -268,7 +271,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Delete.DeleteAvaliadorBancaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Delete.DeleteAvaliadorBancaCommand",
         "IsRequired": true
       },
       {
@@ -289,7 +292,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Update.UpdateAvaliadorBancaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Update.UpdateAvaliadorBancaCommand",
         "IsRequired": true
       }
     ],
@@ -325,7 +328,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Create.CreateAvaliadorBancaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Create.CreateAvaliadorBancaCommand",
         "IsRequired": true
       }
     ],
@@ -367,7 +370,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Bancas.Delete.DeleteBancaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Bancas.Delete.DeleteBancaCommand",
         "IsRequired": true
       },
       {
@@ -388,7 +391,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Bancas.Update.UpdateBancaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Bancas.Update.UpdateBancaCommand",
         "IsRequired": true
       }
     ],
@@ -404,7 +407,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Bancas.Create.CreateBancaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Bancas.Create.CreateBancaCommand",
         "IsRequired": true
       }
     ],
@@ -430,7 +433,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.CamposDocumento.Update.UpdateCampoCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.CamposDocumento.Update.UpdateCampoCommand",
         "IsRequired": true
       },
       {
@@ -467,7 +470,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.CamposDocumento.Delete.DeleteCampoCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.CamposDocumento.Delete.DeleteCampoCommand",
         "IsRequired": true
       },
       {
@@ -488,7 +491,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.CamposDocumento.Create.CreateCampoCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.CamposDocumento.Create.CreateCampoCommand",
         "IsRequired": true
       }
     ],
@@ -514,7 +517,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Categorias.Update.UpdateCategoriaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Categorias.Update.UpdateCategoriaCommand",
         "IsRequired": true
       },
       {
@@ -551,7 +554,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Categorias.Delete.DeleteCategoriaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Categorias.Delete.DeleteCategoriaCommand",
         "IsRequired": true
       },
       {
@@ -572,7 +575,121 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Categorias.Create.CreateCategoriaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Categorias.Create.CreateCategoriaCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+<<<<<<< HEAD
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CoursesController",
+=======
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "Put",
+    "RelativePath": "api/comentariosprojeto/{id}/atualizarComentario",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse.UpdateCommentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "Delete",
+    "RelativePath": "api/comentariosprojeto/{id}/deletarComentario",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetCommentById",
+    "RelativePath": "api/comentariosprojeto/buscarComentarios{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/comentariosprojeto/buscarTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllCommentsByProject",
+    "RelativePath": "api/comentariosprojeto/comentariosPorProjeto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projetoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "GetAllCommentsByUser",
+    "RelativePath": "api/comentariosprojeto/comentariosPorUsuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
+    "Method": "PostComment",
+    "RelativePath": "api/comentariosprojeto/criarComentario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "SistemaGestaoTcc.Application.Commands.Comentarios.Create.CreateCommentsCommand",
         "IsRequired": true
       }
     ],
@@ -580,6 +697,7 @@
   },
   {
     "ContainingType": "SistemaGestaoTcc.API.Controllers.CoursesController",
+>>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
     "Method": "GetAllAsync",
     "RelativePath": "api/cursos",
     "HttpMethod": "GET",
@@ -589,7 +707,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.CoursesController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CoursesController",
     "Method": "GetById",
     "RelativePath": "api/cursos/{id}",
     "HttpMethod": "GET",
@@ -605,7 +723,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.CoursesController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CoursesController",
     "Method": "Delete",
     "RelativePath": "api/cursos/{id}/deletarCurso",
     "HttpMethod": "DELETE",
@@ -614,7 +732,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Comentarios.Delete.DeleteCourseCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Comentarios.Delete.DeleteCourseCommand",
         "IsRequired": true
       },
       {
@@ -626,7 +744,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.CoursesController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CoursesController",
     "Method": "Update",
     "RelativePath": "api/cursos/atualizarCurso",
     "HttpMethod": "PUT",
@@ -635,14 +753,14 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse.UpdateCourseCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse.UpdateCourseCommand",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.CoursesController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.CoursesController",
     "Method": "PostCourse",
     "RelativePath": "api/cursos/criarCurso",
     "HttpMethod": "POST",
@@ -651,7 +769,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Courses.CreateCourse.CreateCourseCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Courses.CreateCourse.CreateCourseCommand",
         "IsRequired": true
       }
     ],
@@ -698,7 +816,7 @@
       },
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.NotaDocumentos.Update.UpdateNotaDocAlunoCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.NotaDocumentos.Update.UpdateNotaDocAlunoCommand",
         "IsRequired": true
       }
     ],
@@ -714,7 +832,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.NotaDocumentos.Delete.DeleteNotaDocAlunoCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.NotaDocumentos.Delete.DeleteNotaDocAlunoCommand",
         "IsRequired": true
       },
       {
@@ -735,7 +853,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.NotaDocumentos.Create.CreateNotaDocCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.NotaDocumentos.Create.CreateNotaDocCommand",
         "IsRequired": true
       }
     ],
@@ -782,7 +900,7 @@
       },
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Update.UpdateNotaFinalCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Update.UpdateNotaFinalCommand",
         "IsRequired": true
       }
     ],
@@ -798,7 +916,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Delete.DeleteNotaFinalCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Delete.DeleteNotaFinalCommand",
         "IsRequired": true
       },
       {
@@ -819,7 +937,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Create.CreateNotaFinalAlunoCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Create.CreateNotaFinalAlunoCommand",
         "IsRequired": true
       }
     ],
@@ -861,7 +979,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Delete.DeleteProjetoEntregaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Delete.DeleteProjetoEntregaCommand",
         "IsRequired": true
       },
       {
@@ -882,7 +1000,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Update.UpdateProjetoEntregaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Update.UpdateProjetoEntregaCommand",
         "IsRequired": true
       }
     ],
@@ -898,7 +1016,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.ProjetosEntrega.Create.CreateProjetoEntregaCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create.CreateProjetoEntregaCommand",
         "IsRequired": true
       }
     ],
@@ -921,7 +1039,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "GetAllAsync",
     "RelativePath": "api/projetos",
     "HttpMethod": "GET",
@@ -931,7 +1049,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "GetById",
     "RelativePath": "api/projetos/{id}",
     "HttpMethod": "GET",
@@ -947,7 +1065,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "Put",
     "RelativePath": "api/projetos/{id}/atualizarProjeto",
     "HttpMethod": "PUT",
@@ -961,14 +1079,14 @@
       },
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Projects.UpdateProject.UpdateProjectCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Projects.UpdateProject.UpdateProjectCommand",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "Delete",
     "RelativePath": "api/projetos/{id}/cancelarProjeto",
     "HttpMethod": "PUT",
@@ -984,7 +1102,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "Finalizar",
     "RelativePath": "api/projetos/{id}/finalizarProjeto",
     "HttpMethod": "PUT",
@@ -993,7 +1111,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Projects.FinalizarProjetos.FinalizarProjectCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos.FinalizarProjectCommand",
         "IsRequired": true
       },
       {
@@ -1005,7 +1123,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "TornarPublico",
     "RelativePath": "api/projetos/{id}/tornarPublico",
     "HttpMethod": "PUT",
@@ -1014,7 +1132,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Projects.TornarPublicos.TornarPublicoCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos.TornarPublicoCommand",
         "IsRequired": true
       },
       {
@@ -1026,7 +1144,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "Post",
     "RelativePath": "api/projetos/criarProjeto",
     "HttpMethod": "POST",
@@ -1035,14 +1153,14 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Projects.CreateProject.CreateProjectCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Projects.CreateProject.CreateProjectCommand",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "GetAllPendingAsync",
     "RelativePath": "api/projetos/pendente",
     "HttpMethod": "GET",
@@ -1052,7 +1170,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "GetAllByUserAsync",
     "RelativePath": "api/projetos/porUsuario/{id}",
     "HttpMethod": "GET",
@@ -1068,7 +1186,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.ProjectsController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.ProjectsController",
     "Method": "GetAllProjectsNotCancel",
     "RelativePath": "api/projetos/projetosNaoCancelados/{id}",
     "HttpMethod": "GET",
@@ -1084,7 +1202,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "GetById",
     "RelativePath": "api/usuarios/{id}",
     "HttpMethod": "GET",
@@ -1100,7 +1218,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "UpdateUser",
     "RelativePath": "api/usuarios/{id}/atualizarUsuario",
     "HttpMethod": "PUT",
@@ -1114,14 +1232,14 @@
       },
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Users.UpdateUser.UpdateUserCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Users.UpdateUser.UpdateUserCommand",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "DeleteUser",
     "RelativePath": "api/usuarios/{id}/deleteUser",
     "HttpMethod": "DELETE",
@@ -1130,7 +1248,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Users.DeleteUser.DeleteUserCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Users.DeleteUser.DeleteUserCommand",
         "IsRequired": true
       },
       {
@@ -1142,7 +1260,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "LoginGoogle",
     "RelativePath": "api/usuarios/authGoogle",
     "HttpMethod": "POST",
@@ -1158,7 +1276,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "Post",
     "RelativePath": "api/usuarios/criarUsuario",
     "HttpMethod": "POST",
@@ -1167,14 +1285,14 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Users.CreateUser.CreateUserCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Users.CreateUser.CreateUserCommand",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "GetByEmail",
     "RelativePath": "api/usuarios/email",
     "HttpMethod": "GET",
@@ -1190,7 +1308,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "FindUsers",
     "RelativePath": "api/usuarios/findUsers",
     "HttpMethod": "GET",
@@ -1211,7 +1329,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "Login",
     "RelativePath": "api/usuarios/login",
     "HttpMethod": "POST",
@@ -1220,14 +1338,14 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Users.LoginUser.LoginUserCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.Users.LoginUser.LoginUserCommand",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "GetAllUserByCourse",
     "RelativePath": "api/usuarios/userByCourse",
     "HttpMethod": "GET",
@@ -1243,7 +1361,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "GetAllUserByProject",
     "RelativePath": "api/usuarios/userByProject",
     "HttpMethod": "GET",
@@ -1259,7 +1377,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTcc.API.Controllers.UsersController",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsersController",
     "Method": "GetAllByRole",
     "RelativePath": "api/usuarios/userByRole",
     "HttpMethod": "GET",
@@ -1284,7 +1402,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.UsuariosProjeto.AddUserInProjectCommand",
+        "Type": "SistemaGestaoTCC.Application.Commands.UsuariosProjeto.AddUserInProjectCommand",
         "IsRequired": true
       }
     ],
@@ -1307,74 +1425,20 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "GetCommentById",
-    "RelativePath": "buscarComentarios{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "GetAllAsync",
-    "RelativePath": "buscarTodos",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "GetAllCommentsByProject",
-    "RelativePath": "comentariosPorProjeto",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "projetoId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "GetAllCommentsByUser",
-    "RelativePath": "comentariosPorUsuario",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SistemaGestaoTCC.API.Controllers.ComentariosController",
-    "Method": "PostComment",
-    "RelativePath": "criarComentario",
-    "HttpMethod": "POST",
+    "ContainingType": "SistemaGestaoTCC.API.Controllers.UsuarioProjetoController",
+    "Method": "RemoverUsuarioProjeto",
+    "RelativePath": "api/usuariosProjeto/RemoverUsuarioDeProjeto",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "command",
-        "Type": "SistemaGestaoTcc.Application.Commands.Comentarios.Create.CreateCommentsCommand",
+<<<<<<< HEAD
+        "Type": "SistemaGestaoTCC.Application.Commands.Comentarios.Create.CreateCommentsCommand",
+=======
+        "Type": "SistemaGestaoTcc.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto.RemoveUserCommand",
+>>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
         "IsRequired": true
       }
     ],

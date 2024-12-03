@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.Projects.FinalizarProjetos
+namespace SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos
 {
     public class FinalizarProjectCommand : IRequest<Unit>
     {

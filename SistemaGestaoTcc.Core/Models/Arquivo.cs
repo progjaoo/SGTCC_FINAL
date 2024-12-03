@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SistemaGestaoTcc.Core.Models;
+namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Arquivo //FALTA IMPLEMENTAR
 {
@@ -11,7 +11,7 @@ public partial class Arquivo //FALTA IMPLEMENTAR
     {
         NomeOriginal = nomeOriginal;
         Diretorio = diretorio;
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
         EditadoEm = editadoEm;
         Tamanho = tamanho;
     }

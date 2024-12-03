@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.CamposDocumento.Delete
+namespace SistemaGestaoTCC.Application.Commands.CamposDocumento.Delete
 {
     public class DeleteCampoCommandHandler : IRequestHandler<DeleteCampoCommand, bool>
     {

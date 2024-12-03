@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.CampoDocVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.CampoDocVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.CamposDocumento.GetAll
+namespace SistemaGestaoTCC.Application.Queries.CamposDocumento.GetAll
 {
     public class GetAllCamposQueryHandler : IRequestHandler<GetAllCamposQuery, List<CampoDocumentoViewModel>>
     {

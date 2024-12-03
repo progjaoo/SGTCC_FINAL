@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Delete
+namespace SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Delete
 {
     public class DeleteNotaFinalCommandHandler : IRequestHandler<DeleteNotaFinalCommand, Unit>
     {

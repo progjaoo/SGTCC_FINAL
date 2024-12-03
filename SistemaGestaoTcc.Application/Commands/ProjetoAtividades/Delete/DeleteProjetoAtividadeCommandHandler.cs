@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Delete
+namespace SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Delete
 {
     internal class DeleteProjetoAtividadeCommandHandler : IRequestHandler<DeleteProjetoAtividadeCommand, Unit>
     {

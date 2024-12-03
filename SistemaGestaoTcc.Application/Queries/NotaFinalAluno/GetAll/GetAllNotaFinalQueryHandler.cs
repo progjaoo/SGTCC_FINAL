@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.BacanVM;
-using SistemaGestaoTcc.Application.ViewModels.NotaFinalVM;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Application.ViewModels.BacanVM;
+using SistemaGestaoTCC.Application.ViewModels.NotaFinalVM;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Queries.NotaFinalAluno.GetAll
+namespace SistemaGestaoTCC.Application.Queries.NotaFinalAluno.GetAll
 {
     public class GetAllNotaFinalQueryHandler : IRequestHandler<GetAllNotaFinalQuery, List<NotaFinalViewModel>>
     {

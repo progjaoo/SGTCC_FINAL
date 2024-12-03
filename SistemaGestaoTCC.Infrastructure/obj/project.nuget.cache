@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ABrZmCF2bTLlJvwlIhDMmLNpJNqloug/NOI+7alLHM2o8WxVjwct5vQyrxLlEBZFILtLPEOb7m+sDYV8TD5Qmw==",
+  "dgSpecHash": "D9X81BxFf3QHOr4VrpJXOzmkoOix3foAkU/0cueu4pKpJGYNcGEBdLgjWJQ6g6lM57gDtLbELi3ktjHofBgaAQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTCC.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gilbe\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\gilbe\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -106,6 +106,12 @@
     "C:\\Users\\gilbe\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

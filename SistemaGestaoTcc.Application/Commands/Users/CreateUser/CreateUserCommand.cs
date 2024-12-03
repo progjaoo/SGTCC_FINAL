@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Enums;
+using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.Commands.Users.CreateUser
+namespace SistemaGestaoTCC.Application.Commands.Users.CreateUser
 {
     public class CreateUserCommand : IRequest<int>
     {

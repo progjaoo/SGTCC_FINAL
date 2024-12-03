@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.AvaliadorBancaVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.AvaliadorBancaVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetByBanca
+namespace SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetByBanca
 {
     public class GetAvaliadorBancaByBancaIdQueryHandler : IRequestHandler<GetAvaliadorBancaByBancaIdQuery, List<AvaliadorBancaViewModel>>
     {

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.NotaFinalVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.NotaFinalVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.NotaFinalAluno.GetById
+namespace SistemaGestaoTCC.Application.Queries.NotaFinalAluno.GetById
 {
     public class GetNotaFinalByIdQueryHandler : IRequestHandler<GetNotaFinalByIdQuery, NotaFinalViewModel>
     {

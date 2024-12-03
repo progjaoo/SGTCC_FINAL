@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace SistemaGestaoTcc.Core.Models;
+namespace SistemaGestaoTCC.Core.Models;
 
 public partial class SGTCCContext : DbContext
 {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "M4ELaGRj1Q/nB6q3ITpL5oo1L8yeOIJUFkVC72AeEhcNX2OpT/l96yhiKbZdTyK+8zyB3qdLrOlhLfGEYi84aA==",
+  "dgSpecHash": "AWcqyJJQtzeOYqfKdiQlRW7CId3Bouaf3s35YoBqdFYlahr2ZYbUyY6ppyZzYnDL+PiT5fWYivRg9Smmk/geCA==",
   "success": true,
   "projectFilePath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj",
   "expectedPackageFiles": [
@@ -152,6 +152,12 @@
     "C:\\Users\\gilbe\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

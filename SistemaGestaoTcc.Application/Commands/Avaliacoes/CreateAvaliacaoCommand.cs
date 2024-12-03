@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Enums;
+using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.Commands.Avaliacoes
+namespace SistemaGestaoTCC.Application.Commands.Avaliacoes
 {
     public class CreateAvaliacaoCommand : IRequest<int>
     {

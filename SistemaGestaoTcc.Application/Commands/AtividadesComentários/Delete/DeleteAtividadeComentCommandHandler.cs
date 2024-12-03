@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.AtividadesComentários.Delete
+namespace SistemaGestaoTCC.Application.Commands.AtividadesComentários.Delete
 {
     public class DeleteAtividadeComentCommandHandler : IRequestHandler<DeleteAtividadeComentCommand, Unit>
     {

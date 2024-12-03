@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.Users.FindUsers
+namespace SistemaGestaoTCC.Application.Queries.Users.FindUsers
 {
     public class FindUsersQueryHandler : IRequestHandler<FindUsersQuery, List<UserRoleViewModel>>
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Create
+namespace SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Create
 {
     public class CreateNotaFinalAlunoCommand : IRequest<int>
     {

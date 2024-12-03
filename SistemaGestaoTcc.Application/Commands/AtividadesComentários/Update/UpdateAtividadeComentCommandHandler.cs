@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.AtividadesComentários.Update
+namespace SistemaGestaoTCC.Application.Commands.AtividadesComentários.Update
 {
     public class UpdateAtividadeComentCommandHandler : IRequestHandler<UpdateAtividadeComentCommand, Unit>
     {

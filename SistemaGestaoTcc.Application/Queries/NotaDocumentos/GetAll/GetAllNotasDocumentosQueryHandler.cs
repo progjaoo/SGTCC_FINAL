@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.NotasDocumentoVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.NotasDocumentoVM;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Queries.NotaDocumentos.GetAll
+namespace SistemaGestaoTCC.Application.Queries.NotaDocumentos.GetAll
 {
     public class GetAllNotasDocumentosQueryHandler : IRequestHandler<GetAllNotasDocumentosQuery, List<NotaDocumentoViewModel>>
     {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.NotasDocumentoVM;
+using SistemaGestaoTCC.Application.ViewModels.NotasDocumentoVM;
 
-namespace SistemaGestaoTcc.Application.Queries.NotaDocumentos.GetById
+namespace SistemaGestaoTCC.Application.Queries.NotaDocumentos.GetById
 {
     public class GetNotaDocumentoByIdQuery : IRequest<NotaDocumentoViewModel>
     {

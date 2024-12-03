@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SistemaGestaoTcc.Core.Enums;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Enums;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Infrastructure.Repositories
+namespace SistemaGestaoTCC.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -23,7 +23,7 @@ namespace SistemaGestaoTcc.Infrastructure.Repositories
             return await _dbcontext.Usuario.Where(u => u.Papel == papel)
                 .Where(u => u.Nome.Contains(nome))
                 .Take(5)
-                .OrderByDescending(u => u.UltimoAcesso ?? DateTime.MinValue).ToListAsync();
+                /*.OrderByDescending(u => u.UltimoAcesso ?? DateTime.MinValue)*/.ToListAsync();
             
         }
         public async Task<List<Usuario>> GetProfessoresAsync()

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Update
+namespace SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Update
 {
     public class UpdateNotaFinalCommandHandler : IRequestHandler<UpdateNotaFinalCommand, Unit>
     {

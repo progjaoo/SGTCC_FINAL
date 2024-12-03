@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Create;
-using SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Delete;
-using SistemaGestaoTcc.Application.Commands.NotasFinalAluno.Update;
-using SistemaGestaoTcc.Application.Queries.NotaFinalAluno.GetAll;
-using SistemaGestaoTcc.Application.Queries.NotaFinalAluno.GetById;
+using SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Create;
+using SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Delete;
+using SistemaGestaoTCC.Application.Commands.NotasFinalAluno.Update;
+using SistemaGestaoTCC.Application.Queries.NotaFinalAluno.GetAll;
+using SistemaGestaoTCC.Application.Queries.NotaFinalAluno.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

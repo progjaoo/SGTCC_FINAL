@@ -1,13 +1,13 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.AvaliadorBancaVM;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Application.ViewModels.AvaliadorBancaVM;
+using SistemaGestaoTCC.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetAll
+namespace SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetAll
 {
     public class GetAllAvaliadorBancaQueryHandler : IRequestHandler<GetAllAvaliadorBancaQuery, List<AvaliadorBancaViewModel>>
     {

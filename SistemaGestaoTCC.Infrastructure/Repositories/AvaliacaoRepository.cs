@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Infrastructure.Repositories
+namespace SistemaGestaoTCC.Infrastructure.Repositories
 {
     public class AvaliacaoRepository : IAvaliacaoRepository
     {

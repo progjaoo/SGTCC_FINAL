@@ -5,9 +5,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
+using SistemaGestaoTCC.Application.ViewModels;
 
-namespace SistemaGestaoTcc.Application.Queries.Users.GetUser
+namespace SistemaGestaoTCC.Application.Queries.Users.GetUser
 {
     public class GetUserQuery : IRequest<UserViewModel>
     {

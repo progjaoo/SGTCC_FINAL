@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.ProjetoAtividades.Create
+namespace SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Create
 {
     public class CreateProjetoAtividadeCommandHandler : IRequestHandler<CreateProjetoAtividadeCommand, int>
     {

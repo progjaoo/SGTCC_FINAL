@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.NotaDocumentos.Create
+namespace SistemaGestaoTCC.Application.Commands.NotaDocumentos.Create
 {
     public class CreateNotaDocCommandHandler : IRequestHandler<CreateNotaDocCommand, int>
     {

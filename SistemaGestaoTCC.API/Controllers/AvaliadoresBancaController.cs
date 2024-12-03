@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Create;
-using SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Delete;
-using SistemaGestaoTcc.Application.Commands.AvaliadorBancas.Update;
-using SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetAll;
-using SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetById;
-using SistemaGestaoTcc.Application.Queries.AvaliadorBancas.GetProfessores;
+using SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Create;
+using SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Delete;
+using SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Update;
+using SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetAll;
+using SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetById;
+using SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetProfessores;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

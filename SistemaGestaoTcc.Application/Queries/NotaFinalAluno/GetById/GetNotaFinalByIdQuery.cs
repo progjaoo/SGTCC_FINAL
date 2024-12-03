@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels.NotaFinalVM;
+using SistemaGestaoTCC.Application.ViewModels.NotaFinalVM;
 
-namespace SistemaGestaoTcc.Application.Queries.NotaFinalAluno.GetById
+namespace SistemaGestaoTCC.Application.Queries.NotaFinalAluno.GetById
 {
     public class GetNotaFinalByIdQuery : IRequest<NotaFinalViewModel>
     {

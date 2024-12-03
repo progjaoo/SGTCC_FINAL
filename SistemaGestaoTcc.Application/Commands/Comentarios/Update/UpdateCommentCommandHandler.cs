@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.Courses.UpdateCourse
+namespace SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse
 {
     public class UpdateCommentCommandHandler : IRequestHandler<UpdateCommentCommand, Unit>
     {

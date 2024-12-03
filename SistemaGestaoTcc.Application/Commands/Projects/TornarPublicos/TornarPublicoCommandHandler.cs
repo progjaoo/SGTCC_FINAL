@@ -1,12 +1,12 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.Commands.Projects.TornarPublicos
+namespace SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos
 {
     public class TornarPublicoCommandHandler : IRequestHandler<TornarPublicoCommand, Unit>
     {

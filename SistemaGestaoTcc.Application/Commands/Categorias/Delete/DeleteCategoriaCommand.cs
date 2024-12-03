@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaGestaoTcc.Application.Commands.Categorias.Delete
+namespace SistemaGestaoTCC.Application.Commands.Categorias.Delete
 {
     public class DeleteCategoriaCommand : IRequest<Unit>
     {

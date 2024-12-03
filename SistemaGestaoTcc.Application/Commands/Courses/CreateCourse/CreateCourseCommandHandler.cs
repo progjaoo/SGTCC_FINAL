@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
-using SistemaGestaoTcc.Core.Models;
+using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTcc.Application.Commands.Courses.CreateCourse
+namespace SistemaGestaoTCC.Application.Commands.Courses.CreateCourse
 {
     public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, int>
     {

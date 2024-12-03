@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.Projects.FinalizarProjetos
+namespace SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos
 {
     public class FinalizarProjectCommandHandler : IRequestHandler<FinalizarProjectCommand, Unit>
     {

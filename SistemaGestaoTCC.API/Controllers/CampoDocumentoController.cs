@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.CamposDocumento.Create;
-using SistemaGestaoTcc.Application.Commands.CamposDocumento.Delete;
-using SistemaGestaoTcc.Application.Commands.CamposDocumento.Update;
-using SistemaGestaoTcc.Application.Queries.CamposDocumento.GetAll;
-using SistemaGestaoTcc.Application.Queries.CamposDocumento.GetById;
+using SistemaGestaoTCC.Application.Commands.CamposDocumento.Create;
+using SistemaGestaoTCC.Application.Commands.CamposDocumento.Delete;
+using SistemaGestaoTCC.Application.Commands.CamposDocumento.Update;
+using SistemaGestaoTCC.Application.Queries.CamposDocumento.GetAll;
+using SistemaGestaoTCC.Application.Queries.CamposDocumento.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

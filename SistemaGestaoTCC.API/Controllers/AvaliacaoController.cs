@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.Avaliacoes;
-using SistemaGestaoTcc.Application.Queries.Avaliacoes.GetAvaliacaoByUser;
-using SistemaGestaoTcc.Application.Queries.Avaliacoes.GetById;
+using SistemaGestaoTCC.Application.Commands.Avaliacoes;
+using SistemaGestaoTCC.Application.Queries.Avaliacoes.GetAvaliacaoByUser;
+using SistemaGestaoTCC.Application.Queries.Avaliacoes.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

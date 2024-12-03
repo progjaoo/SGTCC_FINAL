@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
+using SistemaGestaoTCC.Application.ViewModels;
 
-namespace SistemaGestaoTcc.Application.Queries.Projects.GetProjectById
+namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectById
 {
     public class GetProjectByIdQuery : IRequest<ProjectDetailsViewModel>
     {
