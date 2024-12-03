@@ -113,13 +113,13 @@ namespace SistemaGestaoTCC.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
-            var loginUserViewModel = await _mediator.Send(command);
+            var loginUser = await _mediator.Send(command);
 
-            if (loginUserViewModel == null)
+            if (loginUser == null)
             {
                 return Unauthorized();
             }
-            return Ok(loginUserViewModel);
+            return Ok(loginUser);
         }
         [HttpPost("authGoogle")]
         [AllowAnonymous]

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Core.Interfaces;
+using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTcc.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto
 {
