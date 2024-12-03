@@ -46,19 +46,11 @@ public partial class Usuario
 
     public virtual ICollection<UsuarioProjeto> UsuarioProjetos { get; set; } = new List<UsuarioProjeto>();
 
-<<<<<<< HEAD
-    public void Update(string nome, string email, int idCurso)
-=======
     public void Update( string nome, string email)
->>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
     {
 
         Nome = nome;
         Email = email;
-<<<<<<< HEAD
-        IdCurso = idCurso;
-=======
->>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
 
         EditadoEm = DateTime.Now;
     }

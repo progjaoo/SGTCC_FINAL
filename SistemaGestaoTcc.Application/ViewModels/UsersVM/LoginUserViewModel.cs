@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-﻿namespace SistemaGestaoTCC.Application.ViewModels
-=======
 ﻿using SistemaGestaoTcc.Core.Enums;
 
 namespace SistemaGestaoTcc.Application.ViewModels
->>>>>>> 4865eafeceed53e3f2acb96c61f7b259be1902c0
 {
     public class LoginUserViewModel
     {
