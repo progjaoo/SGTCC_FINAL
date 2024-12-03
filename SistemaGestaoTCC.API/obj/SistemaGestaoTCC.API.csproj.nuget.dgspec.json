@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj": {}
+    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj": {}
   },
   "projects": {
-    "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj": {
+    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj",
+        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj",
         "projectName": "SistemaGestaoTCC.API",
-        "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj",
-        "packagesPath": "C:\\Users\\joaov\\.nuget\\packages\\",
-        "outputPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.API\\obj\\",
+        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.API\\SistemaGestaoTCC.API.csproj",
+        "packagesPath": "C:\\Users\\gilbe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joaov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gilbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,21 +22,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj": {
-                "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj"
               },
-              "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
-                "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
               },
-              "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
-                "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj"
               }
             }
           }
@@ -49,11 +44,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -132,25 +122,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj": {
+    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj",
+        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj",
         "projectName": "SistemaGestaoTcc.Application",
-        "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj",
-        "packagesPath": "C:\\Users\\joaov\\.nuget\\packages\\",
-        "outputPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Application\\obj\\",
+        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\SistemaGestaoTcc.Application.csproj",
+        "packagesPath": "C:\\Users\\gilbe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joaov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gilbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -158,18 +144,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
-                "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
               },
-              "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
-                "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj"
               }
             }
           }
@@ -178,11 +163,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -234,25 +214,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
+    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj",
+        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj",
         "projectName": "SistemaGestaoTcc.Core",
-        "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj",
-        "packagesPath": "C:\\Users\\joaov\\.nuget\\packages\\",
-        "outputPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\obj\\",
+        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj",
+        "packagesPath": "C:\\Users\\gilbe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joaov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gilbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -260,7 +236,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -273,11 +248,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -321,25 +291,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
+    "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj",
         "projectName": "SistemaGestaoTcc.Infrastructure",
-        "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\joaov\\.nuget\\packages\\",
-        "outputPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTCC.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\SistemaGestaoTcc.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\gilbe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joaov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gilbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -347,15 +313,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
-                "projectPath": "D:\\PC - 2024\\2 - PROJETOS PESSOAIS\\Banco First\\SISTEMA-TCC\\SistemaGestaoTccFinal\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
+              "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj": {
+                "projectPath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTcc.Core\\SistemaGestaoTcc.Core.csproj"
               }
             }
           }
@@ -364,11 +329,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -410,7 +370,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
