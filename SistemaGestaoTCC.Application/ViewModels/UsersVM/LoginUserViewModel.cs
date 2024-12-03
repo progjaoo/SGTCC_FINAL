@@ -1,6 +1,6 @@
 ﻿using SistemaGestaoTCC.Core.Enums;
 
-namespace SistemaGestaoTcc.Application.ViewModels
+namespace SistemaGestaoTCC.Application.ViewModels
 {
     public class LoginUserViewModel
     {

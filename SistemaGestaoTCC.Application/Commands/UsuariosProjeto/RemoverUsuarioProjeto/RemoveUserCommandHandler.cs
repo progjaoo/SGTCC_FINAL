@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTcc.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto
+namespace SistemaGestaoTCC.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto
 {
     public class RemoveUserCommandHandler : IRequestHandler<RemoveUserCommand, Unit>
     {

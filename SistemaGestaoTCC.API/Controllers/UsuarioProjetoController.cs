@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SistemaGestaoTcc.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto;
+using SistemaGestaoTCC.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto;
 using SistemaGestaoTCC.Application.Commands.UsuariosProjeto;
 using SistemaGestaoTCC.Application.Queries.UsuariosProjeto;
 

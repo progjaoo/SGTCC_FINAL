@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using SistemaGestaoTcc.Application.ViewModels;
+using SistemaGestaoTCC.Application.ViewModels;
 
 namespace SistemaGestaoTCC.Application.Commands.Users.LoginUser
 {
