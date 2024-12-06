@@ -12,10 +12,10 @@ namespace SistemaGestaoTCC.API.Controllers
 {
     [Route("api/cursos")]
     [ApiController]
-    public class CoursesController : ControllerBase
+    public class CursoController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public CoursesController(IMediator mediator)
+        public CursoController(IMediator mediator)
         {
             _mediator = mediator;
         }

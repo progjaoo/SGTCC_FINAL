@@ -11,6 +11,7 @@ using SistemaGestaoTCC.Application.Queries.Projects.GetProjectById;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjects;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsPending;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 
 
@@ -18,11 +19,11 @@ namespace SistemaGestaoTCC.API.Controllers
 {
     [Route("api/projetos")]
     [ApiController]
-    public class ProjectsController : ControllerBase
+    public class ProjetoController : ControllerBase
     {
         private readonly IMediator _mediator;
         private readonly IProjectRepository _projectRepository;
-        public ProjectsController(IMediator mediator, IProjectRepository projectRepository)
+        public ProjetoController(IMediator mediator, IProjectRepository projectRepository)
         {
             _mediator = mediator;
             _projectRepository = projectRepository;
@@ -49,6 +50,14 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetAllByUserAsync(int id)
         {
             var getAllProjectQuery = new GetProjectByUserQuery(id);
+            var projects = await _mediator.Send(getAllProjectQuery);
+
+            return Ok(projects);
+        }
+        [HttpGet("filtroGeral")]
+        public async Task<IActionResult> GetAllByFilter(FiltroEnum filterEnum, string filter, OrdenaEnum sortEnum, string? ano)
+        {
+            var getAllProjectQuery = new GetAllByFilterQuery(filterEnum, filter, sortEnum, ano);
             var projects = await _mediator.Send(getAllProjectQuery);
 
             return Ok(projects);

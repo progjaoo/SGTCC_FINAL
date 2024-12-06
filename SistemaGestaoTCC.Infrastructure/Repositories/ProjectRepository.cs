@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 
@@ -42,6 +43,68 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             //ok
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
             return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id)).ToListAsync();
+        }
+        public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum filterEnum, string filter, OrdenaEnum sortEnum, string? ano)
+        {
+            var projetos = await _dbcontext.Projeto.ToListAsync();
+            if (ano != null)
+            {
+                projetos = projetos
+                .Where(p => p.DataFim.HasValue)
+                .Where(p => p.DataFim.Value.ToString("dd-MM-yyyy") == ano)
+                .ToList();
+            }
+
+            switch (filterEnum)
+            {
+                case FiltroEnum.NomeUsuario:
+                    projetos = projetos
+                    .Join(_dbcontext.UsuarioProjeto,
+                        p => p.Id,
+                        up => up.IdProjeto,
+                        (p, up) => new { Projeto = p, UsuarioProjeto = up })
+                    .Join(_dbcontext.Usuario,
+                        temp => temp.UsuarioProjeto.IdUsuario,
+                        u => u.Id,
+                        (temp, u) => new
+                        {
+                            temp = temp,
+                            Usuario = u
+                        })
+                    .Where(temp2 => temp2.Usuario.Nome == filter)
+                    .Select(temp2 => temp2.temp.Projeto)
+                    .ToList();
+                    break;
+
+                case FiltroEnum.NomeProjeto:
+                    projetos = projetos.Where(p => p.Nome == filter).ToList();
+                    break;
+
+                case FiltroEnum.Tag:
+                    projetos = projetos
+                    .Join(_dbcontext.ProjetoTag,
+                    p => p.Id,
+                    pt => pt.IdProjeto,
+                    (p, pt) => new { Projeto = p, ProjetoTag = pt })
+                    .Where(projetao => projetao.ProjetoTag.Nome == filter)
+                    .Select(projetao => projetao.Projeto)
+                    .ToList();
+                    break;
+
+                default:
+                    throw new HttpRequestException("Tipo de Filtro Incorreto");
+            }
+
+            switch (sortEnum)
+            {
+                case OrdenaEnum.Recentes:
+                    projetos = projetos.OrderByDescending(p => p.DataFim).ToList();
+                    break;
+                case OrdenaEnum.Antigos:
+                    projetos = projetos.OrderBy(p => p.DataFim).ToList();
+                    break;
+            }
+            return projetos;
         }
         public async Task<List<Projeto>> GetAllActiveByUserAsync(int id)
         {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WpKjw83+vtU/XqlbDVwq4H+1GCSSvpLk9r9xhQozGnzgMQACWzSHV5xvD+aDSoxRDNJpJYY/D7gyJEPGcl4rEQ==",
+  "dgSpecHash": "oh7cAXtLEx1hdC1y6hN8xlykqQkfmIIG0yvUAcKZ8dUIPzRpuYr/cLn4KsDNnI0Rg0ztBZA6DVzKcRzAC7x/2Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj",
+  "projectFilePath": "c:\\Users\\gilbe\\Desktop\\abd\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\SistemaGestaoTCC.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gilbe\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\gilbe\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -82,12 +82,5 @@
     "C:\\Users\\gilbe\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\gilbe\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\gilbe\\Desktop\\sgtcc\\SGTCC_FINAL\\SGTCC_FINAL\\SistemaGestaoTCC.Core\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

@@ -8,7 +8,7 @@ using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
-    [Route("api/atividades")]
+    [Route("api/atividade")]
     [ApiController]
     public class ProjetoAtividadeController : ControllerBase
     {

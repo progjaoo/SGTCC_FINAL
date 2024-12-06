@@ -24,22 +24,19 @@ namespace SistemaGestaoTCC.API.Controllers
     [Route("api/usuarios")]
     [ApiController]
     //[Authorize]
-    public class UsersController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public UsersController(IMediator mediator)
+        public UsuarioController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
-        /// <summary>
-        /// Encontrar usuarios
-        /// </summary>
-        /// <param name="query"></param>
-        /// <returns></returns>
-        [HttpGet("findUsers")]
+    
+        [HttpGet("encontrarUsuarios")]
         public async Task<IActionResult> FindUsers([FromQuery] FindUsersQuery query)
         {
+            //TODO mudar pesquisa para e-mail
             if (query.Papel != Core.Enums.PapelEnum.Aluno && query.Papel != PapelEnum.Professor)
             {
                 return BadRequest("Papel inválido");
@@ -48,7 +45,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(listUsersRole);
         }
-        [HttpGet("userByRole")]
+        [HttpGet("usuarioPorPapel")]
         public async Task<IActionResult> GetAllByRole(PapelEnum papel)
         {
             var getAllUserByRole = new GetAllUserByRoleQuery(papel);
@@ -56,7 +53,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(listUsersRole);
         }
-        [HttpGet("userByCourse")]
+        [HttpGet("usuarioPorCurso")]
         public async Task<IActionResult> GetAllUserByCourse(int id)
         {
             var getAllByCourse = new GetAllByCourseQuery(id);
@@ -65,7 +62,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(listUsers);
         }
-        [HttpGet("userByProject")]
+        [HttpGet("usuarioPorProjeto")]
         public async Task<IActionResult> GetAllUserByProject(int id)
         {
             var getAllByProject = new GetAllByProjectQuery(id);
@@ -170,7 +167,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
-        [HttpDelete("{id}/deleteUser")]
+        [HttpDelete("{id}/deletarUsuario")]
         public async Task<IActionResult> DeleteUser(DeleteUserCommand command)
         {
             await _mediator.Send(command);
