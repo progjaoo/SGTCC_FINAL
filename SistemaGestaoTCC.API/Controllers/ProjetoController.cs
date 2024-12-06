@@ -55,8 +55,12 @@ namespace SistemaGestaoTCC.API.Controllers
             return Ok(projects);
         }
         [HttpGet("filtroGeral")]
-        public async Task<IActionResult> GetAllByFilter(FiltroEnum tipoFiltro, string filtro, OrdenaEnum tipoOrdenacao, string? ano)
+        public async Task<IActionResult> GetAllByFilter(FiltroEnum tipoFiltro, string? filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
+            if (string.IsNullOrEmpty(filtro) && string.IsNullOrEmpty(ano)) {
+                return BadRequest("Texto de Filtro e Ano não podem ser nulos ao mesmo tempo. preencha um ou ambos!");
+            }
+
             var getAllProjectQuery = new GetAllByFilterQuery(tipoFiltro, filtro, tipoOrdenacao, ano);
             try
             {

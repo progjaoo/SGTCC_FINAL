@@ -4,6 +4,7 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
@@ -46,16 +47,14 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
             return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id)).ToListAsync();
         }
-        public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum tipoFiltro, string filtro, OrdenaEnum tipoOrdenacao, string? ano)
+        public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum tipoFiltro, string? filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
-            //var projetos = await _dbcontext.Projeto.ToListAsync();
             var projetos = await _dbcontext.Projeto
                 .Include(p => p.ProjetoTags)
                 .Include(p => p.UsuarioProjetos)
                 .ThenInclude(up => up.IdUsuarioNavigation)
                 .ToListAsync();
 
-            // Apply year filter if provided
             if (!string.IsNullOrEmpty(ano))
             {
                 projetos = projetos
@@ -63,29 +62,29 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                     .ToList();
             }
 
-            // var padrao = $"%{filtro}%";
-            var padrao = RemoveAccents(filtro.ToLower());
-
-            // Apply filter based on the provided filter type
-            switch (tipoFiltro)
+            if (!string.IsNullOrEmpty(filtro))
             {
-                case FiltroEnum.NomeUsuario:
-                    projetos = FilterByNomeUsuario(projetos, padrao);
-                    break;
+                var padrao = RemoveAccents(filtro.ToLower());
 
-                case FiltroEnum.NomeProjeto:
-                    projetos = FilterByNomeProjeto(projetos, padrao);
-                    break;
+                switch (tipoFiltro)
+                {
+                    case FiltroEnum.NomeUsuario:
+                        projetos = FiltraPorNomeUsuario(projetos, padrao);
+                        break;
 
-                case FiltroEnum.Tag:
-                    projetos = FilterByTag(projetos, padrao);
-                    break;
+                    case FiltroEnum.NomeProjeto:
+                        projetos = FiltraPorNomeProjeto(projetos, padrao);
+                        break;
 
-                default:
-                    throw new Exception("Tipo de Filtro Incorreto");
+                    case FiltroEnum.Tag:
+                        projetos = FiltraPorTag(projetos, padrao);
+                        break;
+
+                    default:
+                        throw new Exception("Tipo de Filtro Incorreto");
+                }
             }
 
-            // Apply sorting based on the provided sorting type
             switch (tipoOrdenacao)
             {
                 case OrdenaEnum.MaisAvaliados:
@@ -169,7 +168,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             }
         }
 
-        private List<Projeto> FilterByNomeUsuario(List<Projeto> projetos, string padrao)
+        private List<Projeto> FiltraPorNomeUsuario(List<Projeto> projetos, string padrao)
         {
             return (from p in projetos
                     join up in _dbcontext.UsuarioProjeto on p.Id equals up.IdProjeto
@@ -178,12 +177,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                     select p).ToList();
         }
 
-        private List<Projeto> FilterByNomeProjeto(List<Projeto> projetos, string filtro)
+        private List<Projeto> FiltraPorNomeProjeto(List<Projeto> projetos, string filtro)
         {
             return projetos.Where(p => RemoveAccents(p.Nome.ToLower()).Contains(RemoveAccents(filtro.ToLower()))).ToList();
         }
 
-        private List<Projeto> FilterByTag(List<Projeto> projetos, string padrao)
+        private List<Projeto> FiltraPorTag(List<Projeto> projetos, string padrao)
         {
             return (from p in projetos
                     join pt in _dbcontext.ProjetoTag on p.Id equals pt.IdProjeto
