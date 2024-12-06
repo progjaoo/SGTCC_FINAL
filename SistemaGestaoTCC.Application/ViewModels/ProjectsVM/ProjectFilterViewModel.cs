@@ -6,7 +6,7 @@ namespace SistemaGestaoTCC.Application.ViewModels
 {
     public class ProjectFilterViewModel
     {
-        public ProjectFilterViewModel(int id, string nome, string descricao, UsuarioProjeto usuario, ProjetoTag tags, DateTime? dataFim)
+        public ProjectFilterViewModel(int id, string nome, string descricao, ICollection<UsuarioProjeto> usuario, ICollection<ProjetoTag> tags, DateTime? dataFim)
         {
             Id = id;
             Nome = nome;
@@ -19,8 +19,8 @@ namespace SistemaGestaoTCC.Application.ViewModels
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public UsuarioProjeto Usuario { get; set;}
-        public ProjetoTag Tags { get; set; }
+        public ICollection<UsuarioProjeto> Usuario { get; set;}
+        public ICollection<ProjetoTag> Tags { get; set; }
         public string DataFim { get; set; }
     }
 }

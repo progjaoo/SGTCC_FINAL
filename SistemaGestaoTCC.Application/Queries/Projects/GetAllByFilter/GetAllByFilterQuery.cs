@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using SistemaGestaoTCC.Application.ViewModels;
 using SistemaGestaoTCC.Core.Enums;
+using SistemaGestaoTCC.Core.Models;
 
 namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser
 {
@@ -13,14 +14,14 @@ namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser
     {
         public GetAllByFilterQuery(FiltroEnum filterEnum, string filter, OrdenaEnum sortEnum, string? ano)
         {
-           FilterEnum = filterEnum;
-           Filter = filter;
-           SortEnum = sortEnum;
+           TipoFiltro = filterEnum;
+           Filtro = filter;
+           TipoOrdenacao = sortEnum;
            Ano = ano;
         }   
-        public FiltroEnum FilterEnum{ get; set; }
-        public string Filter{ get; set; }
-        public OrdenaEnum SortEnum { get; set;}
+        public FiltroEnum TipoFiltro{ get; set; }
+        public string Filtro{ get; set; }
+        public OrdenaEnum TipoOrdenacao { get; set;}
         public string? Ano{ get; set; }
     }
 }

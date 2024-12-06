@@ -1,4 +1,6 @@
-﻿using Dapper;
+﻿using System.Globalization;
+using System.Text;
+using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -44,68 +46,69 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
             return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id)).ToListAsync();
         }
-        public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum filterEnum, string filter, OrdenaEnum sortEnum, string? ano)
+        public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum tipoFiltro, string filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
-            var projetos = await _dbcontext.Projeto.ToListAsync();
-            if (ano != null)
+            //var projetos = await _dbcontext.Projeto.ToListAsync();
+            var projetos = await _dbcontext.Projeto
+                .Include(p => p.ProjetoTags)
+                .Include(p => p.UsuarioProjetos)
+                .ThenInclude(up => up.IdUsuarioNavigation)
+                .ToListAsync();
+
+            // Apply year filter if provided
+            if (!string.IsNullOrEmpty(ano))
             {
                 projetos = projetos
-                .Where(p => p.DataFim.HasValue)
-                .Where(p => p.DataFim.Value.ToString("dd-MM-yyyy") == ano)
-                .ToList();
+                    .Where(p => p.DataFim.HasValue && p.DataFim.Value.Year.ToString() == ano)
+                    .ToList();
             }
 
-            switch (filterEnum)
+            // var padrao = $"%{filtro}%";
+            var padrao = RemoveAccents(filtro.ToLower());
+
+            // Apply filter based on the provided filter type
+            switch (tipoFiltro)
             {
                 case FiltroEnum.NomeUsuario:
-                    projetos = projetos
-                    .Join(_dbcontext.UsuarioProjeto,
-                        p => p.Id,
-                        up => up.IdProjeto,
-                        (p, up) => new { Projeto = p, UsuarioProjeto = up })
-                    .Join(_dbcontext.Usuario,
-                        temp => temp.UsuarioProjeto.IdUsuario,
-                        u => u.Id,
-                        (temp, u) => new
-                        {
-                            temp = temp,
-                            Usuario = u
-                        })
-                    .Where(temp2 => temp2.Usuario.Nome == filter)
-                    .Select(temp2 => temp2.temp.Projeto)
-                    .ToList();
+                    projetos = FilterByNomeUsuario(projetos, padrao);
                     break;
 
                 case FiltroEnum.NomeProjeto:
-                    projetos = projetos.Where(p => p.Nome == filter).ToList();
+                    projetos = FilterByNomeProjeto(projetos, padrao);
                     break;
 
                 case FiltroEnum.Tag:
-                    projetos = projetos
-                    .Join(_dbcontext.ProjetoTag,
-                    p => p.Id,
-                    pt => pt.IdProjeto,
-                    (p, pt) => new { Projeto = p, ProjetoTag = pt })
-                    .Where(projetao => projetao.ProjetoTag.Nome == filter)
-                    .Select(projetao => projetao.Projeto)
-                    .ToList();
+                    projetos = FilterByTag(projetos, padrao);
                     break;
 
                 default:
-                    throw new HttpRequestException("Tipo de Filtro Incorreto");
+                    throw new Exception("Tipo de Filtro Incorreto");
             }
 
-            switch (sortEnum)
+            // Apply sorting based on the provided sorting type
+            switch (tipoOrdenacao)
             {
+                case OrdenaEnum.MaisAvaliados:
+                    throw new NotImplementedException("Não Implementado");
+
+                case OrdenaEnum.MenosAvaliados:
+                    throw new NotImplementedException("Não Implementado");
+
                 case OrdenaEnum.Recentes:
                     projetos = projetos.OrderByDescending(p => p.DataFim).ToList();
                     break;
+
                 case OrdenaEnum.Antigos:
                     projetos = projetos.OrderBy(p => p.DataFim).ToList();
                     break;
+
+                default:
+                    throw new Exception("Tipo de Ordenação Incorreto");
             }
+
             return projetos;
         }
+
         public async Task<List<Projeto>> GetAllActiveByUserAsync(int id)
         {
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
@@ -164,6 +167,37 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
                 await _dbcontext.SaveChangesAsync();
             }
+        }
+
+        private List<Projeto> FilterByNomeUsuario(List<Projeto> projetos, string padrao)
+        {
+            return (from p in projetos
+                    join up in _dbcontext.UsuarioProjeto on p.Id equals up.IdProjeto
+                    join u in _dbcontext.Usuario on up.IdUsuario equals u.Id
+                    where RemoveAccents(u.Nome.ToLower()).Contains(padrao)
+                    select p).ToList();
+        }
+
+        private List<Projeto> FilterByNomeProjeto(List<Projeto> projetos, string filtro)
+        {
+            return projetos.Where(p => RemoveAccents(p.Nome.ToLower()).Contains(RemoveAccents(filtro.ToLower()))).ToList();
+        }
+
+        private List<Projeto> FilterByTag(List<Projeto> projetos, string padrao)
+        {
+            return (from p in projetos
+                    join pt in _dbcontext.ProjetoTag on p.Id equals pt.IdProjeto
+                    where RemoveAccents(pt.Nome.ToLower()).Contains(padrao)
+                    select p).ToList();
+        }
+
+        public static string RemoveAccents(string input)
+        {
+            return new string(input
+                .Normalize(NormalizationForm.FormD)
+                .Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                .ToArray())
+                .Normalize(NormalizationForm.FormC);
         }
     }
 }

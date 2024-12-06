@@ -55,12 +55,18 @@ namespace SistemaGestaoTCC.API.Controllers
             return Ok(projects);
         }
         [HttpGet("filtroGeral")]
-        public async Task<IActionResult> GetAllByFilter(FiltroEnum filterEnum, string filter, OrdenaEnum sortEnum, string? ano)
+        public async Task<IActionResult> GetAllByFilter(FiltroEnum tipoFiltro, string filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
-            var getAllProjectQuery = new GetAllByFilterQuery(filterEnum, filter, sortEnum, ano);
-            var projects = await _mediator.Send(getAllProjectQuery);
-
-            return Ok(projects);
+            var getAllProjectQuery = new GetAllByFilterQuery(tipoFiltro, filtro, tipoOrdenacao, ano);
+            try
+            {
+                var projects = await _mediator.Send(getAllProjectQuery);   
+                return Ok(projects);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [HttpGet("projetosNaoCancelados/{id}")]
         public async Task<IActionResult> GetAllProjectsNotCancel(int id)

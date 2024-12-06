@@ -22,11 +22,10 @@ namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser
 
         public async Task<List<ProjectFilterViewModel>> Handle(GetAllByFilterQuery request, CancellationToken cancellationToken)
         {
-
-            var projeto = await _projectRepository.GetAllByFilterAsync(request.FilterEnum, request.Filter, request.SortEnum, request.Ano);
+            var projeto = await _projectRepository.GetAllByFilterAsync(request.TipoFiltro, request.Filtro, request.TipoOrdenacao, request.Ano);
 
             var projectViewModel = projeto
-                .Select(p => new ProjectFilterViewModel(p.Id, p.Nome, p.Descricao, (UsuarioProjeto)p.UsuarioProjetos, (ProjetoTag)p.ProjetoTags, p.DataFim))
+                .Select(p => new ProjectFilterViewModel(p.Id, p.Nome, p.Descricao, p.UsuarioProjetos, p.ProjetoTags, p.DataFim))
                 .ToList();
 
             return projectViewModel;
