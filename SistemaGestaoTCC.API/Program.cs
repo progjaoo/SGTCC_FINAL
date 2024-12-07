@@ -17,7 +17,11 @@ var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddAuthorization();
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
 
 
 //ADICIONANDO CORS PARA PODER SER CONSUMINDO NO FRONT-END
@@ -31,7 +35,8 @@ builder.Services.AddCors(options =>
 });
 
 //CONNECTION STRING
-var connection = builder.Configuration.GetConnectionString("SistemaTcc");
+//var connection = builder.Configuration.GetConnectionString("SistemaTcc");
+var connection = configuration["ConnectionStrings:DefaultConnection"];
 builder.Services.AddDbContext<SGTCCContext>(p => p.UseSqlServer(connection));
 
 //google

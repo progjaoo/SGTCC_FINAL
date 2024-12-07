@@ -1,4 +1,5 @@
-﻿using SistemaGestaoTCC.Core.Models;
+﻿using SistemaGestaoTCC.Core.Enums;
+using SistemaGestaoTCC.Core.Models;
 
 namespace SistemaGestaoTCC.Core.Interfaces
 {
@@ -7,6 +8,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<List<Projeto>> GetAllAsync();
         Task<List<Projeto>> GetAllPendingAsync();
         Task<List<Projeto>> GetAllByUserAsync(int id);
+        Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum filterEnum, string filter, OrdenaEnum sortEnum, string? ano);
         Task<List<Projeto>> GetAllActiveByUserAsync(int id);
         Task<Projeto> GetById(int id);
         Task<Projeto> GetDetailsByIdAsync(int id);

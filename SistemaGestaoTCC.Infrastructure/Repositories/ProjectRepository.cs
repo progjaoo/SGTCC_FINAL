@@ -1,7 +1,11 @@
-﻿using Dapper;
+﻿using System.Globalization;
+using System.Text;
+using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 
@@ -43,6 +47,68 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
             return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id)).ToListAsync();
         }
+        public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum tipoFiltro, string? filtro, OrdenaEnum tipoOrdenacao, string? ano)
+        {
+            var projetos = await _dbcontext.Projeto
+                .Include(p => p.ProjetoTags)
+                .Include(p => p.UsuarioProjetos)
+                .ThenInclude(up => up.IdUsuarioNavigation)
+                .Where(p => p.Aprovado == true)
+                .ToListAsync();
+
+            if (!string.IsNullOrEmpty(ano))
+            {
+                projetos = projetos
+                    .Where(p => p.DataFim.HasValue && p.DataFim.Value.Year.ToString() == ano)
+                    .ToList();
+            }
+
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                var padrao = RemoveAccents(filtro.ToLower());
+
+                switch (tipoFiltro)
+                {
+                    case FiltroEnum.NomeUsuario:
+                        projetos = FiltraPorNomeUsuario(projetos, padrao);
+                        break;
+
+                    case FiltroEnum.NomeProjeto:
+                        projetos = FiltraPorNomeProjeto(projetos, padrao);
+                        break;
+
+                    case FiltroEnum.Tag:
+                        projetos = FiltraPorTag(projetos, padrao);
+                        break;
+
+                    default:
+                        throw new Exception("Tipo de Filtro Incorreto");
+                }
+            }
+
+            switch (tipoOrdenacao)
+            {
+                case OrdenaEnum.MaisAvaliados:
+                    throw new NotImplementedException("Não Implementado");
+
+                case OrdenaEnum.MenosAvaliados:
+                    throw new NotImplementedException("Não Implementado");
+
+                case OrdenaEnum.Recentes:
+                    projetos = projetos.OrderByDescending(p => p.DataFim).ToList();
+                    break;
+
+                case OrdenaEnum.Antigos:
+                    projetos = projetos.OrderBy(p => p.DataFim).ToList();
+                    break;
+
+                default:
+                    throw new Exception("Tipo de Ordenação Incorreto");
+            }
+
+            return projetos;
+        }
+
         public async Task<List<Projeto>> GetAllActiveByUserAsync(int id)
         {
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
@@ -101,6 +167,37 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
                 await _dbcontext.SaveChangesAsync();
             }
+        }
+
+        private List<Projeto> FiltraPorNomeUsuario(List<Projeto> projetos, string padrao)
+        {
+            return (from p in projetos
+                    join up in _dbcontext.UsuarioProjeto on p.Id equals up.IdProjeto
+                    join u in _dbcontext.Usuario on up.IdUsuario equals u.Id
+                    where RemoveAccents(u.Nome.ToLower()).Contains(padrao)
+                    select p).ToList();
+        }
+
+        private List<Projeto> FiltraPorNomeProjeto(List<Projeto> projetos, string filtro)
+        {
+            return projetos.Where(p => RemoveAccents(p.Nome.ToLower()).Contains(RemoveAccents(filtro.ToLower()))).ToList();
+        }
+
+        private List<Projeto> FiltraPorTag(List<Projeto> projetos, string padrao)
+        {
+            return (from p in projetos
+                    join pt in _dbcontext.ProjetoTag on p.Id equals pt.IdProjeto
+                    where RemoveAccents(pt.Nome.ToLower()).Contains(padrao)
+                    select p).ToList();
+        }
+
+        public static string RemoveAccents(string input)
+        {
+            return new string(input
+                .Normalize(NormalizationForm.FormD)
+                .Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                .ToArray())
+                .Normalize(NormalizationForm.FormC);
         }
     }
 }
