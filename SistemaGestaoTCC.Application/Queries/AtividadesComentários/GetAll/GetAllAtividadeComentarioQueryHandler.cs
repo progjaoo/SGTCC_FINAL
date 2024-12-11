@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using SistemaGestaoTCC.Application.ViewModels.AtividadesComentarioVM;
 using SistemaGestaoTCC.Core.Interfaces;
 
@@ -15,14 +16,15 @@ namespace SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetAll
 
         public async Task<List<AtividadeComentarioViewModel>> Handle(GetAllAtividadeComentarioQuery request, CancellationToken cancellationToken)
         {
-            var atividade = await _atividadeComentarioRepository.GetAllAsync();
+            var atividadeComentarios = await _atividadeComentarioRepository.GetQueryable()
+                .Select(ac => new AtividadeComentarioViewModel(
+                    ac.IdUsuario,
+                    ac.IdAtividade,
+                    ac.Comentario
+                ))
+                .ToListAsync(cancellationToken);
 
-            var atividadeViewModel = atividade.Select(a => new AtividadeComentarioViewModel(
-                a.IdUsuario,
-                a.IdAtividade,
-                a.Comentario)).ToList();
-
-            return atividadeViewModel;
+            return atividadeComentarios;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
-        [HttpPut("{id}/atualizarCampo")]
+        [HttpPut("atualizarCampo")]
         public async Task<IActionResult> Update([FromBody] UpdateCampoCommand command)
         {
             await _mediator.Send(command);

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.Avaliacoes;
+using SistemaGestaoTCC.Application.Queries.Avaliacoes.GetAvaliacaoByProject;
 using SistemaGestaoTCC.Application.Queries.Avaliacoes.GetAvaliacaoByUser;
 using SistemaGestaoTCC.Application.Queries.Avaliacoes.GetById;
 
@@ -32,7 +33,7 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
-        [HttpGet("usuario/{idUsuario}")]
+        [HttpGet("porUsuario/{idUsuario}")]
         public async Task<IActionResult> GetAvaliacoesByUsuario(int idUsuario)
         {
             var query = new GetAvaliacoesByUsuarioQuery(idUsuario);
@@ -41,6 +42,19 @@ namespace SistemaGestaoTCC.API.Controllers
             if (result == null || result.Count == 0)
             {
                 return NotFound("Nenhuma avaliação encontrada para o usuário.");
+            }
+
+            return Ok(result);
+        }
+        [HttpGet("porProjeto/{idProjeto}")]
+        public async Task<IActionResult> GetAvaliacoesByProjeto(int idProjeto)
+        {
+            var query = new GetAvaliacoesByProjectQuery(idProjeto);
+            var result = await _mediator.Send(query);
+
+            if (result == null || result.Count == 0)
+            {
+                return NotFound("Nenhuma avaliação encontrada para o projeto.");
             }
 
             return Ok(result);

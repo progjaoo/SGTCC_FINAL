@@ -16,7 +16,7 @@ namespace SistemaGestaoTCC.Application.Commands.Projects.UpdateProject
         {
             var project = await _projectRepository.GetById(request.Id);
 
-            project.Update(request.Nome, request.Descricao, request.Justificativa, request.DataInicio);
+            project.Update(request.Nome, request.Descricao, request.Justificativa);
 
             await _projectRepository.SaveChangesAsync();
 

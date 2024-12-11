@@ -51,7 +51,7 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
             var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
-                expires: DateTime.Now.AddMinutes(120),
+                expires: DateTime.UtcNow.AddMinutes(120),
                 signingCredentials: credentials,
                 claims: claims);
 

@@ -18,7 +18,6 @@ namespace SistemaGestaoTCC.Application.Commands.Bancas.Update
             banca.UpdateBanca(
                 request.IdProjeto,
                 request.DataSeminario,
-                request.Parecer,
                 request.ObservacaoNotaProjeto,
                 request.ObservacaoAluno,
                 request.Recomendacao);

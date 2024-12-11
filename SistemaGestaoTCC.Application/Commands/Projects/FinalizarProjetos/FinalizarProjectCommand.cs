@@ -9,6 +9,5 @@ namespace SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos
             Id = id;
         }
         public int Id { get; set; }
-        public DateTime DataFim { get; set; }
     }
 }

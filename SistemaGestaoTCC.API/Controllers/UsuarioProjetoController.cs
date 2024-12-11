@@ -28,7 +28,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(user);
         }
-        [HttpPost]
+        [HttpPost("adicioanrUsuarioNoProjeto")]
         public async Task<IActionResult> Post([FromBody] AddUserInProjectCommand command)
         {
             var id = await _mediator.Send(command);
@@ -36,7 +36,7 @@ namespace SistemaGestaoTCC.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
 
-        [HttpDelete("RemoverUsuarioDeProjeto")]
+        [HttpDelete("removerUsuarioDeProjeto")]
         public async Task<IActionResult> RemoverUsuarioProjeto(RemoveUserCommand command)
         {
             await _mediator.Send(command);  

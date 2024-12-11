@@ -54,8 +54,9 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpDelete("{id}/deletarAtividades")]
-        public async Task<IActionResult> Delete(DeleteProjetoAtividadeCommand command)
+        public async Task<IActionResult> Delete(int id)
         {
+            var command = new DeleteProjetoAtividadeCommand(id);
             await _mediator.Send(command);
 
             return NoContent();

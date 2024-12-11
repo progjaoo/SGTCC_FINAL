@@ -4,7 +4,7 @@ using SistemaGestaoTCC.Core.Models;
 
 namespace SistemaGestaoTCC.Application.Queries.Avaliacoes.GetAvaliacaoByUser
 {
-    public class GetAvaliacoesByUsuarioQuery : IRequest<List<AvaliacaoDetailViewModel>>
+    public class GetAvaliacoesByUsuarioQuery : IRequest<List<AvaliacaoDetailUsuarioViewModel>>
     {
         public int Id { get; set; }
 

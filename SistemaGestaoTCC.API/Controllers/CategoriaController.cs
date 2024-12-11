@@ -45,7 +45,7 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
-        [HttpPut("{id}/atualizarCategoria")]
+        [HttpPut("atualizarCategoria")]
         public async Task<IActionResult> Update([FromBody] UpdateCategoriaCommand command)
         {
             await _mediator.Send(command);
@@ -53,8 +53,9 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpDelete("{id}/deletarCategoria")]
-        public async Task<IActionResult> Delete(DeleteCategoriaCommand command)
+        public async Task<IActionResult> Delete(int id)
         {
+            var command = new DeleteCategoriaCommand(id);
             await _mediator.Send(command);
 
             return NoContent();

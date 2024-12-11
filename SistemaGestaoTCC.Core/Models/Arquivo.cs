@@ -11,7 +11,7 @@ public partial class Arquivo //FALTA IMPLEMENTAR
     {
         NomeOriginal = nomeOriginal;
         Diretorio = diretorio;
-        CriadoEm = DateTime.Now;
+        CriadoEm = DateTime.UtcNow;
         EditadoEm = editadoEm;
         Tamanho = tamanho;
     }

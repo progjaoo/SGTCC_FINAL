@@ -13,8 +13,8 @@ public partial class Projeto
         Nome = nome;
         Descricao = descricao;
         Justificativa = justificativa;
-        DataInicio = DateTime.Now;
-        CriadoEm = DateTime.Now;
+        DataInicio = DateTime.UtcNow;
+        CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
     public string Nome { get; set; }
@@ -41,12 +41,11 @@ public partial class Projeto
 
     public virtual ICollection<UsuarioProjeto> UsuarioProjetos { get; set; } = new List<UsuarioProjeto>();
 
-    public void Update(string nome, string descricao, string justificativa, DateTime dataInicio)
+    public void Update(string nome, string descricao, string justificativa)
     {
         Nome = nome;
         Descricao = descricao;
         Justificativa = justificativa;
-        DataInicio = dataInicio;
     }
     public void Start()
     {
@@ -60,6 +59,7 @@ public partial class Projeto
         if (Estado == StatusProjeto.Created || Estado == StatusProjeto.InProgress)
         {
             Estado = StatusProjeto.Finished;
+            DataFim = DateTime.UtcNow;
         }
     }
     public void Cancel()

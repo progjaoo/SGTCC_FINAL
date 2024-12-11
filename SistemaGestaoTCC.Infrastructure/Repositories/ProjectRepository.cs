@@ -153,7 +153,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             if (projeto != null)
             {
                 projeto.Finish();
-                projeto.DataFim = DateTime.Now;
+                projeto.DataFim = DateTime.UtcNow;
                 await _dbcontext.SaveChangesAsync();
             }
         }

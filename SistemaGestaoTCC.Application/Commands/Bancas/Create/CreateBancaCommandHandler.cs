@@ -16,7 +16,6 @@ namespace SistemaGestaoTCC.Application.Commands.Bancas.Create
             var banca = new Banca(
                 request.IdProjeto, 
                 request.DataSeminario, 
-                request.Parecer, 
                 request.ObservacaoNotaProjeto,
                 request.ObservacaoAluno, 
                 request.Recomendacao);

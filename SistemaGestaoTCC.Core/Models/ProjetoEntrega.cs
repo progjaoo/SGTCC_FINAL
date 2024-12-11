@@ -15,7 +15,7 @@ public partial class ProjetoEntrega
         DataEnvio = dataEnvio;
         Entregue = entregue;
 
-        CriadoEm = DateTime.Now;
+        CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
     public int IdProjeto { get; set; }
@@ -27,14 +27,13 @@ public partial class ProjetoEntrega
     public DateTime? EditadoEm { get; set; }
     public virtual Projeto IdProjetoNavigation { get; set; }
 
-    public void UpdateEntrega(int idProjeto, string titulo, DateTime dataLimite, DateTime? dataEnvio, bool entregue)
+    public void UpdateEntrega( string titulo, DateTime dataLimite, DateTime? dataEnvio, bool entregue)
     {
-        IdProjeto = idProjeto;
         Titulo = titulo;
         DataLimite = dataLimite;
         DataEnvio = dataEnvio;
         Entregue = entregue;
 
-        EditadoEm = DateTime.Now;
+        EditadoEm = DateTime.UtcNow;
     }
 }

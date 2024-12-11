@@ -13,7 +13,7 @@ public partial class NotaFinalAluno
         IdAluno = idAluno;
         Nota = nota;
 
-        CriadoEm = DateTime.Now;
+        CriadoEm = DateTime.UtcNow;
     }
 
     public int Id { get; set; }

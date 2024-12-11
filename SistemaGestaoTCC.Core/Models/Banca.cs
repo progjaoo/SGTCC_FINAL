@@ -8,17 +8,17 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Banca //FALTA IMPLEMENTAR
 {
-    public Banca(int idProjeto, DateTime dataSeminario, ParecerBancaEnum parecer, 
+    public Banca(int idProjeto, DateTime dataSeminario, 
         string observacaoNotaProjeto, string observacaoAluno, string recomendacao)
     {
         IdProjeto = idProjeto;
         DataSeminario = dataSeminario;
-        Parecer = parecer;
+        Parecer = ParecerBancaEnum.Created;
         ObservacaoNotaProjeto = observacaoNotaProjeto;
         ObservacaoAluno = observacaoAluno;
         Recomendacao = recomendacao;
 
-        CriadoEm = DateTime.Now;
+        CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
     public int IdProjeto { get; set; }
@@ -32,12 +32,11 @@ public partial class Banca //FALTA IMPLEMENTAR
     public virtual ICollection<AvaliadorBanca> AvaliadorBancas { get; set; } = new List<AvaliadorBanca>();
     public virtual Projeto IdProjetoNavigation { get; set; }
 
-    public void UpdateBanca(int idProjeto, DateTime dataSeminario, ParecerBancaEnum parecer,
+    public void UpdateBanca(int idProjeto, DateTime dataSeminario,
         string observacaoNotaProjeto, string observacaoAluno, string recomendacao)
     {
         IdProjeto = idProjeto;
         DataSeminario = dataSeminario;
-        Parecer = parecer;
         ObservacaoNotaProjeto = observacaoNotaProjeto;
         ObservacaoAluno = observacaoAluno;
         Recomendacao = recomendacao;

@@ -461,10 +461,10 @@ public partial class SGTCCContext : DbContext
         });
 
         modelBuilder.Entity<AtividadeComentario>()
-        .HasOne<ProjetoAtividade>()
-        .WithMany()
-        .HasForeignKey(ac => ac.IdAtividade)
-        .OnDelete(DeleteBehavior.NoAction);
+       .HasOne<ProjetoAtividade>()
+       .WithMany()
+       .HasForeignKey(ac => ac.IdAtividade)
+       .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<AtividadeComentario>()
             .HasOne<Usuario>()

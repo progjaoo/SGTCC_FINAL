@@ -47,8 +47,8 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
-        [HttpPut("{id}/atualizarNotaFinal")]
-        public async Task<IActionResult> Put(int id, [FromBody] UpdateNotaFinalCommand command)
+        [HttpPut("atualizarNotaFinal")]
+        public async Task<IActionResult> Put([FromBody] UpdateNotaFinalCommand command)
         {
             await _mediator.Send(command);
             return NoContent();

@@ -59,9 +59,10 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
-        [HttpDelete("{id}/deletarBanca")]
-        public async Task<IActionResult> Delete(DeleteBancaCommand command)
+        [HttpDelete("deletarBanca")]
+        public async Task<IActionResult> Delete(int id)
         {
+            var command = new DeleteBancaCommand(id);
             await _mediator.Send(command);
 
             return NoContent();

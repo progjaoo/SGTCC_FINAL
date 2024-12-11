@@ -17,7 +17,7 @@ public partial class Usuario
         Senha = senha;
         Papel = papel;
 
-        CriadoEm = DateTime.Now;
+        CriadoEm = DateTime.UtcNow;
 
     }
     public int Id { get; set; }
@@ -52,6 +52,6 @@ public partial class Usuario
         Nome = nome;
         Email = email;
 
-        EditadoEm = DateTime.Now;
+        EditadoEm = DateTime.UtcNow;
     }
 }

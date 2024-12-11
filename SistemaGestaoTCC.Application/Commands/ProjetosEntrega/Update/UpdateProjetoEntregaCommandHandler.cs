@@ -17,7 +17,7 @@ namespace SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Update
             if (entrega == null)
                 throw new Exception("Entrega não encontrada");
 
-            entrega.UpdateEntrega(request.IdProjeto, request.Titulo, request.DataLimite, request.DataEnvio, request.Entregue);
+            entrega.UpdateEntrega(request.Titulo, request.DataLimite, request.DataEnvio, request.Entregue);
             await _projetoEntregaRepository.SaveChangesAsync();
 
             return Unit.Value;

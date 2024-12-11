@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using SistemaGestaoTCC.Application.ViewModels.AtividadesComentarioVM;
 using SistemaGestaoTCC.Core.Interfaces;
 
@@ -13,17 +14,20 @@ namespace SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetById
         }
         public async Task<AtividadeComentarioViewModel> Handle(GetAtividadeComentarioByIdQuery request, CancellationToken cancellationToken)
         {
-            var atividade = await _atividadeComentarioRepository.GetById(request.Id);
+            var atividadeComentario = await _atividadeComentarioRepository
+                .GetQueryable()
+                .Where(ac => ac.Id == request.Id)
+                .Select(ac => new AtividadeComentarioViewModel(
+                    ac.IdUsuario,
+                    ac.IdAtividade,
+                    ac.Comentario
+                ))
+                .FirstOrDefaultAsync(cancellationToken);
 
-            if (atividade == null)
-                throw new Exception("Comentario em atividade não encontrado!");
+            if (atividadeComentario == null)
+                throw new Exception("Comentário em atividade não encontrado!");
 
-            var atividadeViewModel = new AtividadeComentarioViewModel(
-                atividade.IdUsuario,
-                atividade.IdAtividade,
-                atividade.Comentario);
-
-            return atividadeViewModel;
+            return atividadeComentario;
         }
     }
 }

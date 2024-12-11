@@ -6,6 +6,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
     {
         Task<ProjetoAvaliacaoPublica> GetById(int id);
         Task<List<ProjetoAvaliacaoPublica>> GetAvaliacoesByUsuarioAsync(int idUsuario);
+        Task<List<ProjetoAvaliacaoPublica>> GetAvaliacoesByProjectAsync(int idProjeto);
         Task AddASync(ProjetoAvaliacaoPublica avaliacao);
         Task SaveChangesAsync();
     }

@@ -8,6 +8,5 @@ namespace SistemaGestaoTCC.Application.Commands.Projects.UpdateProject
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public string Justificativa { get; set; }
-        public DateTime DataInicio { get; set; }
     }
 }

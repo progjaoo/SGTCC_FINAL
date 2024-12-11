@@ -36,5 +36,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             await _dbContext.SaveChangesAsync();
         }
+        public IQueryable<AtividadeComentario> GetQueryable()
+        {
+            return _dbContext.AtividadeComentario.AsQueryable();
+        }
     }
 }

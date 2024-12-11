@@ -8,10 +8,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
     {
         private SGTCCContext _dbcontext;
         private IUsuarioProjetoRepository _usuarioProjetoRepository;
-        public AvaliacaoRepository(SGTCCContext dbcontext, IUserRepository userRepository, IUsuarioProjetoRepository usuarioProjetoRepository)
+        private IProjectRepository _projectRepository;
+        public AvaliacaoRepository(SGTCCContext dbcontext, IUserRepository userRepository, IUsuarioProjetoRepository usuarioProjetoRepository, IProjectRepository projectRepository)
         {
             _dbcontext = dbcontext;
             _usuarioProjetoRepository = usuarioProjetoRepository;
+            _projectRepository = projectRepository;
         }
         public async Task<ProjetoAvaliacaoPublica> GetById(int id)
         {
@@ -28,8 +30,15 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         }
         public async Task<List<ProjetoAvaliacaoPublica>> GetAvaliacoesByUsuarioAsync(int idUsuario)
         {
-            var avaliacoes = (await _usuarioProjetoRepository.GetAllByUserId(idUsuario)).Select(p => p.IdProjeto);
-            return await _dbcontext.ProjetoAvaliacaoPublica.Where(p => avaliacoes.Contains(p.Id)).ToListAsync();
+            return await _dbcontext.ProjetoAvaliacaoPublica
+                .Where(p => p.IdUsuario == idUsuario)
+                .ToListAsync();
+        }
+        public async Task<List<ProjetoAvaliacaoPublica>> GetAvaliacoesByProjectAsync(int idProjeto)
+        {
+            return await _dbcontext.ProjetoAvaliacaoPublica
+                .Where(p => p.IdProjeto == idProjeto)
+                .ToListAsync();
         }
     }
 }

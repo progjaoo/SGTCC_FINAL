@@ -4,6 +4,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
 {
     public interface IAtividadeComentarioRepository
     {
+        IQueryable<AtividadeComentario> GetQueryable();
         Task<List<AtividadeComentario>> GetAllAsync();
         Task<AtividadeComentario> GetById(int id);
         Task AddASync(AtividadeComentario atividadeComentario);

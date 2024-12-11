@@ -5,7 +5,6 @@ namespace SistemaGestaoTCC.Core.Enums
         MaisAvaliados = 1,
         MenosAvaliados = 2,
         Recentes = 3,
-        Antigos = 4,
-
+        Antigos = 4
     }
 }

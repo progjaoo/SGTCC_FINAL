@@ -10,7 +10,7 @@ public partial class ProjetoComentario
         IdProjeto = idProjeto;
         Comentario = comentario;
 
-        CriadoEm = DateTime.Now;
+        CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
     public int IdUsuario { get; set; }
@@ -27,6 +27,6 @@ public partial class ProjetoComentario
         IdProjeto = idProjeto;
         Comentario = comentario;
 
-        EditadoEm = DateTime.Now;    
+        EditadoEm = DateTime.UtcNow;    
     }
 }
