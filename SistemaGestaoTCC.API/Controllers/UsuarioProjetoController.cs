@@ -15,7 +15,7 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var query = new GetUserProjectByIdQuery(id);
@@ -28,7 +28,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(user);
         }
-        [HttpPost("adicioanrUsuarioNoProjeto")]
+        [HttpPost("adicionarUsuarioNoProjeto")]
         public async Task<IActionResult> Post([FromBody] AddUserInProjectCommand command)
         {
             var id = await _mediator.Send(command);

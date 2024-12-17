@@ -101,16 +101,15 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
-        [HttpPut("{id}/atualizarProjeto")]
+        [HttpPut("atualizarProjeto")]
         // [Authorize(Roles = "Aluno")]
-        public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand command)
+        public async Task<IActionResult> Put([FromBody] UpdateProjectCommand command)
         {
-            command.Id = id;
             await _mediator.Send(command);
 
             return NoContent();
         }
-        [HttpPut("{id}/cancelarProjeto")]
+        [HttpPut("cancelarProjeto")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteProjectCommand(id);

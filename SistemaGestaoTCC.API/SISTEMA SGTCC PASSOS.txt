@@ -21,3 +21,23 @@ Tive uma ideia sobre pastas dentro do projeto que o aluno poderia separar entre 
 para que ele possa manipular os arquivos dentro de cada parte do projeto, fragmentada.
 
 - nextcloud para publicar
+
+
+
+
+""""ESTE É O PROJETO CERTO"""" DIA 13/12/2024 
+
+OBS: TIREI ID:
+	- PROJETO ENTREGA
+	- PROJETO
+	- PROJETO ATIVIDADE
+	- NOTA FINAL
+	- NOTA DOCUMENTO
+	- CURSO
+	- COMENTARIOS
+	- CATEGORIA
+	- CAMPO DOCUMENTO
+	- AVALIADORES BANCA
+	- ATIVIDADE COMENTARIO
+
+warn: ADICIONAR ID NA URL DE GET's COMENTARIOCONTROLLER

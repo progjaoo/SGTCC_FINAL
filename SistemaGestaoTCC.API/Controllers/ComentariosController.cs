@@ -17,7 +17,7 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("buscarComentarios{id}")]
+        [HttpGet("{id}/buscarComentarios")]
         public async Task<IActionResult> GetCommentById(int id)
         {
             var query = new GetComentByIdQuery(id);
@@ -38,10 +38,10 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(query);
         }
-        [HttpGet("comentariosPorProjeto")]
-        public async Task<IActionResult> GetAllCommentsByProject(int projetoId)
+        [HttpGet("{id}/comentariosPorProjeto")]
+        public async Task<IActionResult> GetAllCommentsByProject(int id)
         {
-            var comentarios = await _mediator.Send(new GetAllCommentsByProjectQuery(projetoId));
+            var comentarios = await _mediator.Send(new GetAllCommentsByProjectQuery(id));
 
             if (comentarios == null || !comentarios.Any())
             {
@@ -49,10 +49,10 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(comentarios);
         }
-        [HttpGet("comentariosPorUsuario")]
-        public async Task<IActionResult> GetAllCommentsByUser(int userId)
+        [HttpGet("{id}/comentariosPorUsuario")]
+        public async Task<IActionResult> GetAllCommentsByUser(int id)
         {
-            var comentarios = await _mediator.Send(new GetAllCommentsByUserQuery(userId));
+            var comentarios = await _mediator.Send(new GetAllCommentsByUserQuery(id));
 
             if (comentarios == null || !comentarios.Any())
             {
@@ -66,10 +66,9 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetCommentById), new { id = id }, command);
         }
-        [HttpPut("{id}/atualizarComentario")]
-        public async Task<IActionResult> Put(int id, [FromBody] UpdateCommentCommand command)
+        [HttpPut("atualizarComentario")]
+        public async Task<IActionResult> Put([FromBody] UpdateCommentCommand command)
         {
-            command.Id = id;
             await _mediator.Send(command);
 
             return NoContent();
