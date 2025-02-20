@@ -12,6 +12,8 @@ using SistemaGestaoTCC.Infrastructure.Services;
 using System.Text;
 using System.Text.Json.Serialization;
 
+using Microsoft.Extensions.FileProviders;
+
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
@@ -139,9 +141,28 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//TODO alterar pasta
+app.UseStaticFiles();
+var folderName = configuration["Files:Directory"];
+
+if (folderName != null)
+{
+    var folderPath = Path.Combine(builder.Environment.ContentRootPath, folderName);
+
+    if (!Directory.Exists(folderPath))
+    {
+        Directory.CreateDirectory(folderPath);
+    }
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+                folderPath),
+        RequestPath = "/" + folderName
+    }); app.UseStaticFiles();
+}
+
 //APLICANDO POLITICA CORS
 app.UseCors();
-
 
 app.UseSwagger();
 app.UseSwaggerUI();
