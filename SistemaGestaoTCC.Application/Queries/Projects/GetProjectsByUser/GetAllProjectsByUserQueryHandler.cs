@@ -9,6 +9,7 @@ using SistemaGestaoTCC.Application.ViewModels;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 
+using Newtonsoft.Json;
 namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser
 {
     public class GetAllProjectsQueryByUserHandler : IRequestHandler<GetProjectByUserQuery, List<ProjectViewModel>>
@@ -26,7 +27,7 @@ namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser
             var projeto = await _projectRepository.GetAllByUserAsync(request.IdUsuario);
 
             var projectViewModel = projeto
-                .Select(p => new ProjectViewModel(p.Id, p.Nome, p.Descricao))
+                .Select(p => new ProjectViewModel(p.Id, p.Nome, p.Descricao, p.ProjetoTags))
                 .ToList();
 
             return projectViewModel;
