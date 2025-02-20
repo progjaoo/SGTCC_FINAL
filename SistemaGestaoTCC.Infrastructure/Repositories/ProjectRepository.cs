@@ -30,6 +30,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             return await _dbcontext.Projeto
             //.Where(p => p.Estado == Core.Enums.StatusProjeto.Created)
             .Where(p => p.Aprovado == true)
+            .Include(p => p.ProjetoTags)
             .ToListAsync();
         }
 
@@ -38,6 +39,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             //ok
             return await _dbcontext.Projeto
             .Where(p => p.Estado == Core.Enums.StatusProjeto.Finished && p.Aprovado == false)
+            .Include(p => p.ProjetoTags)
             .ToListAsync();
         }
 
@@ -45,14 +47,14 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             //ok
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
-            return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id)).ToListAsync();
+            return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id))
+                .Include(p => p.ProjetoTags)
+                .ToListAsync();
         }
         public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum tipoFiltro, string? filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
             var projetos = await _dbcontext.Projeto
                 .Include(p => p.ProjetoTags)
-                .Include(p => p.UsuarioProjetos)
-                .ThenInclude(up => up.IdUsuarioNavigation)
                 .Where(p => p.Aprovado == true)
                 .ToListAsync();
 
@@ -115,6 +117,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
             return await _dbcontext.Projeto
                 .Where(p => idsProjetos.Contains(p.Id) && p.Estado != Core.Enums.StatusProjeto.Canceled)
+                .Include(p => p.ProjetoTags)
+                .Include(p => p.UsuarioProjetos)
+                .ThenInclude(up => up.IdUsuarioNavigation)
                 .ToListAsync();
         }
         public async Task<Projeto> GetById(int id)
