@@ -27,7 +27,7 @@ public partial class Arquivo //FALTA IMPLEMENTAR
     public string NomeOriginal { get; set; }
     public string Diretorio { get; set; }
     public DateTime CriadoEm { get; set; }
-    public DateTime EditadoEm { get; set; }
+    public DateTime? EditadoEm { get; set; }
     public int Tamanho { get; set; }
     public virtual ICollection<ProjetoArquivo> ProjetoArquivos { get; set; } = new List<ProjetoArquivo>();
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
