@@ -24,21 +24,23 @@ namespace SistemaGestaoTCC.Application.ViewModels
             Email = email;
             IdCurso = idCurso;
         }
-        /*public UserViewModel(int id, string nome, string email, string idCurso, PapelEnum papel)
+
+        public UserViewModel(int? id, string? nome, string email, int idCurso, PapelEnum papel, string nomeCurso)
         {
             Id = id;
             Nome = nome;
             Email = email;
-            NomeCurso = idCurso;
+            IdCurso = idCurso;
             Papel = papel;
+            NomeCurso = nomeCurso;
         }
-        */
-        public int? Id { get; set; }
+
         public string? Imagem { get; set; }
+        public int? Id { get; set; }
         public string? Nome { get; set; }
         public string Email { get; set; }
         public int IdCurso { get; set; }
-        public PapelEnum Papel { get; set; } 
-        public string NomeCurso{ get; set; }
+        public PapelEnum Papel { get; set; }
+        public string NomeCurso { get; set; }
     }
 }

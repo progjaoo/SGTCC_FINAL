@@ -9,5 +9,6 @@ namespace SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create
         public DateTime DataLimite { get; set; }
         public DateTime? DataEnvio { get; set; }
         public bool Entregue { get; set; }
+
     }
 }

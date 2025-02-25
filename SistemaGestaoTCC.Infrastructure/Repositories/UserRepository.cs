@@ -13,6 +13,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             _dbcontext = dbcontext;
         }
+        public async Task LoadCursoAsync(Usuario user)
+        {
+            await _dbcontext.Entry(user)
+                .Reference(u => u.IdCursoNavigation)
+                .LoadAsync();
+        }
         public async Task<List<Usuario>> GetAllUserByCourse(int idCurso)
         {
 

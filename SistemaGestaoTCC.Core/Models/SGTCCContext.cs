@@ -12,7 +12,7 @@ public partial class SGTCCContext : DbContext
         : base(options)
     {
     }
-
+    public virtual DbSet<ProjetoEntregaProjeto> ProjetoEntregaProjetos { get; set; }   
     public virtual DbSet<Arquivo> Arquivo { get; set; }
 
     //public virtual DbSet<AtividadeProposta> AtividadeProposta { get; set; }
@@ -53,6 +53,27 @@ public partial class SGTCCContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<ProjetoEntregaProjeto>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__ProjetoEntregaProjeto");
+
+            entity.ToTable("ProjetoEntregaProjeto");
+
+            entity.HasIndex(e => e.Id, "UQ__ProjetoEntregaProjeto").IsUnique();
+
+            entity.HasOne(d => d.IdEntregaNavigation)
+                .WithMany(p => p.ProjetoEntregaProjetos)
+                .HasForeignKey(d => d.IdEntrega)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_ProjetoEntregaProjeto_Entrega");
+
+            entity.HasOne(d => d.IdProjetoNavigation)
+                .WithMany(p => p.ProjetoEntregaProjetos)
+                .HasForeignKey(d => d.IdProjeto)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_ProjetoEntregaProjeto_Projeto");
+        });
+
         modelBuilder.Entity<Arquivo>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Arquivo__3214EC0709DE1BE0");

@@ -3,12 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.AtividadesComentários.Create;
 using SistemaGestaoTCC.Application.Commands.AtividadesComentários.Delete;
 using SistemaGestaoTCC.Application.Commands.AtividadesComentários.Update;
-using SistemaGestaoTCC.Application.Commands.Bancas.Create;
-using SistemaGestaoTCC.Application.Commands.Bancas.Delete;
-using SistemaGestaoTCC.Application.Commands.Bancas.Update;
 using SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetAll;
 using SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetById;
-using SistemaGestaoTCC.Application.Queries.Bancas.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
 {

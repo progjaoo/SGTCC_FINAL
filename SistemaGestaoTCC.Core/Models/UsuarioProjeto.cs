@@ -23,4 +23,4 @@ public partial class UsuarioProjeto
     public DateTime AdicionadoEm { get; set; }
     public virtual Projeto IdProjetoNavigation { get; set; }
     public virtual Usuario IdUsuarioNavigation { get; set; }
-}
+}   

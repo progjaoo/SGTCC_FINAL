@@ -1,5 +1,7 @@
 ﻿using MediatR;
+
 using SistemaGestaoTCC.Application.ViewModels.ProjetoEntregaVM;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.Application.Queries.ProjetoEntrega.GetAll

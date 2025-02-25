@@ -1,11 +1,11 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.Projects.CreateProject;
 using SistemaGestaoTCC.Application.Commands.Projects.DeleteProject;
 using SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos;
 using SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos;
 using SistemaGestaoTCC.Application.Commands.Projects.UpdateProject;
-using SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse;
 using SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByStatus;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectById;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjects;
@@ -57,14 +57,15 @@ namespace SistemaGestaoTCC.API.Controllers
         [HttpGet("filtroGeral")]
         public async Task<IActionResult> GetAllByFilter(FiltroEnum tipoFiltro, string? filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
-            if (string.IsNullOrEmpty(filtro) && string.IsNullOrEmpty(ano)) {
+            if (string.IsNullOrEmpty(filtro) && string.IsNullOrEmpty(ano))
+            {
                 return BadRequest("Texto de Filtro e Ano não podem ser nulos ao mesmo tempo. preencha um ou ambos!");
             }
 
             var getAllProjectQuery = new GetAllByFilterQuery(tipoFiltro, filtro, tipoOrdenacao, ano);
             try
             {
-                var projects = await _mediator.Send(getAllProjectQuery);   
+                var projects = await _mediator.Send(getAllProjectQuery);
                 return Ok(projects);
             }
             catch (System.Exception ex)
@@ -101,7 +102,7 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
-        [HttpPut("atualizarProjeto")]
+        [HttpPut("{id}/atualizarProjeto")]
         // [Authorize(Roles = "Aluno")]
         public async Task<IActionResult> Put([FromBody] UpdateProjectCommand command)
         {
@@ -109,7 +110,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
-        [HttpPut("cancelarProjeto")]
+        [HttpPut("{id}/cancelarProjeto")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteProjectCommand(id);
@@ -126,6 +127,7 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpPut("{id}/tornarPublico")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> TornarPublico(TornarPublicoCommand command)
         {
             await _mediator.Send(command);

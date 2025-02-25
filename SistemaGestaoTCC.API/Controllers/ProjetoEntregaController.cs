@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create;
 using SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Delete;
@@ -11,6 +12,7 @@ namespace SistemaGestaoTCC.API.Controllers
 {
     [ApiController]
     [Route("api/projetoEntrega")]
+    [Authorize(Roles = "Professor")]
     public class ProjetoEntregaController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -56,7 +58,7 @@ namespace SistemaGestaoTCC.API.Controllers
             return Ok(entrega);
         }
         [HttpPost("criarEntrega")]
-        public async Task<IActionResult> PostBanca([FromBody] CreateProjetoEntregaCommand command)
+        public async Task<IActionResult> Post([FromBody] CreateProjetoEntregaCommand command)
         {
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);

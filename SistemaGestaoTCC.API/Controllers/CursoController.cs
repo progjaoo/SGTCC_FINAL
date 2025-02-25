@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.Comentarios.Delete;
 using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
@@ -42,6 +43,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(course);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost("criarCurso")]
         public async Task<IActionResult> PostCourse([FromBody] CreateCourseCommand command)
         {
@@ -49,6 +51,7 @@ namespace SistemaGestaoTCC.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
         [HttpPut("atualizarCurso")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateCourseCommand command)
         {
             await _mediator.Send(command);
@@ -56,6 +59,7 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpDelete("{id}/deletarCurso")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(DeleteCourseCommand command)
         {
             await _mediator.Send(command);

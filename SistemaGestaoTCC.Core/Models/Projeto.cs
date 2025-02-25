@@ -38,6 +38,8 @@ public partial class Projeto
     public virtual ICollection<ProjetoEntrega> ProjetoEntregas { get; set; } = new List<ProjetoEntrega>();
 
     public virtual ICollection<ProjetoTag> ProjetoTags { get; set; } = new List<ProjetoTag>();
+    public virtual ICollection<ProjetoEntregaProjeto> ProjetoEntregaProjetos { get; set; } = new List<ProjetoEntregaProjeto>();
+
 
     public virtual ICollection<UsuarioProjeto> UsuarioProjetos { get; set; } = new List<UsuarioProjeto>();
 

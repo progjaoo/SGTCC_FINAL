@@ -1,5 +1,7 @@
 ﻿using MediatR;
+
 using SistemaGestaoTCC.Application.ViewModels.ProjetoEntregaVM;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.Application.Queries.ProjetoEntrega.GetById
@@ -7,6 +9,7 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoEntrega.GetById
     public class GetProjetoEntregaByIdQueryHandler : IRequestHandler<GetProjetoEntregaByIdQuery, ProjetoEntregaViewModel>
     {
         private readonly IProjetoEntregaRepository _projetoEntregaRepository;
+
         public GetProjetoEntregaByIdQueryHandler(IProjetoEntregaRepository projetoEntregaRepository)
         {
             _projetoEntregaRepository = projetoEntregaRepository;

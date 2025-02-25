@@ -6,12 +6,14 @@ namespace SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Delete
     public class DeleteProjetoEntregaCommandHandler : IRequestHandler<DeleteProjetoEntregaCommand, Unit>
     {
         private readonly IProjetoEntregaRepository _projetoEntregaRepository;
+
         public DeleteProjetoEntregaCommandHandler(IProjetoEntregaRepository projetoEntregaRepository)
         {
             _projetoEntregaRepository = projetoEntregaRepository;
         }
         public async Task<Unit> Handle(DeleteProjetoEntregaCommand request, CancellationToken cancellationToken)
         {
+            
             var entrega = await _projetoEntregaRepository.GetByIdAsync(request.Id);
 
             if (entrega == null)
