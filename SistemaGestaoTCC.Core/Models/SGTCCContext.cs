@@ -69,6 +69,9 @@ public partial class SGTCCContext : DbContext
             entity.Property(e => e.NomeOriginal)
                 .IsRequired()
                 .HasMaxLength(255);
+            entity.Property(e => e.Extensao)
+                .IsRequired()
+                .HasMaxLength(255);
         });
 
         //modelBuilder.Entity<AtividadeProposta>(entity =>

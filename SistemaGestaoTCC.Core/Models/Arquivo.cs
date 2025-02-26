@@ -7,25 +7,28 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Arquivo //FALTA IMPLEMENTAR
 {
-    public Arquivo(string nomeOriginal, string diretorio, int tamanho)
+    public Arquivo(string nomeOriginal, string diretorio, int tamanho, string extensao)
     {
         NomeOriginal = nomeOriginal;
         Diretorio = diretorio;
         Tamanho = tamanho;
+        Extensao = extensao;
         CriadoEm = DateTime.UtcNow;
     }
 
-    public void Update(string nomeOriginal, string diretorio, int tamanho)
+    public void Update(string nomeOriginal, string diretorio, int tamanho, string extensao)
     {
         NomeOriginal = nomeOriginal;
         Diretorio = diretorio;
         Tamanho = tamanho;
+        Extensao = extensao;
         EditadoEm = DateTime.UtcNow;
     }
 
     public int Id { get; set; }
     public string NomeOriginal { get; set; }
     public string Diretorio { get; set; }
+    public string Extensao { get; set; }
     public DateTime CriadoEm { get; set; }
     public DateTime? EditadoEm { get; set; }
     public int Tamanho { get; set; }

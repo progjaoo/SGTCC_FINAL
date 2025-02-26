@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SistemaGestaoTCC.Application.Helpers;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 
@@ -13,10 +14,12 @@ namespace SistemaGestaoTCC.Application.Commands.Arquivos.Create
         }
         public async Task<int> Handle(CreateArquivosCommand request, CancellationToken cancellationToken)
         {
-            var arquivo = new Arquivo(request.NomeOriginal, request.Diretorio, request.Tamanho);
+            var extensao = Path.GetExtension(request.File.FileName);
+            var arquivo = new Arquivo(request.File.FileName, request.Diretorio, (int)request.File.Length, extensao);
 
-            await _arquivoRepository.AddAsync(arquivo);
-            await _arquivoRepository.SaveChangesAsync();
+            var novoArquivo = await _arquivoRepository.AddAsync(arquivo);
+
+            await ArquivoHelper.SalvarArquivo(request.File, request.Diretorio, novoArquivo.Id);
 
             return arquivo.Id;
         }

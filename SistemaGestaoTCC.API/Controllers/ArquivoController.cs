@@ -46,9 +46,8 @@ namespace SistemaGestaoTCC.API.Controllers
 
             var command = new CreateArquivosCommand
             {
-                NomeOriginal = file.FileName,
-                Diretorio = folderName,
-                Tamanho = (int)file.Length,
+                File = file,
+                Diretorio = uploadDirectory,
             };
 
             var id = await _mediator.Send(command);

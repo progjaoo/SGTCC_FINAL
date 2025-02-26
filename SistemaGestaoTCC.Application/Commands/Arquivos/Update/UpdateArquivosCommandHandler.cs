@@ -14,7 +14,7 @@ namespace SistemaGestaoTCC.Application.Commands.Arquivos.Update
         {
             var arquivo = await _arquivoRepository.GetByIdAsync(request.Id);
 
-            arquivo.Update(request.NomeOriginal, request.Diretorio, request.Tamanho);
+            arquivo.Update(request.File.FileName, request.Diretorio, (int)request.File.Length, Path.GetExtension(request.File.FileName));
             
             await _arquivoRepository.SaveChangesAsync();
 
