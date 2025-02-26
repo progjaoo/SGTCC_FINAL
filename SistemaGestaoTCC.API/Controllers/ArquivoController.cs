@@ -52,18 +52,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             var id = await _mediator.Send(command);
 
-            var extensao = Path.GetExtension(file.FileName);
-            var novoNome = id.ToString() + extensao;
-
-            var filePath = Path.Combine(uploadDirectory, novoNome);
-
-            // Save the file to the server
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(stream);
-            }
-
-            return Ok(new { FilePath = filePath });
+            return Ok("Arquivo Criado");
         }
 
         [HttpGet("download/{fileName}")]

@@ -42,6 +42,8 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage
             {
                 var arquivo = await _arquivoRepository.GetByIdAsync((int)user.IdImagem);
 
+                ArquivoHelper.DeletarArquivo(arquivo.Diretorio, arquivo.Id, arquivo.Extensao);
+
                 arquivo.Update(
                     request.File.FileName,
                     request.FolderName,
@@ -51,8 +53,6 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage
 
                 await _arquivoRepository.SaveChangesAsync();
                 idArquivo = arquivo.Id;
-
-                ArquivoHelper.DeletarArquivo(request.FolderName, idArquivo, extensaoArquivo);
             }
 
             await ArquivoHelper.SalvarArquivo(request.File, request.FolderName, idArquivo);

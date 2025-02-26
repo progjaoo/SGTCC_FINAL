@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Http;
+using SistemaGestaoTCC.Core.Models;
 
 namespace SistemaGestaoTCC.Application.Helpers
 {
@@ -21,9 +22,19 @@ namespace SistemaGestaoTCC.Application.Helpers
 
         internal static void DeletarArquivo(string folderName, int idArquivo, string extensao)
         {
-            //WARN nao esta deletando
             var uploadDirectory = Path.Combine(Directory.GetCurrentDirectory(), folderName);
             var filePath = Path.Combine(uploadDirectory, $"{idArquivo}{extensao}");
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+        }
+
+        internal static void DeletarArquivo(Arquivo arquivo)
+        {
+            var uploadDirectory = Path.Combine(Directory.GetCurrentDirectory(), arquivo.Diretorio);
+            var filePath = Path.Combine(uploadDirectory, $"{arquivo.Id}{arquivo.Extensao}");
 
             if (File.Exists(filePath))
             {

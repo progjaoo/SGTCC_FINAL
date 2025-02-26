@@ -108,20 +108,21 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 //repositorios injecao de dependencia
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ICourseRepository, CourseRepository>();
-builder.Services.AddScoped<IUsuarioProjetoRepository, UsuarioProjetoRepository>();
 builder.Services.AddScoped<IProjetoAtividadeRepository, ProjetoAtividadeRepository>();
-builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
+builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
+builder.Services.AddScoped<IProjetoArquivoRepository, ProjetoArquivoRepository>();
 builder.Services.AddScoped<IProjetoComentarioRepository, ProjetoComentarioRepository>();
+builder.Services.AddScoped<IAtividadeComentarioRepository, AtividadeComentarioRepository>();
+builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUsuarioProjetoRepository, UsuarioProjetoRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IBancaRepository, BancaRepository>();
 builder.Services.AddScoped<IAvaliadorBancaRepository, AvaliadorBancaRepository>();
-builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ICampoDocumentoRepository, CampoDocumentoRepository>();
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<INotasDocumentoAlunoRepository, NotasDocumentoAlunoRepository>();
 builder.Services.AddScoped<INotaFinalAlunoRepository, NotaFinalAlunoRepository>();
-builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
-builder.Services.AddScoped<IAtividadeComentarioRepository, AtividadeComentarioRepository>();
 builder.Services.AddScoped<IArquivoRepository, ArquivoRepository>();
 
 //service
