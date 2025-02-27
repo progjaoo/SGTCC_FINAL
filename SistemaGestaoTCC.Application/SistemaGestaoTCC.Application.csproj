@@ -31,6 +31,7 @@
     <Folder Include="Commands\AtividadesComentários\Create\" />
     <Folder Include="Queries\AtividadesComentários\GetById\" />
     <Folder Include="Queries\AtividadesComentários\GetAll\" />
+    <Folder Include="Queries\ProjetoEntregasProjeto\" />
     <Folder Include="Validators\" />
   </ItemGroup>
 

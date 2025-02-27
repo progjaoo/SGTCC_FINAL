@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SistemaGestaoTCC.Application.Commands.ProjetoEntregasProjeto.AddProjetoEntrega;
 using SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create;
 using SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Delete;
 using SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Update;
@@ -75,6 +76,18 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             await _mediator.Send(command);
 
+            return NoContent();
+        }
+        [HttpPost("adicionarProjetoEmEntrega")]
+        public async Task<IActionResult> AddProjectEmEntrega([FromBody] AddProjetoEmEntregaCommand command)
+        {
+            var id = await _mediator.Send(command);
+            return CreatedAtAction(nameof(GetById), new { id = id }, command);
+        }
+        [HttpDelete("removerProjetoDaEntrega")]
+        public async Task<IActionResult> DeleteProjectEmEntrega([FromBody] DeleteProjetoEntregaCommand command)
+        {
+            await _mediator.Send(command);
             return NoContent();
         }
     }
