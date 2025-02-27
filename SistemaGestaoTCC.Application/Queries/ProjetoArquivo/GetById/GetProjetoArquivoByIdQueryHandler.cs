@@ -4,14 +4,14 @@ using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById
 {
-    public class GetAtividadeByIdQueryHandler : IRequestHandler<GetAtividadeByIdQuery, ProjetoAtividadeDetalheViewModel>
+    public class GetProjetoArquivoByIdQueryHandler : IRequestHandler<GetProjetoArquivoByIdQuery, ProjetoAtividadeDetalheViewModel>
     {
         private readonly IProjetoAtividadeRepository _projetoAtividadeRepository;
-        public GetAtividadeByIdQueryHandler(IProjetoAtividadeRepository projetoAtividadeRepository)
+        public GetProjetoArquivoByIdQueryHandler(IProjetoAtividadeRepository projetoAtividadeRepository)
         {
             _projetoAtividadeRepository = projetoAtividadeRepository;
         }
-        public async Task<ProjetoAtividadeDetalheViewModel> Handle(GetAtividadeByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ProjetoAtividadeDetalheViewModel> Handle(GetProjetoArquivoByIdQuery request, CancellationToken cancellationToken)
         {
             var atividade = await _projetoAtividadeRepository.GetById(request.Id);
 

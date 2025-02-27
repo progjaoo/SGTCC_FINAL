@@ -5,39 +5,31 @@ namespace SistemaGestaoTCC.Application.ViewModels.ArquivoVM
     public class ArquivoViewModel
     {
         public ArquivoViewModel(
-            string tipo,
             int id,
-            int idExterno,
             string nomeOriginal,
             string diretorio,
             int tamanho,
             string extensao,
             DateTime criadoEm,
-            DateTime? editadoEm
+            DateTime? editadoEm,
+            int? idProjetoArquivo,
+            int? idImagemUsuario,
+            int? idImagemProjeto,
+            int? idImagemCurso
             )
         {
             Id = id;
-            switch (tipo)
-            {
-                case "ProjetoArquivo":
-                    IdProjetoArquivo = idExterno;
-                    break;
-                case "ImagemUsuario":
-                    IdImagemUsuario = idExterno;
-                    break;
-                case "ImagemProjeto":
-                    IdImagemProjeto = idExterno;
-                    break;
-                case "ImagemCurso":
-                    IdImagemCurso = idExterno;
-                    break;
-            }
             NomeOriginal = nomeOriginal;
             Diretorio = diretorio;
             Tamanho = tamanho;
             Extensao = extensao;
             CriadoEm = criadoEm;
             EditadoEm = editadoEm;
+
+            IdProjetoArquivo = idProjetoArquivo;
+            IdImagemUsuario = idImagemUsuario;
+            IdImagemProjeto = idImagemProjeto;
+            IdImagemCurso = idImagemCurso;
         }
         public int Id { get; set; }
         public int? IdProjetoArquivo { get; set; }

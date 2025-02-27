@@ -3,11 +3,11 @@ using SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM;
 
 namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById
 {
-    public class GetAtividadeByIdQuery : IRequest<ProjetoAtividadeDetalheViewModel>
+    public class GetProjetoArquivoByIdQuery : IRequest<ProjetoAtividadeDetalheViewModel>
     {
         public int Id { get; set; }
 
-        public GetAtividadeByIdQuery(int id)
+        public GetProjetoArquivoByIdQuery(int id)
         {
             Id = id;
         }
