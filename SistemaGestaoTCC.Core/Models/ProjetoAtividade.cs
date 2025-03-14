@@ -3,6 +3,7 @@
 using SistemaGestaoTCC.Core.Enums;
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SistemaGestaoTCC.Core.Models;
 
@@ -13,9 +14,8 @@ public partial class ProjetoAtividade
         IdProjeto = idProjeto;
         Nome = nome;
         Descricao = descricao;
-        Estado = ProjetoAtividadeEnum.Created;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
 
     //public int IdAtividade { get; set; }

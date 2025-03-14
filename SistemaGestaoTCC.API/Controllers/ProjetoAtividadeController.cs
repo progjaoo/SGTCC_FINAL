@@ -5,6 +5,8 @@ using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Delete;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAllAsync;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById;
+using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProject;
+using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -17,7 +19,6 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             _mediator = mediator;
         }
-
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
@@ -39,6 +40,19 @@ namespace SistemaGestaoTCC.API.Controllers
                 return NotFound();
             }
             return Ok(atividade);
+        }
+        [HttpGet("projetos/{idProjeto}/atividades")]
+        public async Task<IActionResult> GetAtividadesByProjeto(int idProjeto)
+        {
+            try
+            {
+                var atividades = await _mediator.Send(new GetAtividadeByProjectQuery(idProjeto));
+                return Ok(atividades);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = $"Erro ao buscar atividades: {ex.Message}" });
+            }
         }
         [HttpPost("criarAtividade")]
         public async Task<IActionResult> PostCourse([FromBody] CreateProjetoAtividadeCommand command)

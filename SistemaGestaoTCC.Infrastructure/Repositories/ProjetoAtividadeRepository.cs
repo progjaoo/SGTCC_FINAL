@@ -20,6 +20,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbContext.ProjetoAtividade.SingleOrDefaultAsync(p => p.Id == id);
         }
+        public async Task<List<ProjetoAtividade>> GetAtividadeByProjectIdAsync(int projectId)
+        {
+            return await _dbContext.ProjetoAtividade
+                .Where(a => a.IdProjeto == projectId)
+                .ToListAsync();
+        }
         public async Task AddASync(ProjetoAtividade atividade)
         {
             await _dbContext.AddAsync(atividade);

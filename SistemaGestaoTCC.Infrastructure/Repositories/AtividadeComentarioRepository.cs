@@ -40,5 +40,11 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return _dbContext.AtividadeComentario.AsQueryable();
         }
+        public async Task<List<AtividadeComentario>> GetAllComentarioByAtividadeIdAsync(int idAtividade)
+        {
+            return await _dbContext.AtividadeComentario
+                .Where(ac => ac.IdAtividade == idAtividade)
+                .ToListAsync();
+        }
     }
 }

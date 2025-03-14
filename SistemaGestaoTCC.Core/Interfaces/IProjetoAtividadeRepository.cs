@@ -6,6 +6,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
     {
         Task<List<ProjetoAtividade>> GetAllAsync();
         Task<ProjetoAtividade> GetById(int id);
+        Task<List<ProjetoAtividade>> GetAtividadeByProjectIdAsync(int projectId);
         Task AddASync(ProjetoAtividade atividade);
         Task DeleteAtividade(int id);
         Task SaveChangesAsync();

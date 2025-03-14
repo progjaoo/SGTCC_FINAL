@@ -19,7 +19,7 @@ namespace SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByStatus
             var projeto = await _projectRepository.GetAllActiveByUserAsync(request.IdUsuario);
 
             var projectViewModel = projeto
-                .Select(p => new ProjectViewModel(p.Id, p.Nome, p.Descricao, p.ProjetoTags))
+                .Select(p => new ProjectViewModel(p.Id, p.Nome, p.Descricao, p.ProjetoTags, p.DataFim))
                 .ToList();
 
             return projectViewModel;

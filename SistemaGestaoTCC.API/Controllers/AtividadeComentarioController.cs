@@ -5,6 +5,8 @@ using SistemaGestaoTCC.Application.Commands.AtividadesComentários.Delete;
 using SistemaGestaoTCC.Application.Commands.AtividadesComentários.Update;
 using SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetAll;
 using SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetById;
+using SistemaGestaoTCC.Application.Queries.AtividadesComentários.GetComentByAtividade;
+using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -18,6 +20,18 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             _mediator = mediator;
         }
+        [HttpGet("projetoAtividade/{id}/comentarios")]
+        public async Task<IActionResult> GetByProjetoAtividadeId(int id)
+        {
+            var query = new GetAtividadesComentariosByProjetoAtividadeIdQuery(id);
+            var result = await _mediator.Send(query);
+
+            if (result == null || !result.Any())
+                return NotFound("Nenhum comentário encontrado para essa Atividade.");
+
+            return Ok(result);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {

@@ -6,12 +6,13 @@ namespace SistemaGestaoTCC.Application.ViewModels
 {
     public class ProjectViewModel
     {
-        public ProjectViewModel(int id, string nome, string descricao, ICollection<ProjetoTag> tags)
+        public ProjectViewModel(int id, string nome, string descricao, ICollection<ProjetoTag> tags, DateTime? dataFim)
         {
             Id = id;
             Nome = nome;
             Descricao = descricao;
-            
+            DataFim = dataFim;
+
             Tags = tags.Select(projetoTag => new TagsViewModel
             {
                 Nome = projetoTag.Nome,
@@ -21,6 +22,7 @@ namespace SistemaGestaoTCC.Application.ViewModels
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
+        public DateTime? DataFim { get; set; }
 
         public ICollection<TagsViewModel> Tags { get; set; }
     }
