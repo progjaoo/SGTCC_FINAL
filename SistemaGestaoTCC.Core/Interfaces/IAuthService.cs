@@ -4,5 +4,8 @@
     {
         string GenerateJwtToken(string email, string role);
         string ComputeSha256Hash(string password);
+
+        Task<bool> SendActivationEmailAsync(int userId, string userEmail);
+        Task<bool> ActivateAccountAsync(string token);
     }
 }
