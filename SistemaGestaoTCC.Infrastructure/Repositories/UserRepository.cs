@@ -81,5 +81,10 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             await RemoverAsync(obj);
 
         }
+        public async Task<Usuario> GetUserByEmailAsync(string email)
+        {
+            return await _dbcontext.Usuario.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
     }
 }

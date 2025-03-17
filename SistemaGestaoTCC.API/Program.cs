@@ -40,14 +40,17 @@ builder.Services.AddCors(options =>
 var connection = configuration["ConnectionStrings:DefaultConnection"];
 builder.Services.AddDbContext<SGTCCContext>(p => p.UseSqlServer(connection));
 
-//google
-builder.Services.AddAuthentication().AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
-    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+builder.Services.AddScoped<EmailService>();
 
-    googleOptions.CallbackPath = new PathString("/signin-google");
-});
+builder.Services.AddScoped<TokenService>();
+//google
+//builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+//{
+//    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+//    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+
+//    googleOptions.CallbackPath = new PathString("/signin-google");
+//});
 
 #region AUTENTICACAO JWT BEARER
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -134,6 +137,10 @@ builder.Services.AddSignalR();
 #endregion
 
 builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserActivationTokenRepository, UserActivationTokenRepository>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 

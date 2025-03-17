@@ -21,6 +21,11 @@ public partial class SGTCCContext : DbContext
 
     public virtual DbSet<Banca> Banca { get; set; }
 
+    public DbSet<UserToken> UserTokens { get; set; }
+
+    public DbSet<UserActivationToken> UserActivationTokens { get; set; }
+
+
     public virtual DbSet<CampoDocumentoAvaliacaoAluno> CampoDocumentoAvaliacaoAluno { get; set; }
 
     public virtual DbSet<Categoria> Categoria { get; set; }
