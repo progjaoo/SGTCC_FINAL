@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Create;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Delete;
+using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Finalizar;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAllAsync;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProject;
-using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -71,6 +71,13 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteProjetoAtividadeCommand(id);
+            await _mediator.Send(command);
+
+            return NoContent();
+        }
+        [HttpPut("{id}/finalizarProjeto")]
+        public async Task<IActionResult> Finalizar(FinalizarAtividadeCommand command)
+        {
             await _mediator.Send(command);
 
             return NoContent();

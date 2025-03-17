@@ -41,5 +41,16 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task FinalizarAtividade(int id)
+        {
+            var atividade = await _dbContext.ProjetoAtividade.FindAsync(id);
+
+            if (atividade != null)
+            {
+                atividade.Finish();
+                await _dbContext.SaveChangesAsync();
+            }
+        }
     }
 }
