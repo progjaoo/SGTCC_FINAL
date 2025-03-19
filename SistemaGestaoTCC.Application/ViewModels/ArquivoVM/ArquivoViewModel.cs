@@ -10,12 +10,9 @@ namespace SistemaGestaoTCC.Application.ViewModels.ArquivoVM
             string diretorio,
             int tamanho,
             string extensao,
+            int idExterno,
             DateTime criadoEm,
-            DateTime? editadoEm,
-            int? idProjetoArquivo,
-            int? idImagemUsuario,
-            int? idImagemProjeto,
-            int? idImagemCurso
+            DateTime? editadoEm = null
             )
         {
             Id = id;
@@ -26,16 +23,11 @@ namespace SistemaGestaoTCC.Application.ViewModels.ArquivoVM
             CriadoEm = criadoEm;
             EditadoEm = editadoEm;
 
-            IdProjetoArquivo = idProjetoArquivo;
-            IdImagemUsuario = idImagemUsuario;
-            IdImagemProjeto = idImagemProjeto;
-            IdImagemCurso = idImagemCurso;
+            IdExterno = idExterno;
         }
-        public int Id { get; set; }
-        public int? IdProjetoArquivo { get; set; }
-        public int? IdImagemUsuario { get; set; }
-        public int? IdImagemProjeto { get; set; }
-        public int? IdImagemCurso { get; set; }
+        public int Id { get; set; } 
+        //Id externo = [idProjetoArquivo || idImagemUsuario || idImagemProjeto || idImagemCurso];
+        public int IdExterno { get; set; }
         public string NomeOriginal { get; set; }
         public string Diretorio { get; set; }
         public string Extensao { get; set; }

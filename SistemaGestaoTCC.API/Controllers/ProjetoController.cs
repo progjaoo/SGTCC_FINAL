@@ -4,6 +4,7 @@ using SistemaGestaoTCC.Application.Commands.Projects.CreateProject;
 using SistemaGestaoTCC.Application.Commands.Projects.DeleteProject;
 using SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos;
 using SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos;
+using SistemaGestaoTCC.Application.Commands.Projects.UpdateImage;
 using SistemaGestaoTCC.Application.Commands.Projects.UpdateProject;
 using SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse;
 using SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByStatus;
@@ -21,12 +22,12 @@ namespace SistemaGestaoTCC.API.Controllers
     [ApiController]
     public class ProjetoController : ControllerBase
     {
-        private readonly IMediator _mediator;
-        private readonly IProjectRepository _projectRepository;
-        public ProjetoController(IMediator mediator, IProjectRepository projectRepository)
+        private readonly IMediator _mediator;        
+        private readonly string folderName;
+        public ProjetoController(IMediator mediator, IConfiguration configuration)
         {
             _mediator = mediator;
-            _projectRepository = projectRepository;
+            folderName = configuration["Files:Directory"] ?? "UploadedFiles";
         }
 
         [HttpGet]
@@ -57,14 +58,15 @@ namespace SistemaGestaoTCC.API.Controllers
         [HttpGet("filtroGeral")]
         public async Task<IActionResult> GetAllByFilter(FiltroEnum tipoFiltro, string? filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
-            if (string.IsNullOrEmpty(filtro) && string.IsNullOrEmpty(ano)) {
+            if (string.IsNullOrEmpty(filtro) && string.IsNullOrEmpty(ano))
+            {
                 return BadRequest("Texto de Filtro e Ano não podem ser nulos ao mesmo tempo. preencha um ou ambos!");
             }
 
             var getAllProjectQuery = new GetAllByFilterQuery(tipoFiltro, filtro, tipoOrdenacao, ano);
             try
             {
-                var projects = await _mediator.Send(getAllProjectQuery);   
+                var projects = await _mediator.Send(getAllProjectQuery);
                 return Ok(projects);
             }
             catch (System.Exception ex)
@@ -101,6 +103,21 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
+
+        [HttpPost("alterarImagem")]
+        public async Task<IActionResult> AlterarImagem(int idProjeto, IFormFile file)
+        {
+            var command = new UpdateProjectImageCommand
+            {
+                Id = idProjeto,
+                File = file,
+                FolderName = folderName,
+            };
+            var id = await _mediator.Send(command);
+
+            return Ok("Imagem Alterada");
+        }
+        
         [HttpPut("atualizarProjeto")]
         // [Authorize(Roles = "Aluno")]
         public async Task<IActionResult> Put([FromBody] UpdateProjectCommand command)

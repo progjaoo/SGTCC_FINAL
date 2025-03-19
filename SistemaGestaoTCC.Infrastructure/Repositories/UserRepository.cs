@@ -16,7 +16,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<List<Usuario>> GetAllUserByCourse(int idCurso)
         {
 
-            return await _dbcontext.Usuario.Where(c => c.IdCurso == idCurso).ToListAsync();
+            return await _dbcontext.Usuario.Where(c => c.IdCurso == idCurso)
+                .Include(u => u.IdImagemNavigation)
+                .ToListAsync();
         }
         public async Task<List<Usuario>> FilterUsers(PapelEnum papel, string nome)
         {
@@ -24,7 +26,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Where(u => u.Nome.Contains(nome))
                 .Take(5)
                 /*.OrderByDescending(u => u.UltimoAcesso ?? DateTime.MinValue)*/.ToListAsync();
-            
+
         }
         public async Task<List<Usuario>> GetProfessoresAsync()
         {
@@ -40,6 +42,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbcontext.Usuario
                 .Include(u => u.IdCursoNavigation)
+                .Include(u => u.IdImagemNavigation)
                 .SingleOrDefaultAsync(u => u.Id == id);
         }
 

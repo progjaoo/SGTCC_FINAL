@@ -178,6 +178,9 @@ public partial class SGTCCContext : DbContext
                 .IsRequired(true);
             entity.Property(e => e.EditadoEm)
                 .HasColumnType("datetime");
+            entity.HasOne(d => d.IdImagemNavigation).WithMany(p => p.Cursos)
+                .HasForeignKey(d => d.IdImagem)
+                .HasConstraintName("FK__Curso__IdImage__0C85DE4D");
         });
 
         modelBuilder.Entity<NotaDocumentoAluno>(entity =>
@@ -224,7 +227,8 @@ public partial class SGTCCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__NotaFinal__IdAva__114A936A");
             entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");        });
+                .HasColumnType("datetime");
+        });
 
         modelBuilder.Entity<Projeto>(entity =>
         {
@@ -253,6 +257,9 @@ public partial class SGTCCContext : DbContext
                 .IsFixedLength();
             entity.Property(e => e.CriadoEm)
                 .HasColumnType("datetime");
+            entity.HasOne(d => d.IdImagemNavigation).WithMany(p => p.Projetos)
+                .HasForeignKey(d => d.IdImagem)
+                .HasConstraintName("FK__Projeto__IdImage__0C85DE4D");
 
         });
 

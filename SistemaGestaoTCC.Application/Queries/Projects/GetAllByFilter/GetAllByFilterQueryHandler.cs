@@ -25,7 +25,7 @@ namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser
             var projeto = await _projectRepository.GetAllByFilterAsync(request.TipoFiltro, request.Filtro, request.TipoOrdenacao, request.Ano);
 
             var projectViewModel = projeto
-                .Select(p => new ProjectFilterViewModel(p.Id, p.Nome, p.Descricao, p.UsuarioProjetos, p.ProjetoTags, p.DataFim))
+                .Select(p => new ProjectFilterViewModel(p.Id, p.Nome, p.Descricao, p.UsuarioProjetos, p.ProjetoTags, p.IdImagemNavigation, p.DataFim))
                 .ToList();
 
             return projectViewModel;

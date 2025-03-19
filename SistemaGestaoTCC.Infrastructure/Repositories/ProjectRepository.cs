@@ -55,6 +55,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             var projetos = await _dbcontext.Projeto
                 .Include(p => p.ProjetoTags)
+                .Include(p => p.UsuarioProjetos)
+                    .ThenInclude(up => up.IdUsuarioNavigation)
+                .Include(p => p.IdImagemNavigation)
                 .Where(p => p.Aprovado == true)
                 .ToListAsync();
 

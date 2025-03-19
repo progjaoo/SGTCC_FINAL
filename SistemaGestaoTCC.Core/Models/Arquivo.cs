@@ -34,4 +34,6 @@ public partial class Arquivo //FALTA IMPLEMENTAR
     public int Tamanho { get; set; }
     public virtual ICollection<ProjetoArquivo> ProjetoArquivos { get; set; } = new List<ProjetoArquivo>();
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+    public virtual ICollection<Projeto> Projetos { get; set; } = new List<Projeto>();
+    public virtual ICollection<Curso> Cursos { get; set; } = new List<Curso>();
 }
