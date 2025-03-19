@@ -76,8 +76,9 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpPut("{id}/finalizarProjeto")]
-        public async Task<IActionResult> Finalizar(FinalizarAtividadeCommand command)
+        public async Task<IActionResult> Finalizar(int id)
         {
+            var command = new FinalizarAtividadeCommand(id);
             await _mediator.Send(command);
 
             return NoContent();

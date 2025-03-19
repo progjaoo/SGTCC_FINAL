@@ -7,9 +7,11 @@
             IdUsuario = idUsuario;
             IdAtividade = idAtividade;
             Comentario = comentario;
+
         }
         public int IdUsuario { get; set; }
         public int IdAtividade { get; set; }
         public string Comentario { get; set; }
+
     }
 }

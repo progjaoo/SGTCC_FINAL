@@ -5,8 +5,10 @@ using SistemaGestaoTCC.Application.Commands.Comentarios.Delete;
 using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
 using SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse;
 using SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse;
+using SistemaGestaoTCC.Application.Queries.Courses.GetByName;
 using SistemaGestaoTCC.Application.Queries.Courses.GetCourseById;
 using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
 
 namespace SistemaGestaoTCC.API.Controllers
@@ -43,6 +45,15 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(course);
         }
+        [HttpGet("buscarPorNome/{name}")]
+        //[Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetByName(string name)
+        {
+            var query = new GetCoursesByNameQuery(name);
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
+        }
         [Authorize(Roles = "Admin")]
         [HttpPost("criarCurso")]
         public async Task<IActionResult> PostCourse([FromBody] CreateCourseCommand command)
@@ -60,8 +71,9 @@ namespace SistemaGestaoTCC.API.Controllers
         }
         [HttpDelete("{id}/deletarCurso")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(DeleteCourseCommand command)
+        public async Task<IActionResult> Delete(int id)
         {
+            var command = new DeleteCourseCommand(id);
             await _mediator.Send(command);
 
             return NoContent();

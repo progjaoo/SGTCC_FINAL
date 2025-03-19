@@ -24,6 +24,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbContext.ProjetoAtividade
                 .Where(a => a.IdProjeto == projectId)
+                .Where(a => a.Estado == Core.Enums.ProjetoAtividadeEnum.Created)
                 .ToListAsync();
         }
         public async Task AddASync(ProjetoAtividade atividade)

@@ -18,7 +18,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
         public AtividadeComentarioController(IMediator mediator)
         {
-            _mediator = mediator;
+            _mediator = mediator; 
         }
         [HttpGet("projetoAtividade/{id}/comentarios")]
         public async Task<IActionResult> GetByProjetoAtividadeId(int id)

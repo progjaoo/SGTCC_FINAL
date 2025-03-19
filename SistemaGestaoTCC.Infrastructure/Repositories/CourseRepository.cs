@@ -22,7 +22,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbcontext.Curso.ToListAsync();
         }
-
+        public async Task<List<Curso>> GetByNameAsync(string name)
+        {
+            return await _dbcontext.Curso
+                .Where(c => c.Nome.Contains(name))
+                .ToListAsync();
+        }
         public async Task<Curso> GetById(int id)
         {
             return await _dbcontext.Curso.SingleOrDefaultAsync(p => p.Id == id);
