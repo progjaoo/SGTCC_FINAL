@@ -1,30 +1,34 @@
 ﻿using MediatR;
+using SistemaGestaoTCC.Application.ViewModels.ArquivoVM;
 using SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM;
 using SistemaGestaoTCC.Core.Interfaces;
 
-namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById
+namespace SistemaGestaoTCC.Application.Queries.ProjetoArquivo.GetById
 {
-    public class GetProjetoArquivoByIdQueryHandler : IRequestHandler<GetProjetoArquivoByIdQuery, ProjetoAtividadeDetalheViewModel>
+    public class GetProjetoArquivoByIdQueryHandler : IRequestHandler<GetProjetoArquivoByIdQuery, ArquivoViewModel>
     {
-        private readonly IProjetoAtividadeRepository _projetoAtividadeRepository;
-        public GetProjetoArquivoByIdQueryHandler(IProjetoAtividadeRepository projetoAtividadeRepository)
+        private readonly IProjetoArquivoRepository _projetoArquivoRepository;
+        public GetProjetoArquivoByIdQueryHandler(IProjetoArquivoRepository projetoArquivoRepository)
         {
-            _projetoAtividadeRepository = projetoAtividadeRepository;
+            _projetoArquivoRepository = projetoArquivoRepository;
         }
-        public async Task<ProjetoAtividadeDetalheViewModel> Handle(GetProjetoArquivoByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ArquivoViewModel> Handle(GetProjetoArquivoByIdQuery request, CancellationToken cancellationToken)
         {
-            var atividade = await _projetoAtividadeRepository.GetById(request.Id);
+            var arquivo = await _projetoArquivoRepository.GetById(request.Id);
 
-            if (atividade == null) return null;
+            if (arquivo == null) return null;
 
-            var atividadeDetalheViewModel = new ProjetoAtividadeDetalheViewModel(
-                atividade.Id,
-                atividade.IdProjeto,
-                atividade.Nome,
-                atividade.Descricao,
-                atividade.Estado);
+            var arquivoViewModel = new ArquivoViewModel(
+                arquivo.IdArquivoNavigation.Id,
+                arquivo.IdArquivoNavigation.NomeOriginal,
+                arquivo.IdArquivoNavigation.Diretorio,
+                arquivo.IdArquivoNavigation.Tamanho,
+                arquivo.IdArquivoNavigation.Extensao,
+                arquivo.IdArquivoNavigation.Id,
+                arquivo.IdArquivoNavigation.CriadoEm
+            );
 
-            return atividadeDetalheViewModel;
+            return arquivoViewModel;
         }
     }
 }

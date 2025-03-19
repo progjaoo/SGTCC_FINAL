@@ -28,12 +28,16 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
         public async Task<List<ProjetoArquivo>> GetAllAsync()
         {
-            return await _dbContext.ProjetoArquivo.ToListAsync();
+            return await _dbContext.ProjetoArquivo
+                .Include(p => p.IdArquivoNavigation)
+                .ToListAsync();
         }
 
         public async Task<ProjetoArquivo> GetById(int id)
         {
-            return await _dbContext.ProjetoArquivo.SingleOrDefaultAsync(p => p.Id == id);
+            return await _dbContext.ProjetoArquivo
+                .Include(p => p.IdArquivoNavigation)
+                .SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task SaveChangesAsync()
