@@ -22,7 +22,7 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoArquivo.GetAllAsync
                     p.IdArquivoNavigation.Diretorio,
                     p.IdArquivoNavigation.Tamanho,
                     p.IdArquivoNavigation.Extensao,
-                    p.IdArquivoNavigation.Id,
+                    p.Id,
                     p.IdArquivoNavigation.CriadoEm
                 )
                 ).ToList();
