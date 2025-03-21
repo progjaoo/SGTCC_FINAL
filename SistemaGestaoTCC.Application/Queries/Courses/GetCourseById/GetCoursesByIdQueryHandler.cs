@@ -22,7 +22,8 @@ namespace SistemaGestaoTCC.Application.Queries.Courses.GetCourseById
             var courseViewModel = new CourseViewModel(
                 course.Id,
                 course.Nome,
-                course.Descricao
+                course.Descricao,
+                course.IdImagemNavigation
             );
             return courseViewModel;
         }

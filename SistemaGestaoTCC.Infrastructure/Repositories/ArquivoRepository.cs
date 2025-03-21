@@ -43,6 +43,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task DeleteAsync(int id)
         {
             var arquivo = await _context.Arquivo.FindAsync(id);
+            if (arquivo == null) {
+                throw new Exception("Arquivo não encontrado.");
+            }
             _context.Arquivo.Remove(arquivo);
             await _context.SaveChangesAsync();
         }

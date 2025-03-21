@@ -15,10 +15,14 @@ namespace SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create
         private readonly IProjectRepository _projetoRepository;
 
 
-        public CreateProjetoEntregaCommandHandler(IProjetoEntregaRepository projetoEntregaRepository,
-            IProjectRepository projetoRepository)
+        public CreateProjetoEntregaCommandHandler(
+            IProjetoEntregaRepository projetoEntregaRepository,
+            IProjetoEntregaProjetoRepository projetoEntregaProjetoRepository,
+            IProjectRepository projetoRepository
+            )
         {
             _projetoEntregaRepository = projetoEntregaRepository;
+            _projetoEntregaProjetoRepository = projetoEntregaProjetoRepository;
             _projetoRepository = projetoRepository;
         }
         public async Task<int> Handle(CreateProjetoEntregaCommand request, CancellationToken cancellationToken)

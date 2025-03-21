@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.Comentarios.Delete;
 using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
 using SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse;
+using SistemaGestaoTCC.Application.Commands.Courses.UpdateImage;
 using SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse;
 using SistemaGestaoTCC.Application.Queries.Courses.GetByName;
 using SistemaGestaoTCC.Application.Queries.Courses.GetCourseById;
@@ -18,9 +19,11 @@ namespace SistemaGestaoTCC.API.Controllers
     public class CursoController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public CursoController(IMediator mediator)
+        private readonly string folderName;
+        public CursoController(IMediator mediator, IConfiguration configuration)
         {
             _mediator = mediator;
+            folderName = configuration["Files:Directory"] ?? "UploadedFiles";
         }
 
         [HttpGet]
@@ -39,7 +42,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             var course = await _mediator.Send(query);
 
-            if (course == null) 
+            if (course == null)
             {
                 return NotFound();
             }
@@ -61,6 +64,21 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
+
+        [HttpPost("alterarImagem")]
+        public async Task<IActionResult> AlterarImagem(int idCurso, IFormFile file)
+        {
+            var command = new UpdateCourseImageCommand
+            {
+                Id = idCurso,
+                File = file,
+                FolderName = folderName,
+            };
+            var id = await _mediator.Send(command);
+
+            return Ok("Imagem Alterada");
+        }
+        
         [HttpPut("atualizarCurso")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateCourseCommand command)
@@ -69,6 +87,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
+
         [HttpDelete("{id}/deletarCurso")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)

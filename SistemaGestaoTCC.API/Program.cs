@@ -13,6 +13,8 @@ using SistemaGestaoTCC.Infrastructure.Services;
 using System.Text;
 using System.Text.Json.Serialization;
 
+using Microsoft.Extensions.FileProviders;
+
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
@@ -112,21 +114,25 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 //repositorios injecao de dependencia
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ICourseRepository, CourseRepository>();
-builder.Services.AddScoped<IUsuarioProjetoRepository, UsuarioProjetoRepository>();
 builder.Services.AddScoped<IProjetoAtividadeRepository, ProjetoAtividadeRepository>();
-builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
+builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
+builder.Services.AddScoped<IProjetoArquivoRepository, ProjetoArquivoRepository>();
 builder.Services.AddScoped<IProjetoComentarioRepository, ProjetoComentarioRepository>();
+builder.Services.AddScoped<IAtividadeComentarioRepository, AtividadeComentarioRepository>();
+builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUsuarioProjetoRepository, UsuarioProjetoRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IBancaRepository, BancaRepository>();
 builder.Services.AddScoped<IAvaliadorBancaRepository, AvaliadorBancaRepository>();
-builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ICampoDocumentoRepository, CampoDocumentoRepository>();
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<INotasDocumentoAlunoRepository, NotasDocumentoAlunoRepository>();
 builder.Services.AddScoped<INotaFinalAlunoRepository, NotaFinalAlunoRepository>();
 builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
 builder.Services.AddScoped<IAtividadeComentarioRepository, AtividadeComentarioRepository>();
 builder.Services.AddScoped<IProjetoEntregaProjetoRepository, ProjetoEntregaProjetoRepository>();
+builder.Services.AddScoped<IArquivoRepository, ArquivoRepository>();
 
 //service
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -151,9 +157,28 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//TODO alterar pasta
+app.UseStaticFiles();
+var folderName = configuration["Files:Directory"] ?? "UploadedFiles";
+
+if (folderName != null)
+{
+    var folderPath = Path.Combine(builder.Environment.ContentRootPath, folderName);
+
+    if (!Directory.Exists(folderPath))
+    {
+        Directory.CreateDirectory(folderPath);
+    }
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+                folderPath),
+        RequestPath = "/" + folderName
+    }); app.UseStaticFiles();
+}
+
 //APLICANDO POLITICA CORS
 app.UseCors();
-
 
 app.UseSwagger();
 app.UseSwaggerUI();

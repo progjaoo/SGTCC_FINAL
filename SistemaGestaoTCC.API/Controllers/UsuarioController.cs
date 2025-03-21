@@ -18,6 +18,7 @@ using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
+using SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -27,9 +28,11 @@ namespace SistemaGestaoTCC.API.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public UsuarioController(IMediator mediator)
+        private readonly string folderName;
+        public UsuarioController(IMediator mediator, IConfiguration configuration)
         {
             _mediator = mediator;
+            folderName = configuration["Files:Directory"] ?? "UploadedFiles";
         }
 
     
@@ -97,6 +100,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(user);
         }
+
         [HttpPost("criarUsuario")]
         [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody] CreateUserCommand command)
@@ -104,6 +108,19 @@ namespace SistemaGestaoTCC.API.Controllers
             var id = await _mediator.Send(command);
 
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
+        }
+
+        [HttpPost("alterarImagem")]
+        public async Task<IActionResult> AlterarImagem(int idUsuario, IFormFile file)
+        {
+            var command = new UpdateUserImageCommand{
+                Id = idUsuario,
+                File = file,
+                FolderName = folderName,
+            };
+            var id = await _mediator.Send(command);
+
+            return Ok("Imagem Alterada");
         }
 
         [HttpPost("login")]

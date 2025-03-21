@@ -20,7 +20,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
         public async Task<List<Curso>> GetAllAsync()
         {
-            return await _dbcontext.Curso.ToListAsync();
+            return await _dbcontext.Curso
+                .Include(c => c.IdImagemNavigation)
+                .ToListAsync();
         }
         public async Task<List<Curso>> GetByNameAsync(string name)
         {
@@ -30,7 +32,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         }
         public async Task<Curso> GetById(int id)
         {
-            return await _dbcontext.Curso.SingleOrDefaultAsync(p => p.Id == id);
+            return await _dbcontext.Curso
+                .Include(c => c.IdImagemNavigation)
+                .SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task AddASync(Curso curso)
