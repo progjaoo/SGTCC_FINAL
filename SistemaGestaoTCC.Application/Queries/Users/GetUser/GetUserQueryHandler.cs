@@ -21,10 +21,10 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetUser
             {
                 return null;
             }
-            await _userRepository.LoadCursoAsync(user);
+            // await _userRepository.LoadCursoAsync(user);
 
 
-            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, user.Papel, user.IdCursoNavigation?.Nome ?? "Curso não disponível");
+            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, user.IdCursoNavigation.Nome, user.Papel, user.IdImagemNavigation);
         }
     }
 }

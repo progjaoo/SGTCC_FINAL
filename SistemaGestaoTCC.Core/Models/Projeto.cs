@@ -20,6 +20,7 @@ public partial class Projeto
     public string Nome { get; set; }
     public string Descricao { get; set; }
     public string Justificativa { get; set; }
+    public int? IdImagem { get; set; }
     public DateTime DataInicio { get; set; }
     public StatusProjeto Estado { get; set; }
     public DateTime? DataFim { get; set; }
@@ -30,6 +31,7 @@ public partial class Projeto
     public virtual ICollection<ProjetoArquivo> ProjetoArquivos { get; set; } = new List<ProjetoArquivo>();
 
     public virtual ICollection<ProjetoAtividade> ProjetoAtividades { get; set; } = new List<ProjetoAtividade>();
+    public virtual Arquivo IdImagemNavigation { get; set; }
 
     public virtual ICollection<ProjetoAvaliacaoPublica> ProjetoAvaliacaoPublicas { get; set; } = new List<ProjetoAvaliacaoPublica>();
 
@@ -48,6 +50,10 @@ public partial class Projeto
         Nome = nome;
         Descricao = descricao;
         Justificativa = justificativa;
+    }
+    public void UpdateImage(int idImagem)
+    {
+        IdImagem = idImagem;
     }
     public void Start()
     {

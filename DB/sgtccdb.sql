@@ -8,6 +8,7 @@ CREATE TABLE [Projeto] (
 	[Nome] CHAR(100) NOT NULL,
 	[Descricao] CHAR(300) NOT NULL,
 	[Justificativa] CHAR(300) NOT NULL,
+	[IdImagem] INT,
 	[DataInicio] DATETIME NOT NULL,
 	[DataFim] DATETIME,
 	[Aprovado] BIT NOT NULL,
@@ -36,6 +37,7 @@ CREATE TABLE [Curso] (
 	[Id] INT NOT NULL IDENTITY UNIQUE,
 	[Nome] NVARCHAR(100) NOT NULL,
 	[Descricao] NVARCHAR(500) NOT NULL,
+	[IdImagem] INT,
 	[CriadoEm] DATETIME NOT NULL,
 	[EditadoEm] DATETIME,
 	PRIMARY KEY([Id])
@@ -195,6 +197,7 @@ CREATE TABLE [Arquivo] (
 	[Id] INT NOT NULL IDENTITY UNIQUE,
 	[NomeOriginal] NVARCHAR(255) NOT NULL,
 	[Diretorio] NVARCHAR(255) NOT NULL,
+	[Extensao] NVARCHAR(255) NOT NULL,
 	[CriadoEm] DATETIME NOT NULL,
 	[EditadoEm] DATETIME,
 	[Tamanho] INT NOT NULL,
@@ -319,4 +322,52 @@ GO
 ALTER TABLE [AtividadeComentario]
 ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
 ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Curso]
+ADD FOREIGN KEY([IdImagem]) REFERENCES [Arquivo]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Projeto]
+ADD FOREIGN KEY([IdImagem]) REFERENCES [Arquivo]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+
+
+ ----- Activation e UserToken
+CREATE TABLE [dbo].[UserToken](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[Token] [nvarchar](255) NOT NULL,
+	[Expiration] [datetime] NOT NULL,
+	[Type] [nchar](20) NOT NULL,
+ CONSTRAINT [PK_UserToken] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[UserToken]  WITH CHECK ADD  CONSTRAINT [FK_UserToken_Usuario] FOREIGN KEY([UserId])
+REFERENCES [dbo].[Usuario] ([Id])
+GO
+
+ALTER TABLE [dbo].[UserToken] CHECK CONSTRAINT [FK_UserToken_Usuario]
+GO
+
+
+CREATE TABLE [dbo].[UserActivationTokens](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[Token] [nvarchar](500) NOT NULL,
+	[ExpirationDate] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[UserActivationTokens]  WITH CHECK ADD FOREIGN KEY([UserId])
+REFERENCES [dbo].[Usuario] ([Id])
+ON DELETE CASCADE
 GO

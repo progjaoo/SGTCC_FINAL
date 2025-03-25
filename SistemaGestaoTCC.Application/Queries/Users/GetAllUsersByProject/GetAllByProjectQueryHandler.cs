@@ -20,7 +20,7 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
             var listUser = await _usuarioProjetoRepository.GetAllByProjectId(request.Query);
 
             var listUserViewModel = listUser
-                .Select(p => new UserViewModel(p.Id, p.Nome, p.Email, p.IdCurso, p.Papel)).ToList();
+                .Select(u => new UserViewModel(u.Id, u.Nome, u.Email, u.IdCurso, u.IdCursoNavigation.Nome, u.Papel, u.IdImagemNavigation)).ToList();
 
             return listUserViewModel;
         }

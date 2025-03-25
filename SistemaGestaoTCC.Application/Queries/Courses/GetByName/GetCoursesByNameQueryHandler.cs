@@ -24,7 +24,7 @@ namespace SistemaGestaoTCC.Application.Queries.Courses.GetByName
             var curso = await _courseRepository.GetByNameAsync(request.Name);
 
             var cursoViewModel = curso
-                .Select(c => new CourseViewModel(c.Id, c.Nome, c.Descricao))
+                .Select(c => new CourseViewModel(c.Id, c.Nome, c.Descricao, c.IdImagemNavigation))
                 .ToList();
 
             return cursoViewModel;

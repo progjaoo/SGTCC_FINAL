@@ -54,4 +54,11 @@ public partial class Usuario
 
         EditadoEm = DateTime.UtcNow;
     }
+
+    public void UpdateImage(int idImagem)
+    {
+        IdImagem = idImagem;
+
+        EditadoEm = DateTime.UtcNow;
+    }
 }
