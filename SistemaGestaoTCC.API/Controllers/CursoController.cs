@@ -62,7 +62,7 @@ namespace SistemaGestaoTCC.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
         [HttpPut("atualizarCurso")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateCourseCommand command)
         {
             await _mediator.Send(command);

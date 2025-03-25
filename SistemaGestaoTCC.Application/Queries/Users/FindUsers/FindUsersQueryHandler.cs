@@ -21,11 +21,23 @@ namespace SistemaGestaoTCC.Application.Queries.Users.FindUsers
         public async Task<List<UserRoleViewModel>> Handle(FindUsersQuery request, CancellationToken cancellationToken)
         {
             var listUserRole = await _userRepository.FilterUsers(request.Papel, request.Nome);
+            var listUserRolesViewModel = new List<UserRoleViewModel>();
 
-            var listUserViewModel = listUserRole
-                .Select(p => new UserRoleViewModel(p.Nome, p.Email, p.Papel, p.IdCurso)).ToList();
+            foreach (var lists in listUserRole)
+            {
+                await _userRepository.LoadCursoAsync(lists);
 
-            return listUserViewModel;
+                listUserRolesViewModel.Add(new UserRoleViewModel(
+                    lists.Id,
+                    lists.Nome,
+                    lists.Email,
+                    lists.Papel,
+                    lists.IdCurso,
+                    lists.IdCursoNavigation?.Nome
+                ));
+            }
+
+            return listUserRolesViewModel;
         }
     }
 }

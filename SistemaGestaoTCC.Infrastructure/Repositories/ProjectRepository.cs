@@ -1,13 +1,12 @@
-﻿using System.Globalization;
-using System.Text;
-using Dapper;
+﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
+using System.Globalization;
+using System.Text;
 
 namespace SistemaGestaoTCC.Infrastructure.Repositories
 {
@@ -33,7 +32,17 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             .Include(p => p.ProjetoTags)
             .ToListAsync();
         }
+        public async Task<List<Projeto>> GetAllPendingByNameAsync(string nome)
+        {
+            var padrao = RemoveAccents(nome.ToLower());
 
+            var projetos = await _dbcontext.Projeto
+                .Where(p => p.Estado == Core.Enums.StatusProjeto.Finished && p.Aprovado == false)
+                .Include(p => p.ProjetoTags)
+                .ToListAsync();
+
+            return projetos.Where(p => RemoveAccents(p.Nome.ToLower()).Contains(padrao)).ToList();
+        }
         public async Task<List<Projeto>> GetAllPendingAsync()
         {
             //ok

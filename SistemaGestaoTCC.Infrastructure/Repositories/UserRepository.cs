@@ -85,6 +85,5 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbcontext.Usuario.FirstOrDefaultAsync(u => u.Email == email);
         }
-
     }
 }

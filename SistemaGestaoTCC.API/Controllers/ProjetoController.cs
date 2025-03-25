@@ -7,6 +7,7 @@ using SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos;
 using SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos;
 using SistemaGestaoTCC.Application.Commands.Projects.UpdateProject;
 using SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByStatus;
+using SistemaGestaoTCC.Application.Queries.Projects.GetFinishProjectsByName;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectById;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjects;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser;
@@ -36,6 +37,13 @@ namespace SistemaGestaoTCC.API.Controllers
 
             var projects = await _mediator.Send(getAllProjectsQuery);
 
+            return Ok(projects);
+        }
+        [HttpGet("pendente/porNome")]
+        public async Task<IActionResult> GetAllPendingByNameAsync(string nome)
+        {
+            var getAllProjectQuery = new GetAllFInishProjectsQuery(nome);
+            var projects = await _mediator.Send(getAllProjectQuery);
             return Ok(projects);
         }
         [HttpGet("pendente")]
@@ -128,8 +136,9 @@ namespace SistemaGestaoTCC.API.Controllers
         }
         [HttpPut("{id}/tornarPublico")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> TornarPublico(TornarPublicoCommand command)
+        public async Task<IActionResult> TornarPublico(int id)
         {
+            var command = new TornarPublicoCommand(id);
             await _mediator.Send(command);
 
             return NoContent();

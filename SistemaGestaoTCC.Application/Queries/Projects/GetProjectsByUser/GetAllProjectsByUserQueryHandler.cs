@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
-using Microsoft.IdentityModel.Tokens;
+﻿using MediatR;
 using SistemaGestaoTCC.Application.ViewModels;
 using SistemaGestaoTCC.Core.Interfaces;
-using SistemaGestaoTCC.Core.Models;
-
-using Newtonsoft.Json;
 namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser
 {
     public class GetAllProjectsQueryByUserHandler : IRequestHandler<GetProjectByUserQuery, List<ProjectViewModel>>

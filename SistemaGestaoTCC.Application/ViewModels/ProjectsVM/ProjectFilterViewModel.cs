@@ -24,7 +24,7 @@ namespace SistemaGestaoTCC.Application.ViewModels
             {
                 Nome = projetoTag.Nome
             }).ToList();
-            DataFim = dataFim.HasValue ? dataFim.Value.ToString("dd-MM-yyyy") : null;
+            DataFim = dataFim;
         }
 
         public int Id { get; set; }
@@ -32,6 +32,6 @@ namespace SistemaGestaoTCC.Application.ViewModels
         public string Descricao { get; set; }
         public ICollection<UserProjectDetailedViewModel> Usuarios { get; set; }
         public ICollection<TagsViewModel> Tags { get; set; }
-        public string DataFim { get; set; }
+        public DateTime? DataFim { get; set; }
     }
 }

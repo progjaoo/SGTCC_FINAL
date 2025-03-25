@@ -168,8 +168,9 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpDelete("{id}/deletarUsuario")]
-        public async Task<IActionResult> DeleteUser(DeleteUserCommand command)
+        public async Task<IActionResult> DeleteUser(int id)
         {
+            var command = new DeleteUserCommand(id);
             await _mediator.Send(command);
 
             return NoContent();

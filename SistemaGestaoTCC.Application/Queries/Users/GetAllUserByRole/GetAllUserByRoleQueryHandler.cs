@@ -23,7 +23,7 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUserByRole
             var listUserRole = await _userRepository.GetAllUserByRole(request.Papel);
 
             var listUserViewModel = listUserRole
-                .Select(p => new UserRoleViewModel(p.Nome, p.Email, p.Papel, p.IdCurso)).ToList();
+                .Select(p => new UserRoleViewModel(p.Nome, p.Email, p.Papel, p.IdCurso, p.Id)).ToList();
 
             return listUserViewModel;
         }
