@@ -26,8 +26,11 @@ namespace SistemaGestaoTCC.Application.ViewModels
                 Nome = projetoTag.Nome
             }).ToList();
 <<<<<<< HEAD
+<<<<<<< HEAD
             DataFim = dataFim;
 =======
+=======
+>>>>>>> 93fdce0a68f8dfcf20c282d75e3e3ef246a1f43b
             if (imagem != null)
             {
                 Imagem = new ArquivoViewModel(
@@ -50,7 +53,12 @@ namespace SistemaGestaoTCC.Application.ViewModels
         public ICollection<UserProjectDetailedViewModel> Usuarios { get; set; }
         public ICollection<TagsViewModel> Tags { get; set; }
 <<<<<<< HEAD
+<<<<<<< HEAD
         public DateTime? DataFim { get; set; }
+=======
+        public ArquivoViewModel? Imagem { get; set; }
+        public string? DataFim { get; set; }
+>>>>>>> 93fdce0a68f8dfcf20c282d75e3e3ef246a1f43b
 =======
         public ArquivoViewModel? Imagem { get; set; }
         public string? DataFim { get; set; }
