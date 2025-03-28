@@ -13,6 +13,8 @@ using SistemaGestaoTCC.Application.Queries.Projects.GetProjectById;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjects;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsPending;
+using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsWithUser;
+using SistemaGestaoTCC.Application.ViewModels.ProjectsVM;
 using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 
@@ -142,8 +144,9 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpPut("{id}/finalizarProjeto")]
-        public async Task<IActionResult> Finalizar(FinalizarProjectCommand command)
+        public async Task<IActionResult> Finalizar(int id)
         {
+            var command = new FinalizarProjectCommand(id);
             await _mediator.Send(command);
 
             return NoContent();
@@ -156,6 +159,21 @@ namespace SistemaGestaoTCC.API.Controllers
             await _mediator.Send(command);
 
             return NoContent();
+        }
+        [HttpGet("projetosComUsuarios")]
+        public async Task<ActionResult<List<ProjectsAndUserViewModel>>> GetProjectsWithUsers()
+        {
+            try
+            {
+                var projectsWithUsers = await _mediator.Send(new GetProjectsWithUsersQuery());
+
+                return Ok(projectsWithUsers);
+            }
+            catch (System.Exception ex)
+            {
+                
+                return StatusCode(500, new { message = "Ocorreu um erro ao processar a solicitação.", exception = ex.Message });
+            }
         }
     }
 }

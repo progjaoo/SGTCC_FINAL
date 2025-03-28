@@ -25,12 +25,8 @@ namespace SistemaGestaoTCC.Application.ViewModels
             {
                 Nome = projetoTag.Nome
             }).ToList();
-<<<<<<< HEAD
-<<<<<<< HEAD
-            DataFim = dataFim;
-=======
-=======
->>>>>>> 93fdce0a68f8dfcf20c282d75e3e3ef246a1f43b
+
+            // Mantendo a propriedade Imagem do remoto
             if (imagem != null)
             {
                 Imagem = new ArquivoViewModel(
@@ -43,8 +39,10 @@ namespace SistemaGestaoTCC.Application.ViewModels
                     imagem.CriadoEm
                 );
             }
-            DataFim = dataFim.HasValue ? dataFim.Value.ToString("dd-MM-yyyy") : null;
->>>>>>> 93fdce0a68f8dfcf20c282d75e3e3ef246a1f43b
+
+            // Manter DataFim como DateTime?, mas formatando quando necessário
+            DataFim = dataFim;
+            DataFimFormatado = dataFim.HasValue ? dataFim.Value.ToString("dd-MM-yyyy") : null;
         }
 
         public int Id { get; set; }
@@ -52,16 +50,12 @@ namespace SistemaGestaoTCC.Application.ViewModels
         public string Descricao { get; set; }
         public ICollection<UserProjectDetailedViewModel> Usuarios { get; set; }
         public ICollection<TagsViewModel> Tags { get; set; }
-<<<<<<< HEAD
-<<<<<<< HEAD
+        public ArquivoViewModel? Imagem { get; set; }
+
+        // Mantendo a DataFim original como DateTime?
         public DateTime? DataFim { get; set; }
-=======
-        public ArquivoViewModel? Imagem { get; set; }
-        public string? DataFim { get; set; }
->>>>>>> 93fdce0a68f8dfcf20c282d75e3e3ef246a1f43b
-=======
-        public ArquivoViewModel? Imagem { get; set; }
-        public string? DataFim { get; set; }
->>>>>>> 93fdce0a68f8dfcf20c282d75e3e3ef246a1f43b
+
+        // Criando uma nova propriedade para a versão formatada
+        public string? DataFimFormatado { get; set; }
     }
 }

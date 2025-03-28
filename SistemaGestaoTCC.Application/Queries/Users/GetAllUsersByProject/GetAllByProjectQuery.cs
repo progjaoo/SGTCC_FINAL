@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Application.ViewModels.UsersVM;
 
 namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
 {
-    public class GetAllByProjectQuery : IRequest<List<UserViewModel>>
+    public class GetAllByProjectQuery : IRequest<List<UsersAndFunctionViewModel>>
     {
-        public GetAllByProjectQuery(int query)
+        public GetAllByProjectQuery(int id)
         {
-            Query = query;
+            Id = id;
         }
 
-        public int Query { get; set; }
+        public int Id { get; set; }
     }
 }

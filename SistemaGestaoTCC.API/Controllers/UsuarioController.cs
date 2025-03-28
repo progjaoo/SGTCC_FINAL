@@ -65,7 +65,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(listUsers);
         }
-        [HttpGet("usuarioPorProjeto")]
+        [HttpGet("{id}/usuarioPorProjeto")]
         public async Task<IActionResult> GetAllUserByProject(int id)
         {
             var getAllByProject = new GetAllByProjectQuery(id);
@@ -85,6 +85,8 @@ namespace SistemaGestaoTCC.API.Controllers
             {
                 return NotFound();
             }
+            Console.WriteLine($"Controller: Usuário {user.Nome} - Curso: {user.NomeCurso}");
+
             return Ok(user);
         }
         [HttpGet("email")]

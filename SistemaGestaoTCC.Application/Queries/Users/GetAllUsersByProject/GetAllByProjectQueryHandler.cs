@@ -1,10 +1,11 @@
 ﻿using MediatR;
 using SistemaGestaoTCC.Application.ViewModels;
+using SistemaGestaoTCC.Application.ViewModels.UsersVM;
 using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
 {
-    public class GetAllByProjectQueryHandler : IRequestHandler<GetAllByProjectQuery, List<UserViewModel>>
+    public class GetAllByProjectQueryHandler : IRequestHandler<GetAllByProjectQuery, List<UsersAndFunctionViewModel>>
     {
         private readonly IUserRepository _userRepository;
         private readonly IUsuarioProjetoRepository _usuarioProjetoRepository;
@@ -15,14 +16,24 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
             _usuarioProjetoRepository = usuarioProjetoRepository;
         }
 
-        public async Task<List<UserViewModel>> Handle(GetAllByProjectQuery request, CancellationToken cancellationToken)
+        public async Task<List<UsersAndFunctionViewModel>> Handle(GetAllByProjectQuery request, CancellationToken cancellationToken)
         {
-            var listUser = await _usuarioProjetoRepository.GetAllByProjectId(request.Query);
+            var listUserWithFunction = await _usuarioProjetoRepository.GetAllUsersAndFunctionByProjectId(request.Id);
 
-            var listUserViewModel = listUser
-                .Select(u => new UserViewModel(u.Id, u.Nome, u.Email, u.IdCurso, u.IdCursoNavigation.Nome, u.Papel, u.IdImagemNavigation)).ToList();
+            if (listUserWithFunction == null || !listUserWithFunction.Any())
+            {
+                return new List<UsersAndFunctionViewModel>();
+            }
 
-            return listUserViewModel;
+            var listUserProjectViewModel = listUserWithFunction.Select(item => new UsersAndFunctionViewModel(
+                item.Item1.Id,
+                item.Item1.Nome,
+                item.Item1.Email,
+                item.Item1.Papel,
+                item.Item2 // Função do usuário no projeto (FuncaoEnum)
+            )).ToList();
+
+            return listUserProjectViewModel;
         }
     }
 }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
-using Microsoft.IdentityModel.Tokens;
+﻿using MediatR;
 using SistemaGestaoTCC.Application.ViewModels;
 using SistemaGestaoTCC.Core.Interfaces;
-using SistemaGestaoTCC.Core.Models;
+using System.Linq;
 
 namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjects
 {
@@ -26,7 +20,7 @@ namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjects
             var projeto = await _projectRepository.GetAllAsync();
 
             var projectViewModel = projeto
-                .Select(p => new ProjectViewModel(p.Id, p.Nome, p.Descricao, p.ProjetoTags, p.DataFim, p.Justificativa))
+                .Select(p => new ProjectViewModel(p.Id, p.Nome, p.Descricao, p.DataFim,p.Justificativa, p.ProjetoTags))
                 .ToList();
 
             return projectViewModel;

@@ -21,10 +21,11 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetUser
             {
                 return null;
             }
-            // await _userRepository.LoadCursoAsync(user);
+            Console.WriteLine($"Usuário: {user.Nome}, CursoId: {user.IdCurso}, CursoNome: {user.IdCursoNavigation?.Nome}");
 
+            string nomeCurso = user.IdCursoNavigation?.Nome ?? "Curso não encontrado";
 
-            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, user.IdCursoNavigation.Nome, user.Papel, user.IdImagemNavigation);
+            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, nomeCurso, user.Papel, user.IdImagemNavigation);
         }
     }
 }

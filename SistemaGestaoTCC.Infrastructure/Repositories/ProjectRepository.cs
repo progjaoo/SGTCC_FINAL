@@ -128,7 +128,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
 
             return await _dbcontext.Projeto
-                .Where(p => idsProjetos.Contains(p.Id) && p.Estado != Core.Enums.StatusProjeto.Canceled)
+                .Where(p => idsProjetos.Contains(p.Id) && p.Estado != Core.Enums.StatusProjeto.Canceled && p.Estado != StatusProjeto.Finished)
                 .Include(p => p.ProjetoTags)
                 .Include(p => p.UsuarioProjetos)
                 .ThenInclude(up => up.IdUsuarioNavigation)

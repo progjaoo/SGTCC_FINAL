@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 
@@ -31,7 +32,25 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             .Where(p => listUserProject.Contains(p.Id))
             .ToListAsync();
         }
+        public async Task<List<Tuple<Usuario, FuncaoEnum>>> GetAllUsersAndFunctionByProjectId(int id)
+        {
+            var listUserProject = await _dbcontext.UsuarioProjeto
+                .Where(up => up.IdProjeto == id)
+                .ToListAsync();
 
+            var result = new List<Tuple<Usuario, FuncaoEnum>>();
+
+            foreach (var up in listUserProject)
+            {
+                var usuario = await _dbcontext.Usuario.FindAsync(up.IdUsuario);
+                if (usuario != null)
+                {
+                    result.Add(Tuple.Create(usuario, up.Funcao));
+                }
+            }
+
+            return result;
+        }
         public async Task<UsuarioProjeto> GetById(int id)
         {
             return await _dbcontext.UsuarioProjeto.SingleOrDefaultAsync(up => up.Id == id);

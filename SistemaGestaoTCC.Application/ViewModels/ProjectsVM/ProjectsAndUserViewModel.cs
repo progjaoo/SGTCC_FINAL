@@ -1,25 +1,11 @@
 ﻿using SistemaGestaoTCC.Application.ViewModels.TagsVM;
-using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Models;
 
-namespace SistemaGestaoTCC.Application.ViewModels
+namespace SistemaGestaoTCC.Application.ViewModels.ProjectsVM
 {
-    public class ProjectViewModel
+    public class ProjectsAndUserViewModel
     {
-        public ProjectViewModel(int id, string nome, string descricao, ICollection<ProjetoTag> tags, DateTime? dataFim)
-        {
-            Id = id;
-            Nome = nome;
-            Descricao = descricao;
-            DataFim = dataFim;
-
-            Tags = tags.Select(projetoTag => new TagsViewModel
-            {
-                Nome = projetoTag.Nome,
-            }).ToList();
-        }
-
-        public ProjectViewModel(int id, string nome, string descricao, DateTime? dataFim, string justificativa, ICollection<ProjetoTag> tags)
+        public ProjectsAndUserViewModel(int id, string nome, string descricao, DateTime? dataFim, string justificativa, ICollection<ProjetoTag> tags, ICollection<Usuario> autores)
         {
             Id = id;
             Nome = nome;
@@ -31,6 +17,13 @@ namespace SistemaGestaoTCC.Application.ViewModels
             {
                 Nome = projetoTag.Nome,
             }).ToList();
+
+            Autores = autores.Select(autores => new UserViewModel
+            {
+                
+                Nome = autores.Nome
+                
+            }).ToList();
         }
 
         public int Id { get; set; }
@@ -38,7 +31,11 @@ namespace SistemaGestaoTCC.Application.ViewModels
         public string Descricao { get; set; }
         public DateTime? DataFim { get; set; }
         public string Justificativa { get; set; }
-
         public ICollection<TagsViewModel> Tags { get; set; }
+        public ICollection<UserViewModel> Autores { get; set; }
+        public class UserViewModel
+        {
+            public string Nome { get; set; }
+        }
     }
 }

@@ -465,7 +465,8 @@ public partial class SGTCCContext : DbContext
 
             entity.HasOne(d => d.IdImagemNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdImagem)
-                .HasConstraintName("FK__Usuario__IdImage__0C85DE4D");
+                .HasConstraintName("FK__Usuario__IdImage__0C85DE4D")
+                .IsRequired(false);
             entity.Property(e => e.CriadoEm)
                 .HasColumnType("datetime");
             entity.Property(e => e.EditadoEm)
