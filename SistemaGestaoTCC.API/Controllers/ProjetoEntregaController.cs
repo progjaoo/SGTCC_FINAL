@@ -13,7 +13,7 @@ namespace SistemaGestaoTCC.API.Controllers
 {
     [ApiController]
     [Route("api/projetoEntrega")]
-    [Authorize(Roles = "Professor")]
+    //[Authorize(Roles = "Professor")]
     public class ProjetoEntregaController : ControllerBase
     {
         private readonly IMediator _mediator;
