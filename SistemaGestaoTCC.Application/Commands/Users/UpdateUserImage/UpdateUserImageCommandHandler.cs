@@ -57,7 +57,8 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage
 
             await ArquivoHelper.SalvarArquivo(request.File, request.FolderName, idArquivo);
 
-            await _userRepository.SaveChangesAsync();
+            // await _userRepository.SaveChangesAsync();
+            await _userRepository.UpdateAsync(user);
 
             return Unit.Value;
         }

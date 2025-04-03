@@ -18,11 +18,10 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUser
         {
             var user = await _userRepository.GetById(request.Id);
 
-            //var passwordHash = _authService.ComputeSha256Hash(request.Senha);
-
             user.Update(request.Nome, request.Email);
 
-            await _userRepository.SaveChangesAsync();
+            // await _userRepository.SaveChangesAsync();
+            await _userRepository.UpdateAsync(user);
 
             return Unit.Value;
         }
