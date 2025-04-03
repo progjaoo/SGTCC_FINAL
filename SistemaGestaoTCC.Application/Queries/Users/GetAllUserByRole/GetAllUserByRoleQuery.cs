@@ -9,7 +9,7 @@ using SistemaGestaoTCC.Core.Enums;
 
 namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUserByRole
 {
-    public class GetAllUserByRoleQuery : IRequest<List<UserRoleViewModel>>
+    public class GetAllUserByRoleQuery : IRequest<List<UserViewModel>>
     {
         public GetAllUserByRoleQuery(PapelEnum papel)
         {
