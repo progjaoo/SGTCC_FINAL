@@ -16,10 +16,21 @@ namespace SistemaGestaoTCC.Application.ViewModels
             Usuarios = usuario.Select(u => new UserProjectDetailedViewModel
             {
                 IdUsuario = u.IdUsuario,
-                IdProjeto = u.IdProjeto,
                 Funcao = u.Funcao,
                 Nome = u.IdUsuarioNavigation.Nome,
-                IdCurso = u.IdUsuarioNavigation.IdCurso
+                IdCurso = u.IdUsuarioNavigation.IdCurso,
+                Imagem = u.IdUsuarioNavigation.IdImagemNavigation != null
+                    ? new ArquivoViewModel(
+                        u.IdUsuarioNavigation.IdImagemNavigation.Id,
+                        u.IdUsuarioNavigation.IdImagemNavigation.NomeOriginal,
+                        u.IdUsuarioNavigation.IdImagemNavigation.Diretorio,
+                        u.IdUsuarioNavigation.IdImagemNavigation.Tamanho,
+                        u.IdUsuarioNavigation.IdImagemNavigation.Extensao,
+                        u.IdUsuarioNavigation.IdImagemNavigation.Id,
+                        u.IdUsuarioNavigation.IdImagemNavigation.CriadoEm,
+                        u.IdUsuarioNavigation.IdImagemNavigation.EditadoEm
+                    )
+                    : null
             }).ToList();
             Tags = tags.Select(projetoTag => new TagsViewModel
             {
@@ -36,7 +47,8 @@ namespace SistemaGestaoTCC.Application.ViewModels
                     imagem.Tamanho,
                     imagem.Extensao,
                     imagem.Id,
-                    imagem.CriadoEm
+                    imagem.CriadoEm,
+                    imagem.EditadoEm
                 );
             }
 

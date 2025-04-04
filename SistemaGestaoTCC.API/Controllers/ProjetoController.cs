@@ -152,7 +152,7 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpPut("{id}/tornarPublico")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> TornarPublico(int id)
         {
             var command = new TornarPublicoCommand(id);
