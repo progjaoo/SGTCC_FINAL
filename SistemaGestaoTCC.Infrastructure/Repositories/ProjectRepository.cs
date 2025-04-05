@@ -66,6 +66,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(p => p.ProjetoTags)
                 .Include(p => p.UsuarioProjetos)
                     .ThenInclude(up => up.IdUsuarioNavigation)
+                        .ThenInclude(u => u.IdImagemNavigation)
                 .Include(p => p.IdImagemNavigation)
                 .Where(p => p.Aprovado == true)
                 .ToListAsync();

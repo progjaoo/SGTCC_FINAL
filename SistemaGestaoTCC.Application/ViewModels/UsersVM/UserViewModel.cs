@@ -30,7 +30,8 @@ namespace SistemaGestaoTCC.Application.ViewModels
                     imagem.Tamanho,
                     imagem.Extensao,
                     imagem.Id,
-                    imagem.CriadoEm
+                    imagem.CriadoEm,
+                    imagem.EditadoEm
                 );
             }
         }

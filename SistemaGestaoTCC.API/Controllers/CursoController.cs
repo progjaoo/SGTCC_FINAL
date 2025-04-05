@@ -57,7 +57,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(result);
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost("criarCurso")]
         public async Task<IActionResult> PostCourse([FromBody] CreateCourseCommand command)
         {
@@ -89,7 +89,7 @@ namespace SistemaGestaoTCC.API.Controllers
         }
 
         [HttpDelete("{id}/deletarCurso")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteCourseCommand(id);

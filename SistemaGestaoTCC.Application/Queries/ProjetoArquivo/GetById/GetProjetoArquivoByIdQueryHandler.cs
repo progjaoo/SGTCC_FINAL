@@ -25,7 +25,8 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoArquivo.GetById
                 arquivo.IdArquivoNavigation.Tamanho,
                 arquivo.IdArquivoNavigation.Extensao,
                 arquivo.IdArquivoNavigation.Id,
-                arquivo.IdArquivoNavigation.CriadoEm
+                arquivo.IdArquivoNavigation.CriadoEm,
+                arquivo.IdArquivoNavigation.EditadoEm
             );
 
             return arquivoViewModel;

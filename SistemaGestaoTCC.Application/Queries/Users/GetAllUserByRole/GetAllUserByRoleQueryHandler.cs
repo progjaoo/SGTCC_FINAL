@@ -9,7 +9,7 @@ using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUserByRole
 {
-    public class GetAllUserByRoleQueryHandler : IRequestHandler<GetAllUserByRoleQuery, List<UserRoleViewModel>>
+    public class GetAllUserByRoleQueryHandler : IRequestHandler<GetAllUserByRoleQuery, List<UserViewModel>>
     {
         private readonly IUserRepository _userRepository;
 
@@ -18,12 +18,12 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUserByRole
             _userRepository = userRepository;
         }
 
-        public async Task<List<UserRoleViewModel>> Handle(GetAllUserByRoleQuery request, CancellationToken cancellationToken)
+        public async Task<List<UserViewModel>> Handle(GetAllUserByRoleQuery request, CancellationToken cancellationToken)
         {
             var listUserRole = await _userRepository.GetAllUserByRole(request.Papel);
 
             var listUserViewModel = listUserRole
-                .Select(p => new UserRoleViewModel(p.Id, p.Nome, p.Email, p.Papel, p.IdCurso, p.IdCursoNavigation.Nome)).ToList();
+                .Select(u => new UserViewModel(u.Id, u.Nome, u.Email, u.IdCurso, u.IdCursoNavigation.Nome, u.Papel, u.IdImagemNavigation)).ToList();
 
             return listUserViewModel;
         }

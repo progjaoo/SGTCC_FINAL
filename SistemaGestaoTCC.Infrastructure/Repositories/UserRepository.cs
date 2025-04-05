@@ -47,7 +47,10 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         }
         public async Task<List<Usuario>> GetAllUserByRole(PapelEnum papel)
         {
-            return await _dbcontext.Usuario.Where(u => u.Papel == papel).Include(u => u.IdCursoNavigation).ToListAsync();
+            return await _dbcontext.Usuario.Where(u => u.Papel == papel)
+                .Include(u => u.IdImagemNavigation)
+                .Include(u => u.IdCursoNavigation)
+                .ToListAsync();
         }
         public async Task<Usuario> GetById(int id)
         {
