@@ -34,13 +34,13 @@ namespace SistemaGestaoTCC.Application.Commands.ProjetosEntrega.Create
                 throw new Exception("Projeto não encontrado!");
             }
 
-            var entrega = new ProjetoEntrega(request.IdProjeto, request.Titulo, request.DataLimite, request.DataEnvio, request.Entregue);
+            var entrega = new ProjetoEntrega(request.IdProjeto, request.Titulo, request.DataLimite, request.Entregue);
             await _projetoEntregaRepository.AddAsync(entrega);
             await _projetoEntregaRepository.SaveChangesAsync();
 
-            var entregaProjeto = new ProjetoEntregaProjeto(entrega.Id, request.IdProjeto);
-            await _projetoEntregaProjetoRepository.AddAsync(entregaProjeto);
-            await _projetoEntregaProjetoRepository.SaveChangesAsync();
+            //var entregaProjeto = new ProjetoEntregaProjeto(entrega.Id, request.IdProjeto);
+            //await _projetoEntregaProjetoRepository.AddAsync(entregaProjeto);
+            //await _projetoEntregaProjetoRepository.SaveChangesAsync();   //CRIEI ESSA CLASSE/TABELA NO BANCO PARA ADICIONAR PROJETO DENTRO DA ENTREGAS
 
             return entrega.Id;
         }

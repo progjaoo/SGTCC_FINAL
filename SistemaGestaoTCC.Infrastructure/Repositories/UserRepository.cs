@@ -52,7 +52,6 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<Usuario> GetById(int id)
         {
             return await _dbcontext.Usuario
-                .AsNoTracking()
                 .Include(u => u.IdCursoNavigation)
                 .Include(u => u.IdImagemNavigation)
                 .SingleOrDefaultAsync(u => u.Id == id);

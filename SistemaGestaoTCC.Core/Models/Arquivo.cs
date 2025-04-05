@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTCC.Core.Models;
 
-public partial class Arquivo //FALTA IMPLEMENTAR
+public partial class Arquivo
 {
     public Arquivo(string nomeOriginal, string diretorio, int tamanho, string extensao)
     {

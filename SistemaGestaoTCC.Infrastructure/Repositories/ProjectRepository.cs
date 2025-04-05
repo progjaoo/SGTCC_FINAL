@@ -132,6 +132,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(p => p.ProjetoTags)
                 .Include(p => p.UsuarioProjetos)
                 .ThenInclude(up => up.IdUsuarioNavigation)
+                .Include(c => c.IdImagemNavigation)
                 .ToListAsync();
         }
         public async Task<Projeto> GetById(int id)

@@ -2,6 +2,7 @@
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Application.Helpers;
 using SistemaGestaoTCC.Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage
 {
@@ -10,12 +11,13 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage
         private readonly IUserRepository _userRepository;
         private readonly IArquivoRepository _arquivoRepository;
         private readonly IAuthService _authService;
-
-        public UpdateUserImageCommandHandler(IUserRepository userRepository, IArquivoRepository arquivoRepository, IAuthService authService)
+        private readonly SGTCCContext _dbcontext;
+        public UpdateUserImageCommandHandler(IUserRepository userRepository, IArquivoRepository arquivoRepository, IAuthService authService, SGTCCContext dbcontext)
         {
             _userRepository = userRepository;
             _arquivoRepository = arquivoRepository;
             _authService = authService;
+            _dbcontext = dbcontext;
         }
 
         public async Task<Unit> Handle(UpdateUserImageCommand request, CancellationToken cancellationToken)
@@ -36,7 +38,10 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage
                 var novoArquivo = await _arquivoRepository.AddAsync(arquivo);
 
                 idArquivo = novoArquivo.Id;
+                _dbcontext.Entry(user).Property(x => x.IdImagem).IsModified = true;
+
                 user.UpdateImage(idArquivo);
+                _userRepository.SaveChangesAsync();
             }
             else
             {

@@ -18,8 +18,8 @@ namespace SistemaGestaoTCC.Application.ViewModels
             Nome = nome;
             Email = email;
             IdCurso = idCurso;
-            Papel = papel;
             NomeCurso = nomeCurso;
+            Papel = papel;
 
             if (imagem != null)
             {

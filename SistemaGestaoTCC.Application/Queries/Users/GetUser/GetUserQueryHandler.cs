@@ -25,7 +25,10 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetUser
 
             string nomeCurso = user.IdCursoNavigation?.Nome ?? "Curso não encontrado";
 
-            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, nomeCurso, user.Papel, user.IdImagemNavigation);
+            var userViewModel = new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, nomeCurso, user.Papel, user.IdImagemNavigation);
+
+            return userViewModel;
+
         }
     }
 }

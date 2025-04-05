@@ -2,14 +2,14 @@
 
 public partial class ProjetoEntrega
 {
-    public ProjetoEntrega(int idProjeto, string titulo, DateTime dataLimite, DateTime? dataEnvio, bool entregue)
+    public ProjetoEntrega(int idProjeto, string titulo, DateTime dataLimite, bool entregue)
     {
         IdProjeto = idProjeto;
         Titulo = titulo;
         DataLimite = dataLimite;
-        DataEnvio = dataEnvio;
         Entregue = entregue;
 
+        DataEnvio = DateTime.UtcNow;
         CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
@@ -24,11 +24,10 @@ public partial class ProjetoEntrega
     public virtual ICollection<ProjetoEntregaProjeto> ProjetoEntregaProjetos { get; set; } = new List<ProjetoEntregaProjeto>();
 
 
-    public void UpdateEntrega( string titulo, DateTime dataLimite, DateTime? dataEnvio, bool entregue)
+    public void UpdateEntrega( string titulo, DateTime dataLimite, bool entregue)
     {
         Titulo = titulo;
         DataLimite = dataLimite;
-        DataEnvio = dataEnvio;
         Entregue = entregue;
 
         EditadoEm = DateTime.UtcNow;
