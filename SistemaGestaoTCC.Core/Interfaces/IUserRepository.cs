@@ -17,6 +17,8 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task DeleteUser(int id);
         Task LoadCursoAsync(Usuario user);
         Task<Usuario> GetUserByEmailAsync(string email);
+        Task<Usuario> GetByIdAsync(int id);
+
 
     }
 }

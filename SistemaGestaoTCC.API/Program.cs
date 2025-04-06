@@ -45,6 +45,8 @@ builder.Services.AddDbContext<SGTCCContext>(p => p.UseSqlServer(connection));
 builder.Services.AddScoped<EmailService>();
 
 builder.Services.AddScoped<TokenService>();
+
+builder.Services.AddScoped<IPasswordResetTokenRepository, PasswordResetTokenRepository>();
 //google
 //builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 //{

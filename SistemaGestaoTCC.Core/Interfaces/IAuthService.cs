@@ -7,5 +7,8 @@
 
         Task<bool> SendActivationEmailAsync(int userId, string userEmail);
         Task<bool> ActivateAccountAsync(string token);
+
+        Task<bool> SendPasswordResetEmailAsync(string userEmail);
+        Task<bool> ResetPasswordAsync(string token, string newPassword);
     }
 }

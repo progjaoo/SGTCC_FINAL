@@ -1,11 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Infrastructure.Repositories;
 using SistemaGestaoTCC.Infrastructure.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+
+
 
 namespace SistemaGestaoTCC.Infrastructure.Authentication
 {
@@ -14,15 +17,21 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
         private readonly IConfiguration _configuration;
         private readonly IEmailService _emailService;
         private readonly IUserActivationTokenRepository _activationTokenRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IPasswordResetTokenRepository _passwordResetTokenRepository;
 
         public AuthService(
             IConfiguration configuration,
             IEmailService emailService,
-            IUserActivationTokenRepository activationTokenRepository)
+            IUserActivationTokenRepository activationTokenRepository,
+            IUserRepository userRepository,
+            IPasswordResetTokenRepository passwordResetTokenRepository)
         {
             _configuration = configuration;
             _emailService = emailService;
             _activationTokenRepository = activationTokenRepository;
+            _userRepository = userRepository;
+            _passwordResetTokenRepository = passwordResetTokenRepository;
         }
 
         public string ComputeSha256Hash(string password)
@@ -98,6 +107,33 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
             // Exemplo: user.IsActive = true;
 
             await _activationTokenRepository.RemoveTokenAsync(token);
+            return true;
+        }
+
+        public async Task<bool> SendPasswordResetEmailAsync(string userEmail)
+        {
+            var user = await _userRepository.GetUserByEmailAsync(userEmail);
+            if (user == null) return false;
+
+            var token = await _passwordResetTokenRepository.GenerateTokenAsync(user.Id);
+            var link = $"token={token.Token}";
+            var body = $"{token.Token}";
+
+            return await _emailService.SendEmailAsync(userEmail, "Redefinir Senha", body);
+        }
+
+        public async Task<bool> ResetPasswordAsync(string token, string newPassword)
+        {
+            var tokenData = await _passwordResetTokenRepository.GetByTokenAsync(token);
+            if (tokenData == null) return false;
+
+            var user = await _userRepository.GetByIdAsync(tokenData.UserId);
+            if (user == null) return false;
+
+            user.Senha = ComputeSha256Hash(newPassword); // aplica criptografia
+            await _userRepository.UpdateAsync(user);
+            await _passwordResetTokenRepository.DeleteTokenAsync(token);
+
             return true;
         }
     }

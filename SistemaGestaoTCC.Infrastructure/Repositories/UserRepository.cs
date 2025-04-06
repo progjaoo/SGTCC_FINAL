@@ -105,5 +105,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(u => u.IdCursoNavigation)
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
+        public async Task<Usuario> GetByIdAsync(int id)
+        {
+            return await _dbcontext.Usuario.FindAsync(id);
+        }
     }
 }

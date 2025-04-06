@@ -18,7 +18,7 @@ public partial class SGTCCContext : DbContext
     //public virtual DbSet<AtividadeProposta> AtividadeProposta { get; set; }
     public virtual DbSet<AtividadeComentario> AtividadeComentario { get; set; }
     public virtual DbSet<AvaliadorBanca> AvaliadorBanca { get; set; }
-
+    public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
     public virtual DbSet<Banca> Banca { get; set; }
 
     public DbSet<UserToken> UserTokens { get; set; }

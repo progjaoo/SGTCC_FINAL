@@ -58,4 +58,18 @@ public class AuthController : ControllerBase
         var result = await _authService.ActivateAccountAsync(token);
         return result ? Ok("Conta ativada com sucesso!") : BadRequest("Token inválido ou expirado.");
     }
+
+    [HttpPost("request-password-reset")]
+    public async Task<IActionResult> RequestPasswordReset([FromBody] string email)
+    {
+        var result = await _authService.SendPasswordResetEmailAsync(email);
+        return result ? Ok("E-mail enviado.") : BadRequest("E-mail não encontrado.");
+    }
+
+    [HttpPost("reset-password")]
+    public async Task<IActionResult> ResetPassword([FromQuery] string token, [FromBody] string novaSenha)
+    {
+        var result = await _authService.ResetPasswordAsync(token, novaSenha);
+        return result ? Ok("Senha redefinida com sucesso.") : BadRequest("Token inválido ou expirado.");
+    }
 }
