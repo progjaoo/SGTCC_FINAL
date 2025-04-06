@@ -20,8 +20,7 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUser
 
             user.Update(request.Nome, request.Email);
 
-            // await _userRepository.SaveChangesAsync();
-            await _userRepository.UpdateAsync(user);
+            await _userRepository.SaveChangesAsync();
 
             return Unit.Value;
         }

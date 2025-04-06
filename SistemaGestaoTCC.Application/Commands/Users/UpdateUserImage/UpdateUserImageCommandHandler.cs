@@ -41,7 +41,6 @@ namespace SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage
                 _dbcontext.Entry(user).Property(x => x.IdImagem).IsModified = true;
 
                 user.UpdateImage(idArquivo);
-                _userRepository.SaveChangesAsync();
             }
             else
             {

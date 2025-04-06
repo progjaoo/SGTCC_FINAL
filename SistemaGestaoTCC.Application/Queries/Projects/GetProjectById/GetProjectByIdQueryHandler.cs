@@ -26,7 +26,11 @@ namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectById
                     project.Justificativa,
                     project.DataInicio,
                     project.DataFim,
-                    project.Estado);
+                    project.Estado,
+                    project.IdImagemNavigation,
+                    project.ProjetoTags,
+                    project.UsuarioProjetos
+                    );
 
             return projectDetailsViewModel;
         }
