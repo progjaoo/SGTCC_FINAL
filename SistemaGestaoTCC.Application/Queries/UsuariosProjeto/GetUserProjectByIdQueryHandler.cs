@@ -21,7 +21,8 @@ namespace SistemaGestaoTCC.Application.Queries.UsuariosProjeto
             var userProjectViewModel = new UserProjectViewModel(
                 userProject.IdUsuario, 
                 userProject.IdProjeto,
-                userProject.Funcao);
+                userProject.Funcao
+                );
 
             return userProjectViewModel;
         }

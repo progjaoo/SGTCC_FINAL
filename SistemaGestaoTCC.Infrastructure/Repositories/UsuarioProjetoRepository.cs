@@ -42,7 +42,11 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
             foreach (var up in listUserProject)
             {
-                var usuario = await _dbcontext.Usuario.FindAsync(up.IdUsuario);
+                // var usuario = await _dbcontext.Usuario.FindAsync(up.IdUsuario);
+                var usuario = await _dbcontext.Usuario
+                    .Where(u => u.Id == up.IdUsuario)
+                    .Include(u => u.IdImagemNavigation)
+                    .FirstOrDefaultAsync();
                 if (usuario != null)
                 {
                     result.Add(Tuple.Create(usuario, up.Funcao));
@@ -54,7 +58,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<UsuarioProjeto> GetById(int id)
         {
             return await _dbcontext.UsuarioProjeto.SingleOrDefaultAsync(up => up.Id == id);
-            
+
         }
         public async Task<UsuarioProjeto> GetByUserAndProjectAsync(int userId, int projectId)
         {
@@ -73,6 +77,6 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             _dbcontext.UsuarioProjeto.Remove(usuarioProjeto);
             await _dbcontext.SaveChangesAsync();
-        } 
+        }
     }
 }

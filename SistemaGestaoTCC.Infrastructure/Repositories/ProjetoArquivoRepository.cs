@@ -33,6 +33,14 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<ProjetoArquivo>> GetAllByProjectIdAsync(int idProjeto)
+        {
+            return await _dbContext.ProjetoArquivo
+                .Include(a => a.IdArquivoNavigation)
+                .Where(a => a.IdProjeto == idProjeto)
+                .ToListAsync();
+        }
+
         public async Task<ProjetoArquivo> GetById(int id)
         {
             return await _dbContext.ProjetoArquivo

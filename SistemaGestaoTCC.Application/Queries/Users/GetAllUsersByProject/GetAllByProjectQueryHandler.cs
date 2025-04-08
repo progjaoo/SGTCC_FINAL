@@ -25,12 +25,13 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
                 return new List<UsersAndFunctionViewModel>();
             }
 
-            var listUserProjectViewModel = listUserWithFunction.Select(item => new UsersAndFunctionViewModel(
-                item.Item1.Id,
-                item.Item1.Nome,
-                item.Item1.Email,
-                item.Item1.Papel,
-                item.Item2 // Função do usuário no projeto (FuncaoEnum)
+            var listUserProjectViewModel = listUserWithFunction.Select(u => new UsersAndFunctionViewModel(
+                u.Item1.Id,
+                u.Item1.Nome,
+                u.Item1.Email,
+                u.Item1.Papel,
+                u.Item2, // Função do usuário no projeto (FuncaoEnum)
+                u.Item1.IdImagemNavigation
             )).ToList();
 
             return listUserProjectViewModel;

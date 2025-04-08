@@ -11,6 +11,8 @@ using System.Net;
 using System.IO;
 using SistemaGestaoTCC.Application.Commands.Arquivos.Create;
 using SistemaGestaoTCC.Application.Queries.Arquivos.GetAll;
+using SistemaGestaoTCC.Infrastructure.Repositories;
+using SistemaGestaoTCC.Application.Queries.Arquivos.Download;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -55,19 +57,23 @@ namespace SistemaGestaoTCC.API.Controllers
             return Ok("Arquivo Criado");
         }
 
-        [HttpGet("download/{fileName}")]
-        public IActionResult DownloadFile(string fileName)
+        [HttpGet("download/{idArquivo}")]
+        public async Task<IActionResult> DownloadFileAsync(int idArquivo)
         {
+            var arquivo = await _mediator.Send(new DownloadArquivoQuery { idArquivo = idArquivo });
+
+            var nomeArquivo = arquivo.Id.ToString() + arquivo.Extensao;
+
             var uploadDirectory = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-            var filePath = Path.Combine(uploadDirectory, fileName);
+            var filePath = Path.Combine(uploadDirectory, nomeArquivo);
 
             if (!System.IO.File.Exists(filePath))
             {
-                return NotFound("File not found.");
+                return NotFound("Arquivo não Encontrado");
             }
 
             var fileBytes = System.IO.File.ReadAllBytes(filePath);
-            var fileExtension = Path.GetExtension(fileName).ToLower();
+            var fileExtension = arquivo.Extensao;
             string contentType = "application/octet-stream"; // Default MIME type
 
             // Set the appropriate content type based on the file extension
@@ -78,7 +84,9 @@ namespace SistemaGestaoTCC.API.Controllers
             else if (fileExtension == ".pdf")
                 contentType = "application/pdf";
 
-            return File(fileBytes, contentType, fileName);
+            Response.Headers.Append("Content-Disposition", $"attachment; filename={nomeArquivo}");
+
+            return File(fileBytes, contentType, nomeArquivo);
         }
     }
 }

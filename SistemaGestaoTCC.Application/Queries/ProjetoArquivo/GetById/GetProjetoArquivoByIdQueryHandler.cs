@@ -24,7 +24,7 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoArquivo.GetById
                 arquivo.IdArquivoNavigation.Diretorio,
                 arquivo.IdArquivoNavigation.Tamanho,
                 arquivo.IdArquivoNavigation.Extensao,
-                arquivo.IdArquivoNavigation.Id,
+                arquivo.Id,
                 arquivo.IdArquivoNavigation.CriadoEm,
                 arquivo.IdArquivoNavigation.EditadoEm
             );

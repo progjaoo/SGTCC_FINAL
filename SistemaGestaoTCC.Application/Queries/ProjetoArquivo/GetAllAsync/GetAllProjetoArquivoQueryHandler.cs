@@ -13,7 +13,7 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoArquivo.GetAllAsync
         }
         public async Task<List<ArquivoViewModel>> Handle(GetAllProjetoArquivoQuery request, CancellationToken cancellationToken)
         {
-            var projetoArquivos = await _projetoArquivoRepository.GetAllAsync();
+            var projetoArquivos = await _projetoArquivoRepository.GetAllByProjectIdAsync(request.IdProjeto);
 
             var listProjetoArquivoViewModel = projetoArquivos.Select(
                 p => new ArquivoViewModel(
