@@ -31,8 +31,9 @@ namespace SistemaGestaoTCC.Application.Queries.Projects.GetProjectsWithUser
                     projeto.Descricao,
                     projeto.DataFim,
                     projeto.Justificativa,
-                    projeto.ProjetoTags, 
-                    usuarios 
+                    projeto.ProjetoTags,
+                    usuarios,
+                    projeto.IdImagemNavigation
                 );
 
                 projectsWithUsers.Add(projectViewModel);

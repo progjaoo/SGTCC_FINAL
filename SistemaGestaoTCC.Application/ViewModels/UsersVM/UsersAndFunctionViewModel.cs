@@ -26,6 +26,19 @@ namespace SistemaGestaoTCC.Application.ViewModels.UsersVM
                     imagem.EditadoEm
                 );
             }
+            if (imagem != null)
+            {
+                Imagem = new ArquivoViewModel(
+                    imagem.Id,
+                    imagem.NomeOriginal,
+                    imagem.Diretorio,
+                    imagem.Tamanho,
+                    imagem.Extensao,
+                    imagem.Id,
+                    imagem.CriadoEm,
+                    imagem.EditadoEm
+                );
+            }
         }
 
         public int? Id { get; set; }

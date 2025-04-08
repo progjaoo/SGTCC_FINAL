@@ -30,6 +30,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             //.Where(p => p.Estado == Core.Enums.StatusProjeto.Created)
             .Where(p => p.Aprovado == true)
             .Include(p => p.ProjetoTags)
+            .Include(p => p.IdImagemNavigation)
             .ToListAsync();
         }
         public async Task<List<Projeto>> GetAllPendingByNameAsync(string nome)

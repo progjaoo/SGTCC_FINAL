@@ -36,6 +36,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             var listUserProject = await _dbcontext.UsuarioProjeto
                 .Where(up => up.IdProjeto == id)
+                
                 .ToListAsync();
 
             var result = new List<Tuple<Usuario, FuncaoEnum>>();
