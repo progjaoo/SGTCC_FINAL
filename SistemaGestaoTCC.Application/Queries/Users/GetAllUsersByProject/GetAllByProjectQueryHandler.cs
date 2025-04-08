@@ -30,7 +30,8 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
                 item.Item1.Nome,
                 item.Item1.Email,
                 item.Item1.Papel,
-                item.Item2 // Função do usuário no projeto (FuncaoEnum)
+                item.Item2,
+                item.Item1.IdImagemNavigation
             )).ToList();
 
             return listUserProjectViewModel;

@@ -36,13 +36,16 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             var listUserProject = await _dbcontext.UsuarioProjeto
                 .Where(up => up.IdProjeto == id)
+                
                 .ToListAsync();
 
             var result = new List<Tuple<Usuario, FuncaoEnum>>();
 
             foreach (var up in listUserProject)
             {
-                var usuario = await _dbcontext.Usuario.FindAsync(up.IdUsuario);
+                var usuario = await _dbcontext.Usuario
+                           .Include(u => u.IdImagemNavigation)
+                           .FirstOrDefaultAsync(u => u.Id == up.IdUsuario);
                 if (usuario != null)
                 {
                     result.Add(Tuple.Create(usuario, up.Funcao));
