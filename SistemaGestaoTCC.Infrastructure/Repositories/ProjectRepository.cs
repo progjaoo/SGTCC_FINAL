@@ -139,7 +139,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         }
         public async Task<Projeto> GetById(int id)
         {
-            return await _dbcontext.Projeto.SingleOrDefaultAsync(p => p.Id == id);
+            return await _dbcontext.Projeto.Include(p => p.ProjetoTags).SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<Projeto> GetDetailsByIdAsync(int id)

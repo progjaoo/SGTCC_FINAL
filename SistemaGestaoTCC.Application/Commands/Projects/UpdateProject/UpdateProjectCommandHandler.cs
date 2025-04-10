@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 
 namespace SistemaGestaoTCC.Application.Commands.Projects.UpdateProject
 {
@@ -16,6 +17,24 @@ namespace SistemaGestaoTCC.Application.Commands.Projects.UpdateProject
         {
             var project = await _projectRepository.GetById(request.Id);
 
+            if (request.Tags != null && request.Tags.Any())
+            {
+                foreach (var tagViewModel in request.Tags)
+                {
+                    bool tagExists = project.ProjetoTags
+                        .Any(t => t.Nome.Equals(tagViewModel.Nome, StringComparison.OrdinalIgnoreCase));
+
+                    if (!tagExists)
+                    {
+                        var tag = new ProjetoTag
+                        {
+                            Nome = tagViewModel.Nome,
+                            IdProjetoNavigation = project
+                        };
+                        project.ProjetoTags.Add(tag);
+                    }
+                }
+            }
             project.Update(request.Nome, request.Descricao, request.Justificativa);
 
             await _projectRepository.SaveChangesAsync();
