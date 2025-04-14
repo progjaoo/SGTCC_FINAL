@@ -3,10 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Create;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Delete;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Finalizar;
+using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.IniciarAtividade;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update;
+using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.UpdateStatus;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAllAsync;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProject;
+using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByStatus;
+using SistemaGestaoTCC.Core.Enums;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -54,6 +58,19 @@ namespace SistemaGestaoTCC.API.Controllers
                 return BadRequest(new { Message = $"Erro ao buscar atividades: {ex.Message}" });
             }
         }
+        [HttpGet("atividadesEstado")]
+        public async Task<IActionResult> GetAtividadesByStatus(ProjetoAtividadeEnum status, int idProjeto)
+        {
+            try
+            {
+                var atividades = await _mediator.Send(new GetAtividadeByStatusQuery(status, idProjeto));
+                return Ok(atividades);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = $"Erro ao buscar atividades: {ex.Message}" });
+            }
+        }
         [HttpPost("criarAtividade")]
         public async Task<IActionResult> PostCourse([FromBody] CreateProjetoAtividadeCommand command)
         {
@@ -82,6 +99,30 @@ namespace SistemaGestaoTCC.API.Controllers
             await _mediator.Send(command);
 
             return NoContent();
+        }
+        [HttpPut("iniciarAtividade/{id}")]
+        public async Task<IActionResult> StartAtividade(int id)
+        {
+            var result = await _mediator.Send(new StartAtividadeCommand(id));
+            if (!result)
+                return NotFound("Atividade não encontrada.");
+
+            return Ok("Atividade iniciada com sucesso.");
+        }
+        [HttpPut("{idAtividade}/status/{novoEstado}")]
+        public async Task<IActionResult> AtualizarStatus(int idAtividade, ProjetoAtividadeEnum novoEstado)
+        {
+            var comando = new AtualizarStatusAtividadeCommand(idAtividade, novoEstado);
+            var sucesso = await _mediator.Send(comando);
+
+            if (sucesso)
+            {
+                return NoContent(); 
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }
