@@ -78,7 +78,7 @@ GO
 
 
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm) 
-VALUES ('Pesquisa em Inteligência Artificial', 'Estudo sobre novas abordagens em IA.', 'Explorar avanços na tecnologia e suas aplicações.', '2025-02-01', NULL, 2, 3, GETDATE());
+VALUES ('Pesquisa em Inteligência Artificial', 'Estudo sobre novas abordagens em IA.', 'Explorar avanços na tecnologia e suas aplicações.', '2025-02-01', '2025-03-10', 2, 3, GETDATE());
 GO
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm) 
 VALUES ('Automação de Processos', 'Implementação de robótica em processos administrativos.', 'Aumentar a eficiência operacional da empresa.', '2025-01-10', '2025-04-10', 2, 3, GETDATE());
@@ -87,13 +87,13 @@ INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Apro
 VALUES ('Sistema de Monitoramento Ambiental', 'Desenvolvimento de um sistema para monitorar a qualidade do ar.', 'Contribuir para a sustentabilidade e saúde pública.', '2025-03-15', NULL, 2, 3, GETDATE());
 GO
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm)
-VALUES ('Plataforma de Gestão Acadêmica', 'Desenvolvimento de sistema para gerenciamento de cursos e alunos.', 'Modernizar a gestão universitária.', '2025-05-01', NULL, 2, 3, GETDATE());
+VALUES ('Plataforma de Gestão Acadêmica', 'Desenvolvimento de sistema para gerenciamento de cursos e alunos.', 'Modernizar a gestão universitária.', '2025-02-01',  '2025-04-10', 2, 3, GETDATE());
 GO
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm)
-VALUES ('Campanha de Marketing para Saúde Mental', 'Criação de conteúdo digital para redes sociais.', 'Sensibilizar jovens sobre o cuidado com a saúde mental.', '2025-04-01', '2025-06-01', 2, 3, GETDATE());
+VALUES ('Campanha de Marketing para Saúde Mental', 'Criação de conteúdo digital para redes sociais.', 'Sensibilizar jovens sobre o cuidado com a saúde mental.', '2025-04-01', '2025-04-02', 2, 3, GETDATE());
 GO
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm)
-VALUES ('Análise de Patógenos em Águas Urbanas', 'Projeto de análise microbiológica de águas.', 'Contribuir para políticas públicas de saúde.', '2025-03-20', NULL, 2, 3, GETDATE());
+VALUES ('Análise de Patógenos em Águas Urbanas', 'Projeto de análise microbiológica de águas.', 'Contribuir para políticas públicas de saúde.', '2025-03-20',  '2025-03-25', 2, 3, GETDATE());
 GO
 
 INSERT INTO [UsuarioProjeto] (IdUsuario, IdProjeto, Funcao, AdicionadoEm) 
