@@ -30,13 +30,13 @@ INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcess
 VALUES (2, 'Pedro', 'pedro@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE());
 GO
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm) 
-VALUES ('Pesquisa em Inteligência Artificial', 'Estudo sobre novas abordagens em IA.', 'Explorar avanços na tecnologia e suas aplicações.', '2024-02-01', NULL, 1, 2, GETDATE());
+VALUES ('Pesquisa em Inteligência Artificial', 'Estudo sobre novas abordagens em IA.', 'Explorar avanços na tecnologia e suas aplicações.', '2024-02-01', NULL, 1, 3, GETDATE());
 GO
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm) 
 VALUES ('Automação de Processos', 'Implementação de robótica em processos administrativos.', 'Aumentar a eficiência operacional da empresa.', '2024-01-10', '2024-04-10', 1, 3, GETDATE());
 GO
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm) 
-VALUES ('Sistema de Monitoramento Ambiental', 'Desenvolvimento de um sistema para monitorar a qualidade do ar.', 'Contribuir para a sustentabilidade e saúde pública.', '2024-03-15', NULL, 1, 2, GETDATE());
+VALUES ('Sistema de Monitoramento Ambiental', 'Desenvolvimento de um sistema para monitorar a qualidade do ar.', 'Contribuir para a sustentabilidade e saúde pública.', '2024-03-15', NULL, 1, 3, GETDATE());
 GO
 
 INSERT INTO [UsuarioProjeto] (IdUsuario, IdProjeto, Funcao, AdicionadoEm) 
