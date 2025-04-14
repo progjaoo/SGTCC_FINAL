@@ -21,7 +21,7 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProject
         {
             var atividades = await _atividadeRepositorio.GetAtividadeByProjectIdAsync(request.IdProjeto);
 
-            var atividadeViewModel = atividades.Select(a => new ProjetoAtividadeDetalheViewModel(a.Id, a.IdProjeto, a.Nome, a.Descricao,a.Estado)).ToList();
+            var atividadeViewModel = atividades.Select(a => new ProjetoAtividadeDetalheViewModel(a.Id, a.IdProjeto, a.Nome, a.Descricao, a.Estado, a.CriadoEm)).ToList();
 
             return atividadeViewModel;
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 
@@ -15,7 +16,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbContext.ProjetoAtividade.ToListAsync();
         }
-
+        public async Task<List<ProjetoAtividade>> GetByStatusAsync(ProjetoAtividadeEnum status, int idProjeto)
+        {
+            return await _dbContext.ProjetoAtividade
+                   .Where(p => p.Estado == status && p.IdProjeto == idProjeto)
+                   .ToListAsync();
+        }
         public async Task<ProjetoAtividade> GetById(int id)
         {
             return await _dbContext.ProjetoAtividade.SingleOrDefaultAsync(p => p.Id == id);
@@ -52,6 +58,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 atividade.Finish();
                 await _dbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task AtualizarEstadoAsync(ProjetoAtividade atividade)
+        {
+            _dbContext.ProjetoAtividade.Update(atividade); 
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

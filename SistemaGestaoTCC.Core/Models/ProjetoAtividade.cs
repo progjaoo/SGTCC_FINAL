@@ -32,7 +32,6 @@ public partial class ProjetoAtividade
         IdProjeto = idProjeto;
         Nome = nome;
         Descricao = descricao;
-
         EditadoEm = DateTime.UtcNow;
     }
     public void Finish()
@@ -40,6 +39,13 @@ public partial class ProjetoAtividade
         if (Estado == ProjetoAtividadeEnum.Created || Estado == ProjetoAtividadeEnum.InProgress)
         {
             Estado = ProjetoAtividadeEnum.Finished;
+        }
+    }
+    public void Start()
+    {
+        if (Estado == ProjetoAtividadeEnum.Created)
+        {
+            Estado = ProjetoAtividadeEnum.InProgress;
         }
     }
 }
