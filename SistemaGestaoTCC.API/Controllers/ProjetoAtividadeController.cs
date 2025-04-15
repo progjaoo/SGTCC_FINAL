@@ -9,6 +9,7 @@ using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.UpdateStatus;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAllAsync;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProject;
+using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProjectNoFilter;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByStatus;
 using SistemaGestaoTCC.Core.Enums;
 
@@ -31,6 +32,19 @@ namespace SistemaGestaoTCC.API.Controllers
             var atividade = await _mediator.Send(getAllAtividadesQuery);
 
             return Ok(atividade);
+        }
+        [HttpGet("projetos/{idProjeto}/atividades/semFiltro")]
+        public async Task<IActionResult> GetByProjectIdNoFilterAsync(int idProjeto)
+        {
+            try
+            {
+                var atividades = await _mediator.Send(new GetByProjectIdNoFilterQuery(idProjeto));
+                return Ok(atividades);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = $"Erro ao buscar atividades: {ex.Message}" });
+            }
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
@@ -117,7 +131,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             if (sucesso)
             {
-                return NoContent(); 
+                return NoContent();
             }
             else
             {

@@ -10,6 +10,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<List<ProjetoAtividade>> GetByStatusAsync(ProjetoAtividadeEnum status, int idProjeto);
 
         Task<List<ProjetoAtividade>> GetAtividadeByProjectIdAsync(int projectId);
+        Task<List<ProjetoAtividade>> GetAtividadeByProjectIdNoFilterAsync(int projectId);
         Task AddASync(ProjetoAtividade atividade);
         Task DeleteAtividade(int id);
         Task AtualizarEstadoAsync(ProjetoAtividade atividade);

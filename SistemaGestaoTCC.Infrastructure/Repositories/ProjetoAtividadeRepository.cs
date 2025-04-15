@@ -33,6 +33,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Where(a => a.Estado == Core.Enums.ProjetoAtividadeEnum.Created)
                 .ToListAsync();
         }
+        public async Task<List<ProjetoAtividade>> GetAtividadeByProjectIdNoFilterAsync(int projectId)
+        {
+            return await _dbContext.ProjetoAtividade
+                .Where(a => a.IdProjeto == projectId)
+                .ToListAsync();
+        }
         public async Task AddASync(ProjetoAtividade atividade)
         {
             await _dbContext.AddAsync(atividade);
@@ -62,7 +68,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
         public async Task AtualizarEstadoAsync(ProjetoAtividade atividade)
         {
-            _dbContext.ProjetoAtividade.Update(atividade); 
+            _dbContext.ProjetoAtividade.Update(atividade);
             await _dbContext.SaveChangesAsync();
         }
     }
