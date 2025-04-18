@@ -10,11 +10,13 @@ namespace SistemaGestaoTCC.Application.ViewModels.AvaliacaoVM
 {
     public class AvaliacaoDetailProjectViewModel
     {
-        public AvaliacaoDetailProjectViewModel(int idUsuario, AvaliacaoEnum avaliacao)
+        public AvaliacaoDetailProjectViewModel(int id, int idUsuario, AvaliacaoEnum avaliacao)
         {
+            Id = id;
             IdUsuario = idUsuario;
             Avaliacao = avaliacao;
         }
+        public int Id { get; set; }
         public int IdUsuario { get; set; }
         public AvaliacaoEnum Avaliacao { get; set; }
 

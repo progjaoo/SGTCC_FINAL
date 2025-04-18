@@ -17,7 +17,7 @@ namespace SistemaGestaoTCC.Application.Queries.Avaliacoes.GetAvaliacaoByUser
             var avaliacao = await _avaliacaoRepository.GetAvaliacoesByUsuarioAsync(request.Id);
 
             var avaliacaoViewModel = avaliacao
-                .Select(p => new AvaliacaoDetailUsuarioViewModel(p.IdProjeto, p.Avaliacao))
+                .Select(p => new AvaliacaoDetailUsuarioViewModel(p.Id, p.IdProjeto, p.Avaliacao))
                 .ToList();
 
             return avaliacaoViewModel;

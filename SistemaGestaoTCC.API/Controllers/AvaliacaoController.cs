@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.Avaliacoes;
+using SistemaGestaoTCC.Application.Commands.Avaliacoes.Delete;
 using SistemaGestaoTCC.Application.Queries.Avaliacoes.GetAvaliacaoByProject;
 using SistemaGestaoTCC.Application.Queries.Avaliacoes.GetAvaliacaoByUser;
 using SistemaGestaoTCC.Application.Queries.Avaliacoes.GetById;
@@ -27,12 +28,6 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(avaliacao);
         }
-        [HttpPost("criarAvaliacao")]
-        public async Task<IActionResult> Post([FromBody] CreateAvaliacaoCommand command)
-        {
-            var id = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetById), new { id = id }, command);
-        }
         [HttpGet("porUsuario/{idUsuario}")]
         public async Task<IActionResult> GetAvaliacoesByUsuario(int idUsuario)
         {
@@ -58,6 +53,18 @@ namespace SistemaGestaoTCC.API.Controllers
             }
 
             return Ok(result);
+        }
+        [HttpPost("criarAvaliacao")]
+        public async Task<IActionResult> Post([FromBody] CreateAvaliacaoCommand command)
+        {
+            var id = await _mediator.Send(command);
+            return CreatedAtAction(nameof(GetById), new { id = id }, command);
+        }
+        [HttpDelete("removerAvaliacao")]
+        public async Task<IActionResult> Delete([FromBody] DeleteAvaliacaoCommand command)
+        {
+            var id = await _mediator.Send(command);
+            return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
     }
 }

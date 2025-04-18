@@ -24,6 +24,10 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             await _dbcontext.AddAsync(avaliacao);
             await _dbcontext.SaveChangesAsync();
         }
+        public async Task Remove(ProjetoAvaliacaoPublica avaliacao)
+        {
+            _dbcontext.Remove(avaliacao);
+        }
         public async Task SaveChangesAsync()
         {
             await _dbcontext.SaveChangesAsync();
@@ -39,6 +43,13 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             return await _dbcontext.ProjetoAvaliacaoPublica
                 .Where(p => p.IdProjeto == idProjeto)
                 .ToListAsync();
+        }
+        public async Task<ProjetoAvaliacaoPublica> GetAvaliacoesByProjectAndUserAsync(int idProjeto, int idUsuario)
+        {
+            return await _dbcontext.ProjetoAvaliacaoPublica
+                .Where(p => p.IdProjeto == idProjeto)
+                .Where(p => p.IdUsuario == idUsuario)
+                .FirstOrDefaultAsync();
         }
     }
 }
