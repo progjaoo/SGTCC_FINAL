@@ -15,6 +15,7 @@ CREATE TABLE [dbo].[Usuario](
 	[Email] [nvarchar](100) NOT NULL,
 	[Senha] [nvarchar](255) NOT NULL,
 	[Papel] [int] NOT NULL,
+	[Permissao] INT NOT NULL,
 	[IdImagem] [int] NULL,
 	[UltimoAcesso] [datetime] NULL,
 	[CriadoEm] [datetime] NOT NULL,
