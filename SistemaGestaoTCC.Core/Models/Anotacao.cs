@@ -7,21 +7,33 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Anotacao
 {
+    public Anotacao(int idUsuario, int idProjeto, string titulo, string descricao)
+    {
+        IdUsuario = idUsuario;
+        IdProjeto = idProjeto;
+        Titulo = titulo;
+        Descricao = descricao;
+
+        CriadoEm = DateTime.UtcNow;
+    }
+
     public int Id { get; set; }
-
     public int IdUsuario { get; set; }
-
     public int IdProjeto { get; set; }
-
     public string Titulo { get; set; }
-
     public string Descricao { get; set; }
-
     public DateTime CriadoEm { get; set; }
-
     public DateTime? EditadoEm { get; set; }
-
     public virtual Projeto IdProjetoNavigation { get; set; }
-
     public virtual Usuario IdUsuarioNavigation { get; set; }
+
+    public void UpdateAnotacao(int idUsuario, int idProjeto, string titulo, string descricao)
+    {
+        IdUsuario = idUsuario;
+        IdProjeto = idProjeto;
+        Titulo = titulo;
+        Descricao = descricao;
+
+        EditadoEm = DateTime.UtcNow;
+    }
 }

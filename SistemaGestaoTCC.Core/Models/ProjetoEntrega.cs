@@ -34,4 +34,12 @@ public partial class ProjetoEntrega
     public DateTime? EditadoEm { get; set; }
 
     public virtual Projeto IdProjetoNavigation { get; set; }
+    public void UpdateEntrega(string titulo, DateTime dataLimite, bool entregue)
+    {
+        Titulo = titulo;
+        DataLimite = dataLimite;
+        Entregue = entregue;
+
+        EditadoEm = DateTime.UtcNow;
+    }
 }

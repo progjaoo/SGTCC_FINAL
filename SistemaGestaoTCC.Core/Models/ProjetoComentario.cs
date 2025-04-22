@@ -7,6 +7,7 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class ProjetoComentario
 {
+
     public ProjetoComentario(int idUsuario, int idProjeto, string comentario)
     {
         IdUsuario = idUsuario;
@@ -30,4 +31,12 @@ public partial class ProjetoComentario
     public virtual Projeto IdProjetoNavigation { get; set; }
 
     public virtual Usuario IdUsuarioNavigation { get; set; }
+    public void UpdateComment(int idUsuario, int idProjeto, string comentario)
+    {
+        IdUsuario = idUsuario;
+        IdProjeto = idProjeto;
+        Comentario = comentario;
+
+        EditadoEm = DateTime.UtcNow;
+    }
 }

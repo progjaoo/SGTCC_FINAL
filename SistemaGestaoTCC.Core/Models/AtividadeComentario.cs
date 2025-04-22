@@ -7,6 +7,14 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class AtividadeComentario
 {
+    public AtividadeComentario(int idUsuario, int idAtividade, string comentario)
+    {
+        IdUsuario = idUsuario;
+        IdAtividade = idAtividade;
+        Comentario = comentario;
+
+        CriadoEm = DateTime.UtcNow;
+    }
     public int Id { get; set; }
 
     public int IdUsuario { get; set; }
@@ -22,4 +30,13 @@ public partial class AtividadeComentario
     public virtual ProjetoAtividade IdAtividadeNavigation { get; set; }
 
     public virtual Usuario IdUsuarioNavigation { get; set; }
+
+    public void UpdateAtividadeComentario(int idUsuario, int idAtividade, string comentario)
+    {
+        IdUsuario = idUsuario;
+        IdAtividade = idAtividade;
+        Comentario = comentario;
+
+        EditadoEm = DateTime.UtcNow;
+    }
 }

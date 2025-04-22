@@ -13,61 +13,61 @@ public partial class SGTCCContext : DbContext
     {
     }
 
-    public virtual DbSet<Anotacao> Anotacaos { get; set; }
+    public virtual DbSet<Anotacao> Anotacao { get; set; }
 
-    public virtual DbSet<Arquivo> Arquivos { get; set; }
+    public virtual DbSet<Arquivo> Arquivo { get; set; }
 
-    public virtual DbSet<AtividadeComentario> AtividadeComentarios { get; set; }
+    public virtual DbSet<AtividadeComentario> AtividadeComentario { get; set; }
 
-    public virtual DbSet<AvaliadorBanca> AvaliadorBancas { get; set; }
+    public virtual DbSet<AvaliadorBanca> AvaliadorBanca { get; set; }
 
-    public virtual DbSet<Banca> Bancas { get; set; }
+    public virtual DbSet<Banca> Banca { get; set; }
 
-    public virtual DbSet<Bibliografium> Bibliografia { get; set; }
+    public virtual DbSet<Bibliografia> Bibliografia { get; set; }
 
-    public virtual DbSet<CampoDocumentoAvaliacaoAluno> CampoDocumentoAvaliacaoAlunos { get; set; }
+    public virtual DbSet<CampoDocumentoAvaliacaoAluno> CampoDocumentoAvaliacaoAluno { get; set; }
 
-    public virtual DbSet<Categorium> Categoria { get; set; }
+    public virtual DbSet<Categoria> Categoria { get; set; }
 
-    public virtual DbSet<Curso> Cursos { get; set; }
+    public virtual DbSet<Curso> Curso { get; set; }
 
-    public virtual DbSet<Duvidum> Duvida { get; set; }
+    public virtual DbSet<Duvida> Duvida { get; set; }
 
-    public virtual DbSet<NotaDocumentoAluno> NotaDocumentoAlunos { get; set; }
+    public virtual DbSet<NotaDocumentoAluno> NotaDocumentoAluno { get; set; }
 
-    public virtual DbSet<NotaFinalAluno> NotaFinalAlunos { get; set; }
+    public virtual DbSet<NotaFinalAluno> NotaFinalAluno { get; set; }
 
     public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
-    public virtual DbSet<Projeto> Projetos { get; set; }
+    public virtual DbSet<Projeto> Projeto { get; set; }
 
-    public virtual DbSet<ProjetoArquivo> ProjetoArquivos { get; set; }
+    public virtual DbSet<ProjetoArquivo> ProjetoArquivo { get; set; }
 
-    public virtual DbSet<ProjetoAtividade> ProjetoAtividades { get; set; }
+    public virtual DbSet<ProjetoAtividade> ProjetoAtividade { get; set; }
 
-    public virtual DbSet<ProjetoAvaliacaoPublica> ProjetoAvaliacaoPublicas { get; set; }
+    public virtual DbSet<ProjetoAvaliacaoPublica> ProjetoAvaliacaoPublica { get; set; }
 
-    public virtual DbSet<ProjetoComentario> ProjetoComentarios { get; set; }
+    public virtual DbSet<ProjetoComentario> ProjetoComentario { get; set; }
 
-    public virtual DbSet<ProjetoEntrega> ProjetoEntregas { get; set; }
+    public virtual DbSet<ProjetoEntrega> ProjetoEntrega { get; set; }
 
-    public virtual DbSet<ProjetoTag> ProjetoTags { get; set; }
+    public virtual DbSet<ProjetoTag> ProjetoTag { get; set; }
 
-    public virtual DbSet<Propostum> Proposta { get; set; }
+    public virtual DbSet<Proposta> Proposta { get; set; }
 
-    public virtual DbSet<RespostaDuvidum> RespostaDuvida { get; set; }
+    public virtual DbSet<RespostaDuvida> RespostaDuvida { get; set; }
 
-    public virtual DbSet<Seminario> Seminarios { get; set; }
+    public virtual DbSet<Seminario> Seminario { get; set; }
 
-    public virtual DbSet<SeminarioProjeto> SeminarioProjetos { get; set; }
+    public virtual DbSet<SeminarioProjeto> SeminarioProjeto { get; set; }
 
     public virtual DbSet<UserActivationToken> UserActivationTokens { get; set; }
 
     public virtual DbSet<UserToken> UserTokens { get; set; }
 
-    public virtual DbSet<Usuario> Usuarios { get; set; }
+    public virtual DbSet<Usuario> Usuario { get; set; }
 
-    public virtual DbSet<UsuarioProjeto> UsuarioProjetos { get; set; }
+    public virtual DbSet<UsuarioProjeto> UsuarioProjeto { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -188,7 +188,7 @@ public partial class SGTCCContext : DbContext
                 .HasConstraintName("FK__Banca__IdProjeto__282DF8C2");
         });
 
-        modelBuilder.Entity<Bibliografium>(entity =>
+        modelBuilder.Entity<Bibliografia>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Bibliogr__3214EC07EC80518A");
 
@@ -235,7 +235,7 @@ public partial class SGTCCContext : DbContext
                 .HasConstraintName("FK__CampoDocu__IdCat__2B0A656D");
         });
 
-        modelBuilder.Entity<Categorium>(entity =>
+        modelBuilder.Entity<Categoria>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Categori__3214EC0701C5937F");
 
@@ -268,7 +268,7 @@ public partial class SGTCCContext : DbContext
                 .HasConstraintName("FK__Curso__IdImagem__339FAB6E");
         });
 
-        modelBuilder.Entity<Duvidum>(entity =>
+        modelBuilder.Entity<Duvida>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Duvida__3214EC07576D4C1B");
 
@@ -525,7 +525,7 @@ public partial class SGTCCContext : DbContext
                 .HasConstraintName("FK__ProjetoTa__IdPro__1BC821DD");
         });
 
-        modelBuilder.Entity<Propostum>(entity =>
+        modelBuilder.Entity<Proposta>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Proposta__3214EC0786E93519");
 
@@ -550,7 +550,7 @@ public partial class SGTCCContext : DbContext
                 .HasConstraintName("FK__Proposta__IdProj__1332DBDC");
         });
 
-        modelBuilder.Entity<RespostaDuvidum>(entity =>
+        modelBuilder.Entity<RespostaDuvida>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Resposta__3214EC07F413D371");
 

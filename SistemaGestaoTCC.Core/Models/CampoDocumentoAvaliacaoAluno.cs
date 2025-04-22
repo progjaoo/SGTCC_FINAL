@@ -7,13 +7,20 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class CampoDocumentoAvaliacaoAluno
 {
+    public CampoDocumentoAvaliacaoAluno(string campo, int idCategoria)
+    {
+        Campo = campo;
+        IdCategoria = idCategoria;
+    }
     public int Id { get; set; }
-
     public string Campo { get; set; }
-
     public int IdCategoria { get; set; }
-
-    public virtual Categorium IdCategoriaNavigation { get; set; }
-
+    public virtual Categoria IdCategoriaNavigation { get; set; }
     public virtual ICollection<NotaDocumentoAluno> NotaDocumentoAlunos { get; set; } = new List<NotaDocumentoAluno>();
+
+    public void UpdateCampo(string campo, int idCategoria)
+    {
+        Campo = campo;
+        IdCategoria = idCategoria;
+    }
 }

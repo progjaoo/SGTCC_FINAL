@@ -7,6 +7,14 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class RespostaDuvida
 {
+    public RespostaDuvida(int idDuvida, int idUsuario, string texto)
+    {
+        IdDuvida = idDuvida;
+        IdUsuario = idUsuario;
+        Texto = texto;
+
+        CriadoEm = DateTime.UtcNow;
+    }
     public int Id { get; set; }
 
     public int IdDuvida { get; set; }

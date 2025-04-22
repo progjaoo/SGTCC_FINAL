@@ -7,6 +7,15 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Seminario
 {
+    public Seminario(int idUsuario, string requisitos, DateTime data)
+    {
+        IdUsuario = idUsuario;
+        Requisitos = requisitos;
+        Data = data;
+        
+        CriadoEm = DateTime.UtcNow;
+    }
+
     public int Id { get; set; }
 
     public int IdUsuario { get; set; }

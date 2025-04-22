@@ -26,7 +26,7 @@ public partial class ProjetoAtividade ///VAI MUDAR///
 
     public string Descricao { get; set; }
 
-    public int Estado { get; set; }
+    public ProjetoAtividadeEnum Estado { get; set; }
 
     public int DuracaoEstimada { get; set; }
 
@@ -36,7 +36,7 @@ public partial class ProjetoAtividade ///VAI MUDAR///
 
     public DateTime? DataEntrega { get; set; }
 
-    public DateTime? CriadoEm { get; set; }
+    public DateTime CriadoEm { get; set; }
 
     public DateTime? EditadoEm { get; set; }
 

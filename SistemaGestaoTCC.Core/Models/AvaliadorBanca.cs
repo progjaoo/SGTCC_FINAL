@@ -7,6 +7,13 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class AvaliadorBanca
 {
+    public AvaliadorBanca(int idUsuario, int idBanca)
+    {
+        IdUsuario = idUsuario;
+        IdBanca = idBanca;
+
+        AdicionadoEm = DateTime.UtcNow;
+    }
     public int Id { get; set; }
 
     public int IdUsuario { get; set; }

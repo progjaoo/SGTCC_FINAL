@@ -117,7 +117,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //repositorios injecao de dependencia
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IProjetoAtividadeRepository, ProjetoAtividadeRepository>();
-builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
+//builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
 builder.Services.AddScoped<IProjetoArquivoRepository, ProjetoArquivoRepository>();
 builder.Services.AddScoped<IProjetoComentarioRepository, ProjetoComentarioRepository>();
 builder.Services.AddScoped<IAtividadeComentarioRepository, AtividadeComentarioRepository>();
@@ -131,13 +131,13 @@ builder.Services.AddScoped<ICampoDocumentoRepository, CampoDocumentoRepository>(
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<INotasDocumentoAlunoRepository, NotasDocumentoAlunoRepository>();
 builder.Services.AddScoped<INotaFinalAlunoRepository, NotaFinalAlunoRepository>();
-builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
+//builder.Services.AddScoped<IProjetoEntregaRepository, ProjetoEntregaRepository>();
 builder.Services.AddScoped<IAtividadeComentarioRepository, AtividadeComentarioRepository>();
-builder.Services.AddScoped<IProjetoEntregaProjetoRepository, ProjetoEntregaProjetoRepository>();
 builder.Services.AddScoped<IArquivoRepository, ArquivoRepository>();
+builder.Services.AddScoped<IAnotacaoRepository, AnotacaoRepository>();
+builder.Services.AddScoped<IBibliografiaRepository, BibliografiaRepository>();
 
 //service
-builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSignalR();
 
@@ -145,7 +145,6 @@ builder.Services.AddSignalR();
 #endregion
 
 builder.Services.AddHttpClient();
-
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserActivationTokenRepository, UserActivationTokenRepository>();
 builder.Services.AddScoped<IEmailService, EmailService>();
