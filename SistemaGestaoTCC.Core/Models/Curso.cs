@@ -14,18 +14,21 @@ public partial class Curso
 
         CriadoEm = DateTime.UtcNow;
     }
-
     public int Id { get; set; }
 
     public string Nome { get; set; }
 
     public string Descricao { get; set; }
+
     public int? IdImagem { get; set; }
+
     public DateTime CriadoEm { get; set; }
+
     public DateTime? EditadoEm { get; set; }
-    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+
     public virtual Arquivo IdImagemNavigation { get; set; }
 
+    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
     public void UpdateCourse(string nome, string descricao)
     {
         Nome = nome;

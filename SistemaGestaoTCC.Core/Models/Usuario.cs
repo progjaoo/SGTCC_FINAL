@@ -8,7 +8,7 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Usuario
 {
-    public Usuario(int idCurso, string nome, string email, 
+    public Usuario(int idCurso, string nome, string email,
         string senha, PapelEnum papel)
     {
         IdCurso = idCurso;
@@ -21,16 +21,36 @@ public partial class Usuario
 
     }
     public int Id { get; set; }
+
     public int IdCurso { get; set; }
+
     public string Nome { get; set; }
+
     public string Email { get; set; }
+
     public string Senha { get; set; }
+
     public PapelEnum Papel { get; set; }
+
+    public int Permissao { get; set; }
+
     public int? IdImagem { get; set; }
+
     public DateTime? UltimoAcesso { get; set; }
-    public DateTime CriadoEm {  get; set; }
+
+    public DateTime CriadoEm { get; set; }
+
     public DateTime? EditadoEm { get; set; }
+
+    public virtual ICollection<Anotacao> Anotacaos { get; set; } = new List<Anotacao>();
+
+    public virtual ICollection<AtividadeComentario> AtividadeComentarios { get; set; } = new List<AtividadeComentario>();
+
     public virtual ICollection<AvaliadorBanca> AvaliadorBancas { get; set; } = new List<AvaliadorBanca>();
+
+    public virtual ICollection<Bibliografia> Bibliografia { get; set; } = new List<Bibliografia>();
+
+    public virtual ICollection<Duvida> Duvida { get; set; } = new List<Duvida>();
 
     public virtual Curso IdCursoNavigation { get; set; }
 
@@ -40,13 +60,27 @@ public partial class Usuario
 
     public virtual ICollection<NotaFinalAluno> NotaFinalAlunos { get; set; } = new List<NotaFinalAluno>();
 
+    public virtual ICollection<PasswordResetToken> PasswordResetTokens { get; set; } = new List<PasswordResetToken>();
+
+    public virtual ICollection<ProjetoArquivo> ProjetoArquivos { get; set; } = new List<ProjetoArquivo>();
+
+    public virtual ICollection<ProjetoAtividade> ProjetoAtividades { get; set; } = new List<ProjetoAtividade>();
+
     public virtual ICollection<ProjetoAvaliacaoPublica> ProjetoAvaliacaoPublicas { get; set; } = new List<ProjetoAvaliacaoPublica>();
 
     public virtual ICollection<ProjetoComentario> ProjetoComentarios { get; set; } = new List<ProjetoComentario>();
 
+    public virtual ICollection<RespostaDuvida> RespostaDuvida { get; set; } = new List<RespostaDuvida>();
+
+    public virtual ICollection<Seminario> Seminarios { get; set; } = new List<Seminario>();
+
+    public virtual ICollection<UserActivationToken> UserActivationTokens { get; set; } = new List<UserActivationToken>();
+
+    public virtual ICollection<UserToken> UserTokens { get; set; } = new List<UserToken>();
+
     public virtual ICollection<UsuarioProjeto> UsuarioProjetos { get; set; } = new List<UsuarioProjeto>();
 
-    public void Update( string nome, string email)
+    public void Update(string nome, string email)
     {
 
         Nome = nome;

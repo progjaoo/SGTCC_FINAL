@@ -12,137 +12,171 @@ public partial class SGTCCContext : DbContext
         : base(options)
     {
     }
-    public virtual DbSet<ProjetoEntregaProjeto> ProjetoEntregaProjetos { get; set; }   
-    public virtual DbSet<Arquivo> Arquivo { get; set; }
 
-    //public virtual DbSet<AtividadeProposta> AtividadeProposta { get; set; }
-    public virtual DbSet<AtividadeComentario> AtividadeComentario { get; set; }
-    public virtual DbSet<AvaliadorBanca> AvaliadorBanca { get; set; }
-    public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
-    public virtual DbSet<Banca> Banca { get; set; }
+    public virtual DbSet<Anotacao> Anotacaos { get; set; }
 
-    public DbSet<UserToken> UserTokens { get; set; }
+    public virtual DbSet<Arquivo> Arquivos { get; set; }
 
-    public DbSet<UserActivationToken> UserActivationTokens { get; set; }
+    public virtual DbSet<AtividadeComentario> AtividadeComentarios { get; set; }
 
+    public virtual DbSet<AvaliadorBanca> AvaliadorBancas { get; set; }
 
-    public virtual DbSet<CampoDocumentoAvaliacaoAluno> CampoDocumentoAvaliacaoAluno { get; set; }
+    public virtual DbSet<Banca> Bancas { get; set; }
 
-    public virtual DbSet<Categoria> Categoria { get; set; }
+    public virtual DbSet<Bibliografium> Bibliografia { get; set; }
 
-    public virtual DbSet<Curso> Curso { get; set; }
+    public virtual DbSet<CampoDocumentoAvaliacaoAluno> CampoDocumentoAvaliacaoAlunos { get; set; }
 
-    public virtual DbSet<NotaDocumentoAluno> NotaDocumentoAluno { get; set; }
+    public virtual DbSet<Categorium> Categoria { get; set; }
 
-    public virtual DbSet<NotaFinalAluno> NotaFinalAluno { get; set; }
+    public virtual DbSet<Curso> Cursos { get; set; }
 
-    public virtual DbSet<Projeto> Projeto { get; set; }
+    public virtual DbSet<Duvidum> Duvida { get; set; }
 
-    public virtual DbSet<ProjetoArquivo> ProjetoArquivo { get; set; }
+    public virtual DbSet<NotaDocumentoAluno> NotaDocumentoAlunos { get; set; }
 
-    public virtual DbSet<ProjetoAtividade> ProjetoAtividade { get; set; }
+    public virtual DbSet<NotaFinalAluno> NotaFinalAlunos { get; set; }
 
-    public virtual DbSet<ProjetoAvaliacaoPublica> ProjetoAvaliacaoPublica { get; set; }
+    public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
-    public virtual DbSet<ProjetoComentario> ProjetoComentario { get; set; }
+    public virtual DbSet<Projeto> Projetos { get; set; }
 
-    public virtual DbSet<ProjetoEntrega> ProjetoEntrega { get; set; }
+    public virtual DbSet<ProjetoArquivo> ProjetoArquivos { get; set; }
 
-    public virtual DbSet<ProjetoTag> ProjetoTag { get; set; }
+    public virtual DbSet<ProjetoAtividade> ProjetoAtividades { get; set; }
 
-    //public virtual DbSet<Tag> Tag { get; set; }
+    public virtual DbSet<ProjetoAvaliacaoPublica> ProjetoAvaliacaoPublicas { get; set; }
 
-    public virtual DbSet<Usuario> Usuario { get; set; }
+    public virtual DbSet<ProjetoComentario> ProjetoComentarios { get; set; }
 
-    public virtual DbSet<UsuarioProjeto> UsuarioProjeto { get; set; }
+    public virtual DbSet<ProjetoEntrega> ProjetoEntregas { get; set; }
+
+    public virtual DbSet<ProjetoTag> ProjetoTags { get; set; }
+
+    public virtual DbSet<Propostum> Proposta { get; set; }
+
+    public virtual DbSet<RespostaDuvidum> RespostaDuvida { get; set; }
+
+    public virtual DbSet<Seminario> Seminarios { get; set; }
+
+    public virtual DbSet<SeminarioProjeto> SeminarioProjetos { get; set; }
+
+    public virtual DbSet<UserActivationToken> UserActivationTokens { get; set; }
+
+    public virtual DbSet<UserToken> UserTokens { get; set; }
+
+    public virtual DbSet<Usuario> Usuarios { get; set; }
+
+    public virtual DbSet<UsuarioProjeto> UsuarioProjetos { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<ProjetoEntregaProjeto>(entity =>
+        modelBuilder.Entity<Anotacao>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProjetoEntregaProjeto");
+            entity.HasKey(e => e.Id).HasName("PK__Anotacao__3214EC07137443C2");
 
-            entity.ToTable("ProjetoEntregaProjeto");
+            entity.ToTable("Anotacao");
 
-            entity.HasIndex(e => e.Id, "UQ__ProjetoEntregaProjeto").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__Anotacao__3214EC064B088F11").IsUnique();
 
-            entity.HasOne(d => d.IdEntregaNavigation)
-                .WithMany(p => p.ProjetoEntregaProjetos)
-                .HasForeignKey(d => d.IdEntrega)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_ProjetoEntregaProjeto_Entrega");
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Descricao)
+                .IsRequired()
+                .HasMaxLength(500)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Titulo)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .IsFixedLength();
 
-            entity.HasOne(d => d.IdProjetoNavigation)
-                .WithMany(p => p.ProjetoEntregaProjetos)
+            entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.Anotacaos)
                 .HasForeignKey(d => d.IdProjeto)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_ProjetoEntregaProjeto_Projeto");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Anotacao__IdProj__0F624AF8");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Anotacaos)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Anotacao__IdUsua__10566F31");
         });
 
         modelBuilder.Entity<Arquivo>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Arquivo__3214EC0709DE1BE0");
+            entity.HasKey(e => e.Id).HasName("PK__Arquivo__3214EC07DC69C2B6");
 
             entity.ToTable("Arquivo");
 
-            entity.HasIndex(e => e.Id, "UQ__Arquivo__3214EC0659AF81AD").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__Arquivo__3214EC065F636A50").IsUnique();
 
             entity.Property(e => e.CriadoEm).HasColumnType("datetime");
             entity.Property(e => e.Diretorio)
                 .IsRequired()
                 .HasMaxLength(255);
             entity.Property(e => e.EditadoEm).HasColumnType("datetime");
-            entity.Property(e => e.NomeOriginal)
+            entity.Property(e => e.Extensao)
                 .IsRequired()
                 .HasMaxLength(255);
-            entity.Property(e => e.Extensao)
+            entity.Property(e => e.NomeOriginal)
                 .IsRequired()
                 .HasMaxLength(255);
         });
 
-        //modelBuilder.Entity<AtividadeProposta>(entity =>
-        //{
-        //    entity.HasKey(e => e.Id).HasName("PK__Atividad__3214EC072EAB3EA5");
+        modelBuilder.Entity<AtividadeComentario>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Atividad__3214EC079BDA5048");
 
-        //    entity.HasIndex(e => e.Id, "UQ__Atividad__3214EC06B4D59E8D").IsUnique();
+            entity.ToTable("AtividadeComentario");
 
-        //    entity.Property(e => e.Descricao)
-        //        .IsRequired()
-        //        .HasMaxLength(300);
-        //    entity.Property(e => e.Nome)
-        //        .IsRequired()
-        //        .HasMaxLength(50);
-        //});
+            entity.HasIndex(e => e.Id, "UQ__Atividad__3214EC067FB7D6E7").IsUnique();
+
+            entity.Property(e => e.Comentario)
+                .IsRequired()
+                .HasMaxLength(300);
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
+
+            entity.HasOne(d => d.IdAtividadeNavigation).WithMany(p => p.AtividadeComentarios)
+                .HasForeignKey(d => d.IdAtividade)
+                .HasConstraintName("FK__Atividade__IdAti__31B762FC");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.AtividadeComentarios)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Atividade__IdUsu__32AB8735");
+        });
 
         modelBuilder.Entity<AvaliadorBanca>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Avaliado__3214EC07785E3F3B");
+            entity.HasKey(e => e.Id).HasName("PK__Avaliado__3214EC076E73DF49");
 
             entity.ToTable("AvaliadorBanca");
 
-            entity.HasIndex(e => e.Id, "UQ__Avaliado__3214EC06E4C2872F").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__Avaliado__3214EC06AE163422").IsUnique();
+
+            entity.Property(e => e.AdicionadoEm).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdBancaNavigation).WithMany(p => p.AvaliadorBancas)
                 .HasForeignKey(d => d.IdBanca)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Avaliador__IdBan__08B54D69");
+                .HasConstraintName("FK__Avaliador__IdBan__25518C17");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.AvaliadorBancas)
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Avaliador__IdUsu__07C12930");
-            entity.Property(e => e.AdicionadoEm)
-                .HasColumnType("datetime");
+                .HasConstraintName("FK__Avaliador__IdUsu__245D67DE");
         });
 
         modelBuilder.Entity<Banca>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Banca__3214EC0763BEC98E");
+            entity.HasKey(e => e.Id).HasName("PK__Banca__3214EC07D3AEE7E0");
 
             entity.ToTable("Banca");
 
-            entity.HasIndex(e => e.Id, "UQ__Banca__3214EC0688563392").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__Banca__3214EC06E6A6EF6F").IsUnique();
 
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
             entity.Property(e => e.DataSeminario).HasColumnType("datetime");
             entity.Property(e => e.ObservacaoAluno).HasMaxLength(500);
             entity.Property(e => e.ObservacaoNotaProjeto).HasMaxLength(500);
@@ -151,18 +185,45 @@ public partial class SGTCCContext : DbContext
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.Bancas)
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Banca__IdProjeto__0B91BA14");
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");
+                .HasConstraintName("FK__Banca__IdProjeto__282DF8C2");
+        });
+
+        modelBuilder.Entity<Bibliografium>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Bibliogr__3214EC07EC80518A");
+
+            entity.HasIndex(e => e.Id, "UQ__Bibliogr__3214EC06C6C83593").IsUnique();
+
+            entity.Property(e => e.AcessadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Autores)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Referencia)
+                .HasMaxLength(400)
+                .IsUnicode(false)
+                .IsFixedLength();
+
+            entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.Bibliografia)
+                .HasForeignKey(d => d.IdProjeto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Bibliogra__IdPro__114A936A");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Bibliografia)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Bibliogra__IdUsu__123EB7A3");
         });
 
         modelBuilder.Entity<CampoDocumentoAvaliacaoAluno>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__CampoDoc__3214EC07B4B7809F");
+            entity.HasKey(e => e.Id).HasName("PK__CampoDoc__3214EC07D55F40CD");
 
             entity.ToTable("CampoDocumentoAvaliacaoAluno");
 
-            entity.HasIndex(e => e.Id, "UQ__CampoDoc__3214EC069D5D5B6D").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__CampoDoc__3214EC062B300BCD").IsUnique();
 
             entity.Property(e => e.Campo)
                 .IsRequired()
@@ -171,14 +232,14 @@ public partial class SGTCCContext : DbContext
             entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.CampoDocumentoAvaliacaoAlunos)
                 .HasForeignKey(d => d.IdCategoria)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__CampoDocu__IdCat__0E6E26BF");
+                .HasConstraintName("FK__CampoDocu__IdCat__2B0A656D");
         });
 
-        modelBuilder.Entity<Categoria>(entity =>
+        modelBuilder.Entity<Categorium>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Categori__3214EC0733CAB5D7");
+            entity.HasKey(e => e.Id).HasName("PK__Categori__3214EC0701C5937F");
 
-            entity.HasIndex(e => e.Id, "UQ__Categori__3214EC06C29F907D").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__Categori__3214EC06E5D75A3B").IsUnique();
 
             entity.Property(e => e.Valor)
                 .IsRequired()
@@ -187,83 +248,120 @@ public partial class SGTCCContext : DbContext
 
         modelBuilder.Entity<Curso>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Curso__3214EC078D300E46");
+            entity.HasKey(e => e.Id).HasName("PK__Curso__3214EC07776CA344");
 
             entity.ToTable("Curso");
 
-            entity.HasIndex(e => e.Id, "UQ__Curso__3214EC06EA6FFBA6").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__Curso__3214EC062CC877A1").IsUnique();
 
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
             entity.Property(e => e.Descricao)
                 .IsRequired()
                 .HasMaxLength(500);
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
             entity.Property(e => e.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(true);
-            entity.Property(e => e.EditadoEm)
-                .HasColumnType("datetime");
+
             entity.HasOne(d => d.IdImagemNavigation).WithMany(p => p.Cursos)
                 .HasForeignKey(d => d.IdImagem)
-                .HasConstraintName("FK__Curso__IdImage__0C85DE4D");
+                .HasConstraintName("FK__Curso__IdImagem__339FAB6E");
+        });
+
+        modelBuilder.Entity<Duvidum>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Duvida__3214EC07576D4C1B");
+
+            entity.HasIndex(e => e.Id, "UQ__Duvida__3214EC06F7B9C396").IsUnique();
+
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Texto)
+                .HasMaxLength(500)
+                .IsUnicode(false)
+                .IsFixedLength();
+
+            entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.Duvida)
+                .HasForeignKey(d => d.IdProjeto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Duvida__IdProjet__14270015");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Duvida)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Duvida__IdUsuari__151B244E");
         });
 
         modelBuilder.Entity<NotaDocumentoAluno>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__NotaDocu__3214EC07B9C2A327");
+            entity.HasKey(e => e.Id).HasName("PK__NotaDocu__3214EC07262C818B");
 
             entity.ToTable("NotaDocumentoAluno");
 
-            entity.HasIndex(e => e.Id, "UQ__NotaDocu__3214EC069F1F206F").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__NotaDocu__3214EC0617D3018C").IsUnique();
+
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdAlunoNavigation).WithMany(p => p.NotaDocumentoAlunos)
                 .HasForeignKey(d => d.IdAluno)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__NotaDocum__IdAlu__09A971A2");
+                .HasConstraintName("FK__NotaDocum__IdAlu__2645B050");
 
             entity.HasOne(d => d.IdAvaliadorBancaNavigation).WithMany(p => p.NotaDocumentoAlunos)
                 .HasForeignKey(d => d.IdAvaliadorBanca)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__NotaDocum__IdAva__0F624AF8");
+                .HasConstraintName("FK__NotaDocum__IdAva__2BFE89A6");
 
             entity.HasOne(d => d.IdCampoNavigation).WithMany(p => p.NotaDocumentoAlunos)
                 .HasForeignKey(d => d.IdCampo)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__NotaDocum__IdCam__10566F31");
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");
+                .HasConstraintName("FK__NotaDocum__IdCam__2CF2ADDF");
         });
 
         modelBuilder.Entity<NotaFinalAluno>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__NotaFina__3214EC076FF9237A");
+            entity.HasKey(e => e.Id).HasName("PK__NotaFina__3214EC079BA1889C");
 
             entity.ToTable("NotaFinalAluno");
 
-            entity.HasIndex(e => e.Id, "UQ__NotaFina__3214EC066E9C820F").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__NotaFina__3214EC06780BB6EE").IsUnique();
+
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdAlunoNavigation).WithMany(p => p.NotaFinalAlunos)
                 .HasForeignKey(d => d.IdAluno)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__NotaFinal__IdAlu__0A9D95DB");
+                .HasConstraintName("FK__NotaFinal__IdAlu__2739D489");
 
             entity.HasOne(d => d.IdAvaliadorBancaNavigation).WithMany(p => p.NotaFinalAlunos)
                 .HasForeignKey(d => d.IdAvaliadorBanca)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__NotaFinal__IdAva__114A936A");
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");
+                .HasConstraintName("FK__NotaFinal__IdAva__2DE6D218");
+        });
+
+        modelBuilder.Entity<PasswordResetToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Password__3214EC070DE98C41");
+
+            entity.Property(e => e.ExpirationDate).HasColumnType("datetime");
+            entity.Property(e => e.Token)
+                .IsRequired()
+                .HasMaxLength(500);
+
+            entity.HasOne(d => d.User).WithMany(p => p.PasswordResetTokens)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__PasswordR__UserI__3D2915A8");
         });
 
         modelBuilder.Entity<Projeto>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Projeto__3214EC074D88572F");
+            entity.HasKey(e => e.Id).HasName("PK__Projeto__3214EC07705815C3");
 
             entity.ToTable("Projeto");
 
-            entity.HasIndex(e => e.Id, "UQ__Projeto__3214EC0668F8D5F0").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__Projeto__3214EC06F94D966C").IsUnique();
 
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
             entity.Property(e => e.DataFim).HasColumnType("datetime");
             entity.Property(e => e.DataInicio).HasColumnType("datetime");
             entity.Property(e => e.Descricao)
@@ -281,44 +379,51 @@ public partial class SGTCCContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .IsFixedLength();
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");
+
             entity.HasOne(d => d.IdImagemNavigation).WithMany(p => p.Projetos)
                 .HasForeignKey(d => d.IdImagem)
-                .HasConstraintName("FK__Projeto__IdImage__0C85DE4D");
-
+                .HasConstraintName("FK__Projeto__IdImage__3493CFA7");
         });
 
         modelBuilder.Entity<ProjetoArquivo>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProjetoA__3214EC07172078B8");
+            entity.HasKey(e => e.Id).HasName("PK__ProjetoA__3214EC074943047A");
 
             entity.ToTable("ProjetoArquivo");
 
-            entity.HasIndex(e => e.Id, "UQ__ProjetoA__3214EC06EA6996F7").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__ProjetoA__3214EC0627A75BB1").IsUnique();
 
             entity.HasOne(d => d.IdArquivoNavigation).WithMany(p => p.ProjetoArquivos)
                 .HasForeignKey(d => d.IdArquivo)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoAr__IdArq__0D7A0286");
+                .HasConstraintName("FK__ProjetoAr__IdArq__2A164134");
 
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.ProjetoArquivos)
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoAr__IdPro__04E4BC85");
+                .HasConstraintName("FK__ProjetoAr__IdPro__208CD6FA");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ProjetoArquivos)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ProjetoAr__IdUsu__2180FB33");
         });
 
         modelBuilder.Entity<ProjetoAtividade>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProjetoA__3214EC07CDEDCCA7");
+            entity.HasKey(e => e.Id).HasName("PK__ProjetoA__3214EC0732EAA127");
 
             entity.ToTable("ProjetoAtividade");
 
-            entity.HasIndex(e => e.Id, "UQ__ProjetoA__3214EC0686E8F3F1").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__ProjetoA__3214EC0695BBED09").IsUnique();
 
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.DataEntrega).HasColumnType("datetime");
+            entity.Property(e => e.DataInicio).HasColumnType("datetime");
             entity.Property(e => e.Descricao)
                 .IsRequired()
                 .HasMaxLength(300);
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
             entity.Property(e => e.Nome)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -326,70 +431,72 @@ public partial class SGTCCContext : DbContext
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.ProjetoAtividades)
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoAt__IdPro__00200768");
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");
-            entity.Property(e => e.EditadoEm)
-                .HasColumnType("datetime");
+                .HasConstraintName("FK__ProjetoAt__IdPro__1CBC4616");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ProjetoAtividades)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ProjetoAt__IdUsu__1DB06A4F");
         });
 
         modelBuilder.Entity<ProjetoAvaliacaoPublica>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProjetoA__3214EC07FCCD1D9C");
+            entity.HasKey(e => e.Id).HasName("PK__ProjetoA__3214EC07A53AEE29");
 
             entity.ToTable("ProjetoAvaliacaoPublica");
 
-            entity.HasIndex(e => e.Id, "UQ__ProjetoA__3214EC061E03045F").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__ProjetoA__3214EC064DC0050A").IsUnique();
+
+            entity.Property(e => e.DataAvaliacao).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.ProjetoAvaliacaoPublicas)
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoAv__IdPro__06CD04F7");
+                .HasConstraintName("FK__ProjetoAv__IdPro__236943A5");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ProjetoAvaliacaoPublicas)
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoAv__IdUsu__05D8E0BE");
+                .HasConstraintName("FK__ProjetoAv__IdUsu__22751F6C");
         });
 
         modelBuilder.Entity<ProjetoComentario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProjetoC__3214EC077F5E0E05");
+            entity.HasKey(e => e.Id).HasName("PK__ProjetoC__3214EC07CABC8B67");
 
             entity.ToTable("ProjetoComentario");
 
-            entity.HasIndex(e => e.Id, "UQ__ProjetoC__3214EC06EC319850").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__ProjetoC__3214EC06ECFD4A7A").IsUnique();
 
             entity.Property(e => e.Comentario)
                 .IsRequired()
                 .HasMaxLength(300);
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.ProjetoComentarios)
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoCo__IdPro__03F0984C");
+                .HasConstraintName("FK__ProjetoCo__IdPro__30C33EC3");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ProjetoComentarios)
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoCo__IdUsu__02FC7413");
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");
-            entity.Property(e => e.EditadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasConstraintName("FK__ProjetoCo__IdUsu__2FCF1A8A");
         });
 
         modelBuilder.Entity<ProjetoEntrega>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProjetoE__3214EC07FF2E2C97");
+            entity.HasKey(e => e.Id).HasName("PK__ProjetoE__3214EC07D5F12A95");
 
             entity.ToTable("ProjetoEntrega");
 
-            entity.HasIndex(e => e.Id, "UQ__ProjetoE__3214EC06E0AA35FA").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__ProjetoE__3214EC060C78D68A").IsUnique();
 
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
             entity.Property(e => e.DataEnvio).HasColumnType("datetime");
             entity.Property(e => e.DataLimite).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
             entity.Property(e => e.Titulo)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -397,21 +504,16 @@ public partial class SGTCCContext : DbContext
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.ProjetoEntregas)
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoEn__IdPro__7E37BEF6");
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");
-            entity.Property(e => e.EditadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasConstraintName("FK__ProjetoEn__IdPro__1AD3FDA4");
         });
 
         modelBuilder.Entity<ProjetoTag>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProjetoT__3214EC071C20B105");
+            entity.HasKey(e => e.Id).HasName("PK__ProjetoT__3214EC07A512EC09");
 
             entity.ToTable("ProjetoTag");
 
-            entity.HasIndex(e => e.Id, "UQ__ProjetoT__3214EC06278018D2").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__ProjetoT__3214EC0625D28115").IsUnique();
 
             entity.Property(e => e.Nome)
                 .IsRequired()
@@ -420,30 +522,145 @@ public partial class SGTCCContext : DbContext
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.ProjetoTags)
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProjetoTa__IdPro__7F2BE32F");
+                .HasConstraintName("FK__ProjetoTa__IdPro__1BC821DD");
         });
 
-        //modelBuilder.Entity<Tag>(entity =>
-        //{
-        //    entity.HasKey(e => e.Id).HasName("PK__Tag__3214EC0767C8A121");
+        modelBuilder.Entity<Propostum>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Proposta__3214EC0786E93519");
 
-        //    entity.ToTable("Tag");
+            entity.HasIndex(e => e.Id, "UQ__Proposta__3214EC0637AEE02D").IsUnique();
 
-        //    entity.HasIndex(e => e.Id, "UQ__Tag__3214EC06FE0ED4C4").IsUnique();
+            entity.Property(e => e.AtividadesPropostas)
+                .IsRequired()
+                .HasMaxLength(800)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.ContribuicaoAgenda).HasColumnType("datetime");
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Sugestao)
+                .HasMaxLength(500)
+                .IsUnicode(false)
+                .IsFixedLength();
 
-        //    entity.Property(e => e.Nome)
-        //        .IsRequired()
-        //        .HasMaxLength(50);
-        //});
+            entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.Proposta)
+                .HasForeignKey(d => d.IdProjeto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Proposta__IdProj__1332DBDC");
+        });
+
+        modelBuilder.Entity<RespostaDuvidum>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Resposta__3214EC07F413D371");
+
+            entity.HasIndex(e => e.Id, "UQ__Resposta__3214EC06654AD44A").IsUnique();
+
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Texto)
+                .HasMaxLength(500)
+                .IsUnicode(false)
+                .IsFixedLength();
+
+            entity.HasOne(d => d.IdDuvidaNavigation).WithMany(p => p.RespostaDuvida)
+                .HasForeignKey(d => d.IdDuvida)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__RespostaD__IdDuv__160F4887");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.RespostaDuvida)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__RespostaD__IdUsu__17036CC0");
+        });
+
+        modelBuilder.Entity<Seminario>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Seminari__3214EC07F0398CDB");
+
+            entity.ToTable("Seminario");
+
+            entity.HasIndex(e => e.Id, "UQ__Seminari__3214EC06A7357E93").IsUnique();
+
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Data).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
+            entity.Property(e => e.Requisitos)
+                .HasMaxLength(500)
+                .IsUnicode(false)
+                .IsFixedLength();
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Seminarios)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Seminario__IdUsu__17F790F9");
+        });
+
+        modelBuilder.Entity<SeminarioProjeto>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Seminari__3214EC07D7A1046B");
+
+            entity.ToTable("SeminarioProjeto");
+
+            entity.HasIndex(e => e.Id, "UQ__Seminari__3214EC069C9189CA").IsUnique();
+
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
+
+            entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.SeminarioProjetos)
+                .HasForeignKey(d => d.IdProjeto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Seminario__IdPro__18EBB532");
+
+            entity.HasOne(d => d.IdSeminarioNavigation).WithMany(p => p.SeminarioProjetos)
+                .HasForeignKey(d => d.IdSeminario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Seminario__IdSem__19DFD96B");
+        });
+
+        modelBuilder.Entity<UserActivationToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__UserActi__3214EC0795EB6AE4");
+
+            entity.Property(e => e.ExpirationDate).HasColumnType("datetime");
+            entity.Property(e => e.Token)
+                .IsRequired()
+                .HasMaxLength(500);
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserActivationTokens)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__UserActiv__UserI__3A4CA8FD");
+        });
+
+        modelBuilder.Entity<UserToken>(entity =>
+        {
+            entity.ToTable("UserToken");
+
+            entity.Property(e => e.Expiration).HasColumnType("datetime");
+            entity.Property(e => e.Token)
+                .IsRequired()
+                .HasMaxLength(255);
+            entity.Property(e => e.Type)
+                .IsRequired()
+                .HasMaxLength(20)
+                .IsFixedLength();
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserTokens)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserToken_Usuario");
+        });
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC07B2323B37");
+            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC07A7B4A5F5");
 
             entity.ToTable("Usuario");
 
-            entity.HasIndex(e => e.Id, "UQ__Usuario__3214EC068B29E4A2").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__Usuario__3214EC06E752571F").IsUnique();
 
+            entity.Property(e => e.CriadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EditadoEm).HasColumnType("datetime");
             entity.Property(e => e.Email)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -453,62 +670,41 @@ public partial class SGTCCContext : DbContext
             entity.Property(e => e.Senha)
                 .IsRequired()
                 .HasMaxLength(255);
-
-            entity.Property(e => e.UltimoAcesso)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+            entity.Property(e => e.UltimoAcesso).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdCursoNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdCurso)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Usuario__IdCurso__123EB7A3");
+                .HasConstraintName("FK__Usuario__IdCurso__2EDAF651");
 
             entity.HasOne(d => d.IdImagemNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdImagem)
-                .HasConstraintName("FK__Usuario__IdImage__0C85DE4D")
-                .IsRequired(false);
-            entity.Property(e => e.CriadoEm)
-                .HasColumnType("datetime");
-            entity.Property(e => e.EditadoEm)
-                .HasColumnType("datetime")
-                .IsRequired(false);
+                .HasConstraintName("FK__Usuario__IdImage__29221CFB");
         });
 
         modelBuilder.Entity<UsuarioProjeto>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UsuarioP__3214EC07612D62A1");
+            entity.HasKey(e => e.Id).HasName("PK__UsuarioP__3214EC07999CA87A");
 
             entity.ToTable("UsuarioProjeto");
 
-            entity.HasIndex(e => e.Id, "UQ__UsuarioP__3214EC06E08B28F9").IsUnique();
+            entity.HasIndex(e => e.Id, "UQ__UsuarioP__3214EC06FC0D3D94").IsUnique();
+
+            entity.Property(e => e.AdicionadoEm).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.UsuarioProjetos)
                 .HasForeignKey(d => d.IdProjeto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__UsuarioPr__IdPro__02084FDA");
+                .HasConstraintName("FK__UsuarioPr__IdPro__1F98B2C1");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.UsuarioProjetos)
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__UsuarioPr__IdUsu__01142BA1");
-            entity.Property(e => e.Funcao)
-                .IsRequired(true);
-            entity.Property(e => e.AdicionadoEm)
-                .HasColumnType("datetime");
+                .HasConstraintName("FK__UsuarioPr__IdUsu__1EA48E88");
         });
 
-        modelBuilder.Entity<AtividadeComentario>()
-       .HasOne<ProjetoAtividade>()
-       .WithMany()
-       .HasForeignKey(ac => ac.IdAtividade)
-       .OnDelete(DeleteBehavior.NoAction);
-
-        modelBuilder.Entity<AtividadeComentario>()
-            .HasOne<Usuario>()
-            .WithMany()
-            .HasForeignKey(ac => ac.IdUsuario)
-            .OnDelete(DeleteBehavior.NoAction);
         OnModelCreatingPartial(modelBuilder);
     }
+
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

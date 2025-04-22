@@ -7,21 +7,19 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class AvaliadorBanca
 {
-    public AvaliadorBanca(int idUsuario, int idBanca)
-    {
-        IdUsuario = idUsuario;
-        IdBanca = idBanca;
-
-        AdicionadoEm = DateTime.UtcNow;
-    }
-
     public int Id { get; set; }
+
     public int IdUsuario { get; set; }
+
     public int IdBanca { get; set; }
+
     public DateTime AdicionadoEm { get; set; }
 
     public virtual Banca IdBancaNavigation { get; set; }
+
     public virtual Usuario IdUsuarioNavigation { get; set; }
+
     public virtual ICollection<NotaDocumentoAluno> NotaDocumentoAlunos { get; set; } = new List<NotaDocumentoAluno>();
+
     public virtual ICollection<NotaFinalAluno> NotaFinalAlunos { get; set; } = new List<NotaFinalAluno>();
 }

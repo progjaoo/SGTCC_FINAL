@@ -5,33 +5,23 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTCC.Core.Models;
 
-public partial class ProjetoEntrega
+public partial class Anotacao
 {
-    public ProjetoEntrega(int idProjeto, string titulo, DateTime dataLimite, bool entregue)
-    {
-        IdProjeto = idProjeto;
-        Titulo = titulo;
-        DataLimite = dataLimite;
-        Entregue = entregue;
-
-        DataEnvio = DateTime.UtcNow;
-        CriadoEm = DateTime.UtcNow;
-    }
     public int Id { get; set; }
+
+    public int IdUsuario { get; set; }
 
     public int IdProjeto { get; set; }
 
     public string Titulo { get; set; }
 
-    public DateTime DataLimite { get; set; }
-
-    public DateTime? DataEnvio { get; set; }
-
-    public bool Entregue { get; set; }
+    public string Descricao { get; set; }
 
     public DateTime CriadoEm { get; set; }
 
     public DateTime? EditadoEm { get; set; }
 
     public virtual Projeto IdProjetoNavigation { get; set; }
+
+    public virtual Usuario IdUsuarioNavigation { get; set; }
 }

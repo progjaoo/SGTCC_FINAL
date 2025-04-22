@@ -3,11 +3,10 @@
 using SistemaGestaoTCC.Core.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace SistemaGestaoTCC.Core.Models;
 
-public partial class ProjetoAtividade
+public partial class ProjetoAtividade ///VAI MUDAR///
 {
     public ProjetoAtividade(int idProjeto, string nome, string descricao)
     {
@@ -17,16 +16,35 @@ public partial class ProjetoAtividade
 
         CriadoEm = DateTime.Now;
     }
-
-    //public int IdAtividade { get; set; }
     public int Id { get; set; }
+
     public int IdProjeto { get; set; }
+
+    public int IdUsuario { get; set; }
+
     public string Nome { get; set; }
+
     public string Descricao { get; set; }
-    public ProjetoAtividadeEnum Estado { get; set; }
-    public virtual Projeto IdProjetoNavigation { get; set; }
-    public DateTime CriadoEm { get; set; }
+
+    public int Estado { get; set; }
+
+    public int DuracaoEstimada { get; set; }
+
+    public int Prioridade { get; set; }
+
+    public DateTime? DataInicio { get; set; }
+
+    public DateTime? DataEntrega { get; set; }
+
+    public DateTime? CriadoEm { get; set; }
+
     public DateTime? EditadoEm { get; set; }
+
+    public virtual ICollection<AtividadeComentario> AtividadeComentarios { get; set; } = new List<AtividadeComentario>();
+
+    public virtual Projeto IdProjetoNavigation { get; set; }
+
+    public virtual Usuario IdUsuarioNavigation { get; set; }
     public void UpdateAtividade(int idProjeto, string nome, string descricao)
     {
         IdProjeto = idProjeto;

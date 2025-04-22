@@ -19,17 +19,24 @@ public partial class NotaDocumentoAluno
         CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
+
     public int IdAvaliadorBanca { get; set; }
+
     public int IdCampo { get; set; }
+
     public int IdAluno { get; set; }
+
     public int Nota { get; set; }
+
     public NotaTipoEnum Tipo { get; set; }
+
     public DateTime CriadoEm { get; set; }
 
     public virtual Usuario IdAlunoNavigation { get; set; }
-    public virtual AvaliadorBanca IdAvaliadorBancaNavigation { get; set; }
-    public virtual CampoDocumentoAvaliacaoAluno IdCampoNavigation { get; set; }
 
+    public virtual AvaliadorBanca IdAvaliadorBancaNavigation { get; set; }
+
+    public virtual CampoDocumentoAvaliacaoAluno IdCampoNavigation { get; set; }
     public void UpdateNotaDocumento(int idAvaliadorBanca, int idCampo, int idAluno, int nota, NotaTipoEnum tipo)
     {
         IdAvaliadorBanca = idAvaliadorBanca;

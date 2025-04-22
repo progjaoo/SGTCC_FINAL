@@ -5,21 +5,21 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTCC.Core.Models;
 
-public partial class AtividadeComentario
+public partial class RespostaDuvida
 {
     public int Id { get; set; }
 
+    public int IdDuvida { get; set; }
+
     public int IdUsuario { get; set; }
 
-    public int IdAtividade { get; set; }
-
-    public string Comentario { get; set; }
+    public string Texto { get; set; }
 
     public DateTime CriadoEm { get; set; }
 
     public DateTime? EditadoEm { get; set; }
 
-    public virtual ProjetoAtividade IdAtividadeNavigation { get; set; }
+    public virtual Duvida IdDuvidaNavigation { get; set; }
 
     public virtual Usuario IdUsuarioNavigation { get; set; }
 }

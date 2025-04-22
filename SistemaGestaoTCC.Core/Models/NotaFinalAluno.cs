@@ -17,10 +17,16 @@ public partial class NotaFinalAluno
     }
 
     public int Id { get; set; }
+
     public int IdAvaliadorBanca { get; set; }
+
     public int IdAluno { get; set; }
+
     public int Nota { get; set; }
+
     public DateTime CriadoEm { get; set; }
+
     public virtual Usuario IdAlunoNavigation { get; set; }
+
     public virtual AvaliadorBanca IdAvaliadorBancaNavigation { get; set; }
 }

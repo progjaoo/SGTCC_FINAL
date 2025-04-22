@@ -2,21 +2,24 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Update.Internal;
 
 namespace SistemaGestaoTCC.Core.Models;
 
 public partial class ProjetoArquivo
 {
-    public ProjetoArquivo(int idProjeto, int idArquivo)
-    {
-        IdProjeto = idProjeto;
-        IdArquivo = idArquivo;
-    }
-
     public int Id { get; set; }
+
+    public int Versao { get; set; }
+
     public int IdProjeto { get; set; }
+
     public int IdArquivo { get; set; }
+
+    public int IdUsuario { get; set; }
+
     public virtual Arquivo IdArquivoNavigation { get; set; }
+
     public virtual Projeto IdProjetoNavigation { get; set; }
+
+    public virtual Usuario IdUsuarioNavigation { get; set; }
 }

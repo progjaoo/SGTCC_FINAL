@@ -5,25 +5,23 @@ using System.Collections.Generic;
 
 namespace SistemaGestaoTCC.Core.Models;
 
-public partial class Banca
+public partial class Propostum
 {
     public int Id { get; set; }
 
     public int IdProjeto { get; set; }
 
-    public DateTime DataSeminario { get; set; }
+    public string AtividadesPropostas { get; set; }
 
-    public int? Parecer { get; set; }
+    public DateTime ContribuicaoAgenda { get; set; }
 
-    public string ObservacaoNotaProjeto { get; set; }
+    public int Parecer { get; set; }
 
-    public string ObservacaoAluno { get; set; }
-
-    public string Recomendacao { get; set; }
+    public string Sugestao { get; set; }
 
     public DateTime CriadoEm { get; set; }
 
-    public virtual ICollection<AvaliadorBanca> AvaliadorBancas { get; set; } = new List<AvaliadorBanca>();
+    public DateTime? EditadoEm { get; set; }
 
     public virtual Projeto IdProjetoNavigation { get; set; }
 }

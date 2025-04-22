@@ -15,11 +15,15 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[Anotacao]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Arquivo]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[AtividadeProposta]",
+         "Name": "[dbo].[AtividadeComentario]",
          "ObjectType": 0
       },
       {
@@ -28,6 +32,10 @@
       },
       {
          "Name": "[dbo].[Banca]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Bibliografia]",
          "ObjectType": 0
       },
       {
@@ -43,11 +51,19 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Duvida]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[NotaDocumentoAluno]",
          "ObjectType": 0
       },
       {
          "Name": "[dbo].[NotaFinalAluno]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PasswordResetTokens]",
          "ObjectType": 0
       },
       {
@@ -79,7 +95,27 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Tag]",
+         "Name": "[dbo].[Proposta]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RespostaDuvida]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Seminario]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SeminarioProjeto]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserActivationTokens]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserToken]",
          "ObjectType": 0
       },
       {

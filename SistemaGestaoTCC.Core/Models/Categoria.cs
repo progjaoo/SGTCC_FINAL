@@ -17,7 +17,7 @@ public partial class Categoria
     public string Valor { get; set; }
 
     public virtual ICollection<CampoDocumentoAvaliacaoAluno> CampoDocumentoAvaliacaoAlunos { get; set; } = new List<CampoDocumentoAvaliacaoAluno>();
-    
+
     public void UpdateCategoria(string valor)
     {
         Valor = valor;

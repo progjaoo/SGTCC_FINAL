@@ -17,21 +17,38 @@ public partial class Projeto
         CriadoEm = DateTime.UtcNow;
     }
     public int Id { get; set; }
+
     public string Nome { get; set; }
+
     public string Descricao { get; set; }
+
     public string Justificativa { get; set; }
+
     public int? IdImagem { get; set; }
+
     public DateTime DataInicio { get; set; }
-    public StatusProjeto Estado { get; set; }
+
     public DateTime? DataFim { get; set; }
+
     public bool Aprovado { get; set; }
+
+    public StatusProjeto Estado { get; set; }
+
     public DateTime CriadoEm { get; set; }
+
+    public virtual ICollection<Anotacao> Anotacaos { get; set; } = new List<Anotacao>();
+
     public virtual ICollection<Banca> Bancas { get; set; } = new List<Banca>();
+
+    public virtual ICollection<Bibliografia> Bibliografia { get; set; } = new List<Bibliografia>();
+
+    public virtual ICollection<Duvida> Duvida { get; set; } = new List<Duvida>();
+
+    public virtual Arquivo IdImagemNavigation { get; set; }
 
     public virtual ICollection<ProjetoArquivo> ProjetoArquivos { get; set; } = new List<ProjetoArquivo>();
 
     public virtual ICollection<ProjetoAtividade> ProjetoAtividades { get; set; } = new List<ProjetoAtividade>();
-    public virtual Arquivo IdImagemNavigation { get; set; }
 
     public virtual ICollection<ProjetoAvaliacaoPublica> ProjetoAvaliacaoPublicas { get; set; } = new List<ProjetoAvaliacaoPublica>();
 
@@ -40,11 +57,12 @@ public partial class Projeto
     public virtual ICollection<ProjetoEntrega> ProjetoEntregas { get; set; } = new List<ProjetoEntrega>();
 
     public virtual ICollection<ProjetoTag> ProjetoTags { get; set; } = new List<ProjetoTag>();
-    public virtual ICollection<ProjetoEntregaProjeto> ProjetoEntregaProjetos { get; set; } = new List<ProjetoEntregaProjeto>();
 
+    public virtual ICollection<Proposta> Proposta { get; set; } = new List<Proposta>();
+
+    public virtual ICollection<SeminarioProjeto> SeminarioProjetos { get; set; } = new List<SeminarioProjeto>();
 
     public virtual ICollection<UsuarioProjeto> UsuarioProjetos { get; set; } = new List<UsuarioProjeto>();
-
     public void Update(string nome, string descricao, string justificativa)
     {
         Nome = nome;
