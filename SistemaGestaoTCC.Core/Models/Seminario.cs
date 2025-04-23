@@ -31,4 +31,11 @@ public partial class Seminario
     public virtual Usuario IdUsuarioNavigation { get; set; }
 
     public virtual ICollection<SeminarioProjeto> SeminarioProjetos { get; set; } = new List<SeminarioProjeto>();
+    public void UpdateSeminario(int idUsuario, string requisitos, DateTime data)
+    {
+        IdUsuario = idUsuario;
+        Requisitos = requisitos;
+        Data = data;
+        EditadoEm = DateTime.UtcNow;
+    }
 }

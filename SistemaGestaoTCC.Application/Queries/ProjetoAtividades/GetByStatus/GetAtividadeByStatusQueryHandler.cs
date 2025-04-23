@@ -20,7 +20,13 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByStatus
         {
             var atividades = await _projetoAtividadeRepository.GetByStatusAsync(request.Status, request.IdProjeto);
 
-            var atividadeViewModels = atividades.Select(a => new ProjetoAtividadeDetalheViewModel(a.Id,a.IdProjeto, a.Nome, a.Descricao, a.Estado, a.CriadoEm)).ToList();
+            var atividadeViewModels = atividades.Select(a => new ProjetoAtividadeDetalheViewModel
+            (
+                a.Id, a.IdProjeto, a.Nome, 
+                a.Descricao, a.Estado, a.CriadoEm, 
+                a.IdUsuario, a.DuracaoEstimada, a.Prioridade, 
+                a.DataInicio, a.DataEntrega
+            )).ToList();
 
             return atividadeViewModels;
         }

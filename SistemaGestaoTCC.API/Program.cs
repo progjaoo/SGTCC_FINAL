@@ -136,6 +136,7 @@ builder.Services.AddScoped<IAtividadeComentarioRepository, AtividadeComentarioRe
 builder.Services.AddScoped<IArquivoRepository, ArquivoRepository>();
 builder.Services.AddScoped<IAnotacaoRepository, AnotacaoRepository>();
 builder.Services.AddScoped<IBibliografiaRepository, BibliografiaRepository>();
+builder.Services.AddScoped<ISeminarioRepository, SeminarioRepository>();
 
 //service
 builder.Services.AddHttpContextAccessor();

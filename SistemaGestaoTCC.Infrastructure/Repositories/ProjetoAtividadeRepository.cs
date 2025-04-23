@@ -26,6 +26,13 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbContext.ProjetoAtividade.SingleOrDefaultAsync(p => p.Id == id);
         }
+        public async Task<List<ProjetoAtividade>> GetAtividadeByUserAsync(int idUsuario)
+        {
+            return await _dbContext.ProjetoAtividade
+                .Where(a => a.IdUsuario == idUsuario)
+                .Where(a => a.Estado == Core.Enums.ProjetoAtividadeEnum.Created)
+                .ToListAsync();
+        }
         public async Task<List<ProjetoAtividade>> GetAtividadeByProjectIdAsync(int projectId)
         {
             return await _dbContext.ProjetoAtividade

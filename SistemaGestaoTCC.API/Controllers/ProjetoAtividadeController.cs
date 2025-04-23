@@ -7,6 +7,7 @@ using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.IniciarAtividade;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update;
 using SistemaGestaoTCC.Application.Commands.ProjetoAtividades.UpdateStatus;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAllAsync;
+using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAtividadeByUser;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProject;
 using SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProjectNoFilter;
@@ -72,6 +73,19 @@ namespace SistemaGestaoTCC.API.Controllers
                 return BadRequest(new { Message = $"Erro ao buscar atividades: {ex.Message}" });
             }
         }
+        [HttpGet("projetos/{idUsuario}/atividadesPorUsuario")]
+        public async Task<IActionResult> GetAtividadesByUser(int idUsuario)
+        {
+            try
+            {
+                var atividades = await _mediator.Send(new GetAtividadeByUserQuery(idUsuario));
+                return Ok(atividades);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = $"Erro ao buscar atividades: {ex.Message}" });
+            }
+        }
         [HttpGet("atividadesEstado")]
         public async Task<IActionResult> GetAtividadesByStatus(ProjetoAtividadeEnum status, int idProjeto)
         {
@@ -86,7 +100,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
         }
         [HttpPost("criarAtividade")]
-        public async Task<IActionResult> PostCourse([FromBody] CreateProjetoAtividadeCommand command)
+        public async Task<IActionResult> Post([FromBody] CreateProjetoAtividadeCommand command)
         {
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new { id = id }, command);

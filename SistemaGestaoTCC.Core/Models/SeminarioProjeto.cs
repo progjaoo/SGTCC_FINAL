@@ -14,18 +14,19 @@ public partial class SeminarioProjeto
 
         CriadoEm = DateTime.UtcNow;
     }
-
     public int Id { get; set; }
-
     public int IdSeminario { get; set; }
-
     public int IdProjeto { get; set; }
-
     public DateTime CriadoEm { get; set; }
-
     public DateTime? EditadoEm { get; set; }
-
     public virtual Projeto IdProjetoNavigation { get; set; }
-
     public virtual Seminario IdSeminarioNavigation { get; set; }
+
+    public void UpdateSeminarioProjeto(int idSeminario, int idProjeto)
+    {
+        IdSeminario = idSeminario;
+        IdProjeto = idProjeto;
+
+        EditadoEm = DateTime.UtcNow;
+    }
 }

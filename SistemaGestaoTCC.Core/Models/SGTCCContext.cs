@@ -536,7 +536,11 @@ public partial class SGTCCContext : DbContext
                 .HasMaxLength(800)
                 .IsUnicode(false)
                 .IsFixedLength();
-            entity.Property(e => e.ContribuicaoAgenda).HasColumnType("datetime");
+            entity.Property(e => e.ContribuicaoAgenda)
+                .IsRequired()
+                .HasMaxLength(300)
+                .IsFixedLength()
+                .IsUnicode(false);
             entity.Property(e => e.CriadoEm).HasColumnType("datetime");
             entity.Property(e => e.EditadoEm).HasColumnType("datetime");
             entity.Property(e => e.Sugestao)

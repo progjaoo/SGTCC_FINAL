@@ -8,48 +8,49 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class ProjetoAtividade ///VAI MUDAR///
 {
-    public ProjetoAtividade(int idProjeto, string nome, string descricao)
+    public ProjetoAtividade(int idProjeto, string nome, string descricao, int idUsuario, 
+        DuracaoAtividadeEnum duracaoEstimada, 
+        PrioridadeAtividadeEnum prioridade, DateTime? dataInicio, DateTime? dataEntrega)
     {
         IdProjeto = idProjeto;
+        IdUsuario = idUsuario;
         Nome = nome;
         Descricao = descricao;
+        DuracaoEstimada = duracaoEstimada;
+        Prioridade = prioridade;
+        DataInicio = dataInicio;
+        DataEntrega = dataEntrega;
 
         CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
-
     public int IdProjeto { get; set; }
-
-    public int IdUsuario { get; set; }
-
     public string Nome { get; set; }
-
     public string Descricao { get; set; }
-
+    public int IdUsuario { get; set; }
     public ProjetoAtividadeEnum Estado { get; set; }
-
-    public int DuracaoEstimada { get; set; }
-
-    public int Prioridade { get; set; }
-
+    public DuracaoAtividadeEnum DuracaoEstimada { get; set; }
+    public PrioridadeAtividadeEnum Prioridade { get; set; }
     public DateTime? DataInicio { get; set; }
-
     public DateTime? DataEntrega { get; set; }
-
     public DateTime CriadoEm { get; set; }
-
     public DateTime? EditadoEm { get; set; }
-
     public virtual ICollection<AtividadeComentario> AtividadeComentarios { get; set; } = new List<AtividadeComentario>();
-
     public virtual Projeto IdProjetoNavigation { get; set; }
-
     public virtual Usuario IdUsuarioNavigation { get; set; }
-    public void UpdateAtividade(int idProjeto, string nome, string descricao)
+    public void UpdateAtividade(int idProjeto, string nome, string descricao, int idUsuario,
+        DuracaoAtividadeEnum duracaoEstimada,
+        PrioridadeAtividadeEnum prioridade, DateTime? dataInicio, DateTime? dataEntrega)
     {
         IdProjeto = idProjeto;
         Nome = nome;
         Descricao = descricao;
+        IdUsuario = idUsuario;
+        DuracaoEstimada = duracaoEstimada;
+        Prioridade = prioridade;
+        DataInicio = dataInicio;
+        DataEntrega = dataEntrega;
+        
         EditadoEm = DateTime.UtcNow;
     }
     public void Finish()

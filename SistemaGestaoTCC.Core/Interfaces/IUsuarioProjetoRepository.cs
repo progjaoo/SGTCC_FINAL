@@ -8,8 +8,8 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<UsuarioProjeto> GetById(int id);
         Task<List<UsuarioProjeto>> GetAllAsync();
         Task<List<UsuarioProjeto>> GetAllByUserId(int id);
-        Task<List<Tuple<Usuario, FuncaoEnum>>> GetAllUsersAndFunctionByProjectId(int id);
         Task<UsuarioProjeto> GetByUserAndProjectAsync(int userId, int projectId);
+        Task<List<Tuple<Usuario, FuncaoEnum>>> GetAllUsersAndFunctionByProjectId(int id);
         Task<List<Usuario>> GetAllByProjectId(int id);
         Task AddASync(UsuarioProjeto usuarioProjeto);
         Task SaveChangesAsync();

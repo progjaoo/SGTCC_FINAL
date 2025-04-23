@@ -23,7 +23,12 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById
                 atividade.Nome,
                 atividade.Descricao,
                 atividade.Estado,
-                atividade.CriadoEm);
+                atividade.CriadoEm,
+                atividade.IdUsuario,
+                atividade.DuracaoEstimada,
+                atividade.Prioridade,
+                atividade.DataInicio,
+                atividade.DataEntrega);
 
             return atividadeDetalheViewModel;
         }

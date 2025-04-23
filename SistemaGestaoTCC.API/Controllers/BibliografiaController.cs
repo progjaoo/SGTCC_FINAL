@@ -31,13 +31,13 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             var query = new GetBibliografiaByIdQuery(id);
 
-            var anotacao = await _mediator.Send(query);
+            var bibliografia = await _mediator.Send(query);
 
-            if (anotacao == null)
+            if (bibliografia == null)
             {
                 return NotFound();
             }
-            return Ok(anotacao);
+            return Ok(bibliografia);
         }
         [HttpPost("criarBibliografia")]
         public async Task<IActionResult> Post([FromBody] CreateBibliografiaCommand command)

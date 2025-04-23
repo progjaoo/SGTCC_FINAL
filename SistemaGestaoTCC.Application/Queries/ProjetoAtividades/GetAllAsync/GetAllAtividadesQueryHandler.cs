@@ -15,7 +15,7 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetAllAsync
         {
             var atividade = await _projetoAtividadeRepository.GetAllAsync();
 
-            var atividadeViewModel = atividade.Select(a => new ProjetoAtividadeViewModel(a.IdProjeto, a.Nome)).ToList();
+            var atividadeViewModel = atividade.Select(a => new ProjetoAtividadeViewModel(a.IdProjeto, a.Nome, a.DuracaoEstimada, a.IdUsuario, a.DataEntrega)).ToList();
 
             return atividadeViewModel;  
         }

@@ -8,7 +8,7 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Proposta
 {
-    public Proposta(int idProjeto, string atividadesPropostas, DateTime contribuicaoAgenda, string sugestao)
+    public Proposta(int idProjeto, string atividadesPropostas, string contribuicaoAgenda, string sugestao)
     {
         IdProjeto = idProjeto;
         AtividadesPropostas = atividadesPropostas;
@@ -22,7 +22,7 @@ public partial class Proposta
 
     public string AtividadesPropostas { get; set; }
 
-    public DateTime ContribuicaoAgenda { get; set; }
+    public string ContribuicaoAgenda { get; set; }
 
     public string Sugestao { get; set; }
     public ParecerProposta Parecer { get; set; }

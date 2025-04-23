@@ -14,7 +14,8 @@ namespace SistemaGestaoTCC.Application.Commands.ProjetoAtividades.Update
         {
             var atividade = await _projetoAtividadeRepository.GetById(request.Id);
 
-            atividade.UpdateAtividade(request.IdProjeto, request.Nome, request.Descricao);
+            atividade.UpdateAtividade(request.IdProjeto, request.Nome, request.Descricao, request.IdUsuario, 
+                request.DuracaoEstimada, request.Prioridade, request.DataInicio, request.DataEntrega);
 
             await _projetoAtividadeRepository.SaveChangesAsync();
 
