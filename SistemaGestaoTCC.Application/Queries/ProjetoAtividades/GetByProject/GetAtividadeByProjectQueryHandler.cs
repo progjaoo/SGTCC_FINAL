@@ -1,11 +1,6 @@
 ﻿using MediatR;
 using SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM;
 using SistemaGestaoTCC.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProject
 {
@@ -23,10 +18,10 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByProject
 
             var atividadeViewModel = atividades.Select(a => new ProjetoAtividadeDetalheViewModel
             (
-                a.Id, a.IdProjeto, a.Nome, a.Descricao, 
-                a.Estado, a.CriadoEm, a.IdUsuario, 
-                a.DuracaoEstimada, a.Prioridade, 
-                a.DataInicio, a.DataEntrega,a.IdUsuarioNavigation?.Nome
+                a.Id, a.IdProjeto, a.Nome, a.Descricao,
+                a.Estado, a.CriadoEm, a.IdUsuario,
+                a.DuracaoEstimada, a.Prioridade,
+                a.DataInicio, a.DataEntrega, a.IdUsuarioNavigation?.Nome
             )).ToList();
 
             return atividadeViewModel;

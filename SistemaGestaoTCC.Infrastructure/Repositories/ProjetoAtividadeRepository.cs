@@ -80,5 +80,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             _dbContext.ProjetoAtividade.Update(atividade);
             await _dbContext.SaveChangesAsync();
         }
+        public async Task<List<ProjetoAtividade>> GetAtividadeByPrioridadeIdAsync(PrioridadeAtividadeEnum prioridade, int idProjeto)
+        {
+            return await _dbContext.ProjetoAtividade
+                .Where(a => a.Prioridade == prioridade && a.IdProjeto == idProjeto)
+                .Include(a => a.IdUsuarioNavigation)
+                .ToListAsync();
+        }
     }
 }
