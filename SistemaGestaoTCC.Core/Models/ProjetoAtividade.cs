@@ -65,6 +65,7 @@ public partial class ProjetoAtividade ///VAI MUDAR///
         if (Estado == ProjetoAtividadeEnum.Created)
         {
             Estado = ProjetoAtividadeEnum.InProgress;
+            DataInicio = DateTime.Now;
         }
     }
 }

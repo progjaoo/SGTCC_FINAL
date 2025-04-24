@@ -43,30 +43,13 @@ OBS: TIREI ID:
 warn: ADICIONAR ID NA URL DE GET's COMENTARIOCONTROLLER
 
 
+>>>>>>>>>>>>>>>>>>>>>>>>>>> REUNIÃO SÁBADO DIA 26 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+- Entidade: PROPOSTA => mudei no banco o tipo de dado da coluna ContribuicaoAgenda para Char de 300, pois é uma descrição. 
+			Estava como DateTime, mudei context então tem que ajustar o seu banco para funcionar
 
->>>>>>>>>>>>>>>>>>>>>>>>>>     PROJETO ENTREGA DB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+- RELATÓRIOS DE ACOMPANHAMENTO: OU implementar no banco para fazermos OU colocar como projetos futuros, adicionar relatorios de outros cursos etc como projetos futuros
 
->CRIEI UMA TABELA INTERMEDIÁRIA PARA PROJETO-ENTREGA, PARA QUE POSSA TER VÁRIOS PROJETOS EM UMA ENTREGA (SE FOR O CASO MANTER OU NÃO)
->COLOQUEI AUTHORIZE PARA APENAS O PROFESSOR PODER CRIAR UMA ENTREGA
->COLOQUEI ALGUNS AUTHORIZES DE ADMIN 
+- NECESSIDADE DO COORDENADOR: Para aprovação de propostas iremos precisar do Coordenador + um Papel (Atentar para a documentação, casos de uso etc)
 
-
-
-CREATE TABLE [ProjetoEntregaProjeto] (
-    [Id] INT NOT NULL IDENTITY UNIQUE,
-    [IdEntrega] INT NOT NULL,
-    [IdProjeto] INT NOT NULL,
-    PRIMARY KEY([Id])
-);
-GO
-
-ALTER TABLE [ProjetoEntregaProjeto]
-ADD FOREIGN KEY([IdEntrega]) REFERENCES [ProjetoEntrega]([Id])
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-GO
-
-ALTER TABLE [ProjetoEntregaProjeto]
-ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-GO
+- LOGIN COM GOOGLE vai ou não? + TABELAS DO JOÃO NO BANCO (PERGUNTAR DA ULTIMA PORQUE NÃO FOI E QUAL PROPOSITO DELA)

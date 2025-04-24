@@ -28,7 +28,8 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetById
                 atividade.DuracaoEstimada,
                 atividade.Prioridade,
                 atividade.DataInicio,
-                atividade.DataEntrega);
+                atividade.DataEntrega,
+                atividade.IdUsuarioNavigation?.Nome);
 
             return atividadeDetalheViewModel;
         }

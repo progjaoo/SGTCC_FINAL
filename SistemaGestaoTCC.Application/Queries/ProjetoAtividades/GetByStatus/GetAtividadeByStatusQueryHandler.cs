@@ -25,7 +25,7 @@ namespace SistemaGestaoTCC.Application.Queries.ProjetoAtividades.GetByStatus
                 a.Id, a.IdProjeto, a.Nome, 
                 a.Descricao, a.Estado, a.CriadoEm, 
                 a.IdUsuario, a.DuracaoEstimada, a.Prioridade, 
-                a.DataInicio, a.DataEntrega
+                a.DataInicio, a.DataEntrega, a.IdUsuarioNavigation?.Nome
             )).ToList();
 
             return atividadeViewModels;

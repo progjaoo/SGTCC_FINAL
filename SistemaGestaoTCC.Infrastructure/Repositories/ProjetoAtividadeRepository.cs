@@ -20,6 +20,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbContext.ProjetoAtividade
                    .Where(p => p.Estado == status && p.IdProjeto == idProjeto)
+                   .Include(p=> p.IdUsuarioNavigation)
                    .ToListAsync();
         }
         public async Task<ProjetoAtividade> GetById(int id)
@@ -38,6 +39,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             return await _dbContext.ProjetoAtividade
                 .Where(a => a.IdProjeto == projectId)
                 .Where(a => a.Estado == Core.Enums.ProjetoAtividadeEnum.Created)
+                .Include(a => a.IdUsuarioNavigation)
                 .ToListAsync();
         }
         public async Task<List<ProjetoAtividade>> GetAtividadeByProjectIdNoFilterAsync(int projectId)

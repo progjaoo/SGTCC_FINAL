@@ -4,7 +4,7 @@ namespace SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM
 {
     public class ProjetoAtividadeDetalheViewModel
     {
-        public ProjetoAtividadeDetalheViewModel(int id, int idProjeto, string nome, string descricao, ProjetoAtividadeEnum estado, DateTime dataCriacao, int idUsuario, DuracaoAtividadeEnum duracaoEstimada, PrioridadeAtividadeEnum prioridade, DateTime? dataInicio, DateTime? dataEntrega)
+        public ProjetoAtividadeDetalheViewModel(int id, int idProjeto, string nome, string descricao, ProjetoAtividadeEnum estado, DateTime dataCriacao, int idUsuario, DuracaoAtividadeEnum duracaoEstimada, PrioridadeAtividadeEnum prioridade, DateTime? dataInicio, DateTime? dataEntrega, string nomeUsuario)
         {
             Id = id;
             IdProjeto = idProjeto;
@@ -17,6 +17,7 @@ namespace SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM
             Prioridade = prioridade;
             DataInicio = dataInicio;
             DataEntrega = dataEntrega;
+            NomeUsuario = nomeUsuario;
         }
         public int Id { get; set; }
         public int IdProjeto { get; set; }
@@ -29,5 +30,6 @@ namespace SistemaGestaoTCC.Application.ViewModels.ProjetoAtividadeVM
         public DateTime? DataInicio { get; set; }
         public ProjetoAtividadeEnum Estado { get; set; }
         public DateTime CriadoEm { get; set; }
+        public string NomeUsuario { get; set; }
     }
 }
