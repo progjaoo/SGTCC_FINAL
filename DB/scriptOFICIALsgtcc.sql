@@ -1,0 +1,582 @@
+CREATE DATABASE SGTCC
+GO
+USE SGTCC
+GO
+
+CREATE TABLE [Anotacao] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdUsuario] INT NOT NULL,
+	[IdProjeto] INT NOT NULL,
+	[Titulo] CHAR(255),
+	[Descricao] CHAR(500) NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Bibliografia] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdUsuario] INT NOT NULL,
+	[IdProjeto] INT NOT NULL,
+	[Autores] CHAR(255),
+	[Referencia] CHAR(400),
+	[AcessadoEm] DATETIME,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Proposta] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdProjeto] INT NOT NULL,
+	[AtividadesPropostas] CHAR(800) NOT NULL,
+	[ContribuicaoAgenda] DATETIME NOT NULL,
+	[Parecer] INT NOT NULL,
+	[Sugestao] CHAR(500),
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Duvida] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdProjeto] INT NOT NULL,
+	[IdUsuario] INT NOT NULL,
+	[Visibilidade] INT NOT NULL,
+	[Texto] CHAR(500),
+	[Atendida] INT NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [RespostaDuvida] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdDuvida] INT NOT NULL,
+	[IdUsuario] INT NOT NULL,
+	[Texto] CHAR(500),
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Seminario] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdUsuario] INT NOT NULL,
+	[Requisitos] CHAR(500),
+	[Data] DATETIME NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [SeminarioProjeto] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdSeminario] INT NOT NULL,
+	[IdProjeto] INT NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Projeto] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[Nome] CHAR(100) NOT NULL,
+	[Descricao] CHAR(300) NOT NULL,
+	[Justificativa] CHAR(300) NOT NULL,
+	[IdImagem] INT,
+	[DataInicio] DATETIME NOT NULL,
+	[DataFim] DATETIME,
+	[Aprovado] BIT NOT NULL,
+	[Estado] INT NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Usuario] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdCurso] INT NOT NULL,
+	[Nome] NVARCHAR(100) NOT NULL,
+	[Email] NVARCHAR(100) NOT NULL,
+	[Senha] NVARCHAR(255) NOT NULL,
+	[Papel] INT NOT NULL,
+	[Permissao] INT NOT NULL,
+	[IdImagem] INT,
+	[UltimoAcesso] DATETIME,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Curso] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[Nome] NVARCHAR(100) NOT NULL,
+	[Descricao] NVARCHAR(500) NOT NULL,
+	[IdImagem] INT,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [ProjetoEntrega] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdProjeto] INT NOT NULL,
+	[Titulo] NVARCHAR(100) NOT NULL,
+	[DataLimite] DATETIME NOT NULL,
+	[DataEnvio] DATETIME,
+	[Entregue] BIT NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [ProjetoArquivo] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[Versao] INT NOT NULL,
+	[IdProjeto] INT NOT NULL,
+	[IdArquivo] INT NOT NULL,
+	[IdUsuario] INT NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [ProjetoTag] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdProjeto] INT NOT NULL,
+	[Nome] NVARCHAR(255) NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [ProjetoAtividade] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdProjeto] INT NOT NULL,
+	[IdUsuario] INT NOT NULL, -- Ou Varios pra varios???
+	[Nome] NVARCHAR(50) NOT NULL,
+	[Descricao] NVARCHAR(300),
+	[Estado] INT NOT NULL,
+	[DuracaoEstimada] INT NOT NULL,
+	[Prioridade] INT NOT NULL,
+	[DataInicio] DATETIME,
+	[DataEntrega] DATETIME,
+	[CriadoEm] DATETIME,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [UsuarioProjeto] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdUsuario] INT NOT NULL,
+	[IdProjeto] INT NOT NULL,
+	[Estado] INT NOT NULL, --ou tabela separada??
+	[Funcao] INT NOT NULL,
+	[AdicionadoEm] DATETIME NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [ProjetoAvaliacaoPublica] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdUsuario] INT NOT NULL,
+	[IdProjeto] INT NOT NULL,
+	[Avaliacao] INT NOT NULL,
+	[DataAvaliacao] DATETIME NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [CampoDocumentoAvaliacaoAluno] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[Campo] NVARCHAR(100) NOT NULL,
+	[IdCategoria] INT NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [NotaDocumentoAluno] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdAvaliadorBanca] INT NOT NULL,
+	[IdCampo] INT NOT NULL,
+	[IdAluno] INT NOT NULL,
+	[Nota] INT NOT NULL,
+	[Tipo] INT NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Banca] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdProjeto] INT NOT NULL,
+	[DataSeminario] DATETIME NOT NULL,
+	[Parecer] INT,
+	[ObservacaoNotaProjeto] NVARCHAR(500),
+	[ObservacaoAluno] NVARCHAR(500),
+	[Recomendacao] NVARCHAR(500),
+	[CriadoEm] DATETIME NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [AvaliadorBanca] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdUsuario] INT NOT NULL,
+	[IdBanca] INT NOT NULL,
+	[AdicionadoEm] DATETIME NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [NotaFinalAluno] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdAvaliadorBanca] INT NOT NULL,
+	[IdAluno] INT NOT NULL,
+	[Nota] INT NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [Categoria] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[Valor] NVARCHAR(100) NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+/**
+PERGUNTA: Enum direto no usuario
+*/
+/*
+CREATE TABLE [Papel] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[Nome] NVARCHAR(255) NOT NULL,
+	[Ativo] BIT NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+*/
+
+CREATE TABLE [Arquivo] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[NomeOriginal] NVARCHAR(255) NOT NULL,
+	[Diretorio] NVARCHAR(255) NOT NULL,
+	[Extensao] NVARCHAR(255) NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	[Tamanho] INT NOT NULL,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [ProjetoComentario] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdUsuario] INT NOT NULL,
+	[IdProjeto] INT NOT NULL,
+	[Comentario] NVARCHAR(300) NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+CREATE TABLE [AtividadeComentario] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdUsuario] INT NOT NULL,
+	[IdAtividade] INT NOT NULL,
+	[Comentario] NVARCHAR(300) NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
+ALTER TABLE [Anotacao]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Anotacao]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Bibliografia]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Bibliografia]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Proposta]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Duvida]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Duvida]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [RespostaDuvida]
+ADD FOREIGN KEY([IdDuvida]) REFERENCES [Duvida]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [RespostaDuvida]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Seminario]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [SeminarioProjeto]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [SeminarioProjeto]
+ADD FOREIGN KEY([IdSeminario]) REFERENCES [Seminario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+
+ALTER TABLE [ProjetoEntrega]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoTag]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoAtividade]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoAtividade]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [UsuarioProjeto]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [UsuarioProjeto]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoArquivo]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoArquivo]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoAvaliacaoPublica]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoAvaliacaoPublica]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [AvaliadorBanca]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [AvaliadorBanca]
+ADD FOREIGN KEY([IdBanca]) REFERENCES [Banca]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [NotaDocumentoAluno]
+ADD FOREIGN KEY([IdAluno]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [NotaFinalAluno]
+ADD FOREIGN KEY([IdAluno]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Banca]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Usuario]
+ADD FOREIGN KEY([IdImagem]) REFERENCES [Arquivo]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoArquivo]
+ADD FOREIGN KEY([IdArquivo]) REFERENCES [Arquivo]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [CampoDocumentoAvaliacaoAluno]
+ADD FOREIGN KEY([IdCategoria]) REFERENCES [Categoria]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [NotaDocumentoAluno]
+ADD FOREIGN KEY([IdAvaliadorBanca]) REFERENCES [AvaliadorBanca]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [NotaDocumentoAluno]
+ADD FOREIGN KEY([IdCampo]) REFERENCES [CampoDocumentoAvaliacaoAluno]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [NotaFinalAluno]
+ADD FOREIGN KEY([IdAvaliadorBanca]) REFERENCES [AvaliadorBanca]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Usuario]
+ADD FOREIGN KEY([IdCurso]) REFERENCES [Curso]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoComentario]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [ProjetoComentario]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [AtividadeComentario]
+ADD FOREIGN KEY([IdAtividade]) REFERENCES [ProjetoAtividade]([Id])
+ON UPDATE NO ACTION ON DELETE CASCADE;
+GO
+ALTER TABLE [AtividadeComentario]
+ADD FOREIGN KEY([IdUsuario]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Curso]
+ADD FOREIGN KEY([IdImagem]) REFERENCES [Arquivo]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [Projeto]
+ADD FOREIGN KEY([IdImagem]) REFERENCES [Arquivo]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+
+
+ ----- Activation e UserToken
+CREATE TABLE [dbo].[UserToken](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[Token] [nvarchar](255) NOT NULL,
+	[Expiration] [datetime] NOT NULL,
+	[Type] [nchar](20) NOT NULL,
+ CONSTRAINT [PK_UserToken] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[UserToken]  WITH CHECK ADD  CONSTRAINT [FK_UserToken_Usuario] FOREIGN KEY([UserId])
+REFERENCES [dbo].[Usuario] ([Id])
+GO
+
+ALTER TABLE [dbo].[UserToken] CHECK CONSTRAINT [FK_UserToken_Usuario]
+GO
+
+
+CREATE TABLE [dbo].[UserActivationTokens](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[Token] [nvarchar](500) NOT NULL,
+	[ExpirationDate] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[UserActivationTokens]  WITH CHECK ADD FOREIGN KEY([UserId])
+REFERENCES [dbo].[Usuario] ([Id])
+ON DELETE CASCADE
+GO
+
+USE [SGTCC]
+GO
+
+/****** Object:  Table [dbo].[PasswordResetTokens]    Script Date: 14/04/2025 20:24:28 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PasswordResetTokens](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[Token] [nvarchar](500) NOT NULL,
+	[ExpirationDate] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[PasswordResetTokens]  WITH CHECK ADD FOREIGN KEY([UserId])
+REFERENCES [dbo].[Usuario] ([Id])
+ON DELETE CASCADE
+GO
+
+
+USE [SGTCC]
+GO
+
+/****** Object:  Table [dbo].[Usuario]    Script Date: 06/04/2025 18:18:59 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Usuario](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[IdCurso] [int] NOT NULL,
+	[Nome] [nvarchar](100) NOT NULL,
+	[Email] [nvarchar](100) NOT NULL,
+	[Senha] [nvarchar](255) NOT NULL,
+	[Papel] [int] NOT NULL,
+	[Permissao] INT NOT NULL,
+	[IdImagem] [int] NULL,
+	[UltimoAcesso] [datetime] NULL,
+	[CriadoEm] [datetime] NOT NULL,
+	[EditadoEm] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Usuario]  WITH CHECK ADD FOREIGN KEY([IdCurso])
+REFERENCES [dbo].[Curso] ([Id])
+GO
+
+ALTER TABLE [dbo].[Usuario]  WITH CHECK ADD FOREIGN KEY([IdImagem])
+REFERENCES [dbo].[Arquivo] ([Id])
+GO
+
+ALTER TABLE [dbo].[Usuario]  WITH CHECK ADD  CONSTRAINT [FK_Usuario_Arquivo_IdImagem] FOREIGN KEY([IdImagem])
+REFERENCES [dbo].[Arquivo] ([Id])
+GO
+
+ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_Arquivo_IdImagem]
+GO
