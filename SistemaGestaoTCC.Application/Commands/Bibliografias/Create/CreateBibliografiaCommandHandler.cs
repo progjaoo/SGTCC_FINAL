@@ -13,7 +13,7 @@ namespace SistemaGestaoTCC.Application.Commands.Bibliografias.Create
         }
         public async Task<int> Handle(CreateBibliografiaCommand request, CancellationToken cancellationToken)
         {
-            var bibliografia = new Bibliografia(request.IdUsuario,request.IdProjeto, request.Autores, request.Referencia);
+            var bibliografia = new Bibliografia(request.IdUsuario,request.IdProjeto, request.Autores, request.Referencia, request.AcessadoEm);
 
             await _bibliografiaRepository.AddAsync(bibliografia);
             await _bibliografiaRepository.SaveChangesAsync();

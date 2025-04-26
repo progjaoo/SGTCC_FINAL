@@ -8,6 +8,6 @@ namespace SistemaGestaoTCC.Application.Commands.Bibliografias.Create
         public int IdProjeto { get; set; }
         public string Autores { get; set; }
         public string Referencia { get; set; }
-
+        public DateTime? AcessadoEm { get; set; }
     }
 }

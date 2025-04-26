@@ -6,6 +6,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
     {
         Task<List<Bibliografia>> GetAllAsync();
         Task<Bibliografia> GetById(int id);
+        Task<List<Bibliografia>> GetBibliografiasByProject(int idProjeto);
         Task AddAsync(Bibliografia bibliografia);
         Task DeleteAsync(int id);
         Task SaveChangesAsync();

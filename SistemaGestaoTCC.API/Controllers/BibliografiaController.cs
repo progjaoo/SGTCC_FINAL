@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.Bibliografias.Create;
 using SistemaGestaoTCC.Application.Commands.Bibliografias.Update;
 using SistemaGestaoTCC.Application.Queries.Bibliografia.GetAll;
+using SistemaGestaoTCC.Application.Queries.Bibliografia.GetBibliografiaByProject;
 using SistemaGestaoTCC.Application.Queries.Bibliografia.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
@@ -30,6 +31,19 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var query = new GetBibliografiaByIdQuery(id);
+
+            var bibliografia = await _mediator.Send(query);
+
+            if (bibliografia == null)
+            {
+                return NotFound();
+            }
+            return Ok(bibliografia);
+        }
+        [HttpGet("bibliografiaPorProjeto")]
+        public async Task<IActionResult> GetBibliografiaByProject(int idProjeto)
+        {
+            var query = new GetBibliografiaByProjectQuery(idProjeto);
 
             var bibliografia = await _mediator.Send(query);
 

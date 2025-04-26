@@ -16,6 +16,13 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             return await _dbContext.Bibliografia.ToListAsync();
         }
 
+        public async Task<List<Bibliografia>> GetBibliografiasByProject(int idProjeto)
+        {
+            return await _dbContext.Bibliografia
+                .Where(b => b.IdProjeto == idProjeto)
+                .ToListAsync();
+        }
+
         public async Task<Bibliografia> GetById(int id)
         {
             return await _dbContext.Bibliografia.SingleOrDefaultAsync(a => a.Id == id);
@@ -32,11 +39,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             _dbContext.Bibliografia.Remove(bibliografia);
             await _dbContext.SaveChangesAsync();
         }
-
-
-        public Task SaveChangesAsync()
+        public async Task SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

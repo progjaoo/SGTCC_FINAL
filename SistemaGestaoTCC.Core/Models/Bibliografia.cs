@@ -7,12 +7,13 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Bibliografia
 {
-    public Bibliografia(int idUsuario, int idProjeto, string autores, string referencia)
+    public Bibliografia(int idUsuario, int idProjeto, string autores, string referencia, DateTime? acessadoEm)
     {
         IdUsuario = idUsuario;
         IdProjeto = idProjeto;
         Autores = autores;
         Referencia = referencia;
+        AcessadoEm = acessadoEm;
 
         CriadoEm = DateTime.UtcNow;
     }
@@ -36,12 +37,13 @@ public partial class Bibliografia
     public virtual Projeto IdProjetoNavigation { get; set; }
     public virtual Usuario IdUsuarioNavigation { get; set; }
 
-    public void UpdateBibliografia(int idUsuario, int idProjeto, string autores, string referencia)
+    public void UpdateBibliografia(int idUsuario, int idProjeto, string autores, string referencia, DateTime? acessadoEm)
     {
         IdUsuario = idUsuario;
         IdProjeto = idProjeto;
         Autores = autores;
         Referencia = referencia;
+        AcessadoEm = acessadoEm;
 
         EditadoEm = DateTime.UtcNow;
     }
