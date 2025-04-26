@@ -22,7 +22,6 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Where(b => b.IdProjeto == idProjeto)
                 .ToListAsync();
         }
-
         public async Task<Bibliografia> GetById(int id)
         {
             return await _dbContext.Bibliografia.SingleOrDefaultAsync(a => a.Id == id);

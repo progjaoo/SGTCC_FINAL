@@ -14,7 +14,7 @@ namespace SistemaGestaoTCC.Application.Queries.Bibliografia.GetAll
         public async Task<List<BibliografiaViewModel>> Handle(GetAllBibliografiaQuery request, CancellationToken cancellationToken)
         {
             var bibliografias = await _bibliografiaRepository.GetAllAsync();
-            return bibliografias.Select(a => new BibliografiaViewModel(a.IdUsuario, a.IdProjeto, a.Autores, a.Referencia, a.AcessadoEm)).ToList();
+            return bibliografias.Select(a => new BibliografiaViewModel(a.Id,a.IdUsuario, a.IdProjeto, a.Autores, a.Referencia, a.AcessadoEm)).ToList();
         }
     }
 }

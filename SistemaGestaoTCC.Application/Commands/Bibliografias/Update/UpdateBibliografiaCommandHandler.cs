@@ -14,11 +14,7 @@ namespace SistemaGestaoTCC.Application.Commands.Bibliografias.Update
         {
             var bibliografia = await _bibliografiaRepository.GetById(request.Id);
 
-            if (bibliografia == null)
-            {
-                throw new Exception("Anotação não encontrada");
-            }
-            bibliografia.UpdateBibliografia(bibliografia.IdUsuario, bibliografia.IdProjeto, bibliografia.Autores, bibliografia.Referencia, bibliografia.AcessadoEm);
+            bibliografia.UpdateBibliografia(request.IdUsuario, request.IdProjeto, request.Autores, request.Referencia, request.AcessadoEm);
 
             await _bibliografiaRepository.SaveChangesAsync();
 

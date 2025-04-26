@@ -8,8 +8,9 @@ namespace SistemaGestaoTCC.Application.ViewModels.BibliografiaVM
 {
     public class BibliografiaViewModel
     {
-        public BibliografiaViewModel(int idUsuario, int idProjeto, string autores, string referencia, DateTime? acessadoEm)
+        public BibliografiaViewModel(int id, int idUsuario, int idProjeto, string autores, string referencia, DateTime? acessadoEm)
         {
+            Id = id;
             IdUsuario = idUsuario;
             IdProjeto = idProjeto;
             Autores = autores;
@@ -17,6 +18,7 @@ namespace SistemaGestaoTCC.Application.ViewModels.BibliografiaVM
             AcessadoEm = acessadoEm;
         }
 
+        public int Id { get; set; }
         public int IdUsuario { get; set; }
         public int IdProjeto { get; set; }
         public string Autores { get; set; }
