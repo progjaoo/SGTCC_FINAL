@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.Bibliografias.Create;
+using SistemaGestaoTCC.Application.Commands.Bibliografias.Delete;
 using SistemaGestaoTCC.Application.Commands.Bibliografias.Update;
 using SistemaGestaoTCC.Application.Queries.Bibliografia.GetAll;
 using SistemaGestaoTCC.Application.Queries.Bibliografia.GetBibliografiaByProject;
@@ -69,7 +70,7 @@ namespace SistemaGestaoTCC.API.Controllers
         [HttpDelete("{id}/deletarBibliografia")]
         public async Task<IActionResult> Delete(int id)
         {
-            var command = new UpdateBibliografiaCommand(id);
+            var command = new DeleteBibliografiaCommand(id);
             await _mediator.Send(command);
 
             return NoContent();

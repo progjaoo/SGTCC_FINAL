@@ -12,13 +12,13 @@ namespace SistemaGestaoTCC.Infrastructure.Services
         }
         public async Task Register(string userId)
         {
-            await Groups.AddToGroupAsync(Context.ConnectionId, userId); //para notificações específicas dentro de um grupo,
-                                                                        //to usando para adição do user no projeto
+            _logger.LogInformation($"[NotificationHub] Registrando usuário: UserId = {userId} | ConnectionId = {Context.ConnectionId}");
+            await Groups.AddToGroupAsync(Context.ConnectionId, userId); 
         }
-        public async Task SendNotification(string message) // para outras notificações, vou usar para notificar tarefas,
-                                                           // agendas para todos
+        public async Task SendNotificationToUser(string userId, string message)
         {
-            await Clients.All.SendAsync("ReceiveNotification", message);
+            _logger.LogInformation($"Usuário {userId} registrado com a conexão {Context.ConnectionId}"); 
+            await Clients.User(userId).SendAsync("ReceiveNotification", message);
         }
     }
 }
