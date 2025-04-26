@@ -3,6 +3,20 @@ GO
 USE SGTCC
 GO
 
+CREATE TABLE [RelatorioAcompanhamento] (
+	[Id] INT NOT NULL IDENTITY UNIQUE,
+	[IdProfessor] INT NOT NULL,
+	[IdProjeto] INT NOT NULL,
+	[Titulo] CHAR(255),
+	[Descricao] NVARCHAR(MAX) NOT NULL,
+	[DuracaoEncontro] INT NOT NULL,
+	[DataRealizacao] DATETIME NOT NULL,
+	[CriadoEm] DATETIME NOT NULL,
+	[EditadoEm] DATETIME,
+	PRIMARY KEY([Id])
+);
+GO
+
 CREATE TABLE [Anotacao] (
 	[Id] INT NOT NULL IDENTITY UNIQUE,
 	[IdUsuario] INT NOT NULL,
@@ -111,6 +125,7 @@ CREATE TABLE [Usuario] (
 	[Permissao] INT NOT NULL,
 	[IdImagem] INT,
 	[UltimoAcesso] DATETIME,
+	[EmailVerificado] INT NOT NULL,
 	[CriadoEm] DATETIME NOT NULL,
 	[EditadoEm] DATETIME,
 	PRIMARY KEY([Id])
@@ -301,6 +316,15 @@ CREATE TABLE [AtividadeComentario] (
 	[EditadoEm] DATETIME,
 	PRIMARY KEY([Id])
 );
+GO
+
+ALTER TABLE [RelatorioAcompanhamento]
+ADD FOREIGN KEY([IdProjeto]) REFERENCES [Projeto]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+GO
+ALTER TABLE [RelatorioAcompanhamento]
+ADD FOREIGN KEY([IdProfessor]) REFERENCES [Usuario]([Id])
+ON UPDATE NO ACTION ON DELETE NO ACTION;
 GO
 
 ALTER TABLE [Anotacao]
