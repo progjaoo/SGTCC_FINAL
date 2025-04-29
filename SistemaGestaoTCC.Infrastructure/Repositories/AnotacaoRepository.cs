@@ -16,6 +16,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             await _dbContext.Anotacao.AddAsync(anotacao);
             await _dbContext.SaveChangesAsync();
         }
+        public async Task<List<Anotacao>> GetAnotacoesByTituloAsync(string titulo, int idProjeto)
+        {
+            return await _dbContext.Anotacao
+                .Where(a => a.IdProjeto == idProjeto && a.Titulo.Contains(titulo))
+                .ToListAsync();
+        }
         public async Task<List<Anotacao>> GetAllAsync()
         {
             return await _dbContext.Anotacao.ToListAsync();

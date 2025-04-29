@@ -109,5 +109,18 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbcontext.Usuario.FindAsync(id);
         }
+        //public async Task<bool> SetEmailVerificado(int userId)
+        //{
+        //    var user = await _dbcontext.Usuario.FindAsync(userId);
+        //    if (user == null)
+        //    {
+        //        return false; 
+        //    }
+
+        //    user.EmailVerificado = EmailVerificadoEnum.Sim;
+        //    _dbcontext.Usuario.Update(user);
+        //    await _dbcontext.SaveChangesAsync();
+        //    return true;
+        //}
     }
 }

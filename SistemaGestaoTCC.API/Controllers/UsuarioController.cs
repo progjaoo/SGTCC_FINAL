@@ -29,6 +29,7 @@ namespace SistemaGestaoTCC.API.Controllers
     {
         private readonly IMediator _mediator;
         private readonly string folderName;
+        
         public UsuarioController(IMediator mediator, IConfiguration configuration)
         {
             _mediator = mediator;
@@ -109,7 +110,7 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             var id = await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(GetById), new { id = id }, command);
+            return Ok(id);
         }
 
         [HttpPost("alterarImagem")]

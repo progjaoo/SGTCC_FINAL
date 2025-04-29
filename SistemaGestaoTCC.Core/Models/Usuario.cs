@@ -9,16 +9,16 @@ namespace SistemaGestaoTCC.Core.Models;
 public partial class Usuario
 {
     public Usuario(int idCurso, string nome, string email,
-        string senha, PapelEnum papel)
+        string senha, PapelEnum papel, EmailVerificadoEnum emailVerificado)
     {
         IdCurso = idCurso;
         Nome = nome;
         Email = email;
         Senha = senha;
         Papel = papel;
+        EmailVerificado = emailVerificado;
 
         CriadoEm = DateTime.UtcNow;
-
     }
     public int Id { get; set; }
 
@@ -31,7 +31,7 @@ public partial class Usuario
     public string Senha { get; set; }
 
     public PapelEnum Papel { get; set; }
-
+    public EmailVerificadoEnum EmailVerificado { get; set; }
     public int Permissao { get; set; }
 
     public int? IdImagem { get; set; }
@@ -95,4 +95,5 @@ public partial class Usuario
 
         EditadoEm = DateTime.UtcNow;
     }
+
 }

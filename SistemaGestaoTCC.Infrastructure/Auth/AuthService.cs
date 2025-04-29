@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Infrastructure.Repositories;
 using SistemaGestaoTCC.Infrastructure.Services;
@@ -103,8 +104,13 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
             if (tokenObj == null || tokenObj.ExpirationDate < DateTime.UtcNow)
                 return false; // Token inválido ou expirado
 
-            // Aqui você pode ativar a conta do usuário no banco de dados
-            // Exemplo: user.IsActive = true;
+            var user = await _userRepository.GetByIdAsync(tokenObj.UserId);
+            if (user == null)
+                return false;
+
+            user.EmailVerificado = EmailVerificadoEnum.Sim;
+            user.EditadoEm = DateTime.UtcNow;
+            await _userRepository.UpdateAsync(user);
 
             await _activationTokenRepository.RemoveTokenAsync(token);
             return true;

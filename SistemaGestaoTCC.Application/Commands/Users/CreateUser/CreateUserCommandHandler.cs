@@ -19,8 +19,7 @@ namespace SistemaGestaoTCC.Application.Commands.Users.CreateUser
         {
             var passwordHash = _authService.ComputeSha256Hash(request.Senha);
 
-            //instancia do novo usuario pediu 2 construtores la na classe 
-            var user = new Usuario(request.IdCurso, request.Nome, request.Email, passwordHash, request.Papel);
+            var user = new Usuario(request.IdCurso, request.Nome, request.Email, passwordHash, request.Papel, request.EmailVerificado);
 
             await _dbcontext.Usuario.AddAsync(user);
             await _dbcontext.SaveChangesAsync();

@@ -18,7 +18,7 @@ namespace SistemaGestaoTCC.Infrastructure.Services
         public async Task SendNotificationToUser(string userId, string message)
         {
             _logger.LogInformation($"Usuário {userId} registrado com a conexão {Context.ConnectionId}"); 
-            await Clients.User(userId).SendAsync("ReceiveNotification", message);
+            await Clients.Group(userId).SendAsync("ReceiveNotification", message);
         }
     }
 }

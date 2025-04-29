@@ -5,6 +5,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
     public interface IAnotacaoRepository
     {
         Task<List<Anotacao>> GetAllAsync();
+        Task<List<Anotacao>> GetAnotacoesByTituloAsync(string titulo, int idProjeto);
         Task<Anotacao> GetById(int id);
         Task<List<Anotacao>> GetAnotacaoByIdProjectAsync(int idProjeto);
         Task<List<Anotacao>> GetAnotacaoByUserAsync(int idUsuario);

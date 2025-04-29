@@ -49,6 +49,7 @@ warn: ADICIONAR ID NA URL DE GET's COMENTARIOCONTROLLER
 			Estava como DateTime, mudei context então tem que ajustar o seu banco para funcionar
 
 - RELATÓRIOS DE ACOMPANHAMENTO: OU implementar no banco para fazermos OU colocar como projetos futuros, adicionar relatorios de outros cursos etc como projetos futuros
+	FAZER NO BANCO....
 
 - NECESSIDADE DO COORDENADOR: Para aprovação de propostas iremos precisar do Coordenador + um Papel (Atentar para a documentação, casos de uso etc)
 

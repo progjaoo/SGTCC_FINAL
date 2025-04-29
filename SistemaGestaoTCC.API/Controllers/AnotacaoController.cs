@@ -6,6 +6,7 @@ using SistemaGestaoTCC.Application.Commands.Anotacoes.Update;
 using SistemaGestaoTCC.Application.Queries.Anotacoes.GetAll;
 using SistemaGestaoTCC.Application.Queries.Anotacoes.GetById;
 using SistemaGestaoTCC.Application.Queries.Anotacoes.GetByProject;
+using SistemaGestaoTCC.Application.Queries.Anotacoes.GetByTitulo;
 using SistemaGestaoTCC.Application.Queries.Anotacoes.GetByUser;
 
 namespace SistemaGestaoTCC.API.Controllers
@@ -20,7 +21,13 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             _mediator = mediator;
         }
-
+        [HttpGet("buscarPorTitulo")]
+        public async Task<IActionResult> GetByTitulo([FromQuery] string titulo, [FromQuery] int idProjeto)
+        {
+            var query = new GetAnotacoesByTituloQuery(titulo, idProjeto);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
@@ -43,7 +50,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(anotacao);
         }
-        [HttpGet("buscarPorProjeto/{id}")]
+        [HttpGet("buscarPorProjeto")]
         public async Task<IActionResult> GetAnotacaoByProject(int id)
         {
             var query = new GetAnotacaoByProjectQuery(id);

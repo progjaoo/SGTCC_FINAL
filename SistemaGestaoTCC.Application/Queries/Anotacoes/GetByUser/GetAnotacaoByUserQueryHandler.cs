@@ -18,7 +18,7 @@ namespace SistemaGestaoTCC.Application.Queries.Anotacoes.GetByUser
             if (anotacao == null)
                 return null;
             
-            var anotacaoViewModel = anotacao.Select(a => new AnotacaoViewModel(a.IdUsuario, a.IdProjeto, a.Titulo, a.Descricao)).ToList();
+            var anotacaoViewModel = anotacao.Select(a => new AnotacaoViewModel(a.IdUsuario, a.IdProjeto, a.Titulo, a.Descricao, a.CriadoEm)).ToList();
 
             return anotacaoViewModel;
         }

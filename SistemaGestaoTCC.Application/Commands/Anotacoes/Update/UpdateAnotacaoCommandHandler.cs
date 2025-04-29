@@ -1,10 +1,5 @@
 ﻿using MediatR;
 using SistemaGestaoTCC.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemaGestaoTCC.Application.Commands.Anotacoes.Update
 {
@@ -22,7 +17,8 @@ namespace SistemaGestaoTCC.Application.Commands.Anotacoes.Update
             {
                 throw new Exception("Anotação não encontrada");
             }
-            anotacao.UpdateAnotacao(anotacao.IdUsuario, anotacao.IdProjeto, anotacao.Titulo, anotacao.Descricao);
+            anotacao.UpdateAnotacao(request.IdUsuario, request.IdProjeto, request.Titulo, request.Descricao);
+
             await _anotacaoRepository.SaveChangesAsync();
 
             return Unit.Value;

@@ -6,7 +6,7 @@
    "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": null,
-   "OutputPath": "Models",
+   "OutputPath": "Entidades",
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "SistemaGestaoTCC.Core",
    "Schemas": null,
@@ -15,107 +15,11 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[Anotacao]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Arquivo]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[AtividadeComentario]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[AvaliadorBanca]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Banca]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Bibliografia]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[CampoDocumentoAvaliacaoAluno]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Categoria]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Curso]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Duvida]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[NotaDocumentoAluno]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[NotaFinalAluno]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[PasswordResetTokens]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[Projeto]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[ProjetoArquivo]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[ProjetoAtividade]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[ProjetoAvaliacaoPublica]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[ProjetoComentario]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[ProjetoEntrega]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[ProjetoTag]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Proposta]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[RespostaDuvida]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Seminario]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[SeminarioProjeto]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[UserActivationTokens]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[UserToken]",
+         "Name": "[dbo].[RelatorioAcompanhamento]",
          "ObjectType": 0
       },
       {

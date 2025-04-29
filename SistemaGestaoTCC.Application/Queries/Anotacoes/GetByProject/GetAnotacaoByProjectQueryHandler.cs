@@ -13,12 +13,12 @@ namespace SistemaGestaoTCC.Application.Queries.Anotacoes.GetByProject
         }
         public async Task<List<AnotacaoViewModel>> Handle(GetAnotacaoByProjectQuery request, CancellationToken cancellationToken)
         {
-            var anotacao = await _anotacaoRepository.GetAnotacaoByUserAsync(request.IdProjeto);
+            var anotacao = await _anotacaoRepository.GetAnotacaoByIdProjectAsync(request.IdProjeto);
 
             if (anotacao == null)
                 return null;
 
-            var anotacaoViewModel = anotacao.Select(a => new AnotacaoViewModel(a.IdUsuario, a.IdProjeto, a.Titulo, a.Descricao)).ToList();
+            var anotacaoViewModel = anotacao.Select(a => new AnotacaoViewModel(a.Id,a.IdUsuario, a.IdProjeto, a.Titulo, a.Descricao,a.CriadoEm)).ToList();
 
             return anotacaoViewModel;
         }

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SistemaGestaoTCC.Core.Models;
 
@@ -68,11 +69,45 @@ public partial class SGTCCContext : DbContext
     public virtual DbSet<Usuario> Usuario { get; set; }
 
     public virtual DbSet<UsuarioProjeto> UsuarioProjeto { get; set; }
+    public virtual DbSet<RelatorioAcompanhamento> RelatorioAcompanhamento { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<RelatorioAcompanhamento>(entity =>
+        {
+            entity.ToTable("RelatorioAcompanhamento"); 
+
+            entity.HasKey(e => e.Id); 
+
+            entity.Property(e => e.Titulo)
+                .HasColumnType("CHAR")
+                .HasMaxLength(255);
+
+            entity.Property(e => e.Descricao)
+                .HasColumnType("NVARCHAR(MAX)");
+
+            entity.Property(e => e.DataRealizacao)
+                .HasColumnType("DATETIME");
+
+            entity.Property(e => e.CriadoEm)
+               .HasColumnType("DATETIME");
+
+            entity.Property(e => e.EditadoEm)
+                .HasColumnType("DATETIME");
+            entity.HasOne(e => e.IdProjetoNavigation)
+                .WithMany() 
+                .HasForeignKey(e => e.IdProfessor)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(e => e.IdProjetoNavigation)
+                .WithMany()
+                .HasForeignKey(e => e.IdProjeto)
+                .OnDelete(DeleteBehavior.NoAction);
+        });
+
         modelBuilder.Entity<Anotacao>(entity =>
         {
+
             entity.HasKey(e => e.Id).HasName("PK__Anotacao__3214EC07137443C2");
 
             entity.ToTable("Anotacao");
@@ -674,6 +709,8 @@ public partial class SGTCCContext : DbContext
             entity.Property(e => e.Senha)
                 .IsRequired()
                 .HasMaxLength(255);
+            entity.Property(e => e.EmailVerificado)
+                .IsRequired();
             entity.Property(e => e.UltimoAcesso).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdCursoNavigation).WithMany(p => p.Usuarios)
