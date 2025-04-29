@@ -2,6 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
+using SistemaGestaoTCC.Core.Models;
 using SistemaGestaoTCC.Infrastructure.Repositories;
 using SistemaGestaoTCC.Infrastructure.Services;
 using System.IdentityModel.Tokens.Jwt;
@@ -81,39 +82,59 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
         }
         public async Task<bool> SendActivationEmailAsync(int userId, string userEmail)
         {
-            // Gerar um token de ativação
             var token = await _activationTokenRepository.GenerateTokenAsync(userId);
+            if (token == null)
+            {
+                Console.WriteLine("Erro: Falha ao gerar token.");
+                throw new Exception("Erro: Falha ao gerar token.");
+            }
 
-            // Criar o link de ativação
-            var activationLink = $"https://seusite.com/ativar-conta?token={token.Token}";
+            string subject = "Ative sua conta - Código de verificação";
 
-            // Montar o e-mail
-            var emailBody = $@"
-                <h1>Ativação de Conta</h1>
-                <p>Clique no link abaixo para ativar sua conta:</p>
-                <a href='{activationLink}'>Ativar Conta</a>
-                <p>Esse link expira em 24 horas.</p>";
+            string body = $@"
+            <html>
+            <body style='font-family: Arial, sans-serif; background-color: #f6f9fc; margin: 0; padding: 20px;'>
+                <div style='max-width: 600px; margin: auto; background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05);'>
+                <h2 style='color: #2c3e50;'>Olá!</h2>
+                <p style='font-size: 16px; color: #333333;'>
+                    Recebemos uma solicitação para ativar sua conta. Use o código abaixo para concluir o processo de ativação:
+                </p>
+                <div style='font-size: 26px; font-weight: bold; color: #1a73e8; background-color: #eef3fb; padding: 15px; text-align: center; border-radius: 6px; margin: 20px 0;'>
+                    https://localhost:5173/ativacao?ativarConta={token.Token}
+                </div>
+                <p style='font-size: 14px; color: #555555;'>
+                    Este código é válido por tempo limitado. Se você não fez esta solicitação, ignore este e-mail.
+                </p>
+                <hr style='margin: 30px 0; border: none; border-top: 1px solid #e0e0e0;' />
+                <p style='font-size: 12px; color: #999999; text-align: center;'>
+                    © {DateTime.Now.Year} SGTCC. Todos os direitos reservados.<br />
+                    Este e-mail foi enviado automaticamente, por favor, não responda.
+                </p>
+                </div>
+            </body>
+            </html>";
 
-            // Enviar o e-mail
-            return await _emailService.SendEmailAsync(userEmail, "Ativação de Conta", emailBody);
+            await _emailService.SendEmailAsync(userEmail, subject, body);
+
+            return true;
         }
 
-        public async Task<bool> ActivateAccountAsync(string token)
+        public async Task<Usuario> ActivateAccountAsync(string token)
         {
             var tokenObj = await _activationTokenRepository.GetTokenAsync(token);
             if (tokenObj == null || tokenObj.ExpirationDate < DateTime.UtcNow)
-                return false; // Token inválido ou expirado
+                return null; // Token inválido ou expirado
 
             var user = await _userRepository.GetByIdAsync(tokenObj.UserId);
             if (user == null)
-                return false;
+                return null;
 
             user.EmailVerificado = EmailVerificadoEnum.Sim;
             user.EditadoEm = DateTime.UtcNow;
             await _userRepository.UpdateAsync(user);
 
             await _activationTokenRepository.RemoveTokenAsync(token);
-            return true;
+            return user;
         }
 
         public async Task<bool> SendPasswordResetEmailAsync(string userEmail)
@@ -122,25 +143,26 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
             if (user == null) return false;
 
             var token = await _passwordResetTokenRepository.GenerateTokenAsync(user.Id);
-            var link = $"token={token.Token}";
+
+            var subject = "Redefinir Senha";
             var body = $"{token.Token}";
 
-            return await _emailService.SendEmailAsync(userEmail, "Redefinir Senha", body);
+            return await _emailService.SendEmailAsync(userEmail, subject, body);
         }
 
-        public async Task<bool> ResetPasswordAsync(string token, string newPassword)
+        public async Task<Usuario> ResetPasswordAsync(string token, string newPassword)
         {
             var tokenData = await _passwordResetTokenRepository.GetByTokenAsync(token);
-            if (tokenData == null) return false;
+            if (tokenData == null) return null;
 
             var user = await _userRepository.GetByIdAsync(tokenData.UserId);
-            if (user == null) return false;
+            if (user == null) return null;
 
             user.Senha = ComputeSha256Hash(newPassword); // aplica criptografia
             await _userRepository.UpdateAsync(user);
             await _passwordResetTokenRepository.DeleteTokenAsync(token);
 
-            return true;
+            return user;
         }
     }
 }

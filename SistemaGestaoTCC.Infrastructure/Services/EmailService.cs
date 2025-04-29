@@ -6,43 +6,48 @@ using SistemaGestaoTCC.Core.Interfaces;
 
 namespace SistemaGestaoTCC.Infrastructure.Services
 {
-    
-        public class EmailService : IEmailService
+
+    public class EmailService : IEmailService
+    {
+        private readonly SmtpClient _smtpClient;
+        private readonly string emailUser;
+        private readonly string emailPass;
+
+        public EmailService(IConfiguration configuration)
         {
-            private readonly SmtpClient _smtpClient;
+            emailUser = configuration["Email:User"] ?? "";
+            emailPass = configuration["Email:Password"] ?? "";
 
-            public EmailService()
+            _smtpClient = new SmtpClient("smtp.gmail.com")
             {
-                _smtpClient = new SmtpClient("smtp.gmail.com")
+                Port = 587,
+                Credentials = new NetworkCredential(emailUser, emailPass),
+                EnableSsl = true
+            };
+        }
+
+        public async Task<bool> SendEmailAsync(string recipientEmail, string subject, string body)
+        {
+            try
+            {
+                var mailMessage = new MailMessage
                 {
-                    Port = 587,
-                    Credentials = new NetworkCredential("joaoevbeijo@gmail.com", "qvvv lcxl cyvd gtbf"),
-                    EnableSsl = true
+                    From = new MailAddress(emailUser),
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
                 };
+
+                mailMessage.To.Add(recipientEmail);
+
+                await _smtpClient.SendMailAsync(mailMessage);
+                return true;
             }
-
-            public async Task<bool> SendEmailAsync(string recipientEmail, string subject, string body)
+            catch (Exception ex)
             {
-                try
-                {
-                    var mailMessage = new MailMessage
-                    {
-                        From = new MailAddress("joaoevbeijo@gmail.com"),
-                        Subject = subject,
-                        Body = body,
-                        IsBodyHtml = false
-                    };
-
-                    mailMessage.To.Add(recipientEmail);
-
-                    await _smtpClient.SendMailAsync(mailMessage);
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Erro ao enviar o e-mail: {ex.Message}");
-                    return false;
-                }
+                Console.WriteLine($"Erro ao enviar o e-mail: {ex.Message}");
+                return false;
             }
         }
+    }
 }

@@ -29,14 +29,14 @@ namespace SistemaGestaoTCC.API.Controllers
     {
         private readonly IMediator _mediator;
         private readonly string folderName;
-        
+
         public UsuarioController(IMediator mediator, IConfiguration configuration)
         {
             _mediator = mediator;
             folderName = configuration["Files:Directory"] ?? "UploadedFiles";
         }
 
-    
+
         [HttpGet("encontrarUsuarios")]
         public async Task<IActionResult> FindUsers([FromQuery] FindUsersQuery query)
         {
@@ -116,7 +116,8 @@ namespace SistemaGestaoTCC.API.Controllers
         [HttpPost("alterarImagem")]
         public async Task<IActionResult> AlterarImagem(int idUsuario, IFormFile file)
         {
-            var command = new UpdateUserImageCommand{
+            var command = new UpdateUserImageCommand
+            {
                 Id = idUsuario,
                 File = file,
                 FolderName = folderName,
@@ -130,13 +131,22 @@ namespace SistemaGestaoTCC.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
-            var loginUser = await _mediator.Send(command);
-
-            if (loginUser == null)
+            try
             {
-                return Unauthorized();
+                var loginUser = await _mediator.Send(command);
+
+                if (loginUser == null)
+                {
+                    return Unauthorized();
+                }
+
+                return Ok(loginUser);
             }
-            return Ok(loginUser);
+            catch (Exception)
+            {
+                return BadRequest("Conta não Verificada!");
+            }
+
         }
         [HttpPost("authGoogle")]
         [AllowAnonymous]

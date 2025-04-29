@@ -25,6 +25,9 @@ namespace SistemaGestaoTCC.Application.Commands.Users.LoginUser
             {
                 return null;
             }
+            if (user.EmailVerificado != Core.Enums.EmailVerificadoEnum.Sim) {
+                throw new Exception("Usuário nao verificado");
+            }
 
             user.UltimoAcesso = DateTime.UtcNow;
             await _userRepository.UpdateAsync(user);

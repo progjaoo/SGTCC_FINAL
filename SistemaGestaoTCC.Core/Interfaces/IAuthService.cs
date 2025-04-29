@@ -1,4 +1,6 @@
-﻿namespace SistemaGestaoTCC.Core.Interfaces
+﻿using SistemaGestaoTCC.Core.Models;
+
+namespace SistemaGestaoTCC.Core.Interfaces
 {
     public interface IAuthService
     {
@@ -6,9 +8,9 @@
         string ComputeSha256Hash(string password);
 
         Task<bool> SendActivationEmailAsync(int userId, string userEmail);
-        Task<bool> ActivateAccountAsync(string token);
+        Task<Usuario> ActivateAccountAsync(string token);
 
         Task<bool> SendPasswordResetEmailAsync(string userEmail);
-        Task<bool> ResetPasswordAsync(string token, string newPassword);
+        Task<Usuario> ResetPasswordAsync(string token, string newPassword);
     }
 }

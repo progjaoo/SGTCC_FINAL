@@ -11,6 +11,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<List<Usuario>> GetProfessoresAsync();
         Task<Usuario> GetById(int id);
         Task<Usuario> GetByEmailByPassword(string email, string passwordHash);
+        Task<Usuario> GetVerifiedUserByEmailAndPassword(string email, string passwordHash);
         Task<Usuario> GetByEmail(string email);
         //Task<bool> SetEmailVerificado(int userId);
         Task UpdateAsync(Usuario usuario);

@@ -67,6 +67,13 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(u => u.IdImagemNavigation)
                 .SingleOrDefaultAsync(u => u.Email == email && u.Senha == passwordHash);
         }
+        public async Task<Usuario> GetVerifiedUserByEmailAndPassword(string email, string passwordHash)
+        {
+            return await _dbcontext.Usuario
+                .Include(u => u.IdCursoNavigation)
+                .Include(u => u.IdImagemNavigation)
+                .SingleOrDefaultAsync(u => u.EmailVerificado == EmailVerificadoEnum.Sim && u.Email == email && u.Senha == passwordHash);
+        }
         public async Task<Usuario> GetByEmail(string email)
         {
             return await _dbcontext.Usuario

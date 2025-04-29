@@ -9,7 +9,6 @@ namespace SistemaGestaoTCC.Application.Commands.Users.CreateUser
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public EmailVerificadoEnum EmailVerificado { get; set; }
         public PapelEnum Papel { get; set; }
     }
 }
