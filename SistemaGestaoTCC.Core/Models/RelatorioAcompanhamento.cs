@@ -9,8 +9,20 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class RelatorioAcompanhamento
 {
+    public RelatorioAcompanhamento(int idProfessor, int idProjeto, string titulo, string descricao, int duracaoEncontro, DateTime dataRealizacao)
+    {
+        IdProfessor = idProfessor;
+        IdProjeto = idProjeto;
+        Titulo = titulo;
+        Descricao = descricao;
+        DuracaoEncontro = duracaoEncontro;
+        DataRealizacao = dataRealizacao;
+
+        CriadoEm = DateTime.Now;
+    }
+
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Isso é importante para o IDENTITY
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
     public int Id { get; set; }
 
     [Required]
@@ -41,4 +53,16 @@ public partial class RelatorioAcompanhamento
     public virtual Projeto IdProjetoNavigation { get; set; }
 
     public virtual Usuario IdUsuarioNavigation { get; set; }
+
+    public void UpdateRelatorio(int idProfessor, int idProjeto, string titulo, string descricao, int duracaoEncontro, DateTime dataRealizacao)
+    {
+        IdProfessor = idProfessor;
+        IdProjeto = idProjeto;
+        Titulo = titulo;
+        Descricao = descricao;
+        DuracaoEncontro = duracaoEncontro;
+        DataRealizacao = dataRealizacao;
+
+        EditadoEm = DateTime.Now;
+    }
 }

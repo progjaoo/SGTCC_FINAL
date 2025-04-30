@@ -14,21 +14,13 @@ public partial class UsuarioProjeto
         IdProjeto = idProjeto;
         Funcao = funcao;
 
-        AdicionadoEm = DateTime.Today;
     }
     public int Id { get; set; }
-
     public int IdUsuario { get; set; }
-
     public int IdProjeto { get; set; }
-
-    public int Estado { get; set; }
-
+    public ConviteEnum Estado { get; set; }
     public FuncaoEnum Funcao { get; set; }
-
     public DateTime AdicionadoEm { get; set; }
-
     public virtual Projeto IdProjetoNavigation { get; set; }
-
     public virtual Usuario IdUsuarioNavigation { get; set; }
 }

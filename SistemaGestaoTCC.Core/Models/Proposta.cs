@@ -14,22 +14,27 @@ public partial class Proposta
         AtividadesPropostas = atividadesPropostas;
         ContribuicaoAgenda = contribuicaoAgenda;
         Sugestao = sugestao;
+
+        CriadoEm = DateTime.UtcNow;
+        Parecer = ParecerPropostaEnum.NaoAvaliado;
+    }
+    public int Id { get; set; }
+    public int IdProjeto { get; set; }
+    public string AtividadesPropostas { get; set; }
+    public string ContribuicaoAgenda { get; set; }
+    public string Sugestao { get; set; }
+    public ParecerPropostaEnum Parecer { get; set; }
+    public DateTime CriadoEm { get; set; }
+    public DateTime? EditadoEm { get; set; }
+    public virtual Projeto IdProjetoNavigation { get; set; }
+
+    public void Update(string atividadesPropostas, string contribuicaoAgenda, string sugestao)
+    {
+        AtividadesPropostas = atividadesPropostas;
+        ContribuicaoAgenda = contribuicaoAgenda;
+        Sugestao = sugestao;
+
+        EditadoEm = DateTime.UtcNow;
     }
 
-    public int Id { get; set; }
-
-    public int IdProjeto { get; set; }
-
-    public string AtividadesPropostas { get; set; }
-
-    public string ContribuicaoAgenda { get; set; }
-
-    public string Sugestao { get; set; }
-    public ParecerProposta Parecer { get; set; }
-
-    public DateTime CriadoEm { get; set; }
-
-    public DateTime? EditadoEm { get; set; }
-
-    public virtual Projeto IdProjetoNavigation { get; set; }
 }
