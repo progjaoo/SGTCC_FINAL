@@ -15,8 +15,8 @@ namespace SistemaGestaoTCC.Infrastructure.Services
 
         public EmailService(IConfiguration configuration)
         {
-            emailUser = configuration["Email:User"] ?? "";
-            emailPass = configuration["Email:Password"] ?? "";
+            emailUser = configuration["Email:User"] ?? configuration["Smtp:Username"];
+            emailPass = configuration["Email:Password"] ?? configuration["Smtp:Password"];
 
             _smtpClient = new SmtpClient("smtp.gmail.com")
             {

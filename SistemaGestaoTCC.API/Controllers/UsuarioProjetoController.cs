@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.UsuariosProjeto.RemoverUsuarioProjeto;
 using SistemaGestaoTCC.Application.Commands.UsuariosProjeto;
 using SistemaGestaoTCC.Application.Queries.UsuariosProjeto;
+using SistemaGestaoTCC.Application.Commands.UsuariosProjeto.ResponderConviteProjeto;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -27,6 +28,13 @@ namespace SistemaGestaoTCC.API.Controllers
                 return NotFound();
             }
             return Ok(user);
+        }
+        [HttpPost("responderConviteProjeto")]
+        public async Task<IActionResult> Post([FromBody] ResponderConviteProjetoCommand command)
+        {
+            var id = await _mediator.Send(command);
+
+            return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
         [HttpPost("adicionarUsuarioNoProjeto")]
         public async Task<IActionResult> Post([FromBody] AddUserInProjectCommand command)

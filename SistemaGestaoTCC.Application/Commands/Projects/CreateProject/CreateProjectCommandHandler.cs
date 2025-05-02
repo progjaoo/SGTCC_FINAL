@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 using SistemaGestaoTCC.Infrastructure.Services;
@@ -31,12 +32,12 @@ namespace SistemaGestaoTCC.Application.Commands.Projects.CreateProject
             _logger.LogInformation("Iniciando criação do projeto...");
 
             var project = new Projeto(request.Nome, request.Descricao, request.Justificativa);
-            
+
             project.Start();
 
-            if(request.Tags != null && request.Tags.Any())
+            if (request.Tags != null && request.Tags.Count != 0)
             {
-                foreach(var tagViewModel in request.Tags)
+                foreach (var tagViewModel in request.Tags)
                 {
                     var tag = new ProjetoTag
                     {
@@ -52,6 +53,8 @@ namespace SistemaGestaoTCC.Application.Commands.Projects.CreateProject
             _logger.LogInformation($"Projeto {project.Id} criado com sucesso. Enviando notificação...");
 
             var usuarioProjeto = new UsuarioProjeto(request.IdUsuario, project.Id, request.Funcao);
+            usuarioProjeto.Estado = ConviteEnum.Aceito;
+            usuarioProjeto.AdicionadoEm = DateTime.Now;
 
             await _usuarioProjetoRepository.AddASync(usuarioProjeto);
             await _usuarioProjetoRepository.SaveChangesAsync();

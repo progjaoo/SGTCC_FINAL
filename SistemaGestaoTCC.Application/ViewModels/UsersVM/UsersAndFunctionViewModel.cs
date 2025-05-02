@@ -6,13 +6,14 @@ namespace SistemaGestaoTCC.Application.ViewModels.UsersVM
 {
     public class UsersAndFunctionViewModel
     {
-        public UsersAndFunctionViewModel(int? id, string? nome, string email, PapelEnum papel, FuncaoEnum funcao, Arquivo? imagem = null)
+        public UsersAndFunctionViewModel(int? id, string? nome, string email, PapelEnum papel, FuncaoEnum funcao, ConviteEnum estado, Arquivo? imagem = null)
         {
             Id = id;
             Nome = nome;
             Email = email;
             Papel = papel;
             Funcao = funcao;
+            Estado = estado;
             if (imagem != null)
             {
                 Imagem = new ArquivoViewModel(
@@ -46,6 +47,7 @@ namespace SistemaGestaoTCC.Application.ViewModels.UsersVM
         public string Email { get; set; }
         public PapelEnum Papel { get; set; }
         public FuncaoEnum Funcao { get; set; }
+        public ConviteEnum Estado { get; set; }
         public ArquivoViewModel? Imagem {get; set;}
     }
 }

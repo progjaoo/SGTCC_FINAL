@@ -13,14 +13,41 @@ public partial class UsuarioProjeto
         IdUsuario = idUsuario;
         IdProjeto = idProjeto;
         Funcao = funcao;
+        Estado = ConviteEnum.Pendente;
+        EnviadoEm = DateTime.Now;
+    }
 
+    public bool EstaRespondido()
+    {
+        if (this.Estado == ConviteEnum.Aceito || this.Estado == ConviteEnum.Rejeitado)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    public bool EstaExpirado()
+    {
+        if (this.Estado == ConviteEnum.Expirado)
+        {
+            return true;
+        }
+        int diasMaximos = 30;
+        bool eMaisVelho = (DateTime.Now - this.EnviadoEm).TotalDays > diasMaximos;
+        if (eMaisVelho)
+        {
+            return false;
+        }
+
+        return true;
     }
     public int Id { get; set; }
     public int IdUsuario { get; set; }
     public int IdProjeto { get; set; }
     public ConviteEnum Estado { get; set; }
     public FuncaoEnum Funcao { get; set; }
-    public DateTime AdicionadoEm { get; set; }
+    public DateTime? AdicionadoEm { get; set; }
+    public DateTime EnviadoEm { get; set; }
     public virtual Projeto IdProjetoNavigation { get; set; }
     public virtual Usuario IdUsuarioNavigation { get; set; }
 }
