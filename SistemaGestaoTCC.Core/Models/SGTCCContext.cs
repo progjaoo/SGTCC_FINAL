@@ -732,6 +732,7 @@ public partial class SGTCCContext : DbContext
             entity.HasIndex(e => e.Id, "UQ__UsuarioP__3214EC06FC0D3D94").IsUnique();
 
             entity.Property(e => e.AdicionadoEm).HasColumnType("datetime");
+            entity.Property(e => e.EnviadoEm).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdProjetoNavigation).WithMany(p => p.UsuarioProjetos)
                 .HasForeignKey(d => d.IdProjeto)

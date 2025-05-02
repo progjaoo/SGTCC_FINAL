@@ -2,7 +2,9 @@
 {
     public enum ConviteEnum
     {
-        Nao = 0,
-        Sim = 1
+        Pendente = 0,
+        Expirado = 1,
+        Aceito = 2,
+        Rejeitado = 3,
     }
 }

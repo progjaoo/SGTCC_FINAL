@@ -197,7 +197,8 @@ CREATE TABLE [UsuarioProjeto] (
 	[IdProjeto] INT NOT NULL,
 	[Estado] INT NOT NULL, --ou tabela separada??
 	[Funcao] INT NOT NULL,
-	[AdicionadoEm] DATETIME NOT NULL,
+	[AdicionadoEm] DATETIME,
+	[EnviadoEm] DATETIME NOT NULL,
 	PRIMARY KEY([Id])
 );
 GO

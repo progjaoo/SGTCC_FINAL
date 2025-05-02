@@ -32,27 +32,23 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             .Where(p => listUserProject.Contains(p.Id))
             .ToListAsync();
         }
-        public async Task<List<Tuple<Usuario, FuncaoEnum>>> GetAllUsersAndFunctionByProjectId(int id)
+        public async Task<List<UsuarioProjeto>> GetAllUsersAndFunctionByProjectId(int id)
         {
-            var listUserProject = await _dbcontext.UsuarioProjeto
+            var result = await _dbcontext.UsuarioProjeto
                 .Where(up => up.IdProjeto == id)
-                
+                .Include(up => up.IdUsuarioNavigation)
+                    .ThenInclude(u => u.IdImagemNavigation)
                 .ToListAsync();
 
-            var result = new List<Tuple<Usuario, FuncaoEnum>>();
-
-            foreach (var up in listUserProject)
-            {
-                // var usuario = await _dbcontext.Usuario.FindAsync(up.IdUsuario);
-                var usuario = await _dbcontext.Usuario
-                    .Where(u => u.Id == up.IdUsuario)
-                    .Include(u => u.IdImagemNavigation)
-                    .FirstOrDefaultAsync();
-                if (usuario != null)
-                {
-                    result.Add(Tuple.Create(usuario, up.Funcao));
-                }
-            }
+            return result;
+        }
+        public async Task<List<UsuarioProjeto>> GetAllUsersActiveInProjectById(int projectId)
+        {
+            var result = await _dbcontext.UsuarioProjeto
+                .Where(up => up.IdProjeto == projectId && up.Estado == ConviteEnum.Aceito)
+                .Include(up => up.IdUsuarioNavigation)
+                    .ThenInclude(u => u.IdImagemNavigation)
+                .ToListAsync();
 
             return result;
         }
