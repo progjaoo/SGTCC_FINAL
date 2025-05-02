@@ -49,7 +49,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
             proposta.Parecer = novoParecer;
             proposta.EditadoEm = DateTime.UtcNow;
-
+            
             try
             {
                 await _dbContext.SaveChangesAsync();

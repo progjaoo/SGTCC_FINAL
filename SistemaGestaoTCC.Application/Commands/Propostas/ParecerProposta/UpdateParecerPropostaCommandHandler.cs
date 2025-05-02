@@ -17,6 +17,8 @@ namespace SistemaGestaoTCC.Application.Commands.Propostas.ParecerProposta
         {
             var proposta = await _propostaRepository.AtualizarParecerAsync(request.Id, request.NovoParecer);
 
+
+
             if (proposta == null) return false; 
             
             return true;

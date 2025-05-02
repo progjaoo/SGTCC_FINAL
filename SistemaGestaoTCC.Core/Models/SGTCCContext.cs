@@ -414,7 +414,9 @@ public partial class SGTCCContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .IsFixedLength();
-
+            entity.Property(e => e.PropostaAprovada)
+                .HasColumnType("int")
+                .IsRequired(false);
             entity.HasOne(d => d.IdImagemNavigation).WithMany(p => p.Projetos)
                 .HasForeignKey(d => d.IdImagem)
                 .HasConstraintName("FK__Projeto__IdImage__3493CFA7");

@@ -9,6 +9,5 @@ namespace SistemaGestaoTCC.Application.Commands.Propostas.Create
         public string AtividadesPropostas { get; set; }
         public string ContribuicaoAgenda { get; set; }
         public string Sugestao { get; set; }
-        public ParecerPropostaEnum Parecer { get; set; }
     }
 }

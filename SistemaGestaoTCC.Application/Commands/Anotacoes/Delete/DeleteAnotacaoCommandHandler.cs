@@ -12,7 +12,7 @@ namespace SistemaGestaoTCC.Application.Commands.Anotacoes.Delete
         }
         public async Task<Unit> Handle(DeleteAnotacaoCommand request, CancellationToken cancellationToken)
         {
-            var anotacao = _anotacaoRepository.GetById(request.Id);
+            var anotacao = await _anotacaoRepository.GetById(request.Id);
             if (anotacao == null)
             {
                 throw new Exception("Anotação não encontrada");

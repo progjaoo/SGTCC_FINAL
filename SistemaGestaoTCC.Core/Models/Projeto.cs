@@ -33,6 +33,7 @@ public partial class Projeto
     public bool Aprovado { get; set; }
 
     public StatusProjeto Estado { get; set; }
+    public int? PropostaAprovada { get; set; }
 
     public DateTime CriadoEm { get; set; }
 
