@@ -22,11 +22,7 @@ namespace SistemaGestaoTCC.Application.Commands.Relatorios.Create
                 request.DuracaoEncontro,
                 request.DataRealizacao
             );
-            if (relatorio != null)
-            {
-                throw new Exception("Relatório já existe para este projeto.");
-            }
-
+            
             await _relatorioRepository.AddAsync(relatorio);
             await _relatorioRepository.SaveChangesAsync();
 

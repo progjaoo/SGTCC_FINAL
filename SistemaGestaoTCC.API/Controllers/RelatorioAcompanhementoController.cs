@@ -8,6 +8,7 @@ using SistemaGestaoTCC.Application.Commands.Relatorios.Delete;
 using SistemaGestaoTCC.Application.Commands.Relatorios.Update;
 using SistemaGestaoTCC.Application.Queries.Relatorios.GetAll;
 using SistemaGestaoTCC.Application.Queries.Relatorios.GetById;
+using SistemaGestaoTCC.Application.Queries.Relatorios.GetRelatorioByProject;
 using SistemaGestaoTCC.Application.Queries.Relatorios.GetRelatorioByUser;
 
 namespace SistemaGestaoTCC.API.Controllers
@@ -47,6 +48,14 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetRelatorioByUser(int idUsuario)
         {
             var query = new GetRelatorioByUserQuery(idUsuario);
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
+        }
+        [HttpGet("buscarRelatorioPorProjeto")]
+        public async Task<IActionResult> GetRelatorioByProject(int idProjeto)
+        {
+            var query = new GetRelatorioByProjectQuery(idProjeto);
             var result = await _mediator.Send(query);
 
             return Ok(result);

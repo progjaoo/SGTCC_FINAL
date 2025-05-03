@@ -51,7 +51,7 @@ public partial class RelatorioAcompanhamento
     public DateTime? EditadoEm { get; set; } 
 
     public virtual Projeto IdProjetoNavigation { get; set; }
-
+    [ForeignKey("IdProfessor")]
     public virtual Usuario IdUsuarioNavigation { get; set; }
 
     public void UpdateRelatorio(int idProfessor, int idProjeto, string titulo, string descricao, int duracaoEncontro, DateTime dataRealizacao)

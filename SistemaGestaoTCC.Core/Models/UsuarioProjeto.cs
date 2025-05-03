@@ -16,7 +16,6 @@ public partial class UsuarioProjeto
         Estado = ConviteEnum.Pendente;
         EnviadoEm = DateTime.Now;
     }
-
     public bool EstaRespondido()
     {
         if (this.Estado == ConviteEnum.Aceito || this.Estado == ConviteEnum.Rejeitado)
