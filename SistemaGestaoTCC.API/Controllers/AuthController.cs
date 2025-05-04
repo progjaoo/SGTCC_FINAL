@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using SistemaGestaoTCC.Application.Commands.Auth.ResetPassword;
 using SistemaGestaoTCC.Application.Queries.Users.GetUserByEmail;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Infrastructure;
+using System.Security.Claims;
 
 [Route("api/auth")]
 [ApiController]
@@ -111,5 +115,36 @@ public class AuthController : ControllerBase
             return BadRequest("Token inválido ou expirado.");
         }
         return Ok(result.Id);
+    }
+
+    [HttpGet("google-login")]
+    public IActionResult GoogleLogin()
+    {
+        var redirectUrl = Url.Action("GoogleResponse", "Auth");
+        var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+        return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+    }
+
+    [HttpGet("google/callback")]
+    public async Task<IActionResult> GoogleResponse()
+    {
+        var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        if (!result.Succeeded)
+            return BadRequest("Erro na autenticação com o Google");
+
+        var claims = result.Principal.Identities
+            .FirstOrDefault()?.Claims.Select(claim => new
+            {
+                claim.Type,
+                claim.Value
+            });
+
+        // Aqui você pode pegar o e-mail, nome etc.
+        var email = result.Principal.FindFirst(ClaimTypes.Email)?.Value;
+        var name = result.Principal.FindFirst(ClaimTypes.Name)?.Value;
+
+        // TODO: verificar se usuário já existe, cadastrar ou gerar token JWT
+        return Ok(new { email, name });
     }
 }
