@@ -5,6 +5,7 @@ using SistemaGestaoTCC.Application.Commands.Anotacoes.Delete;
 using SistemaGestaoTCC.Application.Commands.Anotacoes.Update;
 using SistemaGestaoTCC.Application.Commands.Relatorios.Create;
 using SistemaGestaoTCC.Application.Commands.Relatorios.Delete;
+using SistemaGestaoTCC.Application.Commands.Relatorios.GerarPdf;
 using SistemaGestaoTCC.Application.Commands.Relatorios.Update;
 using SistemaGestaoTCC.Application.Queries.Relatorios.GetAll;
 using SistemaGestaoTCC.Application.Queries.Relatorios.GetById;
@@ -73,13 +74,19 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
-        [HttpDelete("{id}/deletarRelatorio")]
+        [HttpDelete("deletarRelatorio")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteRelatorioCommand(id);
             await _mediator.Send(command);
 
             return NoContent();
+        }
+        [HttpGet("GerarPDFCarteirinha")]
+        public async Task<IActionResult> GerarPDFCarteirinha(int idRelatorio)
+        {
+            var result = await _mediator.Send(new GerarRelatorioPdfCommand(idRelatorio));
+            return File(result, "application/pdf", "Relatorio.pdf");
         }
     }
 }

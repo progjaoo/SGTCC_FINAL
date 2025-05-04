@@ -16,6 +16,7 @@ namespace SistemaGestaoTCC.Application.Queries.Relatorios.GetRelatorioByUser
             var relatorios = await _relatorioAcompanhamentoRepository.GetRelatorioByUserAsync(request.IdUsuario);
 
             var relatorioViewModels = relatorios.Select(relatorio => new RelatorioViewModel(
+                relatorio.Id,
                 relatorio.IdProfessor,
                 relatorio.IdProjeto,
                 relatorio.Titulo,

@@ -97,10 +97,10 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
                 <div style='max-width: 600px; margin: auto; background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05);'>
                 <h2 style='color: #2c3e50;'>Olá!</h2>
                 <p style='font-size: 16px; color: #333333;'>
-                    Recebemos uma solicitação para ativar sua conta. Use o código abaixo para concluir o processo de ativação:
+                    Recebemos uma solicitação para ativar sua conta. Use o código abaixo para concluir o processo de ativação ou clique no link:
                 </p>
                 <div style='font-size: 26px; font-weight: bold; color: #1a73e8; background-color: #eef3fb; padding: 15px; text-align: center; border-radius: 6px; margin: 20px 0;'>
-                    http://localhost:5173/ativacao?ativarConta={token.Token}
+                    http://localhost:5173/ativacao?ativarConta={token.Token} ou copie e cole o código no App: {token.Token}
                 </div>
                 <p style='font-size: 14px; color: #555555;'>
                     Este código é válido por tempo limitado. Se você não fez esta solicitação, ignore este e-mail.

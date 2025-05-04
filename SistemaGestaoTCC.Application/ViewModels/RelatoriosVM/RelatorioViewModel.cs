@@ -2,8 +2,9 @@
 {
     public class RelatorioViewModel
     {
-        public RelatorioViewModel(int idProfessor, int idProjeto, string? titulo, string descricao, int duracaoEncontro, DateTime dataRealizacao, DateTime criadoEm, string? nomeProfessor = null, string? nomeProjeto = null)
+        public RelatorioViewModel(int id, int idProfessor, int idProjeto, string? titulo, string descricao, int duracaoEncontro, DateTime dataRealizacao, DateTime criadoEm, string? nomeProfessor = null, string? nomeProjeto = null )
         {
+            Id = id;
             IdProfessor = idProfessor;
             IdProjeto = idProjeto;
             Titulo = titulo;
@@ -14,6 +15,7 @@
             NomeProfessor = nomeProfessor;
             NomeProjeto = nomeProjeto;
         }
+        public int Id { get; set; }
         public int IdProfessor { get; set; }
         public int IdProjeto { get; set; }
         public string? Titulo { get; set; }
