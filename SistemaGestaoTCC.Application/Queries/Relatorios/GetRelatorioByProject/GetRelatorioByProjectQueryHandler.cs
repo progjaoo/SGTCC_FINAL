@@ -1,19 +1,25 @@
 ﻿using MediatR;
+using SistemaGestaoTCC.Application.Queries.Relatorios.GetRelatorioByUser;
 using SistemaGestaoTCC.Application.ViewModels.RelatoriosVM;
 using SistemaGestaoTCC.Core.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SistemaGestaoTCC.Application.Queries.Relatorios.GetAll
+namespace SistemaGestaoTCC.Application.Queries.Relatorios.GetRelatorioByProject
 {
-    public class GetAllRelatorioQueryHandler : IRequestHandler<GetAllRelatorioQuery, List<RelatorioViewModel>>
+    public class GetRelatorioByProjectQueryHandler : IRequestHandler<GetRelatorioByProjectQuery, List<RelatorioViewModel>>
     {
         private readonly IRelatorioAcompanhamentoRepository _relatorioAcompanhamentoRepository;
-        public GetAllRelatorioQueryHandler(IRelatorioAcompanhamentoRepository relatorioAcompanhamentoRepository)
+        public GetRelatorioByProjectQueryHandler(IRelatorioAcompanhamentoRepository relatorioAcompanhamentoRepository)
         {
             _relatorioAcompanhamentoRepository = relatorioAcompanhamentoRepository;
         }
-        public async Task<List<RelatorioViewModel>> Handle(GetAllRelatorioQuery request, CancellationToken cancellationToken)
+        public async Task<List<RelatorioViewModel>> Handle(GetRelatorioByProjectQuery request, CancellationToken cancellationToken)
         {
-            var relatorios = await _relatorioAcompanhamentoRepository.GetAllAsync();
+            var relatorios = await _relatorioAcompanhamentoRepository.GetRelatorioByProjectAsync(request.IdProjeto);
 
             var relatorioViewModels = relatorios.Select(relatorio => new RelatorioViewModel(
                 relatorio.IdProfessor,

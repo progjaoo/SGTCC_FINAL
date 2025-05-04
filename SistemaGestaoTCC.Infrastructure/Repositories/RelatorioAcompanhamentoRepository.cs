@@ -31,7 +31,10 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
         public async Task<RelatorioAcompanhamento> GetById(int id)
         { 
-            return await _dbContext.RelatorioAcompanhamento.SingleOrDefaultAsync(a => a.Id == id);
+            return await _dbContext.RelatorioAcompanhamento
+                .Include(a => a.IdUsuarioNavigation)
+                            .Include(a => a.IdProjetoNavigation)
+                .SingleOrDefaultAsync(a => a.Id == id);
         }
 
         public async Task<List<RelatorioAcompanhamento>> GetRelatorioByProjectAsync(int idProjeto)

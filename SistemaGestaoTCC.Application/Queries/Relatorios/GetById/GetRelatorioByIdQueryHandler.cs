@@ -24,7 +24,9 @@ namespace SistemaGestaoTCC.Application.Queries.Relatorios.GetById
                 relatorio.Descricao,
                 relatorio.DuracaoEncontro,
                 relatorio.DataRealizacao,
-                relatorio.CriadoEm
+                relatorio.CriadoEm,
+                relatorio.IdUsuarioNavigation?.Nome,
+                relatorio.IdProjetoNavigation?.Nome
             );
 
             return relatorioViewModel;
