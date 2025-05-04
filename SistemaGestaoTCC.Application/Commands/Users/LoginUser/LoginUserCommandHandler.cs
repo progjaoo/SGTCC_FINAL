@@ -34,7 +34,7 @@ namespace SistemaGestaoTCC.Application.Commands.Users.LoginUser
 
             var token = _authService.GenerateJwtToken(user.Email, user.Papel.ToString());
 
-            return new LoginUserViewModel(user.Email, token, user.Id, user.IdCurso, user.Papel);
+            return new LoginUserViewModel(user.Email, token, user.Id, user.IdCurso ?? 0, user.Papel);
         }
     }
 }

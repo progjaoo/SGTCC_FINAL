@@ -9,6 +9,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using Google.Apis.Auth;
 
 
 
@@ -163,6 +164,46 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
             await _passwordResetTokenRepository.DeleteTokenAsync(token);
 
             return user;
+        }
+
+        public async Task<string> GoogleLoginAsync(string idToken)
+        {
+            var payload = await GoogleJsonWebSignature.ValidateAsync(idToken);
+
+            // Verifica se o usuário já existe
+            var existingUser = await _userRepository.GetUserByEmailAsync(payload.Email);
+            if (existingUser == null)
+            {
+                // Cria novo usuário com base no Google
+                var novoUsuario = new Usuario(
+                    idCurso: 1, // ou outro curso padrão
+                    nome: payload.Name,
+                    email: payload.Email,
+                    senha: "", // sem senha já que é login social
+                    papel: (PapelEnum)1 // ou outro papel padrão
+                );
+                await _userRepository.UpdateAsync(novoUsuario);
+                existingUser = novoUsuario;
+            }
+
+            // Gera token JWT
+            var token = GenerateJwtToken(existingUser.Email, existingUser.Papel.ToString());
+            return token;
+        }
+        public async Task<(string Email, string Name)> GetGoogleUserInfoAsync(string idToken)
+        {
+            try
+            {
+                // Validar o token do Google e obter as informações do usuário
+                var payload = await GoogleJsonWebSignature.ValidateAsync(idToken);
+
+                // Retornar o e-mail e o nome do usuário
+                return (payload.Email, payload.Name);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao validar o token do Google: " + ex.Message);
+            }
         }
     }
 }

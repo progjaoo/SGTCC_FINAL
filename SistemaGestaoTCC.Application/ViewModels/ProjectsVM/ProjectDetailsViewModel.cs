@@ -59,7 +59,7 @@ namespace SistemaGestaoTCC.Application.ViewModels
                     IdUsuario = u.IdUsuario,
                     Funcao = u.Funcao,
                     Nome = u.IdUsuarioNavigation.Nome,
-                    IdCurso = u.IdUsuarioNavigation.IdCurso,
+                    IdCurso = u.IdUsuarioNavigation.IdCurso ?? 0,
                     Imagem = u.IdUsuarioNavigation.IdImagemNavigation != null
                                     ? new ArquivoViewModel(
                                         u.IdUsuarioNavigation.IdImagemNavigation.Id,

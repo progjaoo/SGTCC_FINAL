@@ -20,5 +20,6 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task LoadCursoAsync(Usuario user);
         Task<Usuario> GetUserByEmailAsync(string email);
         Task<Usuario> GetByIdAsync(int id);
+        Task AddAsync(Usuario usuario);
     }
 }

@@ -18,7 +18,7 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
             var listUser = await _userRepository.GetAllUserByCourse(request.Query);
 
             var listUserViewModel = listUser
-                .Select(u => new UserViewModel(u.Id, u.Nome, u.Email, u.IdCurso, u.IdCursoNavigation.Nome, u.Papel, u.IdImagemNavigation)).ToList();
+                .Select(u => new UserViewModel(u.Id, u.Nome, u.Email, u.IdCurso ?? 0, u.IdCursoNavigation.Nome, u.Papel, u.IdImagemNavigation)).ToList();
 
             return listUserViewModel;
         }

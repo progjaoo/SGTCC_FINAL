@@ -9,7 +9,7 @@ namespace SistemaGestaoTCC.Core.Models;
 public partial class Usuario
 {
     public Usuario(
-        int idCurso,
+        int? idCurso,
         string nome,
         string email,
         string senha,
@@ -27,7 +27,7 @@ public partial class Usuario
     }
     public int Id { get; set; }
 
-    public int IdCurso { get; set; }
+    public int? IdCurso { get; set; }
 
     public string Nome { get; set; }
 
@@ -57,9 +57,9 @@ public partial class Usuario
 
     public virtual ICollection<Duvida> Duvida { get; set; } = new List<Duvida>();
 
-    public virtual Curso IdCursoNavigation { get; set; }
+    public virtual Curso? IdCursoNavigation { get; set; }
 
-    public virtual Arquivo IdImagemNavigation { get; set; }
+    public virtual Arquivo? IdImagemNavigation { get; set; }
 
     public virtual ICollection<NotaDocumentoAluno> NotaDocumentoAlunos { get; set; } = new List<NotaDocumentoAluno>();
 

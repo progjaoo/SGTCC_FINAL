@@ -12,5 +12,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
 
         Task<bool> SendPasswordResetEmailAsync(string userEmail);
         Task<Usuario> ResetPasswordAsync(string token, string newPassword);
+        Task<string> GoogleLoginAsync(string idToken);
+        Task<(string Email, string Name)> GetGoogleUserInfoAsync(string idToken);
     }
 }

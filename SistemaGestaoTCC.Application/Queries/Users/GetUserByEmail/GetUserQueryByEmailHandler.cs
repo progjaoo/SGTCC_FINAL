@@ -27,7 +27,7 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetUserByEmail
                 return null;
             }
 
-            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso, user.IdCursoNavigation.Nome, user.Papel, user.IdImagemNavigation);
+            return new UserViewModel(user.Id, user.Nome, user.Email, user.IdCurso ?? 0, user.IdCursoNavigation.Nome, user.Papel, user.IdImagemNavigation);
         }
     }
 }

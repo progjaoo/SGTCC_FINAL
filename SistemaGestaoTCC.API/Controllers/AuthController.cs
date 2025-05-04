@@ -7,6 +7,10 @@ using SistemaGestaoTCC.Application.Queries.Users.GetUserByEmail;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Infrastructure;
 using System.Security.Claims;
+using SistemaGestaoTCC.Core.Models;
+using SistemaGestaoTCC.Core.Enums;
+using System.Security.Cryptography;
+using System.Text;
 
 [Route("api/auth")]
 [ApiController]
@@ -125,26 +129,103 @@ public class AuthController : ControllerBase
         return Challenge(properties, GoogleDefaults.AuthenticationScheme);
     }
 
+    [HttpPost("google-login")]
+    public async Task<IActionResult> GoogleLogin([FromBody] string idToken)
+    {
+        try
+        {
+            Console.WriteLine($"Recebido idToken: {idToken}");
+
+            var googleUserInfo = await _authService.GetGoogleUserInfoAsync(idToken);
+            if (googleUserInfo.Email == null || googleUserInfo.Name == null)
+            {
+                return BadRequest(new { error = "Token inválido ou não foi possível obter informações do usuário." });
+            }
+
+            var existingUser = await _userRepository.GetUserByEmailAsync(googleUserInfo.Email);
+            if (existingUser == null)
+            {
+                var newUser = new Usuario(
+                    idCurso: 1,
+                    nome: googleUserInfo.Name,
+                    email: googleUserInfo.Email,
+                    senha: null,
+                    papel: PapelEnum.Aluno
+                );
+
+                await _userRepository.AddAsync(newUser);
+                existingUser = newUser;
+            }
+
+            var jwtToken = _authService.GenerateJwtToken(existingUser.Email, existingUser.Papel.ToString());
+            return Ok(new { token = jwtToken });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro no GoogleLogin: {ex.InnerException?.Message ?? ex.Message}");
+            return StatusCode(500, new { error = ex.InnerException?.Message ?? ex.Message });
+        }
+    }
+    public static string GerarSenhaAleatoria(int tamanho)
+    {
+        const string caracteresPermitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:,.<>?";
+        var senha = new StringBuilder();
+        using (var rng = RandomNumberGenerator.Create())
+        {
+            var buffer = new byte[1];
+            while (senha.Length < tamanho)
+            {
+                rng.GetBytes(buffer);
+                var indice = buffer[0] % caracteresPermitidos.Length;
+                senha.Append(caracteresPermitidos[indice]);
+            }
+        }
+        return senha.ToString();
+    }
+
     [HttpGet("google/callback")]
     public async Task<IActionResult> GoogleResponse()
     {
+
         var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
         if (!result.Succeeded)
             return BadRequest("Erro na autenticação com o Google");
 
-        var claims = result.Principal.Identities
-            .FirstOrDefault()?.Claims.Select(claim => new
-            {
-                claim.Type,
-                claim.Value
-            });
-
-        // Aqui você pode pegar o e-mail, nome etc.
+        // Obter as informações do usuário a partir dos claims
         var email = result.Principal.FindFirst(ClaimTypes.Email)?.Value;
         var name = result.Principal.FindFirst(ClaimTypes.Name)?.Value;
 
-        // TODO: verificar se usuário já existe, cadastrar ou gerar token JWT
-        return Ok(new { email, name });
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(name))
+            return BadRequest("Não foi possível obter as informações do usuário.");
+
+        try
+        {
+            // Verificar se o usuário já existe no banco de dados
+            var existingUser = await _userRepository.GetUserByEmailAsync(email);
+            if (existingUser == null)
+            {
+                // Criar um novo usuário
+                var newUser = new Usuario(
+                    idCurso: 1, // Ajuste conforme necessário
+                    nome: name,
+                    email: email,
+                    senha: GerarSenhaAleatoria(255), // Senha não é necessária para login com Google
+                    papel: PapelEnum.Aluno // Ajuste o papel conforme necessário
+                );
+
+                await _userRepository.AddAsync(newUser);
+
+                existingUser = newUser;
+            }
+
+            // Gerar um token JWT para o usuário
+            var jwtToken = _authService.GenerateJwtToken(existingUser.Email, existingUser.Papel.ToString());
+            return Ok(new { token = jwtToken });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
     }
 }

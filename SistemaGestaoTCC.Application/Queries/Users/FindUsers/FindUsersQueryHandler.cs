@@ -32,7 +32,7 @@ namespace SistemaGestaoTCC.Application.Queries.Users.FindUsers
                     lists.Nome,
                     lists.Email,
                     lists.Papel,
-                    lists.IdCurso,
+                    lists.IdCurso ?? 0,
                     lists.IdCursoNavigation?.Nome
                 ));
             }

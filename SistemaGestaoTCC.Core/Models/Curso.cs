@@ -26,7 +26,7 @@ public partial class Curso
 
     public DateTime? EditadoEm { get; set; }
 
-    public virtual Arquivo IdImagemNavigation { get; set; }
+    public virtual Arquivo? IdImagemNavigation { get; set; }
 
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
     public void UpdateCourse(string nome, string descricao)

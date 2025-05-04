@@ -108,8 +108,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<Usuario> GetUserByEmailAsync(string email)
         {
             return await _dbcontext.Usuario
-                .Include(u => u.IdImagemNavigation)
-                .Include(u => u.IdCursoNavigation)
+                .Include(u => u.IdCursoNavigation) // Inclui a navegação
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
         public async Task<Usuario> GetByIdAsync(int id)
@@ -129,5 +128,32 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         //    await _dbcontext.SaveChangesAsync();
         //    return true;
         //}
+        //public async Task AddAsync(Usuario usuario)
+        //{
+        //    if (usuario == null)
+        //    {
+        //        throw new ArgumentNullException(nameof(usuario), "O usuário não pode ser nulo.");
+        //    }
+
+        //    await _dbcontext.Usuario.AddAsync(usuario);
+        //    await _dbcontext.SaveChangesAsync();
+        //}
+        public async Task AddAsync(Usuario usuario)
+        {
+            try
+            {
+                if (usuario == null)
+                    throw new ArgumentNullException(nameof(usuario), "O usuário não pode ser nulo.");
+
+                await _dbcontext.Usuario.AddAsync(usuario);
+                await _dbcontext.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine($"Erro ao salvar no banco de dados: {ex.InnerException?.Message ?? ex.Message}");
+                throw;
+            }
+        }
+
     }
 }

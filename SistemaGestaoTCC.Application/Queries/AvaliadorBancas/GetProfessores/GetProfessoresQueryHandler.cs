@@ -30,7 +30,7 @@ namespace SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetProfessores
                     professor.Nome,
                     professor.Email,
                     professor.Papel,
-                    professor.IdCurso,
+                    professor.IdCurso ?? 0,
                     professor.IdCursoNavigation?.Nome
                 ));
             }
