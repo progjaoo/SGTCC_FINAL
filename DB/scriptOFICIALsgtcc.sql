@@ -46,7 +46,7 @@ CREATE TABLE [Proposta] (
 	[Id] INT NOT NULL IDENTITY UNIQUE,
 	[IdProjeto] INT NOT NULL,
 	[AtividadesPropostas] CHAR(800) NOT NULL,
-	[ContribuicaoAgenda] DATETIME NOT NULL,
+	[ContribuicaoAgenda] CHAR(500) NOT NULL,
 	[Parecer] INT NOT NULL,
 	[Sugestao] CHAR(500),
 	[CriadoEm] DATETIME NOT NULL,
