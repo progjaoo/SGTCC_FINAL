@@ -82,7 +82,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
-        [HttpGet("GerarPDFCarteirinha")]
+        [HttpGet("GerarPdfRelatorio")]
         public async Task<IActionResult> GerarPDFCarteirinha(int idRelatorio)
         {
             var result = await _mediator.Send(new GerarRelatorioPdfCommand(idRelatorio));

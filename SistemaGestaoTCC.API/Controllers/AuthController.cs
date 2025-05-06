@@ -140,11 +140,9 @@ public class AuthController : ControllerBase
                 claim.Value
             });
 
-        // Aqui você pode pegar o e-mail, nome etc.
         var email = result.Principal.FindFirst(ClaimTypes.Email)?.Value;
         var name = result.Principal.FindFirst(ClaimTypes.Name)?.Value;
 
-        // TODO: verificar se usuário já existe, cadastrar ou gerar token JWT
         return Ok(new { email, name });
     }
 }

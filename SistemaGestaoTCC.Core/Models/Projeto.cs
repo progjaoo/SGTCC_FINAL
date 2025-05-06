@@ -15,6 +15,8 @@ public partial class Projeto
         Justificativa = justificativa;
         DataInicio = DateTime.UtcNow;
         CriadoEm = DateTime.UtcNow;
+
+        PropostaAprovada = 2;
     }
     public int Id { get; set; }
 
