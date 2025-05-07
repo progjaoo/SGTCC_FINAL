@@ -4,6 +4,7 @@ using SistemaGestaoTCC.Application.Commands.UsuariosProjeto.RemoverUsuarioProjet
 using SistemaGestaoTCC.Application.Commands.UsuariosProjeto;
 using SistemaGestaoTCC.Application.Queries.UsuariosProjeto;
 using SistemaGestaoTCC.Application.Commands.UsuariosProjeto.ResponderConviteProjeto;
+using SistemaGestaoTCC.Application.Commands.UsuariosProjeto.GetInvitesByUserId;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -29,6 +30,15 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(user);
         }
+        [HttpGet("convitesUsuario/{idUsuario}")]
+        public async Task<IActionResult> GetInvitesByUserId(int idUsuario)
+        {
+            var query = new GetInvitesByUserIdCommand(idUsuario);
+
+            var user = await _mediator.Send(query);
+
+            return Ok(user);
+        }
         [HttpPost("responderConviteProjeto")]
         public async Task<IActionResult> Post([FromBody] ResponderConviteProjetoCommand command)
         {
@@ -47,8 +57,8 @@ namespace SistemaGestaoTCC.API.Controllers
         [HttpDelete("removerUsuarioDeProjeto")]
         public async Task<IActionResult> RemoverUsuarioProjeto(RemoveUserCommand command)
         {
-            await _mediator.Send(command);  
-            
+            await _mediator.Send(command);
+
             return NoContent();
         }
     }
