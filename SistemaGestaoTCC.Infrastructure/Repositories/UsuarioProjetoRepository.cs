@@ -32,6 +32,15 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             .Where(p => listUserProject.Contains(p.Id))
             .ToListAsync();
         }
+        public async Task<List<UsuarioProjeto>> GetAllInvitesByUserId(int userId)
+        {
+            return await _dbcontext.UsuarioProjeto
+                .Where(p => p.IdUsuario == userId)
+                .Where(p => p.Estado == ConviteEnum.Pendente)
+                .Include(up => up.IdUsuarioNavigation)
+                    .ThenInclude(u => u.IdImagemNavigation)
+                .ToListAsync();
+        }
         public async Task<List<UsuarioProjeto>> GetAllUsersAndFunctionByProjectId(int id)
         {
             var result = await _dbcontext.UsuarioProjeto
