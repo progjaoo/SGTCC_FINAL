@@ -51,7 +51,7 @@ public partial class ProjetoAtividade ///VAI MUDAR///
         DataInicio = dataInicio;
         DataEntrega = dataEntrega;
         
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
     public void Finish()
     {

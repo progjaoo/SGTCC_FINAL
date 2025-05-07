@@ -178,7 +178,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             if (projeto != null)
             {
                 projeto.Finish();
-                projeto.DataFim = DateTime.UtcNow;
+                projeto.DataFim = DateTime.Now;
                 await _dbcontext.SaveChangesAsync();
             }
         }

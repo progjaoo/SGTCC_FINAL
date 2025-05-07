@@ -16,7 +16,7 @@ public partial class NotaDocumentoAluno
         Nota = nota;
         Tipo = tipo;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
 

@@ -15,7 +15,7 @@ public partial class Proposta
         ContribuicaoAgenda = contribuicaoAgenda;
         Sugestao = sugestao;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
         Parecer = ParecerPropostaEnum.NaoAvaliado;
     }
     public int Id { get; set; }
@@ -34,7 +34,7 @@ public partial class Proposta
         ContribuicaoAgenda = contribuicaoAgenda;
         Sugestao = sugestao;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 
 }

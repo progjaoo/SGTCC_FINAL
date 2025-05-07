@@ -13,7 +13,7 @@ public partial class AtividadeComentario
         IdAtividade = idAtividade;
         Comentario = comentario;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
 
@@ -37,6 +37,6 @@ public partial class AtividadeComentario
         IdAtividade = idAtividade;
         Comentario = comentario;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

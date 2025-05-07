@@ -23,7 +23,7 @@ public partial class Usuario
         Papel = papel;
         EmailVerificado = EmailVerificadoEnum.Não;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
 
@@ -91,14 +91,14 @@ public partial class Usuario
         Nome = nome;
         Email = email;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 
     public void UpdateImage(int idImagem)
     {
         IdImagem = idImagem;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 
 }
