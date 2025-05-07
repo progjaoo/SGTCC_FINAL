@@ -159,6 +159,7 @@ builder.Services.AddScoped<ISeminarioRepository, SeminarioRepository>();
 builder.Services.AddScoped<IRelatorioAcompanhamentoRepository, RelatorioAcompanhamentoRepository>();
 builder.Services.AddScoped<IPropostaRepository, PropostaRepository>();
 builder.Services.AddScoped<IRelatorioPDFGenerator, RelatorioPDFGenerator>();
+builder.Services.AddScoped<IDuvidaRepository, DuvidaRepository>();
 
 
 //service

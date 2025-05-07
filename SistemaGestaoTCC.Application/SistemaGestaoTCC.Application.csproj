@@ -32,8 +32,10 @@
     <Folder Include="Commands\AtividadesComentários\Delete\" />
     <Folder Include="Commands\AtividadesComentários\Update\" />
     <Folder Include="Commands\AtividadesComentários\Create\" />
+    <Folder Include="Commands\Duvidas\ResponderDuvida\" />
     <Folder Include="Queries\AtividadesComentários\GetById\" />
     <Folder Include="Queries\AtividadesComentários\GetAll\" />
+    <Folder Include="Queries\Duvidas\GetAllRespostasByUser\" />
     <Folder Include="Validators\" />
   </ItemGroup>
 

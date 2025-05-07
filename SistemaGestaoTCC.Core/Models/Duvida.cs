@@ -8,6 +8,17 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Duvida
 {
+    public Duvida(int idProjeto, int idUsuario, string texto, VisibilidadeDuvidaEnum visibilidade, RespotaDuvidaEnum atendida)
+    {
+        IdProjeto = idProjeto;
+        IdUsuario = idUsuario;
+        Texto = texto;
+        Visibilidade = visibilidade;
+        Atendida = atendida;
+
+        CriadoEm = DateTime.Now;
+    }
+
     public int Id { get; set; }
 
     public int IdProjeto { get; set; }
@@ -29,4 +40,16 @@ public partial class Duvida
     public virtual Usuario IdUsuarioNavigation { get; set; }
 
     public virtual ICollection<RespostaDuvida> RespostaDuvida { get; set; } = new List<RespostaDuvida>();
+
+    public void Update(int idProjeto, int idUsuario, string texto, VisibilidadeDuvidaEnum visibilidade, RespotaDuvidaEnum atendida)
+    {
+
+        IdProjeto = idProjeto;
+        IdUsuario = idUsuario;
+        Texto = texto;
+        Visibilidade = visibilidade;
+        Atendida = atendida;
+
+        CriadoEm = DateTime.Now;
+    }
 }

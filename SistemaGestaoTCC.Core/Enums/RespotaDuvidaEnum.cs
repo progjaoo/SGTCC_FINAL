@@ -2,7 +2,7 @@
 {
     public enum RespotaDuvidaEnum
     {
-        Sim = 0,
-        Nao = 1
+        Sim = 1,
+        Nao = 0
     }
 }
