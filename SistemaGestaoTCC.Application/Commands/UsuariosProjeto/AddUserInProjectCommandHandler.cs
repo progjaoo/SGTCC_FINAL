@@ -27,7 +27,7 @@ namespace SistemaGestaoTCC.Application.Commands.UsuariosProjeto
             var usuariosAtivos = await _usuarioProjetoRepository.GetAllUsersActiveInProjectById(request.IdProjeto);
             foreach (var usuarioAtivo in usuariosAtivos)
             {
-                if (usuarioAtivo.Id == request.IdUsuario) {
+                if (usuarioAtivo.IdUsuario == request.IdUsuario) {
                     throw new Exception("Usuário já faz parte do projeto");
                 }
 
