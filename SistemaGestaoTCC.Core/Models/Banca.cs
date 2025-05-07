@@ -18,7 +18,7 @@ public partial class Banca
         ObservacaoAluno = observacaoAluno;
         Recomendacao = recomendacao;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
 

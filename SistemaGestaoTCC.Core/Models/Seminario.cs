@@ -13,7 +13,7 @@ public partial class Seminario
         Requisitos = requisitos;
         Data = data;
         
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
 
     public int Id { get; set; }
@@ -36,6 +36,6 @@ public partial class Seminario
         IdUsuario = idUsuario;
         Requisitos = requisitos;
         Data = data;
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

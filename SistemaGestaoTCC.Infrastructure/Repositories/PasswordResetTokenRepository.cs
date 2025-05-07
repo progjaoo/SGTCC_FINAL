@@ -23,7 +23,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             {
                 UserId = userId,
                 Token = Guid.NewGuid().ToString(),
-                ExpirationDate = DateTime.UtcNow.AddHours(1)
+                ExpirationDate = DateTime.Now.AddHours(1)
             };
 
             _context.PasswordResetTokens.Add(token);
@@ -34,7 +34,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<PasswordResetToken> GetByTokenAsync(string token)
         {
             return await _context.PasswordResetTokens
-                .FirstOrDefaultAsync(t => t.Token == token && t.ExpirationDate > DateTime.UtcNow);
+                .FirstOrDefaultAsync(t => t.Token == token && t.ExpirationDate > DateTime.Now);
         }
 
         public async Task DeleteTokenAsync(string token)

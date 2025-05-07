@@ -14,7 +14,7 @@ public partial class ProjetoAvaliacaoPublica
         IdProjeto = idProjeto;
         Avaliacao = avaliacao;
 
-        DataAvaliacao = DateTime.UtcNow;
+        DataAvaliacao = DateTime.Now;
     }
     public int Id { get; set; }
 

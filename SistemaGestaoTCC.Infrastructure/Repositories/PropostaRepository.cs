@@ -52,7 +52,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             }
 
             proposta.Parecer = novoParecer;
-            proposta.EditadoEm = DateTime.UtcNow;
+            proposta.EditadoEm = DateTime.Now;
 
             if (proposta.IdProjetoNavigation != null)
             {

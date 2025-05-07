@@ -12,7 +12,7 @@ public partial class SeminarioProjeto
         IdSeminario = idSeminario;
         IdProjeto = idProjeto;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
     public int IdSeminario { get; set; }
@@ -27,6 +27,6 @@ public partial class SeminarioProjeto
         IdSeminario = idSeminario;
         IdProjeto = idProjeto;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

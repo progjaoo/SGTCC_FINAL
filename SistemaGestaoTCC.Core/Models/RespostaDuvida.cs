@@ -13,7 +13,7 @@ public partial class RespostaDuvida
         IdUsuario = idUsuario;
         Texto = texto;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
 

@@ -14,8 +14,8 @@ public partial class ProjetoEntrega
         DataLimite = dataLimite;
         Entregue = entregue;
 
-        DataEnvio = DateTime.UtcNow;
-        CriadoEm = DateTime.UtcNow;
+        DataEnvio = DateTime.Now;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
 
@@ -40,6 +40,6 @@ public partial class ProjetoEntrega
         DataLimite = dataLimite;
         Entregue = entregue;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

@@ -21,7 +21,7 @@ namespace SistemaGestaoTCC.Application.Commands.ProjetoAtividades.UpdateStatus
             }
 
             atividade.Estado = request.NovoEstado;
-            atividade.EditadoEm = DateTime.UtcNow;
+            atividade.EditadoEm = DateTime.Now;
 
             await _projetoAtividadeRepository.AtualizarEstadoAsync(atividade);
             return true;

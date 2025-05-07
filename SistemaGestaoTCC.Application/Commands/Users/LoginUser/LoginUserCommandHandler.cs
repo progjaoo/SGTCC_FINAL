@@ -29,7 +29,7 @@ namespace SistemaGestaoTCC.Application.Commands.Users.LoginUser
                 throw new Exception("Usuário nao verificado");
             }
 
-            user.UltimoAcesso = DateTime.UtcNow;
+            user.UltimoAcesso = DateTime.Now;
             await _userRepository.UpdateAsync(user);
 
             var token = _authService.GenerateJwtToken(user.Email, user.Papel.ToString());

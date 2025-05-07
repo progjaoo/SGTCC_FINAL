@@ -15,7 +15,7 @@ public partial class Bibliografia
         Referencia = referencia;
         AcessadoEm = acessadoEm;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
 
     public int Id { get; set; }
@@ -45,6 +45,6 @@ public partial class Bibliografia
         Referencia = referencia;
         AcessadoEm = acessadoEm;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

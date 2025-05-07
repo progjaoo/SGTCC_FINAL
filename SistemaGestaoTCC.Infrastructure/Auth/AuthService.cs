@@ -70,7 +70,7 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
             var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
-                expires: DateTime.UtcNow.AddMinutes(120),
+                expires: DateTime.Now.AddMinutes(120),
                 signingCredentials: credentials,
                 claims: claims);
 
@@ -122,7 +122,7 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
         public async Task<Usuario> ActivateAccountAsync(string token)
         {
             var tokenObj = await _activationTokenRepository.GetTokenAsync(token);
-            if (tokenObj == null || tokenObj.ExpirationDate < DateTime.UtcNow)
+            if (tokenObj == null || tokenObj.ExpirationDate < DateTime.Now)
                 return null; // Token inválido ou expirado
 
             var user = await _userRepository.GetByIdAsync(tokenObj.UserId);
@@ -130,7 +130,7 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
                 return null;
 
             user.EmailVerificado = EmailVerificadoEnum.Sim;
-            user.EditadoEm = DateTime.UtcNow;
+            user.EditadoEm = DateTime.Now;
             await _userRepository.UpdateAsync(user);
 
             await _activationTokenRepository.RemoveTokenAsync(token);
