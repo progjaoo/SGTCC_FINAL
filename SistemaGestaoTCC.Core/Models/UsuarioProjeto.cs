@@ -35,10 +35,10 @@ public partial class UsuarioProjeto
         bool eMaisVelho = (DateTime.Now - this.EnviadoEm).TotalDays > diasMaximos;
         if (eMaisVelho)
         {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
     public int Id { get; set; }
     public int IdUsuario { get; set; }

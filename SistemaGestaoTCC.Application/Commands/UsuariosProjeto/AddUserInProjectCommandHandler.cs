@@ -24,6 +24,15 @@ namespace SistemaGestaoTCC.Application.Commands.UsuariosProjeto
         }
         public async Task<int> Handle(AddUserInProjectCommand request, CancellationToken cancellationToken)
         {
+            var usuariosAtivos = await _usuarioProjetoRepository.GetAllUsersActiveInProjectById(request.IdProjeto);
+            foreach (var usuarioAtivo in usuariosAtivos)
+            {
+                if (usuarioAtivo.Id == request.IdUsuario) {
+                    throw new Exception("Usuário já faz parte do projeto");
+                }
+
+            }
+
             var userProject = new UsuarioProjeto(request.IdUsuario, request.IdProjeto, request.Funcao);
 
             await _usuarioProjetoRepository.AddASync(userProject);
@@ -62,8 +71,6 @@ namespace SistemaGestaoTCC.Application.Commands.UsuariosProjeto
                     </div>
                 </body>
             </html>";
-
-
 
             bool emailSent = await _emailService.SendEmailAsync(usuario.Email, subject, body);
             if (!emailSent)
