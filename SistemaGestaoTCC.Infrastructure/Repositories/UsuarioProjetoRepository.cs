@@ -26,7 +26,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
         public async Task<List<Usuario>> GetAllByProjectId(int id)
         {
-            var listUserProject = await _dbcontext.UsuarioProjeto.Where(up => up.IdProjeto == id).Select(up => up.IdUsuario).ToListAsync();
+            var listUserProject = await _dbcontext.UsuarioProjeto.Where(up => up.IdProjeto == id && up.AdicionadoEm.HasValue).Select(up => up.IdUsuario).ToListAsync();
 
             return await _dbcontext.Usuario
             .Where(p => listUserProject.Contains(p.Id))
@@ -38,13 +38,14 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Where(p => p.IdUsuario == userId)
                 .Where(p => p.Estado == ConviteEnum.Pendente)
                 .Include(up => up.IdUsuarioNavigation)
+                .Include(up => up.IdProjetoNavigation)
                     .ThenInclude(u => u.IdImagemNavigation)
                 .ToListAsync();
         }
         public async Task<List<UsuarioProjeto>> GetAllUsersAndFunctionByProjectId(int id)
         {
             var result = await _dbcontext.UsuarioProjeto
-                .Where(up => up.IdProjeto == id)
+                .Where(up => up.IdProjeto == id && up.AdicionadoEm.HasValue)
                 .Include(up => up.IdUsuarioNavigation)
                     .ThenInclude(u => u.IdImagemNavigation)
                 .ToListAsync();

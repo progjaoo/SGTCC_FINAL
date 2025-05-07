@@ -41,6 +41,7 @@ namespace SistemaGestaoTCC.Application.Commands.UsuariosProjeto.ResponderConvite
 
             if (userProject.EstaExpirado())
             {
+
                 userProject.Estado = ConviteEnum.Expirado;
                 await _usuarioProjetoRepository.SaveChangesAsync();
                 throw new Exception($"Convite expirado!");
@@ -51,14 +52,16 @@ namespace SistemaGestaoTCC.Application.Commands.UsuariosProjeto.ResponderConvite
                 throw new Exception($"Convite já foi respondido!");
             }
 
+            userProject.AdicionadoEm = DateTime.Now;
 
             userProject.Estado = request.Resposta;
 
             var usuarios = await _usuarioProjetoRepository.GetAllByProjectId(userProject.IdProjeto);
-
+            
             await _usuarioProjetoRepository.SaveChangesAsync();
             if (request.Resposta == ConviteEnum.Aceito)
             {
+                userProject.AdicionadoEm = DateTime.Now;
                 await this.EnviaEmail(usuarios, userProject);
             }
 

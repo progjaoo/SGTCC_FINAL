@@ -127,12 +127,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
         public async Task<List<Projeto>> GetAllActiveByUserAsync(int id)
         {
-            var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Select(p => p.IdProjeto);
+            var idsProjetos = (await _usuarioProjetoRepository.GetAllByUserId(id)).Where(p => p.AdicionadoEm != null).Select(p => p.IdProjeto);
 
             return await _dbcontext.Projeto
                 .Where(p => idsProjetos.Contains(p.Id) && p.Estado != Core.Enums.StatusProjeto.Canceled && p.Estado != StatusProjeto.Finished)
                 .Include(p => p.ProjetoTags)
-                .Include(p => p.UsuarioProjetos)
+                .Include(p => p.UsuarioProjetos )
                 .ThenInclude(up => up.IdUsuarioNavigation)
                 .Include(c => c.IdImagemNavigation)
                 .ToListAsync();

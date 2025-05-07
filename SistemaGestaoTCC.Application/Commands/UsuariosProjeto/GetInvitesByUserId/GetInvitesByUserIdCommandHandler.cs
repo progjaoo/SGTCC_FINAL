@@ -25,7 +25,8 @@ namespace SistemaGestaoTCC.Application.Commands.UsuariosProjeto.GetInvitesByUser
                 u.IdUsuarioNavigation.Papel,
                 u.Funcao,
                 u.Estado,
-                u.IdUsuarioNavigation.IdImagemNavigation
+                u.IdUsuarioNavigation.IdImagemNavigation,
+                u.IdProjetoNavigation?.Nome,u.Id
             )).ToList();
 
             return listUserProjectViewModel;

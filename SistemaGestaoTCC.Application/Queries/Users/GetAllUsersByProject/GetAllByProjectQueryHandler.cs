@@ -32,7 +32,8 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
                 u.IdUsuarioNavigation.Papel,
                 u.Funcao,
                 u.Estado,
-                u.IdUsuarioNavigation.IdImagemNavigation
+                u.IdUsuarioNavigation.IdImagemNavigation,
+                u.IdProjetoNavigation?.Nome
             )).ToList();
 
             return listUserProjectViewModel;

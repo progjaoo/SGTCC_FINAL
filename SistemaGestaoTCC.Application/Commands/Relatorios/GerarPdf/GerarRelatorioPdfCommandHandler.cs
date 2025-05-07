@@ -1,13 +1,5 @@
-﻿using AutoMapper.Execution;
-using MediatR;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
+﻿using MediatR;
 using SistemaGestaoTCC.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemaGestaoTCC.Application.Commands.Relatorios.GerarPdf
 {
@@ -27,7 +19,7 @@ namespace SistemaGestaoTCC.Application.Commands.Relatorios.GerarPdf
 
             if (relatorio == null)
             {
-                throw new Exception("relat[orio não encontrado.");
+                throw new Exception("relatório não encontrado.");
             }
 
             return await _pdfGenerator.GenerateRelatorioPDFAsync(relatorio);

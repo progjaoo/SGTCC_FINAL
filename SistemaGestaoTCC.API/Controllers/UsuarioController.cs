@@ -189,10 +189,9 @@ namespace SistemaGestaoTCC.API.Controllers
                 throw new Exception("Erro ao decodificar token JWT: " + ex.Message);
             }
         }
-        [HttpPut("{id}/atualizarUsuario")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserCommand command)
+        [HttpPut("atualizarUsuario")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
         {
-            command.Id = id;
             await _mediator.Send(command);
 
             return NoContent();
