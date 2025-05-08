@@ -81,7 +81,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
-        [HttpDelete("deletarDuvida")]
+        [HttpDelete("{id}/deletarDuvida")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteDuvidaCommand(id);
