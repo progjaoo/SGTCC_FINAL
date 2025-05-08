@@ -33,7 +33,7 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
                 u.Funcao,
                 u.Estado,
                 u.IdUsuarioNavigation.IdImagemNavigation,
-                u.IdProjetoNavigation?.Nome
+                u.IdProjetoNavigation?.Nome,u.Id
             )).ToList();
 
             return listUserProjectViewModel;

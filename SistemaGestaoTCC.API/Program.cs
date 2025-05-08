@@ -166,6 +166,8 @@ builder.Services.AddScoped<IRespostaDuvidaRepository, RespostaDuvidaRepository>(
 //service
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSignalR();
+builder.Services.AddScoped<INotificacaoService, NotificacaoService>();
+builder.Services.AddHostedService<NotificacaoBackgroundService>();
 
 
 #endregion

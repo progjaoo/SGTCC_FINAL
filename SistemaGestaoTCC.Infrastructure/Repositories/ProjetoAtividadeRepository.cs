@@ -14,7 +14,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         }
         public async Task<List<ProjetoAtividade>> GetAllAsync()
         {
-            return await _dbContext.ProjetoAtividade.ToListAsync();
+            return await _dbContext.ProjetoAtividade
+                .Include(a => a.IdUsuarioNavigation)
+                .ToListAsync();
         }
         public async Task<List<ProjetoAtividade>> GetByStatusAsync(ProjetoAtividadeEnum status, int idProjeto)
         {
