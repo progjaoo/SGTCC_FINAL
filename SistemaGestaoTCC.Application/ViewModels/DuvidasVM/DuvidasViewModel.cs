@@ -9,7 +9,7 @@ namespace SistemaGestaoTCC.Application.ViewModels.DuvidasVM
 {
     public class DuvidasViewModel
     {
-        public DuvidasViewModel(int id, int idProjeto, int idUsuario, string texto, VisibilidadeDuvidaEnum visibilidade, RespotaDuvidaEnum atendida, DateTime criadoEm)
+        public DuvidasViewModel(int id, int idProjeto, int idUsuario, string texto, VisibilidadeDuvidaEnum visibilidade, RespotaDuvidaEnum atendida, DateTime criadoEm, string? nomeUsuario = null)
         {
             Id = id;
             IdProjeto = idProjeto;
@@ -18,6 +18,9 @@ namespace SistemaGestaoTCC.Application.ViewModels.DuvidasVM
             Visibilidade = visibilidade;
             Atendida = atendida;
             CriadoEm = criadoEm;
+
+            NomeUsuario = nomeUsuario;
+
         }
 
         public int Id { get; set; }
@@ -27,5 +30,6 @@ namespace SistemaGestaoTCC.Application.ViewModels.DuvidasVM
         public VisibilidadeDuvidaEnum Visibilidade { get; set; }
         public RespotaDuvidaEnum Atendida { get; set; }
         public DateTime CriadoEm { get; set; }
+        public string NomeUsuario { get; set; }
     }
 }

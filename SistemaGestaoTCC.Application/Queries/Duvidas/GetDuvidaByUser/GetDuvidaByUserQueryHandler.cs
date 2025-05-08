@@ -27,7 +27,8 @@ namespace SistemaGestaoTCC.Application.Queries.Duvidas.GetDuvidaByUser
             {
                 throw new Exception("Nenhuma dúvida encontrada para este usuário");
             }
-            var duvidasViewModel = duvidas.Select(duvida => new DuvidasViewModel(duvida.Id, duvida.IdProjeto, duvida.IdUsuario, duvida.Texto, duvida.Visibilidade, duvida.Atendida, duvida.CriadoEm)).ToList();
+            var duvidasViewModel = duvidas.Select(duvida => new DuvidasViewModel(duvida.Id, duvida.IdProjeto, duvida.IdUsuario, 
+                duvida.Texto, duvida.Visibilidade, duvida.Atendida, duvida.CriadoEm, duvida.IdUsuarioNavigation.Nome)).ToList();
 
             return duvidasViewModel;
         }

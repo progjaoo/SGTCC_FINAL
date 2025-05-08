@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 
@@ -63,6 +64,19 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
         public async Task SaveChangesAsync()
         {
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task MarcarComoAtendidaAsync(int idDuvida)
+        {
+            var duvida = await _context.Duvida.FindAsync(idDuvida);
+            if (duvida == null)
+                throw new Exception("Dúvida não encontrada");
+
+            duvida.Atendida = RespotaDuvidaEnum.Sim;
+            duvida.EditadoEm = DateTime.Now;
+
+            _context.Duvida.Update(duvida);
             await _context.SaveChangesAsync();
         }
     }

@@ -8,13 +8,12 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class Duvida
 {
-    public Duvida(int idProjeto, int idUsuario, string texto, VisibilidadeDuvidaEnum visibilidade, RespotaDuvidaEnum atendida)
+    public Duvida(int idProjeto, int idUsuario, string texto, VisibilidadeDuvidaEnum visibilidade)
     {
         IdProjeto = idProjeto;
         IdUsuario = idUsuario;
         Texto = texto;
         Visibilidade = visibilidade;
-        Atendida = atendida;
 
         CriadoEm = DateTime.Now;
     }
@@ -41,14 +40,13 @@ public partial class Duvida
 
     public virtual ICollection<RespostaDuvida> RespostaDuvida { get; set; } = new List<RespostaDuvida>();
 
-    public void Update(int idProjeto, int idUsuario, string texto, VisibilidadeDuvidaEnum visibilidade, RespotaDuvidaEnum atendida)
+    public void Update(int idProjeto, int idUsuario, string texto, VisibilidadeDuvidaEnum visibilidade)
     {
 
         IdProjeto = idProjeto;
         IdUsuario = idUsuario;
         Texto = texto;
         Visibilidade = visibilidade;
-        Atendida = atendida;
 
         CriadoEm = DateTime.Now;
     }

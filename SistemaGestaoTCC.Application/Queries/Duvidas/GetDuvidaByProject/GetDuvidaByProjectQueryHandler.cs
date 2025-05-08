@@ -19,7 +19,8 @@ namespace SistemaGestaoTCC.Application.Queries.Duvidas.GetDuvidaByProject
             {
                 throw new Exception("Nenhuma dúvida encontrada para o projeto");
             }
-            var duvidasViewModel = duvidas.Select(duvida => new DuvidasViewModel(duvida.Id, duvida.IdProjeto, duvida.IdUsuario, duvida.Texto, duvida.Visibilidade, duvida.Atendida, duvida.CriadoEm)).ToList();
+            var duvidasViewModel = duvidas.Select(duvida => new DuvidasViewModel(duvida.Id, duvida.IdProjeto, duvida.IdUsuario, duvida.Texto, 
+                duvida.Visibilidade, duvida.Atendida, duvida.CriadoEm, duvida.IdUsuarioNavigation.Nome)).ToList();
 
             return duvidasViewModel;
         }

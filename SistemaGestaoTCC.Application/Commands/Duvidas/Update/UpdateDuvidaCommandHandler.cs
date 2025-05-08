@@ -25,7 +25,7 @@ namespace SistemaGestaoTCC.Application.Commands.Duvidas.Update
             {
                 throw new Exception("Dúvida não encontrada");
             }
-            duvida.Update(request.IdProjeto, request.IdUsuario,request.Texto, request.Visibilidade, request.Atendida);
+            duvida.Update(request.IdProjeto, request.IdUsuario,request.Texto, request.Visibilidade);
 
             await _duvidaRepository.SaveChangesAsync();
 

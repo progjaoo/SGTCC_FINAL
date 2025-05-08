@@ -20,7 +20,8 @@ namespace SistemaGestaoTCC.Application.Queries.Duvidas.GetById
             {
                 throw new Exception("Dúvida não encontrada");
             }
-            var duvidasViewModel = new DuvidasViewModel(duvida.Id, duvida.IdProjeto, duvida.IdUsuario, duvida.Texto, duvida.Visibilidade, duvida.Atendida, duvida.CriadoEm);
+            var duvidasViewModel = new DuvidasViewModel(duvida.Id, duvida.IdProjeto, duvida.IdUsuario, duvida.Texto,
+                duvida.Visibilidade, duvida.Atendida, duvida.CriadoEm, duvida.IdUsuarioNavigation.Nome);
 
             return duvidasViewModel;
         }
