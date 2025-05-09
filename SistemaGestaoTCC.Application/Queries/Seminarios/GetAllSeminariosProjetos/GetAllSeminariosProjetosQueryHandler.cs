@@ -14,7 +14,10 @@ namespace SistemaGestaoTCC.Application.Queries.Seminarios.GetAllSeminariosProjet
         public async Task<List<SeminarioProjetosViewModel>> Handle(GetAllSeminariosProjetosQuery request, CancellationToken cancellationToken)
         {
             var seminariosProjeto = await _seminarioRepository.GetAllSeminarioProjeto();
-            return seminariosProjeto.Select(s => new SeminarioProjetosViewModel(s.IdSeminario, s.IdProjeto)).ToList();
+           
+            var seminariosProjetoViewModel = seminariosProjeto.Select(s => new SeminarioProjetosViewModel(s.IdSeminario, s.IdProjeto)).ToList();
+           
+            return seminariosProjetoViewModel;
         }
     }
 }

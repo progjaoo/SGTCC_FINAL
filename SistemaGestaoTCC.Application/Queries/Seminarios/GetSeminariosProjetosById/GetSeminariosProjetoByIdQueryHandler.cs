@@ -1,11 +1,6 @@
 ﻿using MediatR;
 using SistemaGestaoTCC.Application.ViewModels.SeminariosVM;
 using SistemaGestaoTCC.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemaGestaoTCC.Application.Queries.Seminarios.GetSeminariosProjetosById
 {
@@ -25,7 +20,11 @@ namespace SistemaGestaoTCC.Application.Queries.Seminarios.GetSeminariosProjetosB
             {
                 throw new Exception("Busca não encontrada");
             }
-            return new SeminarioProjetosViewModel(seminarioProjeto.Id, seminarioProjeto.IdSeminario, seminarioProjeto.IdProjeto, seminarioProjeto.CriadoEm,seminarioProjeto.EditadoEm);
+
+            var seminarioViewModel = new SeminarioProjetosViewModel(seminarioProjeto.Id, seminarioProjeto.IdSeminario,
+                seminarioProjeto.IdProjeto, seminarioProjeto.CriadoEm, seminarioProjeto.EditadoEm);
+
+            return seminarioViewModel;
         }
     }
 

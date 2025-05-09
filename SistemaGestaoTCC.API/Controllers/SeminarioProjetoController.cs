@@ -4,6 +4,7 @@ using SistemaGestaoTCC.Application.Commands.Seminarios.CreateSeminariosProjeto;
 using SistemaGestaoTCC.Application.Commands.Seminarios.DeleteSeminariosProjeto;
 using SistemaGestaoTCC.Application.Commands.Seminarios.UpdateSeminariosProjeto;
 using SistemaGestaoTCC.Application.Queries.Seminarios.GetAllSeminariosProjetos;
+using SistemaGestaoTCC.Application.Queries.Seminarios.GetProjetosBySeminario;
 using SistemaGestaoTCC.Application.Queries.Seminarios.GetSeminariosProjetosById;
 
 namespace SistemaGestaoTCC.API.Controllers
@@ -60,6 +61,20 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
+        [HttpGet("{idSeminario}/projetos")]
+        public async Task<IActionResult> GetProjetosPorSeminario(int idSeminario)
+        {
+            try
+            {
+                var query = new GetProjetosBySeminarioQuery(idSeminario);
+                var result = await _mediator.Send(query);
 
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao buscar projetos do seminário: {ex.Message}");
+            }
+        }
     }
 }
