@@ -14,20 +14,20 @@ GO
 INSERT INTO [Curso] (Nome, Descricao, CriadoEm) VALUES ('Comunicação', 'Formação em comunicação e produção de conteúdo informativo para diversos meios.', GETDATE());
 GO
 
-INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm)
-VALUES (1, 'Admin', 'admin@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 2, NULL, NULL, GETDATE());
+INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm, EmailVerificado)
+VALUES (1, 'Admin', 'admin@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 2, NULL, NULL, GETDATE(), 1);
 GO
-INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm) 
-VALUES (1, 'Gilberto Luis', 'gilberto.luis@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE());
+INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm, EmailVerificado) 
+VALUES (1, 'Gilberto Luis', 'gilberto.luis@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE(), 1);
 GO
-INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm) 
-VALUES (1, 'João Marcos', 'joao.marcos@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE());
+INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm, EmailVerificado) 
+VALUES (1, 'João Marcos', 'joao.marcos@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE(), 1);
 GO
-INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm) 
-VALUES (1, 'João Evangelista', 'joao.evangelista@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE());
+INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm, EmailVerificado) 
+VALUES (1, 'João Evangelista', 'joao.evangelista@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE(), 1);
 GO
-INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm) 
-VALUES (2, 'Pedro', 'pedro@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE());
+INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm, EmailVerificado) 
+VALUES (2, 'Pedro', 'pedro@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, NULL, NULL, GETDATE(), 1);
 GO
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm) 
 VALUES ('Pesquisa em Inteligência Artificial', 'Estudo sobre novas abordagens em IA.', 'Explorar avanços na tecnologia e suas aplicações.', '2024-02-01', NULL, 1, 3, GETDATE());

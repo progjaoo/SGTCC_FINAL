@@ -108,6 +108,7 @@ CREATE TABLE [Projeto] (
 	[IdImagem] INT,
 	[DataInicio] DATETIME NOT NULL,
 	[DataFim] DATETIME,
+	[PropostaAprovada] INT NOT NULL,
 	[Aprovado] BIT NOT NULL,
 	[Estado] INT NOT NULL,
 	[CriadoEm] DATETIME NOT NULL,

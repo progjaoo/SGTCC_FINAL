@@ -24,7 +24,7 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
             {
                 return new List<UsersAndFunctionViewModel>();
             }
-            
+
             var listUserProjectViewModel = listUserWithFunction.Select(u => new UsersAndFunctionViewModel(
                 u.IdUsuarioNavigation.Id,
                 u.IdUsuarioNavigation.Nome,
@@ -33,7 +33,8 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
                 u.Funcao,
                 u.Estado,
                 u.IdUsuarioNavigation.IdImagemNavigation,
-                u.IdProjetoNavigation?.Nome,u.Id
+                u.IdProjetoNavigation?.Nome,
+                u.Id
             )).ToList();
 
             return listUserProjectViewModel;
