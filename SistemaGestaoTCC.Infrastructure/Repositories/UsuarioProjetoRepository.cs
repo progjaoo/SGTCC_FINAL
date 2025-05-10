@@ -45,7 +45,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<List<UsuarioProjeto>> GetAllUsersAndFunctionByProjectId(int id)
         {
             var result = await _dbcontext.UsuarioProjeto
-                .Where(up => up.IdProjeto == id)
+                .Where(up => up.IdProjeto == id )
                 .Include(up => up.IdUsuarioNavigation)
                     .ThenInclude(u => u.IdImagemNavigation)
                 .ToListAsync();

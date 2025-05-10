@@ -75,6 +75,15 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(listUsers);
         }
+        // [HttpGet("{id}/usuarioPorProjeto")]
+        // public async Task<IActionResult> GetAllUserByProject(int id)
+        // {
+        //     var getAllByProject = new GetAllByProjectQuery(id);
+
+        //     var listUsers = await _mediator.Send(getAllByProject);
+
+        //     return Ok(listUsers);
+        // }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

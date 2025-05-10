@@ -18,7 +18,7 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
 
         public async Task<List<UsersAndFunctionViewModel>> Handle(GetAllByProjectQuery request, CancellationToken cancellationToken)
         {
-            var listUserWithFunction = await _usuarioProjetoRepository.GetAllUsersAndFunctionByProjectId(request.Id);
+            var listUserWithFunction = await _usuarioProjetoRepository.GetAllUsersActiveInProjectById(request.Id);
 
             if (listUserWithFunction == null || !listUserWithFunction.Any())
             {
