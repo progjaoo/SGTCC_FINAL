@@ -19,6 +19,7 @@ using SistemaGestaoTCC.Core.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage;
+using SistemaGestaoTCC.Application.Queries.Users.GetAllNoFilterByProject;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -75,15 +76,15 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(listUsers);
         }
-        // [HttpGet("{id}/usuarioPorProjeto")]
-        // public async Task<IActionResult> GetAllUserByProject(int id)
-        // {
-        //     var getAllByProject = new GetAllByProjectQuery(id);
+        [HttpGet("{id}/usuarioPorProjeto/semFiltro")]
+        public async Task<IActionResult> getAllUserNoFilterByProject(int id)
+        {
+            var getAllByProject = new GetAllNoFilterByProjectQuery(id);
 
-        //     var listUsers = await _mediator.Send(getAllByProject);
+            var listUsers = await _mediator.Send(getAllByProject);
 
-        //     return Ok(listUsers);
-        // }
+            return Ok(listUsers);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
