@@ -5,6 +5,7 @@ using SistemaGestaoTCC.Application.Commands.DuvidasRepostas.ResponderDuvida;
 using SistemaGestaoTCC.Application.Commands.DuvidasRepostas.Update;
 using SistemaGestaoTCC.Application.Queries.Duvidas.GetAll;
 using SistemaGestaoTCC.Application.Queries.RespostaDuvidas.GetAll;
+using SistemaGestaoTCC.Application.Queries.RespostaDuvidas.GetByDuvida;
 using SistemaGestaoTCC.Application.Queries.RespostaDuvidas.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
@@ -29,6 +30,18 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var query = new GetRespostaDuvidaByIdQuery(id);
+            var duvidasRespostas = await _mediator.Send(query);
+            if (duvidasRespostas == null)
+            {
+                return NotFound();
+            }
+            return Ok(duvidasRespostas);
+        }
+        [HttpGet("respostaPorDuvida")]
+        public async Task<IActionResult> GetRespostaByDuvida(int idDuvida)
+        {
+            var query = new GetRespostaDuvidaByDuvidaIdQuery(idDuvida);
+
             var duvidasRespostas = await _mediator.Send(query);
             if (duvidasRespostas == null)
             {

@@ -31,11 +31,19 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(d => d.RespostaDuvida)
                 .FirstOrDefaultAsync(d => d.Id == id);
         }
+        public async Task<List<Duvida>> GetByProjetoAndAtendidaAsync(int idProjeto, RespotaDuvidaEnum atendida)
+        {
+            return await _context.Duvida
+                .Where(d => d.IdProjeto == idProjeto && d.Atendida == atendida)
+                .Include(d => d.IdUsuarioNavigation)
+                .Include(d => d.RespostaDuvida)
+                .ToListAsync();
+        }
 
         public async Task<List<Duvida>> GetByProjetoIdAsync(int idProjeto)
         {
             return await _context.Duvida
-                .Where(d => d.IdProjeto == idProjeto)
+                .Where(d => d.IdProjeto == idProjeto && d.Atendida == RespotaDuvidaEnum.Nao)
                 .Include(d => d.IdUsuarioNavigation)
                 .Include(d => d.RespostaDuvida)
                 .ToListAsync();

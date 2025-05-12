@@ -7,6 +7,8 @@ using SistemaGestaoTCC.Application.Queries.Duvidas.GetAll;
 using SistemaGestaoTCC.Application.Queries.Duvidas.GetById;
 using SistemaGestaoTCC.Application.Queries.Duvidas.GetDuvidaByProject;
 using SistemaGestaoTCC.Application.Queries.Duvidas.GetDuvidaByUser;
+using SistemaGestaoTCC.Application.Queries.Duvidas.GetDuvidasByProjetoAndStatus;
+using SistemaGestaoTCC.Application.ViewModels.DuvidasVM;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -19,6 +21,12 @@ namespace SistemaGestaoTCC.API.Controllers
         public DuvidasController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+        [HttpGet("projeto/{idProjeto}/atendida/{atendida}")]
+        public async Task<ActionResult<List<DuvidasViewModel>>> GetDuvidasByProjetoAndAtendida(int idProjeto, int atendida)
+        {
+            var result = await _mediator.Send(new GetDuvidasByProjetoAndStatusQuery(idProjeto, atendida));
+            return Ok(result);
         }
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()

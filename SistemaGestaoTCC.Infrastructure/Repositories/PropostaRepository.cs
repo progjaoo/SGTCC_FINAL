@@ -15,8 +15,10 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<List<Proposta>> GetAllAsync()
         {
             return await _dbContext.Proposta
-                .Include(p => p.IdProjetoNavigation) 
-                .ToListAsync(); 
+                .Include(p => p.IdProjetoNavigation)
+                .Where(p => p.IdProjetoNavigation.PropostaAprovada == null ||
+                    p.IdProjetoNavigation.PropostaAprovada != (int)ParecerPropostaEnum.Favoravel)
+                .ToListAsync();
         }
         public async Task<Proposta> GetByIdAsync(int id)
         {
