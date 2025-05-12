@@ -22,7 +22,6 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             _usuarioProjetoRepository = usuarioProjetoRepository;
             _connectionString = configuration.GetConnectionString("SistemaTcc");
         }
-
         public async Task<List<Projeto>> GetAllAsync()
         {
             //ok 

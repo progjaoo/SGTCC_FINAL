@@ -87,5 +87,15 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             _context.Duvida.Update(duvida);
             await _context.SaveChangesAsync();
         }
+        public async Task MarcarComoNaoAtendidaAsync(int idDuvida)
+        {
+            var duvida = await _context.Duvida.FindAsync(idDuvida);
+            if (duvida != null)
+            {
+                duvida.Atendida = RespotaDuvidaEnum.Nao;
+                _context.Update(duvida);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

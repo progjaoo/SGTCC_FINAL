@@ -35,6 +35,7 @@
     <Folder Include="Queries\AtividadesComentários\GetById\" />
     <Folder Include="Queries\AtividadesComentários\GetAll\" />
     <Folder Include="Queries\Duvidas\GetAllRespostasByUser\" />
+    <Folder Include="Queries\Projects\GetAllProjectsFinish\" />
     <Folder Include="Validators\" />
   </ItemGroup>
 

@@ -85,6 +85,35 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                     document.Add(new Paragraph($"Descrição do Relatório: {relatorio.Descricao}"));
 
                     document.Add(new Paragraph("\n"));
+                    document.Add(new Paragraph("\n\n\n"));
+
+                    var assinaturaTable = new iText.Layout.Element.Table(3).UseAllAvailableWidth();
+                    assinaturaTable.SetTextAlignment(TextAlignment.CENTER);
+
+                    string linhaAssinatura = "____________________________";
+
+                    var professorCell = new Cell()
+                        .SetBorder(Border.NO_BORDER)
+                        .Add(new Paragraph(linhaAssinatura).SetTextAlignment(TextAlignment.CENTER))
+                        .Add(new Paragraph("Professor").SetTextAlignment(TextAlignment.CENTER).SetFontSize(11));
+
+                    var coordenadorCell = new Cell()
+                        .SetBorder(Border.NO_BORDER)
+                        .Add(new Paragraph(linhaAssinatura).SetTextAlignment(TextAlignment.CENTER))
+                        .Add(new Paragraph("Coordenador").SetTextAlignment(TextAlignment.CENTER).SetFontSize(11));
+
+                    var reitorCell = new Cell()
+                        .SetBorder(Border.NO_BORDER)
+                        .Add(new Paragraph(linhaAssinatura).SetTextAlignment(TextAlignment.CENTER))
+                        .Add(new Paragraph("Reitor da Universidade").SetTextAlignment(TextAlignment.CENTER).SetFontSize(11));
+
+                    assinaturaTable.AddCell(professorCell);
+                    assinaturaTable.AddCell(coordenadorCell);
+                    assinaturaTable.AddCell(reitorCell);
+
+                    // Adiciona a tabela ao documento
+                    document.Add(assinaturaTable);
+
                 }
                 catch (Exception ex)
                 {

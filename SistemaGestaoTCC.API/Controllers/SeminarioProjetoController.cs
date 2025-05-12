@@ -55,8 +55,9 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpDelete("removerProjetoDoSeminario")]
-        public async Task<IActionResult> DeletarSeminario(DeleteSeminarioProjetoCommand command)
+        public async Task<IActionResult> DeletarSeminario(int idSeminario, int idProjeto)
         {
+            var command = new DeleteSeminarioProjetoCommand(idSeminario, idProjeto);
             await _mediator.Send(command);
 
             return NoContent();

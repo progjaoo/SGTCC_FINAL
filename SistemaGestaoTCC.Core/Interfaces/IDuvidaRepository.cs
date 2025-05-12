@@ -16,6 +16,8 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<List<Duvida>> GetByProjetoAndAtendidaAsync(int idProjeto, RespotaDuvidaEnum atendida);
         Task<List<Duvida>> GetByUsuarioIdAsync(int idUsuario);
         Task MarcarComoAtendidaAsync(int idDuvida);
+        Task MarcarComoNaoAtendidaAsync(int idDuvida);
+
         Task AddAsync(Duvida duvida);
         Task Delete(int id);
         Task SaveChangesAsync();
