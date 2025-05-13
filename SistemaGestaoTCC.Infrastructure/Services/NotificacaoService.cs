@@ -29,7 +29,7 @@ namespace SistemaGestaoTCC.Infrastructure.Services
 
             foreach (var atividade in atividades)
             {
-                if (!atividade.DataEntrega.HasValue || atividade.Estado == ProjetoAtividadeEnum.Finished)
+                if (!atividade.DataEntrega.HasValue || atividade.Estado == ProjetoAtividadeEnum.Finalizada)
                     continue;
 
                 var diasParaEntrega = (atividade.DataEntrega.Value - hoje).Days;

@@ -7,6 +7,7 @@ using SistemaGestaoTCC.Application.Commands.Projects.FinalizarProjetos;
 using SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos;
 using SistemaGestaoTCC.Application.Commands.Projects.UpdateImage;
 using SistemaGestaoTCC.Application.Commands.Projects.UpdateProject;
+using SistemaGestaoTCC.Application.Queries.Dashboard;
 using SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByStatus;
 using SistemaGestaoTCC.Application.Queries.Projects.GetFinishProjectsByName;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectById;
@@ -31,6 +32,16 @@ namespace SistemaGestaoTCC.API.Controllers
         {
             _mediator = mediator;
             folderName = configuration["Files:Directory"] ?? "UploadedFiles";
+        }
+        [HttpGet("{id}/dashboard")]
+        public async Task<IActionResult> GetDashboard(int id)
+        {
+            var result = await _mediator.Send(new GetDashboardProjetoQuery(id));
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
         }
 
         [HttpGet]

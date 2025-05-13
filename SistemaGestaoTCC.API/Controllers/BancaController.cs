@@ -6,6 +6,7 @@ using SistemaGestaoTCC.Application.Commands.Bancas.Update;
 using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
 using SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse;
 using SistemaGestaoTCC.Application.Queries.Bancas.GetAll;
+using SistemaGestaoTCC.Application.Queries.Bancas.GetBancaByProfessor;
 using SistemaGestaoTCC.Application.Queries.Bancas.GetById;
 using SistemaGestaoTCC.Application.Queries.Courses.GetAllCourse;
 using SistemaGestaoTCC.Application.Queries.Courses.GetCourseById;
@@ -46,6 +47,15 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(banca);
         }
+        [HttpGet("bancasPorUsuario")]
+        public async Task<IActionResult> GetBancasByUsuario(int idUsuario)
+        {
+            var query = new GetBancasByProfessorQuery(idUsuario);
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
+        }
+
         [HttpPost("criarBanca")]
         public async Task<IActionResult> PostBanca([FromBody] CreateBancaCommand command)
         {

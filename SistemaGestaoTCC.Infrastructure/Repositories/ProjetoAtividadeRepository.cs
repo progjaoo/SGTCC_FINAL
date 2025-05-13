@@ -33,14 +33,14 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbContext.ProjetoAtividade
                 .Where(a => a.IdUsuario == idUsuario)
-                .Where(a => a.Estado == Core.Enums.ProjetoAtividadeEnum.Created)
+                .Where(a => a.Estado == Core.Enums.ProjetoAtividadeEnum.Criada)
                 .ToListAsync();
         }
         public async Task<List<ProjetoAtividade>> GetAtividadeByProjectIdAsync(int projectId)
         {
             return await _dbContext.ProjetoAtividade
                 .Where(a => a.IdProjeto == projectId)
-                .Where(a => a.Estado == Core.Enums.ProjetoAtividadeEnum.Created)
+                .Where(a => a.Estado == Core.Enums.ProjetoAtividadeEnum.Criada)
                 .Include(a => a.IdUsuarioNavigation)
                 .ToListAsync();
         }

@@ -2,8 +2,8 @@
 {
     public enum ProjetoAtividadeEnum
     {
-        Created = 0,
-        InProgress = 1,
-        Finished = 2
+        Criada = 0,
+        EmAndamento = 1,
+        Finalizada = 2
     }
 }
