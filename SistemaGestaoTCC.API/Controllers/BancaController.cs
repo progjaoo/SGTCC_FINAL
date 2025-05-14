@@ -5,6 +5,7 @@ using SistemaGestaoTCC.Application.Commands.Bancas.Delete;
 using SistemaGestaoTCC.Application.Commands.Bancas.Update;
 using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
 using SistemaGestaoTCC.Application.Commands.Courses.UpdateCourse;
+using SistemaGestaoTCC.Application.Queries.Bancas;
 using SistemaGestaoTCC.Application.Queries.Bancas.GetAll;
 using SistemaGestaoTCC.Application.Queries.Bancas.GetBancaByProfessor;
 using SistemaGestaoTCC.Application.Queries.Bancas.GetById;
@@ -38,6 +39,19 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var query = new GetBancaByIdQuery(id);
+
+            var banca = await _mediator.Send(query);
+
+            if (banca == null)
+            {
+                return NotFound();
+            }
+            return Ok(banca);
+        }
+        [HttpGet("detalhesDaBanca")]
+        public async Task<IActionResult> GetBancaDetails(int id)
+        {
+            var query = new GetBancaDetailsByIdQuery(id);
 
             var banca = await _mediator.Send(query);
 

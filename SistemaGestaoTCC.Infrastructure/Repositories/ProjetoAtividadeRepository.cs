@@ -48,6 +48,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbContext.ProjetoAtividade
                 .Where(a => a.IdProjeto == projectId)
+                .Include(a => a.IdUsuarioNavigation)
                 .ToListAsync();
         }
         public async Task AddASync(ProjetoAtividade atividade)
