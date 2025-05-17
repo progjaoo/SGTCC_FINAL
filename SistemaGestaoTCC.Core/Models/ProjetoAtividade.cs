@@ -51,20 +51,20 @@ public partial class ProjetoAtividade ///VAI MUDAR///
         DataInicio = dataInicio;
         DataEntrega = dataEntrega;
         
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
     public void Finish()
     {
-        if (Estado == ProjetoAtividadeEnum.Created || Estado == ProjetoAtividadeEnum.InProgress)
+        if (Estado == ProjetoAtividadeEnum.Criada || Estado == ProjetoAtividadeEnum.EmAndamento)
         {
-            Estado = ProjetoAtividadeEnum.Finished;
+            Estado = ProjetoAtividadeEnum.Finalizada;
         }
     }
     public void Start()
     {
-        if (Estado == ProjetoAtividadeEnum.Created)
+        if (Estado == ProjetoAtividadeEnum.Criada)
         {
-            Estado = ProjetoAtividadeEnum.InProgress;
+            Estado = ProjetoAtividadeEnum.EmAndamento;
             DataInicio = DateTime.Now;
         }
     }

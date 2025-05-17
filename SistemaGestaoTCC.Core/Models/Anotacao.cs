@@ -14,7 +14,7 @@ public partial class Anotacao
         Titulo = titulo;
         Descricao = descricao;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
 
     public int Id { get; set; }
@@ -34,6 +34,6 @@ public partial class Anotacao
         Titulo = titulo;
         Descricao = descricao;
 
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
 }

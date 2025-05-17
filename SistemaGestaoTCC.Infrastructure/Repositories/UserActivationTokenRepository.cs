@@ -21,7 +21,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             {
                 UserId = userId,
                 Token = Guid.NewGuid().ToString(),
-                ExpirationDate = DateTime.UtcNow.AddHours(24)
+                ExpirationDate = DateTime.Now.AddHours(24)
             };
 
             await _context.UserActivationTokens.AddAsync(token);

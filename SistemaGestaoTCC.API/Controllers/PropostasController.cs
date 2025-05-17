@@ -11,6 +11,8 @@ using SistemaGestaoTCC.Application.Queries.Anotacoes.GetAll;
 using SistemaGestaoTCC.Application.Queries.Anotacoes.GetById;
 using SistemaGestaoTCC.Application.Queries.Propostas.GetAll;
 using SistemaGestaoTCC.Application.Queries.Propostas.GetById;
+using SistemaGestaoTCC.Application.Queries.Propostas.GetPropostaByProject;
+using SistemaGestaoTCC.Application.Queries.Relatorios.GetRelatorioByProject;
 using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Models;
 
@@ -47,6 +49,14 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             return Ok(proposta);
         }
+        [HttpGet("buscarPropostaPorProjeto")]
+        public async Task<IActionResult> GetRelatorioByProject(int idProjeto)
+        {
+            var query = new GetPropostaByProjectQuery(idProjeto);
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
+        }
         [HttpPost("criarProposta")]
         public async Task<IActionResult> Post([FromBody] CreatePropostaCommand command)
         {
@@ -60,7 +70,7 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return NoContent();
         }
-        [HttpDelete("{id}/deletarProposta")]
+        [HttpDelete("deletarProposta")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeletePropostaCommand(id);

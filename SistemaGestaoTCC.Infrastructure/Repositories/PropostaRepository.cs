@@ -14,7 +14,11 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         }
         public async Task<List<Proposta>> GetAllAsync()
         {
-            return await _dbContext.Proposta.ToListAsync(); 
+            return await _dbContext.Proposta
+                .Include(p => p.IdProjetoNavigation)
+                .Where(p => p.IdProjetoNavigation.PropostaAprovada == null ||
+                    p.IdProjetoNavigation.PropostaAprovada != (int)ParecerPropostaEnum.Favoravel)
+                .ToListAsync();
         }
         public async Task<Proposta> GetByIdAsync(int id)
         {
@@ -38,9 +42,11 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<bool> AtualizarParecerAsync(int idProjeto, ParecerPropostaEnum novoParecer)
+        public async Task<bool> AtualizarParecerAsync(int idProposta, ParecerPropostaEnum novoParecer)
         {
-            var proposta = await _dbContext.Proposta.FindAsync(idProjeto);
+            var proposta = await _dbContext.Proposta
+                .Include(p => p.IdProjetoNavigation) 
+                .FirstOrDefaultAsync(p => p.Id == idProposta);
 
             if (proposta == null)
             {
@@ -48,8 +54,13 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             }
 
             proposta.Parecer = novoParecer;
-            proposta.EditadoEm = DateTime.UtcNow;
-            
+            proposta.EditadoEm = DateTime.Now;
+
+            if (proposta.IdProjetoNavigation != null)
+            {
+                proposta.IdProjetoNavigation.PropostaAprovada = (int?)novoParecer;
+            }
+
             try
             {
                 await _dbContext.SaveChangesAsync();
@@ -57,8 +68,16 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             }
             catch (DbUpdateException)
             {
-                return false; 
+                return false;
             }
+        }
+
+        public async Task<List<Proposta>> GetPropostaByProject(int idProjeto)
+        {
+            return await _dbContext.Proposta
+                            .Where(a => a.IdProjeto == idProjeto)
+                            .Include(a => a.IdProjetoNavigation)
+                            .ToListAsync();
         }
     }
 }

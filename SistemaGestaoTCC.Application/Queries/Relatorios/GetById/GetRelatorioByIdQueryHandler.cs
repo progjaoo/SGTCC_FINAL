@@ -18,6 +18,7 @@ namespace SistemaGestaoTCC.Application.Queries.Relatorios.GetById
             if (relatorio == null) return null;
 
             var relatorioViewModel = new RelatorioViewModel(
+                relatorio.Id,
                 relatorio.IdProfessor,
                 relatorio.IdProjeto,
                 relatorio.Titulo,

@@ -16,7 +16,11 @@ namespace SistemaGestaoTCC.Application.Queries.Propostas.GetAll
             var propostas = await _propostaRepository.GetAllAsync();
 
             var propostasViewModel = propostas.Select(p => new PropostaViewModel(
+                p.Id,
                 p.IdProjeto,
+                p.IdProjetoNavigation?.Nome,
+                p.IdProjetoNavigation?.Descricao,
+                p.IdProjetoNavigation?.Justificativa,
                 p.AtividadesPropostas,
                 p.ContribuicaoAgenda,
                 p.Sugestao,

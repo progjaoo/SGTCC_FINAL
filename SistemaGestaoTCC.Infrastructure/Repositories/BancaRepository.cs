@@ -17,7 +17,16 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         }
         public async Task<Banca> GetById(int id)
         {
-            return await _dbContext.Banca.SingleOrDefaultAsync(b => b.Id == id);
+            return await _dbContext.Banca
+               .Include(b => b.IdProjetoNavigation)
+                   .ThenInclude(p => p.UsuarioProjetos)
+                       .ThenInclude(up => up.IdUsuarioNavigation)
+               .Include(b => b.AvaliadorBancas)
+                   .ThenInclude(ab => ab.IdUsuarioNavigation) 
+               .Include(b => b.AvaliadorBancas)
+                   .ThenInclude(ab => ab.NotaFinalAlunos)     
+                       .ThenInclude(nf => nf.IdAlunoNavigation)
+               .SingleOrDefaultAsync(b => b.Id == id);
         }
         public async Task AddASync(Banca banca)
         {

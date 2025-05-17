@@ -29,7 +29,6 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(ab => ab.IdUsuarioNavigation)
                 .ToListAsync();
         }
-
         public async Task<List<AvaliadorBanca>> GetAllAsync()
         {
             return await _dbContext.AvaliadorBanca
@@ -37,19 +36,16 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(ab => ab.IdUsuarioNavigation)
                 .ToListAsync();
         }
-
         public async Task AddAsync(AvaliadorBanca avaliadorBanca)
         {
             await _dbContext.AvaliadorBanca.AddAsync(avaliadorBanca);
             await _dbContext.SaveChangesAsync();
         }
-
         public async Task UpdateAsync(AvaliadorBanca avaliadorBanca)
         {
             _dbContext.AvaliadorBanca.Update(avaliadorBanca);
             await _dbContext.SaveChangesAsync();
         }
-
         public async Task DeleteAsync(int id)
         {
             var avabanca = await _dbContext.AvaliadorBanca.FindAsync(id);

@@ -19,6 +19,7 @@ using SistemaGestaoTCC.Core.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage;
+using SistemaGestaoTCC.Application.Queries.Users.GetAllNoFilterByProject;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -70,6 +71,15 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetAllUserByProject(int id)
         {
             var getAllByProject = new GetAllByProjectQuery(id);
+
+            var listUsers = await _mediator.Send(getAllByProject);
+
+            return Ok(listUsers);
+        }
+        [HttpGet("{id}/usuarioPorProjeto/semFiltro")]
+        public async Task<IActionResult> getAllUserNoFilterByProject(int id)
+        {
+            var getAllByProject = new GetAllNoFilterByProjectQuery(id);
 
             var listUsers = await _mediator.Send(getAllByProject);
 
@@ -189,10 +199,9 @@ namespace SistemaGestaoTCC.API.Controllers
                 throw new Exception("Erro ao decodificar token JWT: " + ex.Message);
             }
         }
-        [HttpPut("{id}/atualizarUsuario")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserCommand command)
+        [HttpPut("atualizarUsuario")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
         {
-            command.Id = id;
             await _mediator.Send(command);
 
             return NoContent();

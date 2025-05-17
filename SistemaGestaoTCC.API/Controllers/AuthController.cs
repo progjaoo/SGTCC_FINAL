@@ -218,6 +218,8 @@ public class AuthController : ControllerBase
 
                 existingUser = newUser;
             }
+        var email = result.Principal.FindFirst(ClaimTypes.Email)?.Value;
+        var name = result.Principal.FindFirst(ClaimTypes.Name)?.Value;
 
             // Gerar um token JWT para o usuário
             var jwtToken = _authService.GenerateJwtToken(existingUser.Email, existingUser.Papel.ToString());
@@ -227,5 +229,6 @@ public class AuthController : ControllerBase
         {
             return BadRequest(new { error = ex.Message });
         }
+        return Ok(new { email, name });
     }
 }

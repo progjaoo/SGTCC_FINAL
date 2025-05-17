@@ -13,7 +13,7 @@ public partial class Arquivo
         Diretorio = diretorio;
         Tamanho = tamanho;
         Extensao = extensao;
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
 
     public void Update(string nomeOriginal, string diretorio, int tamanho, string extensao)
@@ -22,7 +22,7 @@ public partial class Arquivo
         Diretorio = diretorio;
         Tamanho = tamanho;
         Extensao = extensao;
-        EditadoEm = DateTime.UtcNow;
+        EditadoEm = DateTime.Now;
     }
     public int Id { get; set; }
 

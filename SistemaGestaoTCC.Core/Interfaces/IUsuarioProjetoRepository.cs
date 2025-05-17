@@ -8,6 +8,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<UsuarioProjeto> GetById(int id);
         Task<List<UsuarioProjeto>> GetAllAsync();
         Task<List<UsuarioProjeto>> GetAllByUserId(int id);
+        Task<List<UsuarioProjeto>> GetAllInvitesByUserId(int userId);
         Task<UsuarioProjeto> GetByUserAndProjectAsync(int userId, int projectId);
         Task<List<UsuarioProjeto>> GetAllUsersAndFunctionByProjectId(int id);
         Task<List<UsuarioProjeto>> GetAllUsersActiveInProjectById(int projectId);

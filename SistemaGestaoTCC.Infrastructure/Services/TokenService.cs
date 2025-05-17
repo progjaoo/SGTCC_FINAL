@@ -27,7 +27,7 @@ namespace SistemaGestaoTCC.Infrastructure.Services
             {
                 UserId = userId,
                 Token = token,
-                Expiration = DateTime.UtcNow.AddMinutes(expirationMinutes),
+                Expiration = DateTime.Now.AddMinutes(expirationMinutes),
                 Type = type
             };
 
@@ -43,7 +43,7 @@ namespace SistemaGestaoTCC.Infrastructure.Services
             var userToken = await _context.UserTokens
                 .FirstOrDefaultAsync(ut => ut.UserId == userId && ut.Token == token && ut.Type == type);
 
-            if (userToken == null || userToken.Expiration < DateTime.UtcNow)
+            if (userToken == null || userToken.Expiration < DateTime.Now)
             {
                 return false; // Token inválido ou expirado
             }

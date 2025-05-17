@@ -7,7 +7,6 @@ namespace SistemaGestaoTCC.Application.Commands.UsuariosProjeto.ResponderConvite
     {
         public int IdConvite { get; set; }
         public ConviteEnum Resposta { get; set; }
-
         public ResponderConviteProjetoCommand(int IdConvite, ConviteEnum Resposta)
         {
             this.IdConvite = IdConvite;

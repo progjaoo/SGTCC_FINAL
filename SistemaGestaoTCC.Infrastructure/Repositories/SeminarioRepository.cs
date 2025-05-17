@@ -13,7 +13,9 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         }
         public async Task<List<Seminario>> GetAllAsync()
         {
-            return await _dbContext.Seminario.ToListAsync();
+            return await _dbContext.Seminario
+                .Include(s => s.IdUsuarioNavigation)
+                .ToListAsync();
         }
         public async Task<Seminario> GetById(int id)
         {
@@ -40,7 +42,11 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         #region */* - SEMINARIOPROJETO METHODS
         public async Task<List<SeminarioProjeto>> GetAllSeminarioProjeto()
         {
-            return await _dbContext.SeminarioProjeto.ToListAsync();
+            return await _dbContext.SeminarioProjeto
+                .Include(s => s.IdProjetoNavigation)
+                    .ThenInclude(p => p.UsuarioProjetos)
+                        .ThenInclude(up => up.IdUsuarioNavigation)
+                .ToListAsync();
         }
         public async Task<SeminarioProjeto> GetSeminarioProjetoByIdAsync(int id)
         {

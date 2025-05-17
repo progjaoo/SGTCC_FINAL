@@ -19,7 +19,7 @@ namespace SistemaGestaoTCC.Application.Queries.Seminarios.GetSeminariosById
             {
                 throw new Exception("Seminário não encontrado");
             }
-            return new SeminarioViewModel(seminario.IdUsuario, seminario.Requisitos, seminario.Data,seminario.CriadoEm,seminario.EditadoEm);
+            return new SeminarioViewModel(seminario.Id, seminario.IdUsuario, seminario.Requisitos, seminario.Data,seminario.CriadoEm,seminario.EditadoEm, seminario.IdUsuarioNavigation?.Nome);
         }
     }
 }

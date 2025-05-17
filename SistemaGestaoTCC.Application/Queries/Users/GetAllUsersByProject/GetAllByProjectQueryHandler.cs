@@ -18,13 +18,13 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
 
         public async Task<List<UsersAndFunctionViewModel>> Handle(GetAllByProjectQuery request, CancellationToken cancellationToken)
         {
-            var listUserWithFunction = await _usuarioProjetoRepository.GetAllUsersAndFunctionByProjectId(request.Id);
+            var listUserWithFunction = await _usuarioProjetoRepository.GetAllUsersActiveInProjectById(request.Id);
 
             if (listUserWithFunction == null || !listUserWithFunction.Any())
             {
                 return new List<UsersAndFunctionViewModel>();
             }
-            
+
             var listUserProjectViewModel = listUserWithFunction.Select(u => new UsersAndFunctionViewModel(
                 u.IdUsuarioNavigation.Id,
                 u.IdUsuarioNavigation.Nome,
@@ -32,7 +32,9 @@ namespace SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse
                 u.IdUsuarioNavigation.Papel,
                 u.Funcao,
                 u.Estado,
-                u.IdUsuarioNavigation.IdImagemNavigation
+                u.IdUsuarioNavigation.IdImagemNavigation,
+                u.IdProjetoNavigation?.Nome,
+                u.Id
             )).ToList();
 
             return listUserProjectViewModel;

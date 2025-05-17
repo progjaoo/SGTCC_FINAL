@@ -1,18 +1,13 @@
 ﻿using SistemaGestaoTCC.Application.ViewModels.ArquivoVM;
 using SistemaGestaoTCC.Application.ViewModels.TagsVM;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace SistemaGestaoTCC.Application.ViewModels.ProjectsVM
 {
     public class ProjectNotCancelViewModel
     {
-        public ProjectNotCancelViewModel(int id, string nome, string descricao, ICollection<ProjetoTag> tags, DateTime? dataFim, Arquivo? imagem)
+        public ProjectNotCancelViewModel(int id, string nome, string descricao, ICollection<ProjetoTag> tags, DateTime? dataFim, Arquivo? imagem, int? propostaAprovada)
         {
             Id = id;
             Nome = nome;
@@ -36,12 +31,14 @@ namespace SistemaGestaoTCC.Application.ViewModels.ProjectsVM
                     imagem.CriadoEm
                 );
             }
+
+            PropostaAprovada = propostaAprovada;
         }
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public DateTime? DataFim { get; set; }
-        public string Justificativa { get; set; }
+        public int? PropostaAprovada { get; set; }
 
         public ICollection<TagsViewModel> Tags { get; set; }
 

@@ -13,8 +13,10 @@ public partial class Projeto
         Nome = nome;
         Descricao = descricao;
         Justificativa = justificativa;
-        DataInicio = DateTime.UtcNow;
-        CriadoEm = DateTime.UtcNow;
+        DataInicio = DateTime.Now;
+        CriadoEm = DateTime.Now;
+
+        PropostaAprovada = 2;
     }
     public int Id { get; set; }
 
@@ -86,7 +88,7 @@ public partial class Projeto
         if (Estado == StatusProjeto.Created || Estado == StatusProjeto.InProgress)
         {
             Estado = StatusProjeto.Finished;
-            DataFim = DateTime.UtcNow;
+            DataFim = DateTime.Now;
         }
     }
     public void Cancel()

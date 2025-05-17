@@ -13,21 +13,23 @@ public partial class RespostaDuvida
         IdUsuario = idUsuario;
         Texto = texto;
 
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public int Id { get; set; }
-
     public int IdDuvida { get; set; }
-
     public int IdUsuario { get; set; }
-
     public string Texto { get; set; }
-
     public DateTime CriadoEm { get; set; }
-
     public DateTime? EditadoEm { get; set; }
-
     public virtual Duvida IdDuvidaNavigation { get; set; }
-
     public virtual Usuario IdUsuarioNavigation { get; set; }
+
+    public void Update(int idDuvida, int idUsuario, string texto)
+    {
+        IdDuvida = idDuvida;
+        IdUsuario = idUsuario;
+        Texto = texto;
+
+        EditadoEm = DateTime.Now;
+    }
 }

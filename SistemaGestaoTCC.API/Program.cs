@@ -1,3 +1,4 @@
+using FluentAssertions.Common;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using PdfSharp.Charting;
 using SistemaGestaoTCC.Application.Commands.Courses.CreateCourse;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
@@ -156,10 +158,16 @@ builder.Services.AddScoped<IBibliografiaRepository, BibliografiaRepository>();
 builder.Services.AddScoped<ISeminarioRepository, SeminarioRepository>();
 builder.Services.AddScoped<IRelatorioAcompanhamentoRepository, RelatorioAcompanhamentoRepository>();
 builder.Services.AddScoped<IPropostaRepository, PropostaRepository>();
+builder.Services.AddScoped<IRelatorioPDFGenerator, RelatorioPDFGenerator>();
+builder.Services.AddScoped<IDuvidaRepository, DuvidaRepository>();
+builder.Services.AddScoped<IRespostaDuvidaRepository, RespostaDuvidaRepository>();
+
 
 //service
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSignalR();
+builder.Services.AddScoped<INotificacaoService, NotificacaoService>();
+builder.Services.AddHostedService<NotificacaoBackgroundService>();
 
 
 #endregion
