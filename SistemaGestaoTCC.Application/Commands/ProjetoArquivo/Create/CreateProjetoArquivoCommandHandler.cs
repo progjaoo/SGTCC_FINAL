@@ -46,7 +46,9 @@ namespace SistemaGestaoTCC.Application.Commands.ProjetoArquivo.Create
 
             var projetoArquivo = new Core.Models.ProjetoArquivo(
                 projeto.Id,
-                novoArquivo.Id
+                request.IdUsuario,
+                novoArquivo.Id,
+                1
             );
 
             await _projetoArquivoRepository.AddASync(projetoArquivo);

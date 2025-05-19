@@ -62,16 +62,17 @@ namespace SistemaGestaoTCC.API.Controllers
         }
 
         [HttpPost("enviar")]
-        public async Task<IActionResult> Post(int idProjeto, IFormFile file)
+        public async Task<IActionResult> Post(int idProjeto, int idUsuario, IFormFile file)
         {
             var command = new CreateProjetoArquivoCommand
             {
                 IdProjeto = idProjeto,
+                IdUsuario = idUsuario,
                 File = file,
                 FolderName = folderName
             };
             var id = await _mediator.Send(command);
-            // return CreatedAtAction();
+
             return Ok("Arquivo Enviado!");
         }
 

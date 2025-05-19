@@ -7,10 +7,12 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class ProjetoArquivo
 {
-    public ProjetoArquivo(int idProjeto, int idArquivo)
+    public ProjetoArquivo(int idProjeto, int idUsuario, int idArquivo, int versao)
     {
         IdProjeto = idProjeto;
+        IdUsuario = idUsuario;
         IdArquivo = idArquivo;
+        Versao = versao;
     }
     public int Id { get; set; }
 
