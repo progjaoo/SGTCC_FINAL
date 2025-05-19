@@ -1,25 +1,21 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using RestSharp;
 using SistemaGestaoTCC.Application.Commands.Users.CreateUser;
 using SistemaGestaoTCC.Application.Commands.Users.DeleteUser;
 using SistemaGestaoTCC.Application.Commands.Users.LoginGoogle;
 using SistemaGestaoTCC.Application.Commands.Users.LoginUser;
 using SistemaGestaoTCC.Application.Commands.Users.UpdateUser;
+using SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage;
+using SistemaGestaoTCC.Application.Queries.Users.DefinirCurso;
 using SistemaGestaoTCC.Application.Queries.Users.FindUsers;
+using SistemaGestaoTCC.Application.Queries.Users.GetAllNoFilterByProject;
 using SistemaGestaoTCC.Application.Queries.Users.GetAllUserByRole;
 using SistemaGestaoTCC.Application.Queries.Users.GetAllUsersByCourse;
 using SistemaGestaoTCC.Application.Queries.Users.GetUser;
 using SistemaGestaoTCC.Application.Queries.Users.GetUserByEmail;
 using SistemaGestaoTCC.Core.Enums;
-using SistemaGestaoTCC.Core.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
-using System.Net;
-using SistemaGestaoTCC.Application.Commands.Users.UpdateUserImage;
-using SistemaGestaoTCC.Application.Queries.Users.GetAllNoFilterByProject;
 
 namespace SistemaGestaoTCC.API.Controllers
 {
@@ -205,6 +201,12 @@ namespace SistemaGestaoTCC.API.Controllers
             await _mediator.Send(command);
 
             return NoContent();
+        }
+        [HttpPost("definir-curso")]
+        public async Task<IActionResult> DefinirCurso([FromBody] DefinirCursoCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok();
         }
         [HttpDelete("{id}/deletarUsuario")]
         public async Task<IActionResult> DeleteUser(int id)

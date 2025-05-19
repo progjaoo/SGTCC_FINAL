@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using SistemaGestaoTCC.Application.ViewModels.BacanVM;
+using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -26,11 +27,12 @@ namespace SistemaGestaoTCC.Application.Queries.Bancas
 
             var projeto = banca.IdProjetoNavigation;
 
-            var participantes = projeto.UsuarioProjetos
+            var participantes = projeto.UsuarioProjetos.Where(u => u.IdUsuarioNavigation.Papel == PapelEnum.Aluno)
                 .Select(up => up.IdUsuarioNavigation.Nome)
                 .ToList();
 
             var avaliadores = banca.AvaliadorBancas
+              
                 .Select(ab => ab.IdUsuarioNavigation.Nome)
                 .ToList();
 

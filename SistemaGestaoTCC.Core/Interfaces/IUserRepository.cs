@@ -8,6 +8,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<List<Usuario>> GetAllUserByCourse(int idCurso);
         Task<List<Usuario>> FilterUsers(PapelEnum papel, string nome);
         Task<List<Usuario>> GetAllUserByRole(PapelEnum papel);
+
         Task<List<Usuario>> GetProfessoresAsync();
         Task<Usuario> GetById(int id);
         Task<Usuario> GetByEmailByPassword(string email, string passwordHash);
@@ -15,6 +16,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<Usuario> GetByEmail(string email);
         //Task<bool> SetEmailVerificado(int userId);
         Task UpdateAsync(Usuario usuario);
+        Task DefinirCursoAsync(int idUsuario, int idCurso);
         Task SaveChangesAsync();
         Task DeleteUser(int id);
         Task LoadCursoAsync(Usuario user);

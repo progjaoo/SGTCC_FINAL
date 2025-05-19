@@ -55,7 +55,7 @@ public partial class ProjetoAtividade ///VAI MUDAR///
     }
     public void Finish()
     {
-        if (Estado == ProjetoAtividadeEnum.Criada || Estado == ProjetoAtividadeEnum.EmAndamento)
+        if (Estado == ProjetoAtividadeEnum.Criada || Estado == ProjetoAtividadeEnum.Andamento)
         {
             Estado = ProjetoAtividadeEnum.Finalizada;
         }
@@ -64,7 +64,7 @@ public partial class ProjetoAtividade ///VAI MUDAR///
     {
         if (Estado == ProjetoAtividadeEnum.Criada)
         {
-            Estado = ProjetoAtividadeEnum.EmAndamento;
+            Estado = ProjetoAtividadeEnum.Andamento;
             DataInicio = DateTime.Now;
         }
     }

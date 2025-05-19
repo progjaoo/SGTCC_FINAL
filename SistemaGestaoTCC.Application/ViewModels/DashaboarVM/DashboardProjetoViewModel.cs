@@ -1,4 +1,6 @@
-﻿namespace SistemaGestaoTCC.Application.ViewModels.DashaboarVM
+﻿using SistemaGestaoTCC.Core.Enums;
+
+namespace SistemaGestaoTCC.Application.ViewModels.DashaboarVM
 {
     public class DashboardProjetoViewModel
     {

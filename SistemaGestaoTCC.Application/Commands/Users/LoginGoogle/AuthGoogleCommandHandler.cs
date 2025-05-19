@@ -1,6 +1,5 @@
 ﻿using Google.Apis.Auth;
 using MediatR;
-using SistemaGestaoTCC.Application.ViewModels;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
 

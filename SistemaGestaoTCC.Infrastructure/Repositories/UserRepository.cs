@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using iText.Commons.Actions.Contexts;
+using Microsoft.EntityFrameworkCore;
 using SistemaGestaoTCC.Core.Enums;
 using SistemaGestaoTCC.Core.Interfaces;
 using SistemaGestaoTCC.Core.Models;
@@ -84,6 +85,15 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task UpdateAsync(Usuario usuario)
         {
             _dbcontext.Usuario.Update(usuario);
+            await _dbcontext.SaveChangesAsync();
+        }
+        public async Task DefinirCursoAsync(int idUsuario, int idCurso)
+        {
+            var usuario = await _dbcontext.Usuario.FindAsync(idUsuario);
+            if (usuario == null)
+                throw new Exception("Usuário não encontrado");
+
+            usuario.IdCurso = idCurso;
             await _dbcontext.SaveChangesAsync();
         }
         public async Task SaveChangesAsync()
