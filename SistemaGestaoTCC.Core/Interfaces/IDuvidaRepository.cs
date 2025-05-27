@@ -11,6 +11,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
     public interface IDuvidaRepository
     {
         Task<List<Duvida>> GetAllAsync();
+        Task<List<Duvida>> GetAllByCursoAsync(int idCurso);
         Task<Duvida?> GetByIdAsync(int id);
         Task<List<Duvida>> GetByProjetoIdAsync(int idProjeto);
         Task<List<Duvida>> GetByProjetoAndAtendidaAsync(int idProjeto, RespotaDuvidaEnum atendida);

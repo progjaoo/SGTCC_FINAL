@@ -20,6 +20,27 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                     p.IdProjetoNavigation.PropostaAprovada != (int)ParecerPropostaEnum.Favoravel)
                 .ToListAsync();
         }
+        public async Task<List<Proposta>> GetAllByCourse(int idCurso)
+        {
+            var projetoIdsDoCurso = await _dbContext.UsuarioProjeto
+                 .Join(_dbContext.Usuario,
+                     up => up.IdUsuario,
+                     u => u.Id,
+                     (up, u) => new { up.IdProjeto, u.IdCurso })
+                 .Where(x => x.IdCurso == idCurso)
+                 .Select(x => x.IdProjeto)
+                 .Distinct()
+                 .ToListAsync();
+
+            var propostas = await _dbContext.Proposta
+                .Include(p => p.IdProjetoNavigation)
+                .Where(p => projetoIdsDoCurso.Contains(p.IdProjeto) &&
+                            (p.IdProjetoNavigation.PropostaAprovada == null ||
+                             p.IdProjetoNavigation.PropostaAprovada != (int)ParecerPropostaEnum.Favoravel))
+                .ToListAsync();
+
+            return propostas;
+        }
         public async Task<Proposta> GetByIdAsync(int id)
         {
             return await _dbContext.Proposta
@@ -45,7 +66,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<bool> AtualizarParecerAsync(int idProposta, ParecerPropostaEnum novoParecer)
         {
             var proposta = await _dbContext.Proposta
-                .Include(p => p.IdProjetoNavigation) 
+                .Include(p => p.IdProjetoNavigation)
                 .FirstOrDefaultAsync(p => p.Id == idProposta);
 
             if (proposta == null)

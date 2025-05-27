@@ -8,6 +8,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<Proposta> GetByIdAsync(int id);
         Task<List<Proposta>> GetPropostaByProject(int idProjeto);
         Task<List<Proposta>> GetAllAsync();
+        Task<List<Proposta>> GetAllByCourse(int idCurso);
         Task AddAsync(Proposta proposta);
         Task<bool> AtualizarParecerAsync(int idProjeto, ParecerPropostaEnum novoParecer);
         Task DeleteAsync(int id);

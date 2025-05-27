@@ -4,6 +4,19 @@ namespace SistemaGestaoTCC.Application.ViewModels.PropostasVM
 {
     public class PropostaViewModel
     {
+        public PropostaViewModel(int id, int idProjeto, string nomeProjeto, string descricaoProjeto, string justificativaProjeto, string atividadesPropostas, string contribuicaoAgenda, string sugestao, ParecerPropostaEnum parecer, DateTime criadoEm)
+        {
+            Id = id;
+            IdProjeto = idProjeto;
+            NomeProjeto = nomeProjeto;
+            DescricaoProjeto = descricaoProjeto;
+            JustificativaProjeto = justificativaProjeto;
+            AtividadesPropostas = atividadesPropostas;
+            ContribuicaoAgenda = contribuicaoAgenda;
+            Sugestao = sugestao;
+            Parecer = parecer;
+            CriadoEm = criadoEm;
+        }
         public PropostaViewModel(int id, int idProjeto, string nomeProjeto, string descricaoProjeto, string justificativaProjeto, string atividadesPropostas, string contribuicaoAgenda, string sugestao, ParecerPropostaEnum parecer)
         {
             Id = id;

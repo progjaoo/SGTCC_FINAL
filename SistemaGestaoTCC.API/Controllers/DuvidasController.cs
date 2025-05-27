@@ -4,6 +4,7 @@ using SistemaGestaoTCC.Application.Commands.Duvidas.Create;
 using SistemaGestaoTCC.Application.Commands.Duvidas.Delete;
 using SistemaGestaoTCC.Application.Commands.Duvidas.Update;
 using SistemaGestaoTCC.Application.Queries.Duvidas.GetAll;
+using SistemaGestaoTCC.Application.Queries.Duvidas.GetAllByCourse;
 using SistemaGestaoTCC.Application.Queries.Duvidas.GetById;
 using SistemaGestaoTCC.Application.Queries.Duvidas.GetDuvidaByProject;
 using SistemaGestaoTCC.Application.Queries.Duvidas.GetDuvidaByUser;
@@ -35,6 +36,22 @@ namespace SistemaGestaoTCC.API.Controllers
 
             var duvidas = await _mediator.Send(query);
 
+            return Ok(duvidas);
+        }
+        [HttpGet("porCurso/{idCurso}")]
+        public async Task<IActionResult> GetAllByCourse(int idCurso)
+        {
+            var query = new GetAllDuvidasByCourseQuery
+            {
+                Id = idCurso
+            };
+
+            var duvidas = await _mediator.Send(query);
+
+            if (duvidas == null)
+            {
+                return NotFound();
+            }
             return Ok(duvidas);
         }
         [HttpGet("{id}")]

@@ -10,6 +10,7 @@ using SistemaGestaoTCC.Application.Commands.Propostas.Update;
 using SistemaGestaoTCC.Application.Queries.Anotacoes.GetAll;
 using SistemaGestaoTCC.Application.Queries.Anotacoes.GetById;
 using SistemaGestaoTCC.Application.Queries.Propostas.GetAll;
+using SistemaGestaoTCC.Application.Queries.Propostas.GetAllByCourse;
 using SistemaGestaoTCC.Application.Queries.Propostas.GetById;
 using SistemaGestaoTCC.Application.Queries.Propostas.GetPropostaByProject;
 using SistemaGestaoTCC.Application.Queries.Relatorios.GetRelatorioByProject;
@@ -31,6 +32,18 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetAllAsync()
         {
             var getAllPropostasQuery = new GetAllPropostasQuery();
+
+            var proposta = await _mediator.Send(getAllPropostasQuery);
+
+            return Ok(proposta);
+        }
+        [HttpGet("porCurso/{idCurso}")]
+        public async Task<IActionResult> GetAllByCourse(int idCurso)
+        {
+            var getAllPropostasQuery = new GetAllByCoursePropostasQuery
+            {
+                Id = idCurso
+            };
 
             var proposta = await _mediator.Send(getAllPropostasQuery);
 
@@ -79,8 +92,8 @@ namespace SistemaGestaoTCC.API.Controllers
             return NoContent();
         }
         [HttpPut("parecer")]
-        public async Task<IActionResult> AtualizarParecer(int id, ParecerPropostaEnum parecer) 
-        {    
+        public async Task<IActionResult> AtualizarParecer(int id, ParecerPropostaEnum parecer)
+        {
             var command = new UpdateParecerPropostaCommand(id, parecer);
             var result = await _mediator.Send(command);
 
@@ -90,7 +103,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             else
             {
-                return NotFound(); 
+                return NotFound();
             }
         }
     }

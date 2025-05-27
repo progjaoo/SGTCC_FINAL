@@ -23,6 +23,29 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<Duvida>> GetAllByCursoAsync(int idCurso)
+        {
+            var projetoIdsDoCurso = await _context.UsuarioProjeto
+                .Join(_context.Usuario,
+                    up => up.IdUsuario,
+                    u => u.Id,
+                    (up, u) => new { up.IdProjeto, u.IdCurso })
+                .Where(x => x.IdCurso == idCurso)
+                .Select(x => x.IdProjeto)
+                .Distinct()
+                .ToListAsync();
+
+            var duvidas = await _context.Duvida
+                .Include(d => d.IdUsuarioNavigation)
+                .Include(d => d.IdProjetoNavigation)
+                .Include(d => d.RespostaDuvida)
+                .Where(d => projetoIdsDoCurso.Contains(d.IdProjeto))
+                .Where(d => d.Visibilidade == VisibilidadeDuvidaEnum.Publica)
+                .ToListAsync();
+
+            return duvidas;
+        }
+
         public async Task<Duvida?> GetByIdAsync(int id)
         {
             return await _context.Duvida
