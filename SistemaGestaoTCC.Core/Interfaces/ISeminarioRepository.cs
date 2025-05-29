@@ -5,6 +5,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
     public interface ISeminarioRepository
     {
         Task<List<Seminario>> GetAllAsync();
+        Task<List<Seminario>> GetAllByProjectId(int idProjeto);
         Task<Seminario> GetById(int id);
         Task AddASync(Seminario seminario);
         Task Delete(int id);

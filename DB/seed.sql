@@ -33,7 +33,7 @@ INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcess
 VALUES (2, 'Teste Professor', 'teste.professor@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 2, NULL, NULL, GETDATE(), 1, 0);
 GO
 INSERT INTO [Usuario] (IdCurso, Nome, Email, Senha, Papel, IdImagem, UltimoAcesso, CriadoEm, EmailVerificado, Permissao) 
-VALUES (2, 'Teste Orientador', 'teste.orientador@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 4, NULL, NULL, GETDATE(), 1, 0);
+VALUES (2, 'Teste Coordenador', 'teste.coordenador@aedb.br', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 4, NULL, NULL, GETDATE(), 1, 0);
 GO
 
 INSERT INTO [Projeto] (Nome, Descricao, Justificativa, DataInicio, DataFim, Aprovado, Estado, CriadoEm) 

@@ -4,6 +4,7 @@ using SistemaGestaoTCC.Application.Commands.Seminarios.CreateSeminarios;
 using SistemaGestaoTCC.Application.Commands.Seminarios.DeleteSeminarios;
 using SistemaGestaoTCC.Application.Commands.Seminarios.UpdateSeminarios;
 using SistemaGestaoTCC.Application.Queries.Seminarios.GetAllSeminarios;
+using SistemaGestaoTCC.Application.Queries.Seminarios.GetAllSeminariosByProjectId;
 using SistemaGestaoTCC.Application.Queries.Seminarios.GetSeminariosById;
 
 namespace SistemaGestaoTCC.API.Controllers
@@ -22,6 +23,18 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetAllAsync()
         {
             var query = new GetAllSeminariosQuery();
+
+            var seminario = await _mediator.Send(query);
+
+            return Ok(seminario);
+        }
+        [HttpGet("todosPorIdProjeto/{idProjeto}")]
+        public async Task<IActionResult> GetAllAsync(int idProjeto)
+        {
+            var query = new GetAllSeminariosByProjectIdQuery
+            {
+                Id = idProjeto
+            };
 
             var seminario = await _mediator.Send(query);
 

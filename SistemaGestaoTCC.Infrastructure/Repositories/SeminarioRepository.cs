@@ -17,6 +17,13 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(s => s.IdUsuarioNavigation)
                 .ToListAsync();
         }
+        public async Task<List<Seminario>> GetAllByProjectId(int idProjeto)
+        {
+            return await _dbContext.Seminario
+                .Where(s => s.SeminarioProjetos.Any(sp => sp.IdProjeto == idProjeto))
+                .ToListAsync();
+        }
+
         public async Task<Seminario> GetById(int id)
         {
             return await _dbContext.Seminario
