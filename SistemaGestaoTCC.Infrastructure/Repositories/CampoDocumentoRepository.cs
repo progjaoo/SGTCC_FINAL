@@ -17,6 +17,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         {
             return await _dbContext.CampoDocumentoAvaliacaoAluno.ToListAsync();
         }
+        public async Task<List<CampoDocumentoAvaliacaoAluno>> GetAllByCategoryAsync(int idCategoria)
+        {
+            return await _dbContext.CampoDocumentoAvaliacaoAluno
+                .Where(c => c.IdCategoria == idCategoria)
+                .ToListAsync();
+        }
 
         public async Task<CampoDocumentoAvaliacaoAluno> GetByIdAsync(int id)
         {

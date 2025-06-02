@@ -8,6 +8,7 @@ using SistemaGestaoTCC.Application.Commands.Projects.TornarPublicos;
 using SistemaGestaoTCC.Application.Commands.Projects.UpdateImage;
 using SistemaGestaoTCC.Application.Commands.Projects.UpdateProject;
 using SistemaGestaoTCC.Application.Queries.Dashboard;
+using SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByCourse;
 using SistemaGestaoTCC.Application.Queries.Projects.GetAllProjectsByStatus;
 using SistemaGestaoTCC.Application.Queries.Projects.GetFinishProjectsByName;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectById;
@@ -103,6 +104,16 @@ namespace SistemaGestaoTCC.API.Controllers
 
             return Ok(projects);
         }
+
+        [HttpGet("projetosPorCurso/{idCurso}")]
+        public async Task<IActionResult> GetAllProjectsByCourse(int idCurso)
+        {
+            var getAllProjectQuery = new GetAllProjectsByCourseCommand(idCurso);
+            var projects = await _mediator.Send(getAllProjectQuery);
+
+            return Ok(projects);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -182,7 +193,7 @@ namespace SistemaGestaoTCC.API.Controllers
             }
             catch (System.Exception ex)
             {
-                
+
                 return StatusCode(500, new { message = "Ocorreu um erro ao processar a solicitação.", exception = ex.Message });
             }
         }

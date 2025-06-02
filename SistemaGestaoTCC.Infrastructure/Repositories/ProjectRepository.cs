@@ -131,7 +131,28 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             return await _dbcontext.Projeto
                 .Where(p => idsProjetos.Contains(p.Id) && p.Estado != Core.Enums.StatusProjeto.Canceled && p.Estado != StatusProjeto.Finished)
                 .Include(p => p.ProjetoTags)
-                .Include(p => p.UsuarioProjetos )
+                .Include(p => p.UsuarioProjetos)
+                .ThenInclude(up => up.IdUsuarioNavigation)
+                .Include(c => c.IdImagemNavigation)
+                .ToListAsync();
+        }
+        public async Task<List<Projeto>> GetAllByCourse(int idCurso)
+        {
+            var projetoIdsDoCurso = await _dbcontext.UsuarioProjeto
+            .Join(_dbcontext.Usuario,
+                up => up.IdUsuario,
+                u => u.Id,
+                (up, u) => new { up.IdProjeto, u.IdCurso })
+            .Where(x => x.IdCurso == idCurso)
+            .Select(x => x.IdProjeto)
+            .Distinct()
+            .ToListAsync();
+
+            return await _dbcontext.Projeto
+                .Where(p => projetoIdsDoCurso.Contains(p.Id))
+                .Where(p => p.Estado != Core.Enums.StatusProjeto.Canceled && p.Estado != StatusProjeto.Finished)
+                .Include(p => p.ProjetoTags)
+                .Include(p => p.UsuarioProjetos)
                 .ThenInclude(up => up.IdUsuarioNavigation)
                 .Include(c => c.IdImagemNavigation)
                 .ToListAsync();

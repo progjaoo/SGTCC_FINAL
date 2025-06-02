@@ -4,6 +4,7 @@ using SistemaGestaoTCC.Application.Commands.CamposDocumento.Create;
 using SistemaGestaoTCC.Application.Commands.CamposDocumento.Delete;
 using SistemaGestaoTCC.Application.Commands.CamposDocumento.Update;
 using SistemaGestaoTCC.Application.Queries.CamposDocumento.GetAll;
+using SistemaGestaoTCC.Application.Queries.CamposDocumento.GetAllByCategory;
 using SistemaGestaoTCC.Application.Queries.CamposDocumento.GetById;
 
 namespace SistemaGestaoTCC.API.Controllers
@@ -24,6 +25,22 @@ namespace SistemaGestaoTCC.API.Controllers
 
             var campos = await _mediator.Send(getAllCampoQuery);
 
+            return Ok(campos);
+        }
+        [HttpGet("porCategoria/{idCategoria}")]
+        public async Task<IActionResult> GetAllByCategory(int idCategoria)
+        {
+            var query = new GetAllByCategoryCamposQuery
+            {
+                Id = idCategoria
+            };
+
+            var campos = await _mediator.Send(query);
+
+            if (campos == null)
+            {
+                return NotFound();
+            }
             return Ok(campos);
         }
         [HttpGet("{id}/buscarPorId")]

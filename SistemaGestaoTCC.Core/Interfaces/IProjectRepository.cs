@@ -11,6 +11,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<List<Projeto>> GetAllByUserAsync(int id);
         Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum filterEnum, string filter, OrdenaEnum sortEnum, string? ano);
         Task<List<Projeto>> GetAllActiveByUserAsync(int id);
+        Task<List<Projeto>> GetAllByCourse(int idCurso);
         Task<Projeto> GetById(int id);
         Task<Projeto> GetDetailsByIdAsync(int id);
         Task AddASync(Projeto projeto);
