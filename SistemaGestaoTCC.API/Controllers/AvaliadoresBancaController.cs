@@ -4,6 +4,7 @@ using SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Create;
 using SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Delete;
 using SistemaGestaoTCC.Application.Commands.AvaliadorBancas.Update;
 using SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetAll;
+using SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetByBanca;
 using SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetById;
 using SistemaGestaoTCC.Application.Queries.AvaliadorBancas.GetProfessores;
 
@@ -34,7 +35,19 @@ namespace SistemaGestaoTCC.API.Controllers
                 return NotFound();
 
             var avaliadorBanca = await _mediator.Send(query);
-            
+
+            return Ok(avaliadorBanca);
+        }
+        [HttpGet("BuscarTodosPorBanca/{idBanca}")]
+        public async Task<IActionResult> GetAllByBancaAsync(int idBanca)
+        {
+            var query = new GetAvaliadorBancaByBancaIdQuery(idBanca);
+
+            if (query == null)
+                return NotFound();
+
+            var avaliadorBanca = await _mediator.Send(query);
+
             return Ok(avaliadorBanca);
         }
         [HttpGet("{id}/buscarPorId")]
