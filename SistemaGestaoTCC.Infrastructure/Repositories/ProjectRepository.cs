@@ -63,6 +63,7 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
         public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum tipoFiltro, string? filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
             var projetos = await _dbcontext.Projeto
+                .Include(p => p.ProjetoAvaliacaoPublicas)
                 .Include(p => p.ProjetoTags)
                 .Include(p => p.UsuarioProjetos)
                     .ThenInclude(up => up.IdUsuarioNavigation)
@@ -70,6 +71,13 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(p => p.IdImagemNavigation)
                 .Where(p => p.Aprovado == true)
                 .ToListAsync();
+
+            foreach (var projeto in projetos)
+            {
+                projeto.UsuarioProjetos = projeto.UsuarioProjetos
+                    .Where(up => up.Estado == ConviteEnum.Aceito)
+                    .ToList();
+            }
 
             if (!string.IsNullOrEmpty(ano))
             {
@@ -104,10 +112,12 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
             switch (tipoOrdenacao)
             {
                 case OrdenaEnum.MaisAvaliados:
-                    throw new NotImplementedException("Não Implementado");
+                    projetos = projetos.OrderByDescending(p => p.ProjetoAvaliacaoPublicas.Count()).ToList();
+                    break;
 
                 case OrdenaEnum.MenosAvaliados:
-                    throw new NotImplementedException("Não Implementado");
+                    projetos = projetos.OrderBy(p => p.ProjetoAvaliacaoPublicas.Count()).ToList();
+                    break;
 
                 case OrdenaEnum.Recentes:
                     projetos = projetos.OrderByDescending(p => p.DataFim).ToList();
