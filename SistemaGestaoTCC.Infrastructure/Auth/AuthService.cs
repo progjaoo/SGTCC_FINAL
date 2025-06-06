@@ -100,7 +100,10 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
                     Recebemos uma solicitação para ativar sua conta. Use o código abaixo para concluir o processo de ativação ou clique no link:
                 </p>
                 <div style='font-size: 26px; font-weight: bold; color: #1a73e8; background-color: #eef3fb; padding: 15px; text-align: center; border-radius: 6px; margin: 20px 0;'>
-                    http://localhost:5173/ativacao?ativarConta={token.Token} ou copie e cole o código no App: {token.Token}
+                    {_configuration["Front:Route"]}/ativacao?ativarConta={token.Token}
+                </div>
+                <div style='font-size: 26px; font-weight: bold; color: #1a73e8; background-color: #eef3fb; padding: 15px; text-align: center; border-radius: 6px; margin: 20px 0;'>
+                    Ou copie e cole o código no App: {token.Token}
                 </div>
                 <p style='font-size: 14px; color: #555555;'>
                     Este código é válido por tempo limitado. Se você não fez esta solicitação, ignore este e-mail.
@@ -145,7 +148,31 @@ namespace SistemaGestaoTCC.Infrastructure.Authentication
             var token = await _passwordResetTokenRepository.GenerateTokenAsync(user.Id);
 
             var subject = "Redefinir Senha";
-            var body = $"{token.Token}";
+            string body = $@"
+            <html>
+            <body style='font-family: Arial, sans-serif; background-color: #f6f9fc; margin: 0; padding: 20px;'>
+                <div style='max-width: 600px; margin: auto; background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05);'>
+                <h2 style='color: #2c3e50;'>Olá!</h2>
+                <p style='font-size: 16px; color: #333333;'>
+                    Recebemos uma solicitação para resetar sua senha. Use o código abaixo para concluir o processo ou clique no link:
+                </p>
+                <div style='font-size: 26px; font-weight: bold; color: #1a73e8; background-color: #eef3fb; padding: 15px; text-align: center; border-radius: 6px; margin: 20px 0;'>
+                    {_configuration["Front:Route"]}/resetarSenha?token={token.Token}
+                </div>
+                <div style='font-size: 26px; font-weight: bold; color: #1a73e8; background-color: #eef3fb; padding: 15px; text-align: center; border-radius: 6px; margin: 20px 0;'>
+                    Ou copie e cole o código no App: {token.Token}
+                </div>
+                <p style='font-size: 14px; color: #555555;'>
+                    Este código é válido por tempo limitado. Se você não fez esta solicitação, ignore este e-mail.
+                </p>
+                <hr style='margin: 30px 0; border: none; border-top: 1px solid #e0e0e0;' />
+                <p style='font-size: 12px; color: #999999; text-align: center;'>
+                    © {DateTime.Now.Year} SGTCC. Todos os direitos reservados.<br />
+                    Este e-mail foi enviado automaticamente, por favor, não responda.
+                </p>
+                </div>
+            </body>
+            </html>";
 
             return await _emailService.SendEmailAsync(userEmail, subject, body);
         }
