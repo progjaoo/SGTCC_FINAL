@@ -13,7 +13,8 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
 
         public RelatorioPDFGenerator()
         {
-            _logoPath = Path.Combine(Directory.GetCurrentDirectory(), "Images", "logounidombosco.png");
+            // _logoPath = Path.Combine(Directory.GetCurrentDirectory(), "Images", "logounidombosco.png");
+            _logoPath = Path.Combine(AppContext.BaseDirectory, "Images", "logounidombosco.png");
         }
 
         public async Task<byte[]> GenerateRelatorioPDFAsync(RelatorioAcompanhamento relatorio)

@@ -14,6 +14,7 @@ using SistemaGestaoTCC.Application.Queries.Projects.GetFinishProjectsByName;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectById;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjects;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUser;
+using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsByUserFavorite;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsPending;
 using SistemaGestaoTCC.Application.Queries.Projects.GetProjectsWithUser;
 using SistemaGestaoTCC.Application.ViewModels.ProjectsVM;
@@ -73,6 +74,14 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> GetAllByUserAsync(int id)
         {
             var getAllProjectQuery = new GetProjectByUserQuery(id);
+            var projects = await _mediator.Send(getAllProjectQuery);
+
+            return Ok(projects);
+        }
+        [HttpGet("porFavoritosDeUsuario/{id}")]
+        public async Task<IActionResult> GetAllByUserFavoriteAsync(int id)
+        {
+            var getAllProjectQuery = new GetProjectByUserFavoriteQuery(id);
             var projects = await _mediator.Send(getAllProjectQuery);
 
             return Ok(projects);

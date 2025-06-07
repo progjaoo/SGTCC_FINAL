@@ -9,6 +9,7 @@ namespace SistemaGestaoTCC.Core.Interfaces
         Task<List<Projeto>> GetAllPendingAsync();
         Task<List<Projeto>> GetAllPendingByNameAsync(string nome);
         Task<List<Projeto>> GetAllByUserAsync(int id);
+        Task<List<Projeto>> GetAllByUserFavoriteAsync(int id);
         Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum filterEnum, string filter, OrdenaEnum sortEnum, string? ano);
         Task<List<Projeto>> GetAllActiveByUserAsync(int id);
         Task<List<Projeto>> GetAllByCourse(int idCurso);

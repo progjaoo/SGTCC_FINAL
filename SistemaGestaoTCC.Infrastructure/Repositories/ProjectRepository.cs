@@ -60,6 +60,22 @@ namespace SistemaGestaoTCC.Infrastructure.Repositories
                 .Include(p => p.ProjetoTags)
                 .ToListAsync();
         }
+        public async Task<List<Projeto>> GetAllByUserFavoriteAsync(int id)
+        {
+            var idsProjetos = await _dbcontext.ProjetoAvaliacaoPublica
+                .Where(p => p.IdUsuario == id)
+                .Select(p => p.IdProjeto)
+                .ToListAsync();
+
+            return await _dbcontext.Projeto.Where(p => idsProjetos.Contains(p.Id))
+                .Include(p => p.ProjetoAvaliacaoPublicas)
+                .Include(p => p.ProjetoTags)
+                .Include(p => p.UsuarioProjetos)
+                    .ThenInclude(up => up.IdUsuarioNavigation)
+                        .ThenInclude(u => u.IdImagemNavigation)
+                .Include(p => p.IdImagemNavigation)
+                .ToListAsync();
+        }
         public async Task<List<Projeto>> GetAllByFilterAsync(FiltroEnum tipoFiltro, string? filtro, OrdenaEnum tipoOrdenacao, string? ano)
         {
             var projetos = await _dbcontext.Projeto
