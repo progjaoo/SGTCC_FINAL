@@ -61,6 +61,28 @@ namespace SistemaGestaoTCC.API.Controllers
         public async Task<IActionResult> DownloadFileAsync(int idArquivo)
         {
             var arquivo = await _mediator.Send(new DownloadArquivoQuery { idArquivo = idArquivo });
+            if (arquivo == null || string.IsNullOrEmpty(arquivo.Extensao))
+                return NotFound("Arquivo não encontrado no banco de dados.");
+
+            var nomeArquivo = $"{arquivo.Id}{arquivo.Extensao}";
+            var uploadDirectory = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+            var filePath = Path.Combine(uploadDirectory, nomeArquivo);
+
+            if (!System.IO.File.Exists(filePath))
+                return NotFound("Arquivo não encontrado no disco.");
+
+            var contentType = arquivo.Extensao switch
+            {
+                ".jpg" or ".jpeg" => "image/jpeg",
+                ".png" => "image/png",
+                ".pdf" => "application/pdf",
+                _ => "application/octet-stream"
+            };
+
+            var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            return File(stream, contentType, nomeArquivo);
+            /*
+            var arquivo = await _mediator.Send(new DownloadArquivoQuery { idArquivo = idArquivo });
 
             var nomeArquivo = arquivo.Id.ToString() + arquivo.Extensao;
 
@@ -86,7 +108,8 @@ namespace SistemaGestaoTCC.API.Controllers
 
             Response.Headers.Append("Content-Disposition", $"attachment; filename={nomeArquivo}");
 
-            return File(fileBytes, contentType, nomeArquivo);
+            // return File(fileBytes, contentType, nomeArquivo);
+            */
         }
     }
 }
