@@ -79,8 +79,15 @@ namespace SistemaGestaoTCC.API.Controllers
                 _ => "application/octet-stream"
             };
 
+            var nomeArquivoDownload = arquivo.NomeOriginal;
+
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                nomeArquivoDownload = nomeArquivoDownload.Replace(c, '_');
+            }
+
             var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            return File(stream, contentType, nomeArquivo);
+            return File(stream, contentType, nomeArquivoDownload.Trim());
             /*
             var arquivo = await _mediator.Send(new DownloadArquivoQuery { idArquivo = idArquivo });
 
