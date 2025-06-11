@@ -8,7 +8,7 @@ namespace SistemaGestaoTCC.Core.Models;
 
 public partial class NotaDocumentoAluno
 {
-    public NotaDocumentoAluno(int idAvaliadorBanca, int idCampo, int idAluno, int nota, NotaTipoEnum tipo)
+    public NotaDocumentoAluno(int idAvaliadorBanca, int idCampo, int? idAluno, int nota, NotaTipoEnum tipo)
     {
         IdAvaliadorBanca = idAvaliadorBanca;
         IdCampo = idCampo;
@@ -24,7 +24,7 @@ public partial class NotaDocumentoAluno
 
     public int IdCampo { get; set; }
 
-    public int IdAluno { get; set; }
+    public int? IdAluno { get; set; }
 
     public int Nota { get; set; }
 
@@ -37,7 +37,7 @@ public partial class NotaDocumentoAluno
     public virtual AvaliadorBanca IdAvaliadorBancaNavigation { get; set; }
 
     public virtual CampoDocumentoAvaliacaoAluno IdCampoNavigation { get; set; }
-    public void UpdateNotaDocumento(int idAvaliadorBanca, int idCampo, int idAluno, int nota, NotaTipoEnum tipo)
+    public void UpdateNotaDocumento(int idAvaliadorBanca, int idCampo, int? idAluno, int nota, NotaTipoEnum tipo)
     {
         IdAvaliadorBanca = idAvaliadorBanca;
         IdCampo = idCampo;

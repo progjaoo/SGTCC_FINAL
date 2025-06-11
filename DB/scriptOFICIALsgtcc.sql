@@ -234,6 +234,9 @@ CREATE TABLE [NotaDocumentoAluno] (
 );
 GO
 
+ALTER TABLE [NotaDocumentoAluno]
+ALTER COLUMN [IdAluno] INT
+
 CREATE TABLE [Banca] (
 	[Id] INT NOT NULL IDENTITY UNIQUE,
 	[IdProjeto] INT NOT NULL,

@@ -13,7 +13,7 @@ namespace SistemaGestaoTCC.Application.Commands.NotaDocumentos.Create
         }
         public async Task<int> Handle(CreateNotaDocCommand request, CancellationToken cancellationToken)
         {
-            var nota = new NotaDocumentoAluno(request.IdAvaliadorBanca, request.IdCampo, request.IdAluno,request.Nota, request.Tipo);
+            var nota = new NotaDocumentoAluno(request.IdAvaliadorBanca, request.IdCampo, request.IdAluno, request.Nota, request.Tipo);
 
             await _notasDocumentoAlunoRepository.AddAsync(nota);
             await _notasDocumentoAlunoRepository.SaveChangesAsync();

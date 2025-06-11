@@ -24,10 +24,10 @@ public class CreateProjetoAtividadeCommandHandler : IRequestHandler<CreateProjet
 
     public async Task<int> Handle(CreateProjetoAtividadeCommand request, CancellationToken cancellationToken)
     {
-        if (request.DataEntrega.HasValue && request.DataEntrega < DateTime.Now)
-        {
-            throw new DataEntregaInvalidaException();
-        }
+        // if (request.DataEntrega.HasValue && request.DataEntrega < DateTime.Now)
+        // {
+        //     throw new DataEntregaInvalidaException();
+        // }
 
         var atividade = new ProjetoAtividade(
             request.IdProjeto,
